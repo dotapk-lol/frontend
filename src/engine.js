@@ -1,3 +1,4 @@
+import {PackTargeting} from './pack-targeting.js';
 import {PackControl} from './pack-control.js';
 import {PackHP} from './pack-hp.js';
 import {createPackDispatcher} from './pack-dispatcher.js';
@@ -16,6 +17,9 @@ export class Engine {
  hero(i){return this.runtimeHeroes[i];}
  ability(i,s){return this.hero(i).abilities[s];}
  resetRound(){this.packCore=null;this.packModules=null;this.time=99;this.t=0;this.frame=0;this.phase='intro';this.phaseTime=2.3;this.winner=null;this.paused=false;this.hitstop=0;this.shake=0;this.events=[];this.projectiles=[];this.zones=[];this.effects=[];this.logs=[];this.seq=0;this.input=[{},{}];this.previous=[{},{}];this.fighters=[0,1].map(i=>{let h=this.hero(i);return {i,x:i===0?320:880,y:0,vy:0,airVx:0,crouching:false,direction:5,jumpKind:'neutral',dir:i===0?1:-1,hp:h.combatHp||h.hp*2.8,maxHp:h.combatHp||h.hp*2.8,mp:h.combatMana||1200,maxMp:h.combatMana||1200,hits:0,received:0,combo:0,comboTime:0,maxCombo:0,damage:0,casts:0,cd:[0,0,0,0],attackCd:0,recovery:0,stun:0,root:0,silence:0,hex:0,fear:0,taunt:0,slow:0,slowPct:0,invuln:0,ccGrace:0,ccChain:0,guard:0,guardMeter:100,buffs:[],dots:[],animation:'idle',animTime:0,cast:null,channel:null,receivedDamage:0,healBudget:h.hp*20,souls:0,charges:h.abilities.map(a=>a.mvp.charges||0),chargeTimers:[0,0,0,0],lastDamageTime:0,cleanseDamage:0,hitFlash:0,charge:0,chargeSlot:-1,skillBuffer:null,aiDelay:.3};});this.packCombat.init(this);}
+ canTargetSpell(options){return PackTargeting.canTarget(this,options);}
+ routeTargetedSpell(options){return PackTargeting.route(this,options);}
+ hasEffectiveStatus(f,key){if(!f||this.fighters[f.i]!==f||typeof key!=='string')throw Error('Invalid status query');return (['silence','stun','root','hex','fear','taunt'].includes(key)&&(key==='silence'?f.silence>0:this.controlRemaining(f,key)>0))||packStatusFlag(this,f,key);}
  applyControlSource(f,options){return PackControl.apply(this,f,options);}
  releaseControlSource(id,reason){return PackControl.release(this,id,reason);}
  controlRemaining(f,type){return PackControl.remaining(this,f,type);}

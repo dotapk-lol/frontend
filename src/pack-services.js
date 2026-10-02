@@ -1,6 +1,6 @@
 // Public preparation API for independent authors; no hero-specific mechanics or generic damage fallback.
-export const PACK_ABI_VERSION='duel-pack-2.3-control';
-export const PACK_CAPABILITIES=Object.freeze(['fighter-state','fighter-damage','fighter-control','fighter-heal','negative-status','typed-status','effective-status-values','effect-entities','scheduled-effects','attack-hooks','damage-hooks','input-interruption','local-snapshot','deferred-hp','death-events','source-controls','action-cancellation']);
+export const PACK_ABI_VERSION='duel-pack-2.4-targeting';
+export const PACK_CAPABILITIES=Object.freeze(['fighter-state','fighter-damage','fighter-control','fighter-heal','negative-status','typed-status','effective-status-values','effect-entities','scheduled-effects','attack-hooks','damage-hooks','input-interruption','local-snapshot','deferred-hp','death-events','source-controls','action-cancellation','cross-pack-status-query','targeted-spell-routing']);
 const packKey=value=>{if(typeof value!=='string'||!/^[a-z][a-z0-9_-]{0,63}$/.test(value)||['constructor','prototype','__proto__'].includes(value))throw Error('Invalid pack state key');return value;};
 const packNumber=(value,label)=>{if(!Number.isFinite(value))throw Error('Non-finite '+label);return value;};
 const packPlayer=value=>{if(value!==0&&value!==1)throw Error('Invalid actor reference');return value;};
@@ -45,6 +45,9 @@ export function createPackServices(namespace,{maxStatuses=64,maxEntities=64,maxJ
   control(e,f,type,duration,pierces=false){checkFighter(e,f);packNumber(duration,'control duration');if(!['stun','root','hex','fear','taunt'].includes(type)||duration<0||typeof pierces!=='boolean')throw Error('Invalid control contract');return e.control(f,type,duration,pierces);},
   beginDeferredHP(e,f,options){checkFighter(e,f);return e.beginDeferredHP(f,options);},
   settleDeferredHP(e,id,options){if(!Number.isSafeInteger(id)||id<1)throw Error('Invalid deferred HP ledger identity');return e.settleDeferredHP(id,options);},
+  effectiveStatus(e,f,key){checkFighter(e,f);return e.hasEffectiveStatus(f,key);},
+  canTargetSpell(e,options){if(!allowedAbilities.has(options.abilityId))throw Error('Unknown spell ability');return e.canTargetSpell(options);},
+  routeTargetedSpell(e,options){if(!allowedAbilities.has(options.abilityId))throw Error('Unknown spell ability');return e.routeTargetedSpell(options);},
   applyControlSource(e,f,options){checkFighter(e,f);return e.applyControlSource(f,options);},
   releaseControlSource(e,id,reason){return e.releaseControlSource(id,reason);},
   actionToken(e,f,reasons){checkFighter(e,f);return e.actionToken(f,reasons);},

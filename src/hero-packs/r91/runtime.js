@@ -3,7 +3,7 @@ import {DEFINITIONS as R91_DEFINITIONS} from './definitions.js';
 import {validateSnapshot} from './snapshot.js';
 import {validateAim} from './targeting.js';
 import {createPackServices,PACK_ABI_VERSION} from '../../pack-services.js';
-if(!['duel-pack-2.1-status','duel-pack-2.2-hp','duel-pack-2.3-control'].includes(PACK_ABI_VERSION))throw Error('R91 V5 requires frozen public ABI2.1');
+if(!['duel-pack-2.1-status','duel-pack-2.2-hp','duel-pack-2.3-control','duel-pack-2.4-targeting'].includes(PACK_ABI_VERSION))throw Error('R91 V5 requires frozen public ABI2.1');
 const r91FirstIds=new Set([94,97,99,...EXTRA_IDS]);
 const r91Sources=R91_DEFINITIONS.filter(p=>r91FirstIds.has(p.definition.registryNumericId));
 export const api=createPackServices('r91',{entityKinds:['homing','flare','extra'],eventKinds:['stomp','quill','extra'],abilityIds:r91Sources.flatMap(p=>p.definition.abilities.map(a=>a.id))});

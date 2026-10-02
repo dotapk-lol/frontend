@@ -1,6 +1,6 @@
 import {ADAPTED_SOURCES as SOURCES} from './adaptations.js';
 import {createPackServices,packHasDebuffImmunity,PACK_ABI_VERSION} from '../../pack-services.js';
-if(!['duel-pack-2.1-status','duel-pack-2.2-hp','duel-pack-2.3-control'].includes(PACK_ABI_VERSION))throw Error('r20_55 v5 requires frozen ABI 2.1');
+if(!['duel-pack-2.1-status','duel-pack-2.2-hp','duel-pack-2.3-control','duel-pack-2.4-targeting'].includes(PACK_ABI_VERSION))throw Error('r20_55 v5 requires frozen ABI 2.1');
 const copy=x=>JSON.parse(JSON.stringify(x)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const abilities=new Map(SOURCES.flatMap(p=>[...p.definition.abilities,...p.definition.innates].map(a=>[a.id,a])));
 const programs=new Map(),programIds=new WeakMap();
