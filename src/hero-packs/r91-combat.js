@@ -26,7 +26,7 @@ export const R91Combat={
   if(!a||m.passive||f.hp<=0||e.phase!=='fight'||e.paused||e.blocked(f)||e.isSilenced(f)||f.cd[slot]>1e-8||f.cast||f.channel||f.recovery>0||f.mp<m.mana)return false;
   const targeted=['bristleback_viscous_nasal_goo','centaur_double_edge','skywrath_mage_arcane_bolt','skywrath_mage_concussive_shot','skywrath_mage_ancient_seal'].includes(a.id),ground=a.id==='skywrath_mage_mystic_flare';
   const aim=options.aim??t.x;if(ground&&(!Number.isFinite(aim)||aim<45||aim>1155||Math.abs(aim-f.x)>m.range_wu+22))return false;if(targeted&&(t.hp<=0||t.invuln>0||r91Distance(f,t)>m.range_wu+22))return false;
-  f.mp-=m.mana;f.cd[slot]=m.cooldown_s;f.casts++;f.guard=false;const cast={id:++e.seq,slot,m:JSON.parse(JSON.stringify(m)),remaining:m.startup_frames/60,aim:options.aim??t.x};
+  e.commitAction(f);f.mp-=m.mana;f.cd[slot]=m.cooldown_s;f.casts++;f.guard=false;const cast={id:++e.seq,slot,m:JSON.parse(JSON.stringify(m)),remaining:m.startup_frames/60,aim:options.aim??t.x};
   if(r91Key(e,f)==='bristleback'&&e.passivesEnabled(f)){const list=r91State(e,f).data.warpath;if(list.length>=12)list.shift();list.push({life:20});}if(targeted)e.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else this.activate(e,f,cast);e.animate(f,'cast',.35);e.log('cast',f.i,{skill:a.id,slot,cost:m.mana});return true;
  },
  activate(e,f,c){if(!r91Own(e,f))return false;const a=e.ability(f.i,c.slot);let t=e.fighters[1-f.i],source=f.i;f.recovery=.2;const counter=e.buff(t,'counter');if(['centaur_double_edge','skywrath_mage_ancient_seal'].includes(a.id)&&counter&&!counter.m.counter_type&&r91Distance(f,t)<=a.mvp.range_wu+22){t.buffs=t.buffs.filter(b=>b!==counter);source=t.i;t=f;}

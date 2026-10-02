@@ -22,7 +22,7 @@ Settlement directly applies the already-resolved net HP change; it does not call
 
 `death(e,event)` receives `{id,actor,life,at,cause}` once per actor life. `cause` preserves original source0/1, abilityId and attackId; delayed death additionally has kind=deferred and ledgerId. Direct hits use kind=damage. Unknown external HP changes use kind=external with source=null rather than inventing a killer. A Duel adapter must look up its still-active Duel contract in this callback and grant its winner once; a later dead-actor cleanup must not grant again.
 
-Current frame order: pack tick/input/core attacks/projectiles/areas → eligible HP settlements → death callbacks → pack endStep cleanup → KO. Do not settle HP through an author endStep HP assignment. An explicit settlement performed outside step emits its death callback when the Engine next reaches the death stage; it does not claim deathDispatched=true immediately. Incoming healing/mitigation is already included in ledger capture and must not be applied again to the debt.
+Current frame order: pack tick/input/core attacks/projectiles/areas → eligible HP settlements → death callbacks → pack endStep cleanup → second death pass → KO. Do not settle HP through an author endStep HP assignment. An explicit settlement performed outside step emits its death callback when the Engine next reaches the death stage; it does not claim deathDispatched=true immediately. Incoming healing/mitigation is already included in ledger capture and must not be applied again to the debt.
 
 Multiple ledgers capture in priority then ID order against the remaining immediate damage. Healing goes to the first active healing-deferral ledger. Captured causes use the latest contributing lethal debit for fatal attribution; nonlethal debt cannot fabricate a fatal source. This deterministic arena ordering must be disclosed/tested where multiple spell deferrals overlap.
 
@@ -38,4 +38,4 @@ Periodic callbacks now recheck the exact live status object before each status a
 
 Status restoration enforces life+elapsed≈duration and elapsed/tick/interval phase consistency with floating tolerance. Forged timer fields reject atomically. `qa/cohort/status-tick-mutation.test.mjs` and status-contract tests cover these boundaries.
 
-Source-scoped control removal, movement/new-action revision cancellation, attackable units, forced orders and global polarity-aware legacy dispel remain separate implementation work; their capability flags are not supplied by this HP service.
+Source-scoped control removal and persistent action cancellation are supplied by the additive ABI2.3 service; see CONTROL_LIFECYCLE_V2_3.md. Attackable units, forced orders and global polarity-aware legacy dispel remain separate work.

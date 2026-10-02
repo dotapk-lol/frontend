@@ -1,0 +1,335 @@
+[
+  {
+    "registryNumericId": 91,
+    "key": "slark",
+    "requiresCapabilities": [
+      "global-stat-transactions",
+      "targetability"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 92,
+    "key": "medusa",
+    "requiresCapabilities": [
+      "attackable-units",
+      "mana-transactions"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 93,
+    "key": "troll_warlord",
+    "requiresCapabilities": [
+      "forced-orders",
+      "preko-veto"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 94,
+    "key": "centaur",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 95,
+    "key": "magnataur",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 96,
+    "key": "shredder",
+    "requiresCapabilities": [
+      "terrain",
+      "attackable-units"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 97,
+    "key": "bristleback",
+    "requiresCapabilities": [
+      "damage-block-bypass"
+    ],
+    "adapterStatus": "executable_partial_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 98,
+    "key": "tusk",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics",
+      "effect-obstacles"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 99,
+    "key": "skywrath_mage",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 101,
+    "key": "elder_titan",
+    "requiresCapabilities": [
+      "attackable-units",
+      "base-stat-queries"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 102,
+    "key": "legion_commander",
+    "requiresCapabilities": [
+      "forced-orders",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 103,
+    "key": "techies",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion",
+      "cross-system-positive-dispel"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 104,
+    "key": "ember_spirit",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 105,
+    "key": "earth_spirit",
+    "requiresCapabilities": [
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 106,
+    "key": "abyssal_underlord",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 107,
+    "key": "terrorblade",
+    "requiresCapabilities": [
+      "attackable-units",
+      "hp-exchange"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 108,
+    "key": "phoenix",
+    "requiresCapabilities": [
+      "attackable-units",
+      "preko-veto",
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 109,
+    "key": "oracle",
+    "requiresCapabilities": [
+      "deferred-hp",
+      "cross-system-positive-dispel",
+      "invulnerable-target-dispel"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 110,
+    "key": "winter_wyvern",
+    "requiresCapabilities": [
+      "attackable-units",
+      "forced-orders"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 111,
+    "key": "arc_warden",
+    "requiresCapabilities": [
+      "attackable-units"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 112,
+    "key": "monkey_king",
+    "requiresCapabilities": [
+      "attackable-units",
+      "terrain",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 113,
+    "key": "dark_willow",
+    "requiresCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 114,
+    "key": "pangolier",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 115,
+    "key": "grimstroke",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 116,
+    "key": "hoodwink",
+    "requiresCapabilities": [
+      "terrain",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 117,
+    "key": "void_spirit",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 118,
+    "key": "snapfire",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 119,
+    "key": "mars",
+    "requiresCapabilities": [
+      "swept-motion",
+      "terrain",
+      "effect-obstacles",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 120,
+    "key": "ringmaster",
+    "requiresCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 121,
+    "key": "dawnbreaker",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 122,
+    "key": "marci",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 123,
+    "key": "primal_beast",
+    "requiresCapabilities": [
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 124,
+    "key": "muerta",
+    "requiresCapabilities": [],
+    "adapterStatus": "real_engine_candidate_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 125,
+    "key": "kez",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  },
+  {
+    "registryNumericId": 126,
+    "key": "largo",
+    "requiresCapabilities": [
+      "cross-system-positive-dispel",
+      "committed-cast-notifications",
+      "swept-motion"
+    ],
+    "adapterStatus": "not_ported_capability_locked",
+    "activeUnlock": false
+  }
+]

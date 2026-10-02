@@ -15,7 +15,7 @@ function coreDamage(e,owner,target,amount,type,skill,flags={}){if(!coreAlive(tar
 function coreBolt(e,owner,target,color='#79e6ff'){e.fx('beam',owner.x,owner.y+175,color,{tx:target.x,ty:target.y+100,life:.18,maxLife:.18});}
 function coreBorrow(e,f,automatic=false){
  if(!coreAlive(f)||f.pack.borrowed>0||f.cd[3]>1e-8||automatic&&coreBroken(f)||!automatic&&e.isSilenced(f))return false;
- f.pack.borrowed=6;f.cd[3]=65;f.casts++;f.cast=null;f.skillBuffer=null;e.dispel(f,'strong');e.animate(f,'cast',.3);e.fx('ring',f.x,f.y+70,e.hero(f.i).color,{size:120});e.fx('text',f.x,f.y+190,e.hero(f.i).color,{text:automatic?'回光返照 · 自动':'回光返照'});e.log('activate',f.i,{skill:'abaddon_borrowed_time'});e.log('cast',f.i,{skill:'abaddon_borrowed_time',automatic,cost:0});return true;
+ if(!automatic)e.commitAction(f);f.pack.borrowed=6;f.cd[3]=65;f.casts++;f.cast=null;f.skillBuffer=null;e.dispel(f,'strong');e.animate(f,'cast',.3);e.fx('ring',f.x,f.y+70,e.hero(f.i).color,{size:120});e.fx('text',f.x,f.y+190,e.hero(f.i).color,{text:automatic?'回光返照 · 自动':'回光返照'});e.log('activate',f.i,{skill:'abaddon_borrowed_time'});e.log('cast',f.i,{skill:'abaddon_borrowed_time',automatic,cost:0});return true;
 }
 function coreAutoBorrow(e,f){if(coreHero(e,f,102)&&coreAlive(f)&&f.hp<400)coreBorrow(e,f,true);}
 function coreShieldBurst(e,f,reason){const shield=f.pack.shield;if(!shield)return;f.pack.shield=null;e.fx('ring',f.x,f.y+60,e.hero(f.i).color,{size:371.25,life:.45,maxLife:.45});e.log('shield_end',f.i,{skill:'abaddon_aphotic_shield',reason,absorbed:210-shield.amount});const target=e.fighters[1-f.i];if(coreAlive(f)&&coreDistance(f,target)<=371.25+22)coreDamage(e,f.i,target,210,'magical','abaddon_aphotic_shield');}
@@ -31,10 +31,10 @@ export const CohortCombat={
   if(!m||m.passive||!coreAlive(f)||e.phase!=='fight'||e.paused)return false;
   if(id===5588)return coreBorrow(e,f,false);
   if(e.blocked(f)||e.isSilenced(f)||f.cd[slot]>1e-8||f.cast||f.channel&&id!==5114||f.recovery>0&&id!==5114)return false;
-  if(id===5218){f.pack.poisonOn=!f.pack.poisonOn;if(f.pack.poisonOn)e.addBuff(f,a.id,{},999);else f.buffs=f.buffs.filter(b=>b.key!==a.id);e.log('activate',f.i,{skill:a.id,toggle:f.pack.poisonOn});e.log('cast',f.i,{skill:a.id,toggle:f.pack.poisonOn,cost:0});f.casts++;return true;}
+  if(id===5218){e.commitAction(f);f.pack.poisonOn=!f.pack.poisonOn;if(f.pack.poisonOn)e.addBuff(f,a.id,{},999);else f.buffs=f.buffs.filter(b=>b.key!==a.id);e.log('activate',f.i,{skill:a.id,toggle:f.pack.poisonOn});e.log('cast',f.i,{skill:a.id,toggle:f.pack.poisonOn,cost:0});f.casts++;return true;}
   const self=id===5585&&(options.self===true||e.input[f.i].down);
   if([5083,5221,5117].includes(id)||id===5585&&!self){if(!coreAlive(t)||t.invuln>0||coreDistance(f,t)>m.range_wu+22)return false;}
-  if(f.mp<m.mana)return false;f.mp-=m.mana;f.cd[slot]=m.cooldown_s;f.casts++;f.guard=false;
+  if(f.mp<m.mana)return false;e.commitAction(f);f.mp-=m.mana;f.cd[slot]=m.cooldown_s;f.casts++;f.guard=false;
   const cast={slot,m:JSON.parse(JSON.stringify(m)),remaining:m.startup_frames/60,self,aim:coreClamp(options.aim??t.x,f.x-m.range_wu,f.x+m.range_wu),id:++e.seq};
   if([5083,5221,5117].includes(id)||id===5585&&!self)this.targeted(e,f,t,a.id);
   if(m.startup_frames===0)this.activate(e,f,cast);else f.cast=cast;e.animate(f,'cast',.35);e.log('cast',f.i,{skill:a.id,slot,cost:m.mana,self});return true;

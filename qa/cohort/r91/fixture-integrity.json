@@ -1,0 +1,221 @@
+{
+  "abi": "duel-pack-2.1-status",
+  "commit": "bf5d6e924b02c04e35ec016ef27abff852f3a038",
+  "archiveSha256": "61cd9c701663ecd85285d5fdbbfca4b029c95d78a3c61f8b5f16285c04bba584",
+  "originalFixtureFilesUnchanged": 44,
+  "originalFiles": [
+    {
+      "path": "docs/hero-packs/PUBLIC_ABI_V2.md",
+      "sha256": "d9ccb50975466da889226601f9ef98f8529dab2a3c9fe495d75510b31715d315"
+    },
+    {
+      "path": "index.html",
+      "sha256": "ffa4d87c0ad36af414ed3cbcddfb57d3cb6894ac92c9dc6cb4ffb5f39872eed5"
+    },
+    {
+      "path": "package.json",
+      "sha256": "4f68fb2eece15256bf30399871e65e14557712d94aaa0f758f1e345b6ab9da27"
+    },
+    {
+      "path": "qa/cohort/public-api.test.mjs",
+      "sha256": "3dbea126f1cba111e119d3e06bec604947f5e82f8f10d9b329b3da410cfe138a"
+    },
+    {
+      "path": "qa/cohort/r91-engine.test.mjs",
+      "sha256": "8a5cd4f9cd0444f6a911c7a8eb7aa4c0e04f5a0619e37b40aec20569b5beff00"
+    },
+    {
+      "path": "qa/cohort/status-contract.test.mjs",
+      "sha256": "3a7476ecb45092a8f1985e7371147086164f7f4541b73770a17c7e78081360a7"
+    },
+    {
+      "path": "qa/pack-runtime.test.mjs",
+      "sha256": "329cb6c6e4e1f1aeb9849d0e80f24e61b28770384a097d469b4362a8bf7ff787"
+    },
+    {
+      "path": "qa/toast-accessibility.test.mjs",
+      "sha256": "bab2333d6d5f69cfaeff7c39b13170baa35cc2d106b64c9378f81e715ec393a9"
+    },
+    {
+      "path": "src/app.js",
+      "sha256": "68e1173b5d686f947f23e8de5660510742b45d13a4145e46f0400986c3f518c4"
+    },
+    {
+      "path": "src/audio-map.js",
+      "sha256": "08182ffbeba0d680d3173dcb53d048dbf448a75ec035d0a0700fabede5318786"
+    },
+    {
+      "path": "src/audio-score.js",
+      "sha256": "71b24086a1544d3258ff69673bc800344a009dd74c372b3451b4aa9e1668584a"
+    },
+    {
+      "path": "src/audio-synth.js",
+      "sha256": "365e6f68cafe1ef17315df8e0fca39248e56a9af0099124a0734f35c44330f17"
+    },
+    {
+      "path": "src/audio.js",
+      "sha256": "94222a4524d67ac385ccc84cf98d821497c074845d7de7d214e9f6c63e6fe453"
+    },
+    {
+      "path": "src/catalog-data.js",
+      "sha256": "ef07d61dd83480fbaa835dc3f1171a81dc60a58901c1d9a42e7ded269c69cf3c"
+    },
+    {
+      "path": "src/cohort-combat.js",
+      "sha256": "4e97775129194b75584970aa5ff3aadc1a9acaba69796f638d35a13b7f9aaaef"
+    },
+    {
+      "path": "src/cohort-data.js",
+      "sha256": "5e8c44c4c54e8066cdb9ade4b902b7c5dd52ed65a4f10e76ea42b6658fcce46d"
+    },
+    {
+      "path": "src/cohort-render.js",
+      "sha256": "f30b2ec3aa2fa413f52d98ebb7bc10a610311e510a3bfe3f6a6f71fc508d984f"
+    },
+    {
+      "path": "src/compatibility.js",
+      "sha256": "b34edffbd0f99a175eaa1ce48131d38d589ee93d82947b2a8517b860d0fedf9b"
+    },
+    {
+      "path": "src/data.js",
+      "sha256": "34650850eaccbbaca6d5f3a9373a017c4196742485319beefb2f3082bf30fc38"
+    },
+    {
+      "path": "src/engine.js",
+      "sha256": "70cc74c0950cbdfaf7d0e5f7ca76a5ef76c5b5f6cdfcaf11387a5386a8a3c1db"
+    },
+    {
+      "path": "src/hero-catalog.js",
+      "sha256": "1dca390affeb4cf7250987d65a7f19194cf9445612d2d0bf97a90182c02600ae"
+    },
+    {
+      "path": "src/hero-packs/abaddon.js",
+      "sha256": "4387e4de608dcba77d850ad9084bbce1021c0d3068adce76d4ae31bbefce6f77"
+    },
+    {
+      "path": "src/hero-packs/index.js",
+      "sha256": "d490372f2e4986365f68f9a4eb852198d0dcb5cc96142dd61b3a172fa0221f1a"
+    },
+    {
+      "path": "src/hero-packs/r91-combat.js",
+      "sha256": "c75a8f1ac11ac81c46eec764f0a4cd55125cd8c86465b6724ec3b82aeb89de23"
+    },
+    {
+      "path": "src/hero-packs/r91-definitions.js",
+      "sha256": "47089f3e0e05b8bc55e05f42ed265948c4703a553a457f8fd6e44f55c5bccd27"
+    },
+    {
+      "path": "src/hero-packs/razor.js",
+      "sha256": "b0839bb1e5bb025105390cc64e0b19a46410d574ffc5d8b859cda1ef47e49239"
+    },
+    {
+      "path": "src/hero-packs/slardar.js",
+      "sha256": "5eaf7fd979ffa276bec0781c4ebe3eb96d2c09a49611fe32dd3431dc7cfa15ad"
+    },
+    {
+      "path": "src/hero-packs/viper.js",
+      "sha256": "200603701b9eb7235b8b9717cdacac340aeee894afbedc9e52fc260c5ef1b857"
+    },
+    {
+      "path": "src/hero-registry.js",
+      "sha256": "c0a498481d197a69c3727e231980bd1375769a8c2b3bad51a13f7b47f788bd61"
+    },
+    {
+      "path": "src/local-rooms.js",
+      "sha256": "7740284504686321e394eb86bbda68ec0eaf9afb6159d2f4da465b52445a200b"
+    },
+    {
+      "path": "src/match-api.js",
+      "sha256": "d5db40414aa7f7cdcec3b05d4eeb7e1536f634d109322db3f8a09bd66ae2a030"
+    },
+    {
+      "path": "src/mobile.js",
+      "sha256": "9dac7bf0b60fe9e0cecd9548066655d2d6a733ffcfd9b7b2ba4c224344db2b48"
+    },
+    {
+      "path": "src/music.js",
+      "sha256": "4d4c2b11aece7b9a03b00775180b401ac73d5fc71a76392b3e755d684803484f"
+    },
+    {
+      "path": "src/net-quality.js",
+      "sha256": "5c394a59a40d45400ec4d180cef6aaf8484213a70b96a79fb4fe13c69545249a"
+    },
+    {
+      "path": "src/net-version.js",
+      "sha256": "7b5e98b7ce6e2c44daacec99389787f3eeff41bfe6f0f6a7d6b080f32b4ea708"
+    },
+    {
+      "path": "src/official-music.js",
+      "sha256": "bb0964f8f830c1471a6c975f8afe49e22315a41d5d113be90c1e410b2b2350be"
+    },
+    {
+      "path": "src/p2p.js",
+      "sha256": "b8703697ce7513933e66263db4c070efccec7cfb85772300ae63f71f6a7aea17"
+    },
+    {
+      "path": "src/pack-dispatcher.js",
+      "sha256": "109fc7fc1d4f38b81e7ad576f9f515210fc6cb17ef0738542213275532dbc80b"
+    },
+    {
+      "path": "src/pack-runtime.js",
+      "sha256": "a1d542a154b6b99d0135d2a9ed01734fc8c9fa617edee2fea2a1a9057f8f19d0"
+    },
+    {
+      "path": "src/pack-services.js",
+      "sha256": "949a5f00425cc1df5db91cdf81c5f973cf5a3dc057ddc5c62463834541c62835"
+    },
+    {
+      "path": "src/registry-data.js",
+      "sha256": "13ea9f0737f5feb5b87fc91c9cff0b6bb550ecae6cbcde2718ff9af12ed3522b"
+    },
+    {
+      "path": "src/rules-version.js",
+      "sha256": "5a61460dc9f57efac308a5372500f8ac24f06b444a7fdc1c2f6548227fcf8a02"
+    },
+    {
+      "path": "src/runtime-heroes.js",
+      "sha256": "84d7c375408a045d9da22726e86f87af24bce29e3209e1a402cf4e4e78222a0c"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "d6ba084a8a55706cf01d426b554b8ac76880bc9a4d542c6f9dbe92a2bbba32ba"
+    }
+  ],
+  "adapterImports": [
+    {
+      "file": "src/hero-packs/r91/runtime.js",
+      "specifier": "./definitions.js"
+    },
+    {
+      "file": "src/hero-packs/r91/runtime.js",
+      "specifier": "./snapshot.js"
+    },
+    {
+      "file": "src/hero-packs/r91/runtime.js",
+      "specifier": "./targeting.js"
+    },
+    {
+      "file": "src/hero-packs/r91/runtime.js",
+      "specifier": "../../pack-services.js"
+    },
+    {
+      "file": "src/hero-packs/r91/index.js",
+      "specifier": "./definitions.js"
+    },
+    {
+      "file": "src/hero-packs/r91/index.js",
+      "specifier": "./runtime.js"
+    },
+    {
+      "file": "src/hero-packs/r91/index.js",
+      "specifier": "./definitions.js"
+    },
+    {
+      "file": "src/hero-packs/r91/snapshot.js",
+      "specifier": "./definitions.js"
+    }
+  ],
+  "secondHPSimulation": false,
+  "directHPWrites": false,
+  "coreFilesModified": false
+}

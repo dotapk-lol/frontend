@@ -32,6 +32,6 @@ export function createPackDispatcher(packs){
   disarmed(e,f){return active(e).some(system=>system.disarmed?.(e,f)===true);},
   broken(e,f){return active(e).some(system=>system.broken?.(f)===true);},
  };
- for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
+ for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled','actionChanged','controlEnded'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
  return Object.freeze(dispatcher);
 }

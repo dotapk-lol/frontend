@@ -1,0 +1,2660 @@
+[
+  {
+    "registryNumericId": 91,
+    "hero": "slark",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "global-stat-transactions",
+      "targetability"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      729,
+      5496
+    ],
+    "innateReview": [
+      {
+        "id": 5496,
+        "key": "slark_essence_shift",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "slark_dark_pact",
+        "valveAbilityId": 5494,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "1.5s延迟后10脉冲，每脉冲30伤害、自伤9非致死且强驱散；死亡终止。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "slark_pounce",
+        "valveAbilityId": 5495,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。水平跳最多700，首英雄接触施加3.25秒400半径leash和4层属性借用；未接触停末端；免控不leash。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "slark_saltwater_shiv",
+        "valveAbilityId": 1693,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。每次独立12秒借走16%移动速度/回复与治疗效果；本体获同百分比治疗增益，堆叠上限80%为竞技约束。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "slark_shadow_dance",
+        "valveAbilityId": 5497,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=93",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。4.5秒不可单体选取、120HP/s与40%移速；全明视1v1不额外赠送未被看见时的被动收益，AOE仍可伤害。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 92,
+    "hero": "medusa",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "mana-transactions"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      701,
+      5506
+    ],
+    "innateReview": [
+      {
+        "id": 5506,
+        "key": "medusa_mana_shield",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "medusa_split_shot",
+        "valveAbilityId": 5504,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。开关；仅攻击其他合法自动单位，最多4支80%伤害且不触发额外攻击特效；没有次级目标时不重复伤害主英雄。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "medusa_mystic_snake",
+        "valveAbilityId": 5505,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "1v1单个合法目标后回身返蓝；不重复弹同一英雄；多实体弹跳待适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "medusa_gorgon_grasp",
+        "valveAbilityId": 1475,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定落点附近3次递增半径150/200/250箭阵，1秒延迟、间隔0.25；每次命中150并根缠，2秒100DPS只刷新不叠。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "medusa_stone_gaze",
+        "valveAbilityId": 5507,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=94",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。6秒累计敌方朝向本体2秒才石化；2D仅左右面向，石化控制上限1.5秒并+55%物理普攻承伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 93,
+    "hero": "troll_warlord",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "forced-orders",
+      "preko-veto"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1478,
+      5510
+    ],
+    "innateReview": [
+      {
+        "id": 1478,
+        "key": "troll_warlord_switch_stance",
+        "passive": false,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "troll_warlord_berserkers_rage",
+        "valveAbilityId": 5508,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "固定远程形态：20%命中触发25额外伤害和32%移速/攻速减缓2秒；不自动启用主动切换先天。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "troll_warlord_whirling_axes_ranged",
+        "valveAbilityId": 5509,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "固定远程形态；五斧单英雄最多命中一次，120伤害+40%减速4秒。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "troll_warlord_fervor",
+        "valveAbilityId": 5511,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95",
+        "pointer": "/result/data/heroes/0/abilities/3",
+        "adaptation": "同一目标命中最多10层，每层30攻速；换目标清零；break不增层。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "troll_warlord_battle_trance",
+        "valveAbilityId": 5512,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=95",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "6.5s非致死伤害地板1HP、80%吸血、200攻速；强制攻击由具名扩展驱动。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 94,
+    "hero": "centaur",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [
+      1379
+    ],
+    "omittedAbilityIds": [
+      1135
+    ],
+    "innateReview": [
+      {
+        "id": 1379,
+        "key": "centaur_horsepower",
+        "passive": true,
+        "status": "explicitly_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "centaur_hoof_stomp",
+        "valveAbilityId": 5514,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "0.5s移动中蓄力并缴械；落地半径325，伤害280；眩晕竞技上限1.5s。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "centaur_double_edge",
+        "valveAbilityId": 5515,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "目标伤害300+1.5×力量；自身同源魔法伤害非致死；不作反射。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "centaur_return",
+        "valveAbilityId": 5516,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "落地普攻后反伤45+35%力量；反射禁止再反射和吸血；break停用。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "centaur_stampede",
+        "valveAbilityId": 5517,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=96",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "自用冲锋，4.5秒内扫描接触，每个敌人只踩一次；不提供队友目标。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 95,
+    "hero": "magnataur",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      649,
+      1382
+    ],
+    "innateReview": [
+      {
+        "id": 1382,
+        "key": "magnataur_solid_core",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "magnataur_shockwave",
+        "valveAbilityId": 5518,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "直线波以1200单位/秒行进；命中拉近150并减速；省略曲面地形。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "magnataur_empower",
+        "valveAbilityId": 5519,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "自身常驻52%基础攻击加成；固定四槽保留主动自用但不叠加常驻；1v1无第二目标时劈裂不重复打主目标。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "magnataur_skewer",
+        "valveAbilityId": 5520,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "水平冲刺；独立模块按指定落点夹取范围，记录行程伤害；眩晕会取消结算；树/悬崖增伤省略。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "magnataur_reverse_polarity",
+        "valveAbilityId": 5521,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=97",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "半径430拉至身前；伤害300，眩晕上限1.5s；免控不移动。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 96,
+    "hero": "shredder",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "terrain",
+      "attackable-units"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      651,
+      1384
+    ],
+    "innateReview": [
+      {
+        "id": 1384,
+        "key": "shredder_exposure_therapy",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "shredder_whirling_death",
+        "valveAbilityId": 5524,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。325半径240纯伤，每棵实际销毁竞技树额外30；敌主要属性减13%、全属性型每项减5%，持续13秒。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "shredder_timber_chain",
+        "valveAbilityId": 5525,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。必须存在竞技树锚点；冲向树，穿过敌人225纯伤；不把无树施法改成瞬移伤害。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "shredder_reactive_armor",
+        "valveAbilityId": 5526,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "每次英雄攻击增加4层，最多40，每层0.7甲与0.8HP/s独立16秒；break不获新层，已有层保留。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "shredder_chakram",
+        "valveAbilityId": 5527,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=98",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定自动往返：飞出225纯伤，目标点旋转3秒100DPS、每秒20蓝，再返回225；期间缴械，蓝耗尽提前回收。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 97,
+    "hero": "bristleback",
+    "adapterStatus": "executable_partial_capability_locked",
+    "requiresCapabilities": [
+      "damage-block-bypass"
+    ],
+    "automaticInnateIds": [
+      1479
+    ],
+    "omittedAbilityIds": [
+      643
+    ],
+    "innateReview": [
+      {
+        "id": 1479,
+        "key": "bristleback_prickly",
+        "passive": true,
+        "status": "explicitly_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "bristleback_viscous_nasal_goo",
+        "valveAbilityId": 5548,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "executable_partial_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "追踪弹；最多6层刷新5秒，减甲3+3.5×层数、减速12+12×层数；基础驱散移除整组。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "bristleback_quill_spray",
+        "valveAbilityId": 5549,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "executable_partial_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "半径700，85+30×尚未到期层，封顶500；独立14秒层；背刺触发带反射标记，不叠Warpath。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "bristleback_bristleback",
+        "valveAbilityId": 5550,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "executable_partial_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "2D仅正背，无侧面：背后减伤40%；累计实际背伤200延迟0.1s触发一轮；反射不触发连环。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "bristleback_warpath",
+        "valveAbilityId": 5551,
+        "rank": 3,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "executable_partial_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=99",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "施放主动技能各+20攻击/+3%移速，独立20秒最多12层；break停止新层，已有层保留。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 98,
+    "hero": "tusk",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics",
+      "effect-obstacles"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1385,
+      5672,
+      1386
+    ],
+    "innateReview": [
+      {
+        "id": 1386,
+        "key": "tusk_bitter_chill",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "tusk_ice_shards",
+        "valveAbilityId": 5565,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。飞到固定落点，路径命中300；落点生成7秒可阻挡横移的冰墙，不增加伤害替代墙。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "tusk_snowball",
+        "valveAbilityId": 5566,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定1秒蓄球自动发射，沿路免受伤，最多3秒追击，接触260伤害/1.2s眩晕；无队友乘坐。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "tusk_tag_team",
+        "valveAbilityId": 7322,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "6秒自身光环；范围350内落地普攻附加100物理伤害与0.5s减速；无友军扩展。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "tusk_walrus_punch",
+        "valveAbilityId": 5568,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=100",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "普通攻击基础×3+120，真必中；1秒浮空控制，攻击修饰器依适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 99,
+    "hero": "skywrath_mage",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [
+      833
+    ],
+    "omittedAbilityIds": [],
+    "innateReview": [
+      {
+        "id": 833,
+        "key": "skywrath_mage_shield_of_the_scion",
+        "passive": true,
+        "status": "explicitly_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "skywrath_mage_arcane_bolt",
+        "valveAbilityId": 5581,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "追踪不可闪避弹，500速度；150+1.5×固定18级智力；无迷雾视觉额外收益。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "skywrath_mage_concussive_shot",
+        "valveAbilityId": 5582,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "1v1最近英雄追踪弹；伤害300和40%减速4s，未命中不提前施加。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "skywrath_mage_ancient_seal",
+        "valveAbilityId": 5583,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "6秒沉默与35%魔法承伤加成；基础驱散；单一同源封印刷新不叠。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "skywrath_mage_mystic_flare",
+        "valveAbilityId": 5584,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=101",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "固定落点半径170；2秒20跳共1600，目标离开停止命中；1v1不作多人分摊。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 101,
+    "hero": "elder_titan",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "base-stat-queries"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1393
+    ],
+    "innateReview": [
+      {
+        "id": 1393,
+        "key": "elder_titan_momentum",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "elder_titan_echo_stomp",
+        "valveAbilityId": 5589,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。1.7秒蓄力；本体附近475物伤200、自动灵体附近475魔伤200，可同时命中；睡眠受额外250伤害唤醒。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "elder_titan_ancestral_spirit",
+        "valveAbilityId": 1392,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。自动灵体飞到落点再返回，不能手动控制；每英雄只记一次50路过伤害；归位时+80攻击/+7%移动10秒。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "elder_titan_natural_order",
+        "valveAbilityId": 5593,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "375范围本体移除敌方基础护甲；灵体在场魔抗光环随灵体，无灵体则随本体；不削减额外护甲。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "elder_titan_earth_splitter",
+        "valveAbilityId": 5594,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=103",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "3秒水平裂缝，命中造成目标50%最大HP，物魔各半，5s减速50%；离开裂缝可躲避。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 102,
+    "hero": "legion_commander",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "forced-orders",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1483
+    ],
+    "innateReview": [
+      {
+        "id": 1483,
+        "key": "legion_commander_outfight_them",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "legion_commander_overwhelming_odds",
+        "valveAbilityId": 5595,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "1v1半径600按1名英雄计算260伤害，命中时增125攻速6s和0.3s减速。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "legion_commander_press_the_attack",
+        "valveAbilityId": 5596,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "固定自用强驱散；5秒60HP/s和22%移速；分成0.1s治疗步。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "legion_commander_moment_of_courage",
+        "valveAbilityId": 5597,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "每受4次落地攻击反击1次、实际伤害85%吸血、0.3s内置冷却；break不新增计数。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "legion_commander_duel",
+        "valveAbilityId": 5598,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=104",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "5秒强制互攻契约；目标无法施法；死亡胜者+30本回合永久攻击。纯模块按各自攻击间隔强制接近/互攻，拒绝手动移动与额外普攻；核心命令映射仍需适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 103,
+    "hero": "techies",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion",
+      "cross-system-positive-dispel"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1778,
+      5644
+    ],
+    "innateReview": [
+      {
+        "id": 1778,
+        "key": "techies_mutually_assured_destruction",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "techies_sticky_bomb",
+        "valveAbilityId": 879,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。落点附近300内黏附；2秒后跟随目标爆炸320、45%二段减速3秒；无目标则原地爆炸。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "techies_reactive_tazer",
+        "valveAbilityId": 886,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定自用6秒，30%移速；攻击者受210魔伤、驱散增益、缴械；到期400半径爆炸210和3秒缴械。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "techies_suicide",
+        "valveAbilityId": 5601,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "0.75秒跃至落点后500魔伤、1.4s晕；自身当前HP20%纯粹非致死；树木明确省略。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "techies_land_mines",
+        "valveAbilityId": 5599,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=105",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。3充能/15秒串行恢复；部署1秒武装、驻留1秒才爆；距离衰减700到350；可被普攻击毁。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 104,
+    "hero": "ember_spirit",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      5607,
+      1484
+    ],
+    "innateReview": [
+      {
+        "id": 1484,
+        "key": "ember_spirit_immolation",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "ember_spirit_searing_chains",
+        "valveAbilityId": 5603,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "近敌根缠，控制上限1.5秒；2.75秒100DPS按0.25秒结算，负面持续伤害在免疫期间抑制且不补跳。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "ember_spirit_sleight_of_fist",
+        "valveAbilityId": 5604,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "1v1固定一个敌方区域，0.25秒自用无敌后造成基础攻击+160物理技能斩；不移动本体、不复制普攻修饰器/劈裂，不称一次完整普通攻击。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "ember_spirit_flame_guard",
+        "valveAbilityId": 5605,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "18秒300容量魔法护盾，竞技顺序为减免后吸收70%；存续时周围50DPS，盾耗尽停火。明确改编官网减免前吸收顺序。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "ember_spirit_fire_remnant",
+        "valveAbilityId": 5606,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=106",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "3充能、35秒串行恢复；每次仅自动投放一个非单位残影，1秒后固定落点瞬移与300范围魔伤，无沿路命中、多残影排序或手动切换。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 105,
+    "hero": "earth_spirit",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1395,
+      5648
+    ],
+    "innateReview": [
+      {
+        "id": 1395,
+        "key": "earth_spirit_stone_caller",
+        "passive": false,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "earth_spirit_boulder_smash",
+        "valveAbilityId": 5608,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定四槽合成改编：自动取1/7石头在前方并踢至2000，320伤害/50%慢4秒；石头18秒串行恢复，无第五按钮。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "earth_spirit_rolling_boulder",
+        "valveAbilityId": 5609,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。0.6秒延迟后普通800距离翻滚，90+100%力量伤害、0.9秒晕；自动石头可用则耗一石变1600距离/1.8秒晕；途中不可受伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "earth_spirit_geomagnetic_grip",
+        "valveAbilityId": 5610,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。自动把一石放在目标后方并拉回，沿路300伤害和3.5秒沉默；耗1/7石头，无友军选择。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "earth_spirit_magnetize",
+        "valveAbilityId": 5612,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=107",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "无石残像基础支路：半径350，6秒每秒135；驱散停止。石头刷新/传染明确未支持。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 106,
+    "hero": "abyssal_underlord",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1486
+    ],
+    "innateReview": [
+      {
+        "id": 1486,
+        "key": "abyssal_underlord_raid_boss",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "abyssal_underlord_firestorm",
+        "valveAbilityId": 5613,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定区域6波105伤害，刷新2秒每秒3%最大HP燃烧；同源燃烧不叠、不同来源独立，区域效果不是可攻击单位。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "abyssal_underlord_pit_of_malice",
+        "valveAbilityId": 5614,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "固定区域12秒；每敌人3.6秒间隔50魔伤与根缠，控制上限1.5秒；出区不触发。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "abyssal_underlord_atrophy_aura",
+        "valveAbilityId": 5615,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "被动灰不可点；900距离内减少敌方32%竞技基础攻击，敌方本回合死亡获45临时攻击60秒；break停止减攻及新死亡收益。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "abyssal_underlord_dark_portal",
+        "valveAbilityId": 865,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=108",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "固定四槽：在当前位置与合法远点记录法术门户（待渲染整合），距离至少1500；自动3.5秒引导后仅自己传送一次，移动/控制/新动作取消。门户无单位HP或通用队友进入能力。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 107,
+    "hero": "terrorblade",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "hp-exchange"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      699,
+      425,
+      1396
+    ],
+    "innateReview": [
+      {
+        "id": 1396,
+        "key": "terrorblade_dark_unity",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "terrorblade_reflection",
+        "valveAbilityId": 5619,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。复制敌方攻击属性的不可选反射体自动追打原目标；5秒、75%输出；30%移速/攻速慢，驱散慢立即销毁。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "terrorblade_conjure_image",
+        "valveAbilityId": 5620,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。34秒自动追击幻象，40%攻击、250%承伤、独立生命；最多同时3只的竞技上限，旧者替换。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "terrorblade_metamorphosis",
+        "valveAbilityId": 5621,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。0.35秒后50秒形态，+80攻击、射程600、BAT1.5；自身幻象同步加攻，过期恢复。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "terrorblade_sunder",
+        "valveAbilityId": 5622,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=109",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "双方当前HP百分比交换，分别不低于官方最低百分比；免控敌人HP不变；不是伤害或治疗。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 108,
+    "hero": "phoenix",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "preko-veto",
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1397
+    ],
+    "innateReview": [
+      {
+        "id": 1397,
+        "key": "phoenix_dying_light",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "phoenix_icarus_dive",
+        "valveAbilityId": 5623,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。2秒水平往返弧线投影；15%当前HP非致死代价；每目标一次接触附80DPS4秒与25%慢。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "phoenix_fire_spirits",
+        "valveAbilityId": 5625,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。官网叙述4与系数5矛盾：竞技明确选叙述4枚，施放后每0.5秒自动投一枚到固定落点；20%当前HP代价，DOT/攻速慢刷新不叠。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "phoenix_sun_ray",
+        "valveAbilityId": 5626,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。6秒固定前向射线；每秒当前HP5%自耗；敌伤30+6%最大HP×蓄势比例，竞技公开采用线性0→1蓄势；控制持久取消。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "phoenix_supernova",
+        "valveAbilityId": 5630,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=110",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。6秒可攻击蛋：10次敌方英雄落地普攻击毁则本体死亡；幸存回满HP/MP并刷新基础三槽，R不刷新；每秒110范围魔伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 109,
+    "hero": "oracle",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "deferred-hp",
+      "cross-system-positive-dispel",
+      "invulnerable-target-dispel"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      932,
+      1401
+    ],
+    "innateReview": [
+      {
+        "id": 1401,
+        "key": "oracle_prognosticate",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "oracle_fortunes_end",
+        "valveAbilityId": 5637,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定满蓄力2.5秒自动发射；无额外按钮；自用仅驱散，敌用280伤害、根缠上限1.5s、驱散增益。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "oracle_fates_edict",
+        "valveAbilityId": 5638,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "敌人或显式自用：缴械+100%魔法抗性，持续5秒；混合正负状态驱散需适配审查。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "oracle_purifying_flames",
+        "valveAbilityId": 5639,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "先360魔伤后每0.1秒4.5治疗，共450；独立叠加；自用初伤不致死，目标死亡后停止。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "oracle_false_promise",
+        "valveAbilityId": 5640,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=111",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "固定自用强驱散；10s暂存减免后伤害及×2治疗；结束一次净结算，无敌则延迟到可受伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 110,
+    "hero": "winter_wyvern",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "forced-orders"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1779
+    ],
+    "innateReview": [
+      {
+        "id": 1779,
+        "key": "winter_wyvern_eldwurms_edda",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "winter_wyvern_arctic_burn",
+        "valveAbilityId": 5651,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。10秒攻击增程，最多5次落地攻击附3秒DOT；每0.5秒扣当时HP5%、30%慢；基础驱散移除DOT。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "winter_wyvern_splinter_blast",
+        "valveAbilityId": 5652,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。1v1明确改编：自动在敌人附近放无战斗属性的冰靶作主目标，主目标零伤害；碎片飞向敌人320伤害/36%慢4秒；不是对主目标直伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "winter_wyvern_cold_embrace",
+        "valveAbilityId": 5653,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "固定自用4s冻结，物理免疫；每0.25s回复(55+4.5%最大HP)×0.25；魔伤仍可致死。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "winter_wyvern_winters_curse",
+        "valveAbilityId": 5654,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=112",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。单敌模式主目标强驱散增益并冻结，眩晕竞技上限1.5秒；如敌方有自动单位则强迫它们攻击自己的英雄，无单位不伪造伤害。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 111,
+    "hero": "arc_warden",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1407
+    ],
+    "innateReview": [
+      {
+        "id": 1407,
+        "key": "arc_warden_runic_infusion",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "arc_warden_flux",
+        "valveAbilityId": 5677,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "1v1无第二敌方单位时6s、60DPS、35%减速；多实体邻近抑制由扩展处理，不宣称召唤对局正确。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "arc_warden_magnetic_field",
+        "valveAbilityId": 5678,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。落点半径300持续7秒，圈内自身+120攻速；圈外来源普攻被闪避，圈内来源照常；无符文经济。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "arc_warden_spark_wraith",
+        "valveAbilityId": 5679,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "1.5s成形，区域等待16s；仅触发一次追踪弹，310伤害及1s减速；未发现目标会到期。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "arc_warden_tempest_double",
+        "valveAbilityId": 5683,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=113",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。24秒自动分身，独立攻击节奏与Flux16秒冷却，不接受手动切换，不复制R；无装备系统。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 112,
+    "hero": "monkey_king",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "terrain",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      5719,
+      1627
+    ],
+    "innateReview": [],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "monkey_king_boundless_strike",
+        "valveAbilityId": 5716,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=114",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "水平1100真必中，1.8×攻击+80，1.3s眩晕；Jingu联动需攻击修饰扩展。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "monkey_king_tree_dance",
+        "valveAbilityId": 5721,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=114",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。以合法竞技树为锚点跃上，0.5秒自动Primal Spring落向敌人，350伤害/80%慢；树毁则摔落1.5秒晕，无换栏。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "monkey_king_jingu_mastery",
+        "valveAbilityId": 5723,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=114",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "同英雄第4击获得4次+180攻击/80%实际伤害吸血；敌方计数不可驱散，自身充能可驱散；break停新计数。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "monkey_king_wukongs_command",
+        "valveAbilityId": 5725,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=114",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。14自动士兵水平投影两圈，14秒，1.1秒攻击间隔；不复制Jingu；本体离750区域解散，+25甲。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 113,
+    "hero": "dark_willow",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      6340,
+      1413
+    ],
+    "innateReview": [
+      {
+        "id": 1413,
+        "key": "dark_willow_pixie_dust",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "dark_willow_bramble_maze",
+        "valveAbilityId": 6339,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。8独立荆棘沿500宽水平区交错分布，0.3秒成形，单次接触消耗该荆棘并根缠/DOT。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "dark_willow_shadow_realm",
+        "valveAbilityId": 6341,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。5秒不可单体选择但仍受AOE；下次攻击随蓄势0~3秒加0~360魔伤并退出。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "dark_willow_cursed_crown",
+        "valveAbilityId": 6342,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "可驱散4秒延迟诅咒；到时仍存在才眩晕，不能提前伤害。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "dark_willow_terrorize",
+        "valveAbilityId": 8340,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=119",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。1秒前摇+飞行后，550半径恐惧；1v1朝远离施法者的场地端点移动，无伤害替代。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 114,
+    "hero": "pangolier",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      8027,
+      1412
+    ],
+    "innateReview": [
+      {
+        "id": 1412,
+        "key": "pangolier_fortune_favors_the_bold",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "pangolier_swashbuckle",
+        "valveAbilityId": 6344,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。自动朝瞄准方向冲最多800，随后水平3刺每次125物伤、间隔0.1秒；每刺独立触发Lucky Shot，结束滚动。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "pangolier_shield_crash",
+        "valveAbilityId": 6461,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "0.4秒向前跳225；落地半径500伤害240；命中英雄才给240全伤屏障6s。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "pangolier_lucky_shot",
+        "valveAbilityId": 7307,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "独立固定种子17%触发，5秒-8甲/-140攻速；普攻和Swashbuckle各击支持；不因存在handler而自动启用其他记录。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "pangolier_gyroshell",
+        "valveAbilityId": 6343,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=120",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。1.2秒变球后12秒550速度自动滚动，边界反向；80%魔抗，碰撞300+80%攻击/1.2秒晕，目标1.2秒重触发保护。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 115,
+    "hero": "grimstroke",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      7852,
+      1414
+    ],
+    "innateReview": [
+      {
+        "id": 1414,
+        "key": "grimstroke_ink_trail",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "grimstroke_dark_artistry",
+        "valveAbilityId": 8000,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定直线模式，首个英雄280伤害/80%减速1.75；不把第一目标算前置增伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "grimstroke_ink_creature",
+        "valveAbilityId": 8006,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。可被3次英雄普攻击毁的自动飞行幻影；附身后40DPS/沉默5秒；存活结束360爆发并刷新S2，免疫/不可选则脱附。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "grimstroke_spirit_walk",
+        "valveAbilityId": 8007,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定自身Ink Swell，3秒+20%移速，近375内75DPS；爆发按实际接触0~2.5秒线性0~360伤害/0~2.8秒晕。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "grimstroke_soul_chain",
+        "valveAbilityId": 6491,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=121",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。1v1改编为把敌人束到可见墨锚8秒，700断链、束缚活动半径；省略无第二英雄时复制法术，不伪造第二次伤害。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 116,
+    "hero": "hoodwink",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "terrain",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      8107,
+      1422,
+      1423
+    ],
+    "innateReview": [
+      {
+        "id": 1423,
+        "key": "hoodwink_mistwoods_wayfarer",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "hoodwink_acorn_shot",
+        "valveAbilityId": 8429,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "1v1直接单位目标仅一击：180+80%攻击，0.3s减速；绝不在同一单位上凭空自弹五次；树点选和多单位弹跳未支持。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "hoodwink_bushwhack",
+        "valveAbilityId": 8158,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。必须落点265内有竞技树；拉到最近树、2.1秒共360DOT与控制；树毁立刻解除，不给无树目标直伤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "hoodwink_scurry",
+        "valveAbilityId": 9501,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。2充能12秒恢复；5秒30%移速和相位穿越；近树时攻击重定向概率翻倍至28.5%，实际销毁那棵树。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "hoodwink_sharpshooter",
+        "valveAbilityId": 8106,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=123",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定5秒自动射出满蓄力1350魔伤，5秒破被动/50%慢，后坐350；蓄力被控持久取消；无新按钮。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 117,
+    "hero": "void_spirit",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1420
+    ],
+    "innateReview": [
+      {
+        "id": 1420,
+        "key": "void_spirit_intrinsic_edge",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "void_spirit_aether_remnant",
+        "valveAbilityId": 7701,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定方向监视残影；0.4秒后首次合法敌人接触，瞬间拉向残影后240魔伤与控制，不假称持续拖拽或swept collision。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "void_spirit_dissimilate",
+        "valveAbilityId": 6470,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "1.1秒实际Engine无敌后，按施法瞄准方向固定出口瞬移最多520，出口275范围345魔伤；无出口分页。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "void_spirit_resonant_pulse",
+        "valveAbilityId": 7710,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "周围210魔伤，100+实际命中英雄110的物理专用护盾，10秒；魔伤不消耗；命中被转换为治疗仍算命中，invulnerable拒绝不算。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "void_spirit_astral_step",
+        "valveAbilityId": 7705,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=126",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "2充能15秒串行恢复；固定200~1000落点瞬移，只有出口170范围内敌人受基础攻击物理技能斩和80%慢；1.25秒后330爆炸。明确省略沿途普通攻击/劈裂修饰器。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 118,
+    "hero": "snapfire",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      6484,
+      6486,
+      1782
+    ],
+    "innateReview": [
+      {
+        "id": 1782,
+        "key": "snapfire_boomstick",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "snapfire_scatterblast",
+        "valveAbilityId": 6480,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "水平锥体1v1；800射程，450以内伤害×1.25，减速/攻速减缓和持续时间×1.5。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "snapfire_firesnap_cookie",
+        "valveAbilityId": 6483,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "固定喂自己；0.3s后跳425，0.484s着地，半径300伤害270/眩晕上限1.5s；位移需适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "snapfire_lil_shredder",
+        "valveAbilityId": 6488,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "6s或5次攻击：65+35%攻击；每次-0.5甲5s；BAT1/攻速+300/射程+400需普攻适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "snapfire_mortimer_kisses",
+        "valveAbilityId": 6482,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=128",
+        "pointer": "/result/data/heroes/0/abilities/5",
+        "adaptation": "固定瞄准落点，不另加按钮；8弹、每弹330及3.5s地火100DPS；最小600射程、飞行0.8~2s；地火不叠。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 119,
+    "hero": "mars",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "terrain",
+      "effect-obstacles",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1415
+    ],
+    "innateReview": [
+      {
+        "id": 1415,
+        "key": "mars_dauntless",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "mars_spear",
+        "valveAbilityId": 6583,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。水平路径325魔伤并推75；只有真实竞技树/冰墙/场地端点接触才附眩晕，空地不凭空钉晕。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "mars_gods_rebuke",
+        "valveAbilityId": 6495,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "身前500内真必中3×攻击+20；推后150，2.5s减速40%，免控不推。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "mars_bulwark",
+        "valveAbilityId": 6582,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。主动切换，非灰色被动；开启锁当前朝向/缴械/18%移速惩罚，相位移动；正面普攻减伤70%，break停减伤。1v1无友军转移。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "mars_arena_of_blood",
+        "valveAbilityId": 1416,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=129",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。0.1秒成形550半径5.5秒竞技场；边缘每秒260魔伤并推回；阻挡移动/敌方普攻的边界接口在纯模块实现。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 120,
+    "hero": "ringmaster",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      195,
+      388,
+      389,
+      392,
+      390,
+      196
+    ],
+    "innateReview": [
+      {
+        "id": 388,
+        "key": "ringmaster_dark_carnival_souvenirs",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "ringmaster_tame_the_beasts",
+        "valveAbilityId": 352,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定蓄满1秒自动释放；480伤害和1.2秒恐惧；恐惧移动方向交强制命令适配。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "ringmaster_the_box",
+        "valveAbilityId": 383,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定自用3.2秒不可单体选择，+24%移速/80%魔抗/慢免疫并沉默缴械；越初始500半径结束，仍可受AOE。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "ringmaster_impalement",
+        "valveAbilityId": 386,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。3充能17秒恢复，1秒共享施法CD；直线命中65伤害/0.8秒减速，4秒每秒目标最大HP6%流血。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "ringmaster_wheel",
+        "valveAbilityId": 385,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=131",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定落点轮盘，500范围每0.5秒100伤害/50%慢；累计朝向0.5秒魅惑，4秒到期600爆炸；不额外加技能页。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 121,
+    "hero": "dawnbreaker",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1424
+    ],
+    "innateReview": [
+      {
+        "id": 1424,
+        "key": "dawnbreaker_break_of_dawn",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "dawnbreaker_fire_wreath",
+        "valveAbilityId": 7902,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定原地1.1秒三旋击，每击基础攻击+70物理技能伤害，前两击短慢、第三击晕；不复制普攻修饰器，不新增位移或劈裂。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "dawnbreaker_celestial_hammer",
+        "valveAbilityId": 7914,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "锤子按两段直线法术命中，各140魔伤；末端停2秒自动返回，留下4秒50DPS减速火迹；无手动Converge，离手禁Q。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "dawnbreaker_luminosity",
+        "valveAbilityId": 7918,
+        "rank": 4,
+        "passiveGrayDisabled": true,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "被动灰不可点；每第4次落地普通攻击200%暴击，按该attackId实际扣HP的50%自疗；guard/闪避不计数，护盾/转换可使治疗0，break不加新层。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "dawnbreaker_solar_guardian",
+        "valveAbilityId": 7906,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=135",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "固定自身附近350落点；1.7秒引导三次95自疗/70伤害，随后0.8秒无敌飞行表现并在落点传送，190伤害/控制；无全图队友选择，昼夜系统省略。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 122,
+    "hero": "marci",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1428
+    ],
+    "innateReview": [],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "marci_grapple",
+        "valveAbilityId": 8192,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=136",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "敌方单位抛到自身背后250；0.5秒落地330伤害和50%减速3s；免控目标不移动。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "marci_companion_run",
+        "valveAbilityId": 8235,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=136",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。明确1v1改编：生成可见友方训练搭档作跳板，跳向最多750落点；0.2秒后300伤害/眩晕，不把敌人当友方施法。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "marci_bodyguard",
+        "valveAbilityId": 1427,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=136",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。保持官方不能自用：自动选可见友方训练搭档；7秒共享300护盾，本体普攻实际伤害30%补盾；被动+30攻击/30%吸血。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "marci_unleash",
+        "valveAbilityId": 8198,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=136",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。16秒700+攻速连打，5击一组最后150魔法波；每击限1秒，组间缴械1.5秒；+15%移速。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 123,
+    "hero": "primal_beast",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      7739,
+      1432
+    ],
+    "innateReview": [
+      {
+        "id": 1432,
+        "key": "primal_beast_colossal",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "primal_beast_onslaught",
+        "valveAbilityId": 992,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定蓄满1.7秒后冲2000，路径首次英雄接触360伤害/眩晕；蓄力受控持久取消。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "primal_beast_trample",
+        "valveAbilityId": 994,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "5.5秒缴械；按实际累计行程每140触发60+35%攻击，站桩不伤害；调用pure move()累计。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "primal_beast_uproar",
+        "valveAbilityId": 995,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。敌方单次实际伤害>=50获得层，最多6层20秒；主动耗尽，7秒每层40攻击/5甲，900范围每层10%慢3秒。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "primal_beast_pulverize",
+        "valveAbilityId": 996,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=137",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "2.3秒内0.75间隔三次摔击，250/310/370伤害；每次0.2s晕，施法者受控中断该次。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 124,
+    "hero": "muerta",
+    "adapterStatus": "real_engine_candidate_locked",
+    "requiresCapabilities": [],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1785,
+      1436
+    ],
+    "innateReview": [
+      {
+        "id": 1436,
+        "key": "muerta_supernatural",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "muerta_dead_shot",
+        "valveAbilityId": 5751,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "1v1固定直击敌人325魔伤与1秒慢；不伪造第二个弹射英雄，省略树/矢量弹射分支；保留法术反射。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "muerta_the_calling",
+        "valveAbilityId": 5752,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "固定区域四个不可攻击法术幽魂环绕投影；区域20%慢，真实幽魂接触180魔伤/3秒沉默，同英雄最多每秒一次接触。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "muerta_gunslinger",
+        "valveAbilityId": 5753,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "可切换主动，非灰色；落地普攻45%概率向唯一敌人追加基础攻击数值的技能子弹；明确不复制普攻修饰器，不递归触发额外射击。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "muerta_pierce_the_veil",
+        "valveAbilityId": 5754,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "real_engine_candidate_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=138",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "0.35秒后8秒物理免疫，普攻增加100%基础攻击并转魔法；无敌不等于虚无，不赋予魔免；省略施法基础自驱散、通用弹道disjoint及全局ethereal交互。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 125,
+    "hero": "kez",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1497,
+      1502,
+      1503,
+      1504,
+      1506
+    ],
+    "innateReview": [],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "kez_echo_slash",
+        "valveAbilityId": 1498,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=145",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "固定Katana四槽；两次水平攻击，间隔1.2s，100%攻击+80英雄增伤；无Sai切换、无劈裂。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "kez_grappling_claw",
+        "valveAbilityId": 1499,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=145",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定Katana：抓钩飞3000速度再以1800速度靠近，超过2000断裂；到达75距离打一记普攻并100%慢1秒；树目标可仅位移。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "kez_kazurai_katana",
+        "valveAbilityId": 1500,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=145",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。Katana普攻追加独立7秒总计12%原实际伤害血流；主动一次普攻并0.5秒钉住，提前结算当前每层剩余伤害50%，余下继续。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "kez_raptor_dance",
+        "valveAbilityId": 1501,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=145",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "基础驱散；0.2s无敌后1秒蓄势结束，4斩，每斩100+目标2.5%最大HP并100%实际伤害自疗；中断需通道账本。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  },
+  {
+    "registryNumericId": 126,
+    "hero": "largo",
+    "adapterStatus": "not_ported_capability_locked",
+    "requiresCapabilities": [
+      "cross-system-positive-dispel",
+      "committed-cast-notifications",
+      "swept-motion"
+    ],
+    "automaticInnateIds": [],
+    "omittedAbilityIds": [
+      1666,
+      1663,
+      1664,
+      1665
+    ],
+    "innateReview": [
+      {
+        "id": 1666,
+        "key": "largo_encore",
+        "passive": true,
+        "status": "omitted_not_auto_enabled",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155"
+      }
+    ],
+    "slots": [
+      {
+        "slot": "S1",
+        "key": "largo_catchy_lick",
+        "valveAbilityId": 1659,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155",
+        "pointer": "/result/data/heroes/0/abilities/0",
+        "adaptation": "敌用340伤害、拉近325和驱散增益；自用驱散负面。确实驱散或击杀才8秒13HP/s。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S2",
+        "key": "largo_frogstomp",
+        "valveAbilityId": 1660,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155",
+        "pointer": "/result/data/heroes/0/abilities/1",
+        "adaptation": "落点0.5s后每秒72伤害/0.1s眩晕，共7次；离区无伤；仅不可选区域蛙，不伪造可操控召唤。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S3",
+        "key": "largo_croak_of_genius",
+        "valveAbilityId": 1661,
+        "rank": 4,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155",
+        "pointer": "/result/data/heroes/0/abilities/2",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定自用30秒，后续施法蓝耗减15%；可法强技能实际伤害45%在5秒回响，echo标记禁止递归；自身不扣buff时长。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      },
+      {
+        "slot": "S4",
+        "key": "largo_amphibian_rhapsody",
+        "valveAbilityId": 1662,
+        "rank": 3,
+        "passiveGrayDisabled": false,
+        "engineImplementationStatus": "not_ported_capability_locked",
+        "source": "https://www.dota2.com/datafeed/herodata?language=english&hero_id=155",
+        "pointer": "/result/data/heroes/0/abilities/4",
+        "adaptation": "V2纯1v1改编；固定原四槽，无翻页/手动单位切换；核心适配验收前锁定。固定四槽改编：6拍自动演奏战歌→加速→治疗循环，无换栏；每秒成功节拍+1层Groovin最多5，45蓝减每层2；无蓝停奏，曲后5秒保留每层4甲。系数来自官方1663/1664/1665。",
+        "coreIntegrated": false,
+        "activeUnlock": false
+      }
+    ]
+  }
+]
