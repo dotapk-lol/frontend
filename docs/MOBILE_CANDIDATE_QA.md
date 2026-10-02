@@ -1,6 +1,12 @@
 # Mobile controls and official audio candidate
 
-Candidate: `duel-138c5c6a0fd152c27851`. Base production source: `d179a9ffaf3436386f2cb5ee6a1719078b1e9157`. This is an unpublished frontend candidate. No Cloudflare deployment, domain, Site visibility or Library identity has been changed.
+Current candidate: `duel-32479fbcfaf831aa3ff7` (MC-P1-01 fix). Previous engineering evidence below was recorded on `duel-138c5c6a0fd152c27851`, not on this fix. Base production source: `d179a9ffaf3436386f2cb5ee6a1719078b1e9157`. This is an unpublished frontend candidate. No Cloudflare deployment, domain, Site visibility or Library identity has been changed.
+
+## MC-P1-01 follow-up status
+
+The ready-lobby portrait race is fixed in source: orientation availability travels over the reliable control channel even before gameplay; portrait revokes readiness; restoration never auto-readies. A committed start arriving during rotation is reconciled into a paused match. Initial match setup also sends the portrait pause even if the viewport was already portrait in the lobby. Ten new scheduling/app regression tests cover this case and related races. All **289 tests** and the static/standalone build pass. See `docs/PORTRAIT_LOBBY_HANDOFF.md`.
+
+The new revision has **not yet passed independent graphical/WebRTC/server-save acceptance**. No new browser driver was executed for this fix. Per the latest handoff, independent QA will use its available `mcp__cua_repl.js` entry. The older raw-CDP drivers are historical engineering tooling and must not be used where the execution environment requires CUA. Their screenshots do not substitute for the pending authorized graphical acceptance. No new match ID or SQL receipt is claimed.
 
 ## Changes and root causes
 
@@ -18,11 +24,11 @@ Candidate: `duel-138c5c6a0fd152c27851`. Base production source: `d179a9ffaf34363
 
 Actual Chrome inspection found two additional visual defects while implementing this candidate: the short landscape roster pushed the start button below the viewport, and adapting the ground height initially made fighters appear to float. Both were corrected and recaptured. No engine damage formulas or backend contracts were changed.
 
-## Actual browser evidence
+## Historical engineering browser evidence — not final acceptance
 
 The local Mac's installed Chrome was run with an isolated task-owned profile, through DevTools on port 9223. This is actual Chrome rendering, native IndexedDB/BroadcastChannel/WebAudio/HTMLAudio and browser input dispatch. It is headless desktop Chrome with emulated phone dimensions/touches, **not physical iOS/Android or human listening**. Existing signed-in browser profiles were not inspected or changed.
 
-Preview: `http://127.0.0.1:4175/` (`DUEL_PORT=4175 node scripts/dev-server.mjs`). Build output: `dist/client`. Runnable standalone: `release/DOTA_DUEL_1V1_候选版.html` (22,793,985 bytes).
+Current preview: `http://127.0.0.1:4173/` (`DUEL_PORT=4173 node scripts/dev-server.mjs`), served from `dist/client`. The historical reports used 4175. Current standalone: `release/DOTA_DUEL_1V1_候选版.html` (22,796,040 bytes).
 
 Evidence is in `qa/browser-evidence/` locally and in the candidate evidence bundle. It is intentionally excluded from public static deployment.
 
@@ -31,14 +37,14 @@ Evidence is in `qa/browser-evidence/` locally and in the candidate evidence bund
 - `audio-loop-report.json`: official battle track decoded to 46.341224 seconds in Chrome and naturally wrapped twice without seeking or accelerated time; a normal-speed PVE game reached 0:2 / two rounds / completed. Media clock and native decoder evidence do not certify audible speaker output or gapless quality.
 - `result-controls-report.json`: natural result survives Escape; rematch starts round 1 at 0:0 with one controller; music and SFX switches/volumes operate independently.
 - `skills-report.json`: actual radial-button casts for Lina, Juggernaut, Pudge and Windranger; cooldown/mana changes observed, passive slots disabled, and Powershot held to 0.8 charge before release.
-- `polish-report.json`: 44 px left/right and 21 px bottom safe-area values simulated through the layout variables; bounds verified; Chrome entered actual fullscreen and reported unsupported orientation locking; offline HTML decoded embedded music and rendered two desktop control sets and loaded images.
+- `polish-report.json`: **test injection** set `requestFullscreen=undefined` to simulate a missing API, and changed CSS safe-area variables to 44/44/21 px; neither is native-device behavior. A separate uninjected fullscreen request entered fullscreen and reported unsupported orientation locking in that headless session. The file-URL run observed embedded audio/images and two controls, but is historical only and must not be replayed where file navigation is disallowed. None of these cases certifies physical-phone behavior.
 - Screenshots: `01-portrait-entry`, `10-final-selection`, `12-final-battle`, `size-667x375`, `size-740x360`, `size-844x390`, `size-915x412`, `08-bc-host`, `09-bc-guest`, `11-safe-area-simulation`, `13-offline-desktop-dual`, plus natural KO/result evidence.
 
 The resize browser harness waits for the requested viewport/canvas dimensions to settle (up to 2 seconds) before asserting bounds; an earlier fixed 200 ms assertion was premature under concurrent headless-window load. The final run passed after completed QA windows were closed.
 
 A clean `git archive` checkout also passed all 279 tests and built the identical standalone HTML (SHA-256 `10cf1239949a24ec7868eab54edf3aaba635a167fbb9dc7f80ba5b65efb9c8ae`).
 
-279 source/contract/integration regression tests pass; static and standalone build passes; `git diff --check` is clean. Mock input/fullscreen and source tests are not counted as real-device acceptance. Browser scripts are opt-in (`qa/browser-*.mjs`) and require the isolated local DevTools session, rather than silently launching or attaching to the user's normal browser.
+The previous revision passed 279 source/contract/integration tests. The current fix passes 289; static and standalone build and `git diff --check` pass. Mock input/fullscreen, transport/service fixtures and source tests are not real-device acceptance. Historical browser scripts are not an authorized fallback when the active environment requires CUA.
 
 ## Official music provenance
 
@@ -55,7 +61,7 @@ Used as part of this non-commercial Dota fan work with the context of Steam Subs
 
 ## Remaining release gates — do not mark complete
 
-1. **Go service browser integration is blocked by local origin configuration.** Read-only `GET http://127.0.0.1:18082/healthz` returned 200 / `v1.2-abort-reconciliation`; preflight from `http://127.0.0.1:4175` returned 403 `origin not allowed`. The local preview uses 4175 to leave the existing 4173 preview and backend untouched. The completed PVE result truthfully remained `local_only`; no server-save or SQL-confirmed claim is made. Backend owner must authorize a QA origin or coordinate the existing preview port before this candidate's Go/WebRTC end-to-end acceptance.
+1. **Go/WebRTC/browser-save acceptance is pending; the origin mismatch is resolved.** Preview now uses the available 4173 port. Go health is 200 / `v1.2-abort-reconciliation`; preflight allows `http://127.0.0.1:4173` with 204. No backend/CORS configuration was changed. The historical 4175 PVE result remains `local_only` and is not server-save evidence. Independent QA must create real matches at 4173 → 18082, obtain non-null match IDs and verify natural result/rematch/interruption plus read-only SQL receipts.
 2. **Physical iPhone Safari / Android Chrome**, actual multitouch ergonomics, native safe-area/browser-toolbar behavior, screen-lock/background behavior, physical gamepads and audible mixing still require device checks. CSS-inset simulation is not iOS safe-area evidence.
 3. **Performance is not signed off for phones.** Headless Chrome samples varied during active rendering (roughly 30–60 fps depending on startup and concurrent test windows). The 60 fps sample at a finished match is idle rendering, not proof of mobile combat performance. No KOF97 commercial-quality equivalence is claimed; this remains a compact 20-hero fan adaptation.
 4. **Production deployment and real cross-network P2P** must use the approved exact commit/version and verify both sides, readiness/RTT policy, natural confirmed server result, rematch and aborted disconnects. Existing RTT configuration is preserved; no new threshold/direction was invented. TURN remains absent.

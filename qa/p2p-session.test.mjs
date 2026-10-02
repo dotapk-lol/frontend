@@ -16,3 +16,30 @@ test('a reconnect creates fresh credentials and never restores old epoch or read
 test('canonical final snapshot uses reliable control exactly once per match, while ordinary frames remain fast',()=>{const p=connected('host'),control=[],frames=[];p.control.send=v=>control.push(JSON.parse(v));p.frames={...p.control,send:v=>frames.push(JSON.parse(v))};p.sendGame({type:'snapshot',snapshot:{phase:'fight'}});p.sendGame({type:'snapshot',snapshot:{phase:'matchEnd',history:[]}});p.sendGame({type:'snapshot',snapshot:{phase:'matchEnd',history:[]}});assert.equal(frames.length,1);assert.equal(control.length,1);assert.equal(control[0].value.snapshot.phase,'matchEnd');p.shutdown();});
 
 test('late unreliable frames cannot overwrite a reliable terminal snapshot',()=>{const p=connected('guest'),states=[];p.fighting=true;p.seenEpoch='match';p.onmessage=m=>states.push(m.snapshot.phase);for(const [channel,seq,phase]of [['frames',8,'fight'],['control',10,'matchEnd'],['frames',9,'fight']])p.receive(JSON.stringify({type:'game',epoch:'match',seq,value:{type:'snapshot',snapshot:{phase}}}),channel);assert.deepEqual(states,['fight','matchEnd']);p.shutdown();});
+
+// Scheduling tests use fake transport/service replies; these are not browser/WebRTC acceptance.
+function readyPair(starts=[]){
+ const server=matchServer(),h=connected('host',x=>starts.push(['host',x]),server),g=connected('guest',x=>starts.push(['guest',x]),server);
+ h.control.send=raw=>queueMicrotask(()=>g.receive(raw,'control'));g.control.send=raw=>queueMicrotask(()=>h.receive(raw,'control'));
+ h.setReady();g.setReady();return {h,g,server};
+}
+test('portrait in the ready lobby withdraws readiness; landscape does not ready or start automatically',async()=>{
+ const starts=[],{h,g}=readyPair(starts);try{await flush();g.setAvailable(false);await flush();assert.equal(g.ready,false);assert.equal(h.peerReady,false);assert.equal(h.peerAvailable,false);assert.equal(h.start(),false);assert.equal(g.setReady(),false);
+ g.setAvailable(true);await flush();assert.equal(g.ready,false);assert.equal(h.peerReady,false);assert.equal(h.start(),false);assert.equal(starts.length,0);
+ assert(g.setReady());await flush();assert(h.start());await flush();assert.equal(starts.length,2);assert(starts.every(([,x])=>!x.pauseForOrientation));}finally{h.shutdown();g.shutdown();}
+});
+test('stale ready packets cannot override a portrait peer, and frames cannot change availability',()=>{
+ const h=connected('host');try{h.receive(JSON.stringify({type:'availability',value:false}),'frames');assert(h.peerAvailable);h.receive(JSON.stringify({type:'availability',value:false}),'control');h.receive(JSON.stringify({type:'ready',value:true}),'control');assert.equal(h.peerReady,false);assert.equal(h.gate().ok,false);h.receive(JSON.stringify({type:'availability',value:'true'}),'control');assert.equal(h.peerAvailable,false);}finally{h.shutdown();}
+});
+for(const rotatingRole of ['host','guest'])test(`${rotatingRole} rotation cancels an in-flight host preparation before commit`,async()=>{
+ const starts=[],{h,g}=readyPair(starts);let release;
+ try{await flush();const get=h.service.createMatch;h.service.createMatch=()=>new Promise(resolve=>{release=async()=>resolve(await get());});assert(h.start());(rotatingRole==='host'?h:g).setAvailable(false);await flush();assert.equal(h.pendingEpoch,null);await release();await flush();assert.equal(starts.length,0);assert.equal(h.fighting,false);assert.equal(g.fighting,false);(rotatingRole==='host'?h:g).setAvailable(true);await flush();assert.equal(starts.length,0);assert.equal(h.start(),false);}finally{h.shutdown();g.shutdown();}
+});
+for(const restoreBeforeReply of [false,true])test(`guest rotation during committed-start verification enters a paused match (restored=${restoreBeforeReply})`,async()=>{
+ const starts=[],{h,g,server}=readyPair(starts);let release,reads=0;const get=g.service.getMatch;
+ g.service.getMatch=async()=>{const result=await get();if(++reads===2)return new Promise(resolve=>{release=()=>resolve(result);});return result;};
+ try{await flush();assert(h.start());await flush();assert.equal(h.fighting,true);assert.equal(g.fighting,false);assert.equal(typeof release,'function');g.setAvailable(false);await flush();assert.equal(h.peerAvailable,false);assert.equal(g.ready,false);if(restoreBeforeReply){g.setAvailable(true);await flush();assert.equal(g.ready,false);assert.equal(g.fighting,false);}release();await flush();assert.equal(g.fighting,true);assert.equal(g.seenEpoch,server.match.id);const guestStart=starts.find(([role])=>role==='guest')[1];assert.equal(guestStart.pauseForOrientation,true);assert.equal(guestStart.match.id,server.match.id);}finally{h.shutdown();g.shutdown();}
+});
+test('portrait advertised in the connection hello blocks lobby readiness',()=>{
+ const h=connected('host');try{h.receive(JSON.stringify({type:'hello',version:NET_VERSION,hero:13,policy,available:false}),'control');assert.equal(h.info().peerAvailable,false);assert.equal(h.setReady(),false);}finally{h.shutdown();}
+});
