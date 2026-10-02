@@ -22,7 +22,7 @@ Actual Chrome inspection found two additional visual defects while implementing 
 
 The local Mac's installed Chrome was run with an isolated task-owned profile, through DevTools on port 9223. This is actual Chrome rendering, native IndexedDB/BroadcastChannel/WebAudio/HTMLAudio and browser input dispatch. It is headless desktop Chrome with emulated phone dimensions/touches, **not physical iOS/Android or human listening**. Existing signed-in browser profiles were not inspected or changed.
 
-Preview: `http://127.0.0.1:4175/`. Build output: `dist/client`. Runnable standalone: `release/DOTA_DUEL_1V1_候选版.html` (22,793,985 bytes).
+Preview: `http://127.0.0.1:4175/` (`DUEL_PORT=4175 node scripts/dev-server.mjs`). Build output: `dist/client`. Runnable standalone: `release/DOTA_DUEL_1V1_候选版.html` (22,793,985 bytes).
 
 Evidence is in `qa/browser-evidence/` locally and in the candidate evidence bundle. It is intentionally excluded from public static deployment.
 
@@ -32,6 +32,8 @@ Evidence is in `qa/browser-evidence/` locally and in the candidate evidence bund
 - `result-controls-report.json`: natural result survives Escape; rematch starts round 1 at 0:0 with one controller; music and SFX switches/volumes operate independently.
 - `polish-report.json`: 44 px left/right and 21 px bottom safe-area values simulated through the layout variables; bounds verified; Chrome entered actual fullscreen and reported unsupported orientation locking; offline HTML decoded embedded music and rendered two desktop control sets and loaded images.
 - Screenshots: `01-portrait-entry`, `10-final-selection`, `12-final-battle`, `size-667x375`, `size-740x360`, `size-844x390`, `size-915x412`, `08-bc-host`, `09-bc-guest`, `11-safe-area-simulation`, `13-offline-desktop-dual`, plus natural KO/result evidence.
+
+The resize browser harness waits for the requested viewport/canvas dimensions to settle (up to 2 seconds) before asserting bounds; an earlier fixed 200 ms assertion was premature under concurrent headless-window load. The final run passed after completed QA windows were closed.
 
 279 source/contract/integration regression tests pass; static and standalone build passes; `git diff --check` is clean. Mock input/fullscreen and source tests are not counted as real-device acceptance. Browser scripts are opt-in (`qa/browser-*.mjs`) and require the isolated local DevTools session, rather than silently launching or attaching to the user's normal browser.
 
