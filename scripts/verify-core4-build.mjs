@@ -1,7 +1,8 @@
 import {COHORT_DEFINITIONS} from '../src/cohort-data.js';
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';import {NET_VERSION} from '../src/net-version.js';
 const root=path.resolve(new URL('..',import.meta.url).pathname),pub=path.join(root,'dist/client'),html=fs.readFileSync(path.join(root,'release/DOTA_DUEL_1V1_候选版.html'),'utf8');
-const encoded=f=>'data:'+(f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png')+';base64,'+fs.readFileSync(path.join(root,f)).toString('base64');
+const canonical=f=>f.replace(/^(assets\/cohort\/[a-z_]+-render)\.png$/,'$1.webp');
+const encoded=input=>{const f=canonical(input);return 'data:'+(f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png')+';base64,'+fs.readFileSync(path.join(root,f)).toString('base64');};
 let embedded=0;for(const h of COHORT_DEFINITIONS){for(const f of [h.portrait,h.render,...h.abilities.map(a=>a.icon)]){assert(html.includes(encoded(f)),'Offline definition asset not embedded: '+f);embedded++;}}
 const atlas=JSON.parse(fs.readFileSync(path.join(pub,'assets/atlas.json'),'utf8'));for(const sheet of Object.values(atlas.sheets)){assert(html.includes(encoded(sheet)),'Atlas sheet not embedded: '+sheet);}
 const files=fs.readdirSync(path.join(pub,'src'),{recursive:true}).filter(f=>f.endsWith('.js'));let imports=0;for(const file of files){const abs=path.join(pub,'src',file),text=fs.readFileSync(abs,'utf8');for(const match of text.matchAll(/\bfrom\s+['"](\.[^'"]+)['"]/g)){assert(fs.existsSync(path.resolve(path.dirname(abs),match[1])),`Missing import ${file}: ${match[1]}`);imports++;}}

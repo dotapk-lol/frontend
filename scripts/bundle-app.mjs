@@ -5,10 +5,10 @@ import {build} from 'esbuild';
 export const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 // Preserve module scope in production and VM integration tests. QA hooks are
 // appended to the entry module before bundling, never exposed in a release.
-export async function bundleApp({append='',offline=false}={}){
+export async function bundleApp({append='',offline=false,candidate=false,overrides={}}={}){
  const src=path.join(projectRoot,'src'),assets={},assetNames=new Set();
  const localAsset=/(['"])(assets\/[^'"\\]+\.(?:png|webp|mp3))\1/g;
- const canonical=f=>f.replace(/^assets\/([a-z_]+)-render\.png$/,'assets/portraits/$1.webp');
+ const canonical=f=>f.replace('assets/music/reborn-dnb-remix.mp3','assets/music/reborn-dnb-remix-offline.mp3').replace(/^(assets\/cohort\/[a-z_]+-render)\.png$/,'$1.webp').replace(/^assets\/([a-z_]+)-render\.png$/,'assets/portraits/$1.webp');
  const uri=f=>{const target=canonical(f);if(!fs.existsSync(path.join(projectRoot,target)))throw Error('Missing offline asset: '+target);const mime=target.endsWith('.mp3')?'audio/mpeg':target.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(projectRoot,target)).toString('base64')}`;};
  let atlas;
  if(offline){
@@ -21,7 +21,8 @@ export async function bundleApp({append='',offline=false}={}){
   b.onResolve({filter:/^duel:offline-assets$/},()=>({path:'assets',namespace:'duel'}));
   b.onLoad({filter:/.*/,namespace:'duel'},()=>({contents:'export const OFFLINE_ASSETS='+JSON.stringify(assets)+';',loader:'js'}));
   b.onLoad({filter:/\.js$/},args=>{
-   let contents=fs.readFileSync(args.path,'utf8');
+   let contents=overrides[path.relative(src,args.path)]??fs.readFileSync(args.path,'utf8');
+   if(candidate&&args.path===path.join(src,'release-profile.js'))contents='export const CANDIDATE_BUILD=true;';
    if(args.path===path.join(src,'app.js')){
     contents+='\n'+append;
     if(offline){contents=contents.replace('function img(src){','function img(src){src=OFFLINE_ASSETS[src]||src;').replace(/fetch\('assets\/atlas\.json'\)[\s\S]*?\.catch\(\(\)=>\{\}\);/,`atlas=${JSON.stringify(atlas)};Object.values(atlas.sheets).forEach(s=>img(s));`);}

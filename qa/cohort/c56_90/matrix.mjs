@@ -5,7 +5,7 @@ import {PACKS,RECORDS} from '../../../src/hero-packs/c56_90/index.js';
 import {C56System} from '../../../src/hero-packs/c56_90/system.js';
 import {heroRegistry,ACTIVE_ROSTER} from '../../../src/hero-registry.js';
 const ids=PACKS.map(p=>p.definition.registryNumericId),opponents=[...ACTIVE_ROSTER.heroIds,...ids];
-const result={kind:'HARNESS_INITIAL_STATE_INJECTION_REAL_ENGINE',abi:'duel-pack-2.1-status',abiCommit:'bf5d6e924b02c04e35ec016ef27abff852f3a038',candidateIds:ids,opponents,pairs:0,steps:0,snapshotChecks:0,maxSnapshotBytes:0,failures:[],activeUnlock:false};
+const result={kind:'HARNESS_INITIAL_STATE_INJECTION_REAL_ENGINE',abi:'duel-pack-2.4-targeting',abiCommit:'c84ca0d9caf27ab27503384fafb26a8563c793c6',candidateIds:ids,opponents,pairs:0,steps:0,snapshotChecks:0,maxSnapshotBytes:0,failures:[],activeUnlock:false};
 for(const id of ids)for(const opponent of opponents)for(const side of[0,1]){
  const {e}=fixture(id,side,opponent);for(const f of e.fighters){f.hp=f.maxHp=10000;f.mp=f.maxMp=5000;f.healBudget=100000;}
  try{for(let n=0;n<720&&e.phase==='fight';n++){

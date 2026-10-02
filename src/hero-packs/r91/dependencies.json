@@ -6,6 +6,11 @@
       "global-stat-transactions",
       "targetability"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "global-stat-transactions",
+      "targetability"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -13,6 +18,11 @@
     "registryNumericId": 92,
     "key": "medusa",
     "requiresCapabilities": [
+      "attackable-units",
+      "mana-transactions"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "attackable-units",
       "mana-transactions"
     ],
@@ -26,6 +36,11 @@
       "forced-orders",
       "preko-veto"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "forced-orders",
+      "preko-veto"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -33,6 +48,8 @@
     "registryNumericId": 94,
     "key": "centaur",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -40,6 +57,11 @@
     "registryNumericId": 95,
     "key": "magnataur",
     "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "swept-motion",
       "attack-semantics"
     ],
@@ -53,6 +75,11 @@
       "terrain",
       "attackable-units"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "terrain",
+      "attackable-units"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -60,6 +87,10 @@
     "registryNumericId": 97,
     "key": "bristleback",
     "requiresCapabilities": [
+      "damage-block-bypass"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "damage-block-bypass"
     ],
     "adapterStatus": "executable_partial_capability_locked",
@@ -73,6 +104,12 @@
       "attack-semantics",
       "effect-obstacles"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "swept-motion",
+      "attack-semantics",
+      "effect-obstacles"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -80,6 +117,8 @@
     "registryNumericId": 99,
     "key": "skywrath_mage",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -90,6 +129,11 @@
       "attackable-units",
       "base-stat-queries"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "attackable-units",
+      "base-stat-queries"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -97,6 +141,11 @@
     "registryNumericId": 102,
     "key": "legion_commander",
     "requiresCapabilities": [
+      "forced-orders",
+      "attack-semantics"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "forced-orders",
       "attack-semantics"
     ],
@@ -111,6 +160,12 @@
       "swept-motion",
       "cross-system-positive-dispel"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "attackable-units",
+      "swept-motion",
+      "cross-system-positive-dispel"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -118,6 +173,8 @@
     "registryNumericId": 104,
     "key": "ember_spirit",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -127,6 +184,10 @@
     "requiresCapabilities": [
       "swept-motion"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "swept-motion"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -134,6 +195,8 @@
     "registryNumericId": 106,
     "key": "abyssal_underlord",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -144,6 +207,11 @@
       "attackable-units",
       "hp-exchange"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "attackable-units",
+      "hp-exchange"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -151,6 +219,12 @@
     "registryNumericId": 108,
     "key": "phoenix",
     "requiresCapabilities": [
+      "attackable-units",
+      "preko-veto",
+      "swept-motion"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "attackable-units",
       "preko-veto",
       "swept-motion"
@@ -166,6 +240,13 @@
       "cross-system-positive-dispel",
       "invulnerable-target-dispel"
     ],
+    "providedCapabilities": [
+      "deferred-hp"
+    ],
+    "missingCapabilities": [
+      "cross-system-positive-dispel",
+      "invulnerable-target-dispel"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -173,6 +254,11 @@
     "registryNumericId": 110,
     "key": "winter_wyvern",
     "requiresCapabilities": [
+      "attackable-units",
+      "forced-orders"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "attackable-units",
       "forced-orders"
     ],
@@ -185,6 +271,10 @@
     "requiresCapabilities": [
       "attackable-units"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "attackable-units"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -192,6 +282,12 @@
     "registryNumericId": 112,
     "key": "monkey_king",
     "requiresCapabilities": [
+      "attackable-units",
+      "terrain",
+      "attack-semantics"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "attackable-units",
       "terrain",
       "attack-semantics"
@@ -206,6 +302,11 @@
       "targetability",
       "forced-orders"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -213,6 +314,11 @@
     "registryNumericId": 114,
     "key": "pangolier",
     "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "swept-motion",
       "attack-semantics"
     ],
@@ -226,6 +332,11 @@
       "attackable-units",
       "swept-motion"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -236,6 +347,11 @@
       "terrain",
       "attack-semantics"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "terrain",
+      "attack-semantics"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -243,6 +359,8 @@
     "registryNumericId": 117,
     "key": "void_spirit",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -250,6 +368,11 @@
     "registryNumericId": 118,
     "key": "snapfire",
     "requiresCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "swept-motion",
       "attack-semantics"
     ],
@@ -265,6 +388,13 @@
       "effect-obstacles",
       "attack-semantics"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "swept-motion",
+      "terrain",
+      "effect-obstacles",
+      "attack-semantics"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -275,6 +405,11 @@
       "targetability",
       "forced-orders"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "targetability",
+      "forced-orders"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -282,6 +417,8 @@
     "registryNumericId": 121,
     "key": "dawnbreaker",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -289,6 +426,11 @@
     "registryNumericId": 122,
     "key": "marci",
     "requiresCapabilities": [
+      "attackable-units",
+      "swept-motion"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "attackable-units",
       "swept-motion"
     ],
@@ -301,6 +443,10 @@
     "requiresCapabilities": [
       "swept-motion"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "swept-motion"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -308,6 +454,8 @@
     "registryNumericId": 124,
     "key": "muerta",
     "requiresCapabilities": [],
+    "providedCapabilities": [],
+    "missingCapabilities": [],
     "adapterStatus": "real_engine_candidate_locked",
     "activeUnlock": false
   },
@@ -318,6 +466,11 @@
       "swept-motion",
       "attack-semantics"
     ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
+      "swept-motion",
+      "attack-semantics"
+    ],
     "adapterStatus": "not_ported_capability_locked",
     "activeUnlock": false
   },
@@ -325,6 +478,12 @@
     "registryNumericId": 126,
     "key": "largo",
     "requiresCapabilities": [
+      "cross-system-positive-dispel",
+      "committed-cast-notifications",
+      "swept-motion"
+    ],
+    "providedCapabilities": [],
+    "missingCapabilities": [
       "cross-system-positive-dispel",
       "committed-cast-notifications",
       "swept-motion"

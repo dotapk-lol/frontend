@@ -1,3 +1,5 @@
+import {CANDIDATE_BUILD} from './release-profile.js';
+import {CANDIDATE_ROSTER} from './candidate-roster.js';
 import {REGISTRY_DATA} from './registry-data.js';
 export function freezeTree(value){if(value&&typeof value==='object'&&!Object.isFrozen(value)){for(const v of Object.values(value))freezeTree(v);Object.freeze(value);}return value;}
 export function createHeroRegistry(manifest){
@@ -11,7 +13,8 @@ export const REGISTRY_VERSION=heroRegistry.registryVersion;
 export const REGISTRY_HASH=heroRegistry.registrySha256;
 export const LEGACY_ROSTER_ID='legacy-20-v1';
 // This allowlist is independent of catalog order and deliberately excludes all new heroes.
-export const ACTIVE_ROSTER=freezeTree({rosterId:'arena-core4-24-v1',registryVersion:REGISTRY_VERSION,heroIds:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,25,31,45,100],mechanicsVersion:'arena-core4-v1'});
+export const STABLE_ROSTER=freezeTree({rosterId:'arena-core4-24-v1',registryVersion:REGISTRY_VERSION,heroIds:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,25,31,45,100],mechanicsVersion:'arena-core4-v1'});
+export const ACTIVE_ROSTER=CANDIDATE_BUILD?freezeTree({...CANDIDATE_ROSTER,registryVersion:REGISTRY_VERSION}):STABLE_ROSTER;
 export const isActiveHero=id=>Number.isSafeInteger(id)&&ACTIVE_ROSTER.heroIds.includes(id)&&!!heroRegistry.byNumericId(id)&&!heroRegistry.byNumericId(id).tombstone;
 export const isHeroInSimulationRoster=(id,roster)=>roster?.registryVersion===REGISTRY_VERSION&&Array.isArray(roster.heroIds)&&Number.isSafeInteger(id)&&roster.heroIds.includes(id)&&!!heroRegistry.byNumericId(id)&&!heroRegistry.byNumericId(id).tombstone;
 export const validSimulationPair=(ids,roster)=>Array.isArray(ids)&&ids.length===2&&ids.every(id=>isHeroInSimulationRoster(id,roster));

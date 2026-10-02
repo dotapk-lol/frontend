@@ -6,12 +6,14 @@ const find=(e,owner,id)=>e.hero(owner).abilities.find(a=>a.id===id),param=(a,k)=
 const buff=(b,owner,extra)=>keys(b,['owner','hostile','polarity','pierces',...extra])&&b.owner===owner&&b.hostile===false&&b.polarity==='positive'&&b.pierces===false;
 const statusRules={seal:{duration:6,values:{magicAmp:.35,silence:true},dispel:'basic'},concussive_slow:{duration:4,values:{moveSlow:.4},dispel:'basic'},stampede_slow:{duration:3,values:{moveSlow:1},dispel:'basic'}};
 export function validateSnapshot(e,g){try{
+ const controlRules={centaur_hoof_stomp:['stun','strong',1.5],ember_spirit_searing_chains:['root','basic',1.5],abyssal_underlord_pit_of_malice:['root','basic',1.5],void_spirit_aether_remnant:['stun','strong',1.5],dawnbreaker_fire_wreath:['stun','strong',1.2],dawnbreaker_solar_guardian:['stun','strong',1.5]};
+ for(const c of g.packCore?.controls||[])if(c.key.startsWith('r91:')){const id=c.key.slice(4),r=controlRules[id];if(!r||!find(e,c.owner,id)||c.target!==1-c.owner||c.type!==r[0]||c.dispel!==r[1]||c.pierces!==false||!n(c.duration,0,r[2]))return false;}
  const w=g.packModules.r91;if(!keys(w,['entities','jobs','revisions','data'])||!keys(w.data,[]))return false;
  const ids=new Set(),idOK=id=>Number.isSafeInteger(id)&&id>0&&id<=g.packClock.seq&&!ids.has(id)&&!!ids.add(id);
- for(const j of w.jobs){if(!idOK(j.id)||!keys(j,['id','abilityId','kind','owner','target','at','data','persist','cancelOnInterrupt','revision'])||!find(e,j.owner,j.abilityId)||(j.target!==null&&!actor(j.target))||!n(j.at,g.t-1e-7,g.t+15)||!n(j.revision,0,w.revisions[j.owner]))return false;
+ for(const j of w.jobs){if(!idOK(j.id)||!keys(j,['id','abilityId','kind','owner','target','at','data','persist','cancelOnInterrupt','revision',...(j.kind==='stomp'?['actionToken']:[])])||!find(e,j.owner,j.abilityId)||(j.target!==null&&!actor(j.target))||!n(j.at,g.t-1e-7,g.t+15)||!n(j.revision,0,w.revisions[j.owner]))return false;
   if(j.kind==='extra'){if(!validateExtraJob(e,j))return false;const d=j.data,fields=['op','token',...(['star'].includes(d.op)?['part']:['hammer_out','hammer_return'].includes(d.op)?['from','x']:['deadshot','veil'].includes(d.op)?[]:['x'])];if(!keys(d,fields)||d.token!==null&&(!Number.isSafeInteger(d.token)||!n(d.token,0,g.fighters[j.owner].packModules.r91.data.extra.revision))||d.x!==undefined&&!n(d.x,45,1155)||d.from!==undefined&&!n(d.from,45,1155)||d.part!==undefined&&![0,1,2].includes(d.part))return false;continue;}
   if(j.persist!==false||!actor(j.target))return false;
-  if(j.kind==='stomp'){if(j.abilityId!=='centaur_hoof_stomp'||!keys(j.data,[])||j.cancelOnInterrupt!==true)return false;}
+  if(j.kind==='stomp'){if(j.abilityId!=='centaur_hoof_stomp'||!keys(j.data,[])||j.cancelOnInterrupt!==true||!keys(j.actionToken,['actor','revisions'])||j.actionToken.actor!==j.owner||!keys(j.actionToken.revisions,['control','input_cancel','action']))return false;}
   else if(j.kind==='quill'){if(j.abilityId!=='bristleback_quill_spray'||!eq(j.data,{reflected:true})||j.cancelOnInterrupt!==false)return false;}else return false;
  }
  for(const z of w.entities){if(!idOK(z.id)||!keys(z,['id','kind','owner','x','y','life','data'])||!n(z.x,-500,1700)||!n(z.y,-500,2000))return false;const d=z.data;

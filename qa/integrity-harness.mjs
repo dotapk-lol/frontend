@@ -1,3 +1,4 @@
+import {inRealmChannel} from './vm-channel.mjs';
 import {bundleApp} from '../scripts/bundle-app.mjs';
 import {idbFixture} from './idb-fixture.mjs';
 // Independent source-executing regression audit. Mock DOM/channel/gamepad APIs; not real browser or hardware QA.
@@ -17,7 +18,8 @@ export class World {
  if(viewport)viewport.addEventListener=(n,fn)=>{events['visual:'+n]=fn;};
  const win={visualViewport:viewport,BroadcastChannel,addEventListener(n,fn){events[n]=fn;}};
  const c={structuredClone,AbortController:globalThis.AbortController,indexedDB:world.indexedDB,crypto:globalThis.crypto,DATA,heroes,Engine,FIXED_DT,formatCombatNumber,window:win,document,BroadcastChannel,Image:class{},localStorage:{getItem(){return null;},setItem(){}},navigator:{getGamepads:()=>pads},location:{protocol:'https:'},performance:{now:()=>world.now},requestAnimationFrame(){},fetch:()=>Promise.resolve({ok:false}),setInterval:fn=>{intervals.set(++timer,fn);return timer;},clearInterval:id=>intervals.delete(id),setTimeout:()=>++timer,clearTimeout(){},console};
- vm.runInNewContext(source,c);
+ c.BroadcastChannel=win.BroadcastChannel=inRealmChannel(BroadcastChannel,c);vm.createContext(c);
+ vm.runInContext(source,c);
  const tab={...win,events,docEvents,document,intervals,nodes,resize(width,height){win.innerWidth=width;win.innerHeight=height;events.resize?.();},setPads(v){pads=v;},setAudioContext(C){win.AudioContext=C;}};this.tabs.push(tab);return tab;
  }
  pair(){const host=this.tab(),guest=this.tab();host.__audit.connect('ABC123','host');guest.__audit.connect('ABC123','guest');guest.__audit.sendRoom({type:'hello',hero:3});this.flush();return {host,guest};}

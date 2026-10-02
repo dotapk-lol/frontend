@@ -1,3 +1,4 @@
+import {inRealmChannel} from './vm-channel.mjs';
 import {bundleApp} from '../scripts/bundle-app.mjs';
 import {registryFixture} from './registry-fixture.mjs';
 import {idbFixture} from './idb-fixture.mjs';
@@ -20,7 +21,7 @@ function environment(){
  const app=node(),toast=node(),roomInput=node(),canvas=node();const nodes={'#app':app,'#toast':toast,'#roomInput':roomInput,'#arena':canvas,'#official-player':node(),'#official-status':node()};
  const document={querySelector:s=>nodes[s]||null,createElement:node,addEventListener:(k,fn)=>(docListeners[k]??=[]).push(fn),hidden:false,documentElement:{}};
  const context={structuredClone,indexedDB,crypto:globalThis.crypto,console,Engine,FIXED_DT,formatCombatNumber,DATA,heroes,document,location:{protocol:'http:'},navigator:{getGamepads:()=>[]},performance:{now:()=>0},localStorage:{getItem:()=>null,setItem:noop},Image:class{complete=false;naturalWidth=0;},fetch:fetcher,requestAnimationFrame:noop,clearTimeout:noop,setTimeout:()=>++seq,setInterval:fn=>{timers.set(++seq,fn);return seq;},clearInterval:id=>timers.delete(id),BroadcastChannel:BC,addEventListener:(k,fn)=>(listeners[k]??=[]).push(fn)};
- context.window=context;vm.createContext(context);vm.runInContext(appSource,context);
+ context.window=context;context.BroadcastChannel=inRealmChannel(BC,context);vm.createContext(context);vm.runInContext(appSource,context);
  return {window:context,D:context.DUEL,Q:context.QA,roomInput,fire:(k,event={})=>(listeners[k]||[]).forEach(f=>f(event)),hide:()=>{document.hidden=true;(docListeners.visibilitychange||[]).forEach(f=>f());}};
  }
  return {page,flush};

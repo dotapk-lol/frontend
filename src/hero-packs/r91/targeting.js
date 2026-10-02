@@ -8,6 +8,6 @@ export function validateAim(e,f,a,options={}){
  if(self)return {ok:f.hp>0,target:f.i,reason:f.hp>0?null:'dead_self'};
  const aim=options.aim??t.x,ground=['skywrath_mage_mystic_flare','snapfire_mortimer_kisses','magnataur_skewer'].includes(a.id);
  if(ground){if(!Number.isFinite(aim)||aim<45||aim>1155||Math.abs(aim-f.x)>a.mvp.range_wu+22)return {ok:false,reason:'invalid_aim'};if(a.id==='snapfire_mortimer_kisses'&&Math.abs(aim-f.x)<a.official.params.min_range*.55)return {ok:false,reason:'minimum_range'};}
- if(targeted.has(a.id)&&(t.hp<=0||t.invuln>0||Math.abs(t.x-f.x)>a.mvp.range_wu+22))return {ok:false,reason:'invalid_target'};
+ if(targeted.has(a.id)){const result=e.canTargetSpell({owner:f.i,target:t.i,abilityId:a.id,range:a.mvp.range_wu});if(!result.ok)return {ok:false,reason:'invalid_target'};}
  return {ok:true,target:t.i,aim};
 }

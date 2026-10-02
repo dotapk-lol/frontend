@@ -1,4 +1,4 @@
-// V5 explicitly simplified 1v1 spell programs. This module only operates real Engine objects.
+// V6 ABI2.4 explicitly simplified 1v1 spell programs. This module only operates real Engine objects.
 export const EXTRA_IDS=[104,106,117,121,124];
 const own=(e,f)=>EXTRA_IDS.includes(e.hero(f.i).registryNumericId),key=(e,f)=>e.hero(f.i).key;
 const near=(a,b,r)=>Math.abs(a.x-b.x)<=r*.55+22&&Math.abs(a.y-b.y)<130;
@@ -25,6 +25,7 @@ export function createExtraSystem(api){
  // No receipt/cache is serialized into fighters or world state.
  const receipts=new WeakMap();
  const state=(e,f)=>api.fighter(e,f).data.extra;
+ const control=(e,f,t,a,type,duration,dispel='strong')=>api.applyControlSource(e,t,{owner:f.i,key:'r91:'+a.id,type,duration,dispel});
  const damage=(e,f,t,n,a,type=a.official.damageType,flags={})=>api.damageResult(e,f.i,t,n,{type,abilityId:a.id,...flags});
  const stat=(e,f,k)=>api.value(e,f,k,{mode:'sum'});
  const power=(e,f)=>e.hero(f.i).attack+e.property(f,'attack_bonus')+stat(e,f,'bonusDamage');
@@ -42,19 +43,19 @@ export function createExtraSystem(api){
    if(s.channel?.kind==='solar'&&s.channel.flight)return false;
    if(s.channel?.kind==='star'&&['dawnbreaker_celestial_hammer','dawnbreaker_solar_guardian'].includes(a.id))return false;
    if(a.id==='dawnbreaker_fire_wreath'&&api.world(e).jobs.some(j=>j.owner===f.i&&j.data.op==='hammer_return'))return false;
-   if(['ember_spirit_fire_remnant','void_spirit_dissimilate','void_spirit_astral_step','abyssal_underlord_dark_portal','dawnbreaker_solar_guardian'].includes(a.id)&&f.root>0)return false;
+   if(['ember_spirit_fire_remnant','void_spirit_dissimilate','void_spirit_astral_step','abyssal_underlord_dark_portal','dawnbreaker_solar_guardian'].includes(a.id)&&e.controlRemaining(f,'root')>0)return false;
    const point=['ember_spirit_sleight_of_fist','ember_spirit_fire_remnant','abyssal_underlord_firestorm','abyssal_underlord_pit_of_malice','void_spirit_aether_remnant','void_spirit_astral_step','dawnbreaker_celestial_hammer','muerta_the_calling'].includes(a.id);
    const range={dawnbreaker_celestial_hammer:1300,void_spirit_astral_step:1000}[a.id]??a.official.range;
    if(point&&(!Number.isFinite(aim)||aim<45||aim>1155||Math.abs(aim-f.x)>range*.55+22))return false;
    if(a.id==='abyssal_underlord_dark_portal'){const x=o.aim??(f.x<600?1155:45);if(!Number.isFinite(x)||x<45||x>1155||Math.abs(x-f.x)<p(a,'minimum_distance')*.55)return false;}
-   if(a.id==='muerta_dead_shot'&&(t.hp<=0||t.invuln>0||!near(f,t,a.official.range)))return false;
+   if(a.id==='muerta_dead_shot'&&!api.canTargetSpell(e,{owner:f.i,target:t.i,abilityId:a.id,range:a.mvp.range_wu}).ok)return false;
    if(a.id==='dawnbreaker_solar_guardian'&&o.aim!==undefined&&(!Number.isFinite(o.aim)||o.aim<45||o.aim>1155||Math.abs(o.aim-f.x)>350*.55))return false;
    if(a.id==='void_spirit_dissimilate'&&o.aim!==undefined&&!Number.isFinite(o.aim))return false;return true;
   },
   onCast(e,f,a){if(!own(e,f))return;cancel(e,f);const c=charges(e,f,a);if(c){c.count--;c.pending.push(Math.max(e.t,c.pending.at(-1)||e.t)+c.restore);}if(a.id==='muerta_dead_shot')e.notifyTargeted(f,e.fighters[1-f.i],a.id);},
   activate(e,f,a,c){if(!own(e,f))return false;const t=e.fighters[1-f.i],s=state(e,f),aim=c.aim;
    switch(a.id){
-    case 'ember_spirit_searing_chains':if(near(f,t,p(a,'radius'))){add(e,f,t,'x_chains',{dps:p(a,'damage_per_second')});api.control(e,t,'root',p(a,'duration'));}break;
+    case 'ember_spirit_searing_chains':if(near(f,t,p(a,'radius'))){add(e,f,t,'x_chains',{dps:p(a,'damage_per_second')});control(e,f,t,a,'root',p(a,'duration'),'basic');}break;
     case 'ember_spirit_sleight_of_fist':{const rev=channel(e,f,'sleight',.25);f.invuln=Math.max(f.invuln,.25);job(e,f,a,'sleight',.25,{x:aim},rev);break;}
     case 'ember_spirit_flame_guard':add(e,f,f,'x_flame',{amount:p(a,'absorb_amount'),dps:p(a,'damage_per_second')});break;
     case 'ember_spirit_fire_remnant':field(e,f,a,'remnant',aim,1);job(e,f,a,'remnant',1,{x:aim});break;
@@ -81,12 +82,12 @@ export function createExtraSystem(api){
     case 'remnant':teleport(e,f,d.x);if(near(f,t,450))damage(e,f,t,300,a,'magical');break;
     case 'gate':teleport(e,f,d.x);break;
     case 'phase':teleport(e,f,d.x);if(near(f,t,275))damage(e,f,t,345,a,'magical');break;
-    case 'star':if(near(f,t,300)){damage(e,f,t,power(e,f)+70,a,'physical');if(d.part===2)api.control(e,t,'stun',1.2);else add(e,f,t,'x_shortslow',{moveSlow:1});}break;
+    case 'star':if(near(f,t,300)){damage(e,f,t,power(e,f)+70,a,'physical');if(d.part===2)control(e,f,t,a,'stun',1.2);else add(e,f,t,'x_shortslow',{moveSlow:1});}break;
     case 'hammer_out':case 'hammer_return':if(t.x>=Math.min(d.from,d.x)-110&&t.x<=Math.max(d.from,d.x)+110&&t.y<130)damage(e,f,t,140,a,'magical');if(d.op==='hammer_return')field(e,f,a,'hammer_burn',d.x,4,d.from);break;
     case 'solar_pulse':api.heal(e,f,95,{abilityId:a.id});if(Math.abs(t.x-d.x)<=500*.55+22&&t.y<130)damage(e,f,t,70,a,'magical');break;
     case 'solar_fly':f.invuln=Math.max(f.invuln,.8);if(s.channel)s.channel.flight=true;break;
-    case 'solar_land':teleport(e,f,d.x);if(near(f,t,500)){damage(e,f,t,190,a,'magical');api.control(e,t,'stun',1.6);}break;
-    case 'deadshot':{let source=f,target=t,reflected=false;const counter=e.buff(t,'counter');if(counter&&!counter.m.counter_type){t.buffs=t.buffs.filter(b=>b!==counter);source=t;target=f;reflected=true;}const receipt=damage(e,source,target,325,a,'magical',{reflected});if(receipt.accepted){const r=add(e,f,target,'x_deadslow',{moveSlow:1});if(r)r.owner=source.i;}break;}
+    case 'solar_land':teleport(e,f,d.x);if(near(f,t,500)){damage(e,f,t,190,a,'magical');control(e,f,t,a,'stun',1.6);}break;
+    case 'deadshot':{const route=api.routeTargetedSpell(e,{owner:f.i,target:t.i,abilityId:a.id});if(!route.accepted)break;const source=e.fighters[route.owner],target=e.fighters[route.target],receipt=damage(e,source,target,325,a,'magical',{reflected:route.reflected,noReflect:route.noReflect});if(receipt.accepted){const r=add(e,f,target,'x_deadslow',{moveSlow:1});if(r)r.owner=source.i;}break;}
     case 'veil':add(e,f,f,'x_veil',{physicalImmune:true,veil:true});break;
     default:throw Error('Unknown V5 job');
    }
@@ -98,11 +99,11 @@ export function createExtraSystem(api){
    else if(s.key.startsWith('x_voidmark_'))damage(e,owner,f,330,a,'magical');
    else if(s.key.startsWith('x_flame_')&&s.values.amount>0){const t=e.fighters[1-f.i];if(near(f,t,500))damage(e,f,t,10,a,'magical');}
   },
-  beforeTick(e){for(const f of e.fighters){const s=state(e,f),ch=s.channel;if(ch&&!ch.flight){const inp=e.input[f.i];if(e.blocked(f)||e.isSilenced(f)||inp.left||inp.right||inp.attack||Math.abs(f.x-ch.startX)>1)cancel(e,f);}if(s.channel&&s.channel.until<e.t-1e-7)s.channel=null;for(const c of s.charges)while(c.pending.length&&c.pending[0]<=e.t+1e-8){c.pending.shift();c.count=Math.min(c.max,c.count+1);}}},
+  beforeTick(e){for(const f of e.fighters){const s=state(e,f),ch=s.channel;if(ch&&!ch.flight){const inp=e.input[f.i];if(e.blocked(f)||api.effectiveStatus(e,f,'silence')||inp.left||inp.right||inp.attack||Math.abs(f.x-ch.startX)>1)cancel(e,f);}if(s.channel&&s.channel.until<e.t-1e-7)s.channel=null;for(const c of s.charges)while(c.pending.length&&c.pending[0]<=e.t+1e-8){c.pending.shift();c.count=Math.min(c.max,c.count+1);}}},
   tick(e,dt){const world=api.world(e);for(const z of world.entities){if(z.kind!=='extra')continue;const f=e.fighters[z.owner],t=e.fighters[1-z.owner],d=z.data,a=canonical(e,z.owner,d.abilityId),live=Math.min(dt,z.life);if(f.hp<=0){z.life=0;continue;}z.life-=live;d.age+=live;d.tick+=live;
    if(d.mode==='storm'){while(d.tick>=1-1e-8&&d.waves<6){d.tick-=1;d.waves++;if(Math.abs(t.x-z.x)<=425*.55+22&&t.y<130){damage(e,f,t,105,a,'magical');add(e,f,t,'x_fireburn',{percent:.03});}}}
-   else if(d.mode==='pit'){if(t.hp>0&&Math.abs(t.x-z.x)<=400*.55+22&&t.y<130&&e.t>=d.nextHit){d.nextHit=e.t+3.6;damage(e,f,t,50,a,'magical');api.control(e,t,'root',1.8);}}
-   else if(d.mode==='aether'){const dx=(t.x-z.x)*d.face;if(d.age>=.4&&t.hp>0&&t.invuln<=0&&!e.property(t,'debuffImmune')&&dx>=-130*.55&&dx<=450*.55&&t.y<130){teleport(e,t,z.x+d.face*62*.55);damage(e,f,t,240,a,'magical');api.control(e,t,'stun',1.6);z.life=0;}}
+   else if(d.mode==='pit'){if(t.hp>0&&Math.abs(t.x-z.x)<=400*.55+22&&t.y<130&&e.t>=d.nextHit){d.nextHit=e.t+3.6;damage(e,f,t,50,a,'magical');control(e,f,t,a,'root',1.8,'basic');}}
+   else if(d.mode==='aether'){const dx=(t.x-z.x)*d.face;if(d.age>=.4&&t.hp>0&&t.invuln<=0&&!e.property(t,'debuffImmune')&&dx>=-130*.55&&dx<=450*.55&&t.y<130){teleport(e,t,z.x+d.face*62*.55);damage(e,f,t,240,a,'magical');control(e,f,t,a,'stun',1.6);z.life=0;}}
    else if(d.mode==='hammer_burn'){while(d.tick>=.5-1e-8){d.tick-=.5;if(t.x>=Math.min(d.from,z.x)-110&&t.x<=Math.max(d.from,z.x)+110&&t.y<130){damage(e,f,t,25,a,'magical');add(e,f,t,'x_hammer_slow',{moveSlow:.36});}}}
    else if(d.mode==='calling'){if(t.hp>0&&Math.abs(t.x-z.x)<=460*.55&&t.y<130){add(e,f,t,'x_call_slow',{moveSlow:.2});const touch=[0,1,2,3].some(i=>Math.abs(t.x-(z.x+340*.55*Math.cos(d.age*Math.PI/2+i*Math.PI/2)))<=120*.55);if(touch&&e.t>=d.nextHit){d.nextHit=e.t+1;damage(e,f,t,180,a,'magical');add(e,f,t,'x_call_silence',{silence:true});}}}
   }world.entities=world.entities.filter(z=>z.life>1e-8);},
@@ -111,10 +112,12 @@ export function createExtraSystem(api){
   beforeDamage(e,v){for(const s of api.fighter(e,v.target).statuses){if(!api.effective(e,v.target,s.key))continue;if(s.key.startsWith('x_flame_')&&v.m.damage_type==='magical'){const amount=Math.min(s.values.amount,v.damage*.7);s.values.amount-=amount;v.damage-=amount;if(s.values.amount<=1e-8)api.removeStatus(e,v.target,s.key);}if(s.key.startsWith('x_pulse_')&&v.m.damage_type==='physical'){const amount=Math.min(s.values.amount,v.damage);s.values.amount-=amount;v.damage-=amount;if(s.values.amount<=1e-8)api.removeStatus(e,v.target,s.key);}}},
   afterDamage(e,v){if(key(e,v.attacker)==='dawnbreaker'&&v.info.basic&&Number.isSafeInteger(v.attackId))receipts.get(e)[v.attacker.i]={id:v.attackId,actual:v.damage};},
   afterAttack(e,f,t,ev,landed){const s=state(e,f);if(key(e,f)==='dawnbreaker'){if(landed&&e.passivesEnabled(f)){s.luminosity=(s.luminosity+1)%4;const receipt=receipts.get(e)[f.i];if(s.luminosity===0&&receipt?.id===ev.id)api.heal(e,f,receipt.actual*.5,{abilityId:'dawnbreaker_luminosity'});}receipts.get(e)[f.i]=null;}if(f.hp>0&&key(e,f)==='muerta'&&s.gunslinger&&landed&&e.passivesEnabled(f)&&t.hp>0&&e.random()<.45){const a=canonical(e,f.i,'muerta_gunslinger');damage(e,f,t,power(e,f)+(api.hasValue(e,f,'veil')?e.hero(f.i).attack:0),a,api.hasValue(e,f,'veil')?'magical':'physical');}},
+  actionChanged(e,f,reason){if(['control','input_cancel','movement','action'].includes(reason)&&state(e,f).channel)cancel(e,f);},
   interrupted(e,f){cancel(e,f);},
+  death(e,event){for(const f of e.fighters){const s=state(e,f),t=e.fighters[event.actor];if(key(e,f)==='abyssal_underlord'&&t.i!==f.i&&f.hp>0&&!s.deathSeen&&e.passivesEnabled(f)&&near(f,t,900)){add(e,f,f,'x_atrophy_gain',{bonusDamage:45});s.deathSeen=true;}}},
   disarmed(e,f){return !!state(e,f).channel;},
   moveMultiplier(e,f){return state(e,f).channel?0:1;},
-  endStep(e){for(const f of e.fighters){const s=state(e,f),t=e.fighters[1-f.i];if(key(e,f)==='abyssal_underlord'&&f.hp>0&&!s.deathSeen&&t.hp<=0&&e.passivesEnabled(f)&&near(f,t,900)){add(e,f,f,'x_atrophy_gain',{bonusDamage:45});s.deathSeen=true;}if(f.hp<=0){s.channel=null;receipts.get(e)[f.i]=null;api.cancelOwnerEffects(e,f.i,{includePersistent:true});for(const u of e.fighters)api.fighter(e,u).statuses=api.fighter(e,u).statuses.filter(x=>!x.key.startsWith('x_')||x.owner!==f.i);}}},
+  endStep(e){for(const f of e.fighters){const s=state(e,f),t=e.fighters[1-f.i];if(f.hp<=0){s.channel=null;receipts.get(e)[f.i]=null;api.cancelOwnerEffects(e,f.i,{includePersistent:true});for(const u of e.fighters)api.fighter(e,u).statuses=api.fighter(e,u).statuses.filter(x=>!x.key.startsWith('x_')||x.owner!==f.i);}}},
  };
  return X;
 }
