@@ -1,5 +1,5 @@
 import {R91_DEFINITIONS} from './r91-definitions.js';
-import {createPackServices,packStatusEffective} from '../pack-services.js';
+import {createPackServices} from '../pack-services.js';
 const r91FirstIds=new Set([94,97,99]);
 const r91Sources=R91_DEFINITIONS.filter(p=>r91FirstIds.has(p.definition.registryNumericId));
 const r91Services=createPackServices('r91',{entityKinds:['homing','flare'],eventKinds:['stomp','quill'],abilityIds:r91Sources.flatMap(p=>p.definition.abilities.map(a=>a.id))});
@@ -11,7 +11,7 @@ const r91Status=(e,f,key)=>r91Services.status(e,f,key);
 const r91Effective=(e,f,key)=>r91Services.effective(e,f,key);
 const r91Ability=(e,f,id)=>e.hero(f.i).abilities.find(a=>a.id===id);
 const r91Hit=(e,owner,target,amount,type,skill,flags={})=>r91Services.damage(e,owner,target,amount,{type,abilityId:skill,...flags});
-const r91Debuff=(e,t,key,owner,duration,values={},tier='basic',pierces=false)=>r91Services.applyStatus(e,t,{key,owner,duration,values,dispel:tier,pierces});
+const r91Debuff=(e,t,key,owner,duration,values={},tier='basic',pierces=false)=>r91Services.applyStatus(e,t,{key,owner,duration,values,dispel:tier,hostile:true,pierces});
 const r91Distance=(a,b)=>Math.abs(a.x-b.x);
 const r91Back=(e,f,other)=>{const input=e.input[f.i],moving=(input.right?1:0)-(input.left?1:0);return (other.x-f.x)*(moving||f.dir)<0;};
 const r91DebuffDuration=(e,owner,t,seconds)=>r91Key(e,owner)==='bristleback'&&e.passivesEnabled(owner)&&r91Back(e,owner,t)?seconds*1.045:seconds;
@@ -33,7 +33,7 @@ export const R91Combat={
   switch(a.id){
    case 'bristleback_viscous_nasal_goo':{r91FireMissile(e,f,t,a,0,r91Param(a,'goo_speed'));r91Services.world(e).entities.at(-1).data.goo=true;break;}
    case 'bristleback_quill_spray':r91Quill(e,f);break;
-   case 'centaur_hoof_stomp':{f.recovery=0;const duration=r91Param(a,'windup_time');r91Debuff(e,f,'stomp_windup',f.i,duration,{},'none',true);r91Services.scheduleEffect(e,{abilityId:a.id,kind:'stomp',owner:f.i,target:t.i,delay:duration});break;}
+   case 'centaur_hoof_stomp':{f.recovery=0;const duration=r91Param(a,'windup_time');r91Services.applyPositiveStatus(e,f,{key:'stomp_windup',owner:f.i,duration,values:{disarm:true},dispel:'none',hostile:false});r91Services.scheduleEffect(e,{abilityId:a.id,kind:'stomp',owner:f.i,target:t.i,delay:duration});break;}
    case 'centaur_double_edge':{if(t.hp<=0||r91Distance(f,t)>a.mvp.range_wu+22)break;const damage=r91Param(a,'edge_damage')+e.hero(f.i).attributes18.str*r91Param(a,'strength_damage')/100;r91Hit(e,source,t,damage,'magical',a.id,{reflected:source!==f.i});e.hit(f,f,damage,{damage_type:'magical',blockable:false,chip:true},{skill:a.id,dot:true,noReflect:true,noLifesteal:true});break;}
    case 'centaur_stampede':r91State(e,f).data.stampede={life:r91Param(a,'duration'),hit:[]};break;
    case 'skywrath_mage_arcane_bolt':if(t.hp>0)r91FireMissile(e,f,t,a,r91Param(a,'bolt_damage')+e.hero(f.i).attributes18.int*r91Param(a,'int_multiplier'),r91Param(a,'bolt_speed'));break;
@@ -47,7 +47,7 @@ export const R91Combat={
  silenced(e,f){return r91Effective(e,f,'seal');},
  disarmed(e,f){return r91Effective(e,f,'stomp_windup');},
  attack(e,f,t,damage){return damage+r91State(e,f).data.warpath.length*20;},
- modifyDamage(e,event){const f=event.attacker,t=event.target;if(r91Key(e,f)==='bristleback'&&e.passivesEnabled(f)&&r91Back(e,f,t))event.damage*=1.045;if(r91Key(e,t)==='bristleback'&&e.passivesEnabled(t)&&r91Back(e,t,f))event.damage*=.6;const goo=r91Status(e,t,'goo');if(event.m.damage_type==='physical'&&packStatusEffective(e,t,goo))event.sharedArmor=(event.sharedArmor||0)-goo.values.armor;const seal=r91Status(e,event.target,'seal');if(event.m.damage_type==='magical'&&packStatusEffective(e,event.target,seal))event.damage*=1+seal.values.magicAmp;},
+ modifyDamage(e,event){const f=event.attacker,t=event.target;if(r91Key(e,f)==='bristleback'&&e.passivesEnabled(f)&&r91Back(e,f,t))event.damage*=1.045;if(r91Key(e,t)==='bristleback'&&e.passivesEnabled(t)&&r91Back(e,t,f))event.damage*=.6;if(event.m.damage_type==='physical')event.sharedArmor=(event.sharedArmor||0)-r91Services.value(e,t,'armor');if(event.m.damage_type==='magical')event.damage*=1+r91Services.value(e,t,'magicAmp');},
  beforeDamage(e,event){const {target,m}=event,state=r91State(e,target);if(m.damage_type==='magical'){for(const barrier of state.data.barriers){const take=Math.min(barrier.amount,event.damage);barrier.amount-=take;event.damage-=take;}}},
  afterDamage(e,event){const {attacker:f,target:t,damage,m,info,guard}=event;
   if(damage>0&&f!==t&&t.hp>0&&!info.reflected&&!info.noReflect&&r91Key(e,t)==='bristleback'&&e.passivesEnabled(t)&&r91Back(e,t,f)){const data=r91State(e,t).data;data.backDamage+=damage;while(data.backDamage>=200){data.backDamage-=200;r91Services.scheduleEffect(e,{abilityId:'bristleback_quill_spray',kind:'quill',owner:t.i,target:f.i,delay:.1,data:{reflected:true}});}}
@@ -55,7 +55,7 @@ export const R91Combat={
   if(damage>0&&info.basic&&!guard&&!info.noReflect&&!info.reflected&&f!==t&&t.hp>0&&r91Key(e,t)==='centaur'&&e.passivesEnabled(t)){const a=r91Ability(e,t,'centaur_return');r91Hit(e,t.i,f,r91Param(a,'return_damage')+e.hero(t.i).attributes18.str*r91Param(a,'return_damage_str')/100,'physical',a.id,{reflected:true});}
  },
  dispel(e,f,tier){r91Services.dispel(e,f,tier);},
- moveMultiplier(e,f){const state=r91State(e,f);let slow=0;for(const s of state.statuses)if(packStatusEffective(e,f,s))slow=Math.max(slow,s.values.moveSlow||0);let speed=e.hero(f.i).move_speed;if(r91Key(e,f)==='centaur'&&e.passivesEnabled(f))speed+=e.hero(f.i).attributes18.str*.4*.55;if(state.data.stampede)speed=Math.max(speed,330);return speed/e.hero(f.i).move_speed*(1+state.data.warpath.length*.03)*(1-Math.min(.95,slow));},
+ moveMultiplier(e,f){const state=r91State(e,f);const slow=r91Services.value(e,f,'moveSlow');let speed=e.hero(f.i).move_speed;if(r91Key(e,f)==='centaur'&&e.passivesEnabled(f))speed+=e.hero(f.i).attributes18.str*.4*.55;if(state.data.stampede)speed=Math.max(speed,330);return speed/e.hero(f.i).move_speed*(1+state.data.warpath.length*.03)*(1-Math.min(.95,slow));},
  tick(e,dt){
   for(const f of e.fighters){r91Services.advanceStatuses(e,f,dt);const data=r91State(e,f).data;if(f.hp>0)data.dead=false;for(const list of [data.quills,data.warpath])for(const s of list)s.life-=dt;data.quills=data.quills.filter(s=>s.life>1e-8);data.warpath=data.warpath.filter(s=>s.life>1e-8);for(const b of data.barriers)b.life-=dt;data.barriers=data.barriers.filter(b=>b.life>1e-8&&b.amount>1e-8);const stamp=data.stampede;if(stamp){stamp.life-=dt;const t=e.fighters[1-f.i],a=r91Ability(e,f,'centaur_stampede');if(f.hp>0&&t.hp>0&&!stamp.hit.includes(t.i)&&r91Distance(f,t)<=r91Param(a,'radius')*.55+22){stamp.hit.push(t.i);r91Hit(e,f.i,t,e.hero(f.i).attributes18.str*r91Param(a,'strength_damage'),'magical',a.id);r91Debuff(e,t,'stampede_slow',f.i,r91Param(a,'slow_duration'),{moveSlow:r91Param(a,'slow_movement_speed')/100});}if(stamp.life<=1e-8)data.stampede=null;}}
   r91Services.runDue(e,job=>{const f=e.fighters[job.owner],t=e.fighters[job.target],a=r91Ability(e,f,job.abilityId);if(job.kind==='quill'){r91Quill(e,f,true);return;}if(job.kind==='stomp'&&r91Distance(f,t)<=r91Param(a,'radius')*.55+22&&t.y<45){r91Hit(e,f.i,t,r91Param(a,'stomp_damage'),'magical',a.id);e.control(t,'stun',r91Param(a,'stun_duration'));}else if(job.kind!=='stomp')throw Error('Unknown R91 effect kind');});

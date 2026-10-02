@@ -1,4 +1,4 @@
-# Public pack ABI: duel-pack-2-fighter
+# Public pack ABI: duel-pack-2.1-status
 
 Integration checkpoint; **not a release or 27-hero unlock**. Default active roster remains24. Core4 preview4174 and production are unchanged. The API below exists in executable Engine code; reserved capabilities are explicitly separate.
 
@@ -79,16 +79,24 @@ Create the service after definitions but before PACKS initialization if necessar
 | damage | Legacy boolean helper only. Prefer damageResult in new adapters. |
 | heal | `(e,f,amount,details)` → actual numeric heal. |
 | control | `(e,f,'stun'/'root'/'hex'/'fear'/'taunt',duration,pierces=false)` → admitted duration,0 if rejected. Existing1.5s continuous-control protection remains. |
-| applyStatus | `(e,f,{key,owner,duration,values,dispel='basic',pierces=false,interval=0})` → status/null. This is a negative-status gate; invulnerability/debuff immunity rejects unless applicable piercing. Store self buffs in data or e.addBuff, not this negative-status helper. |
+| applyStatus | `(e,f,{key,owner,duration,values,dispel='basic',pierces=false,allowInvulnerable=false,interval=0})` → hostile status/null. **Negative gate is retained**; hostile=false rejects and must use the positive entry. |
+| applyPositiveStatus | Same options → positive status/null. Debuff immunity never rejects or suppresses this self/ally buff. Invulnerability still rejects delivery unless allowInvulnerable=true. |
+| applyMixedStatus | `(e,f,{key,owner,duration,positive:{values,dispel,interval},negative:{values,dispel,interval},pierces=false,allowInvulnerable=false})` → `{positive,negative}`. Creates linked `_positive`/`_hostile` records; each has polarity=mixed, group=key, owner, explicit hostile and pierces. Positive pierces=false. Each component is gated/dispelled/ticked separately; capacity/validation failure is atomic. |
 | removeStatus | `(e,f,key)` removes an own status and returns whether one existed. |
-| status/effective | `(e,f,key)` → record/boolean. Nonpiercing persistent negative statuses are suppressed during immunity while expiry continues. |
+| value | `(e,f,valueKey,{mode='max',fallback=0})` → numeric aggregate of only effective own statuses; modes sum/max/min/product. Use sum for additive signed armor and product with fallback1 for multipliers. |
+| hasValue | `(e,f,valueKey)` → any effective own status has true/positive numeric property. |
+| status/effective | `(e,f,key)` → record/boolean. Nonpiercing persistent hostile statuses are suppressed during immunity while expiry continues. `status()` is raw lifecycle/stack metadata; never read raw values to compute combat properties. Use value/hasValue/effective for every combat read. |
 | advanceStatuses | `(e,f,dt,onTick)`; periodic callback receives `(status,enabled)`. Caller must not deal negative effect when enabled=false. No accumulated catch-up after immunity. |
-| dispel | `(e,f,tier)` removes own basic or basic+strong statuses. |
+| dispel | `(e,f,tier,{hostile=true})` removes matching own basic or basic+strong statuses; default cleanses hostile statuses, hostile=false dispels positive buffs. |
 | spawn | `(e,{kind,owner,x,y=0,life,data})` → plain entity. **Effects only, not attackable units.** Author tick owns motion/expiry and collision. |
 | scheduleEffect | `(e,{abilityId,kind,owner,target=null,delay,data,persist=false,cancelOnInterrupt=false})` → serialized job using elapsed e.t. |
 | cancelOwnerEffects | `(e,owner,{includePersistent=false})` advances revision and removes jobs. |
 | runDue | `(e,dispatch)` sorted at/id, removes job before dispatch, bounded processing; no functions in payload. |
 | validateSnapshot | `(snapshot)` validates structural namespace, actor references, opcodes and bounds. Author validator must additionally validate its specific data fields. |
+
+The old bbdc7a5 negative-only helper rejecting self buffs was documented behavior, not a defect. ABI2.1 adds separate typed positive/mixed entries; e.addBuff and pack data remain valid for their documented uses. `pierces` bypasses debuff immunity only, never invulnerability. Mixed groups are never queried as one boolean for combat: read each property via value/hasValue so suppressing/removing its hostile half cannot remove its positive half. Never use blanket e.dispel for a polarity-specific offensive purge; call the appropriate per-system typed dispel.
+
+Positive namespace statuses may grant `values.debuffImmune`; Engine.property recognizes them across namespaces, so legacy core4 gates and other pack readers see the same immunity. Hostile statuses cannot grant immunity. Engine.isSilenced/basic attack also observe effective namespace silence/disarm flags. Namespaced status immunity does not rewrite legacy raw stun/silence timers. Authors must use typed statuses for new persistent debuffs. Continuous-control applications still use control() and its chain cap.
 
 Use actual e.fighters[0/1] objects only; clones and invalid actor indices reject. Use e.random() for seeded RNG; e.move for wall/arena-clamped movement, e.fx/e.log for supported effects/events, e.addBuff/e.property/e.dispel for current documented properties. Do not reinterpret e.move as swept hero/summon collision. geometry scale.55 is applied once in definition/adapter; do not re-scale an existing *_wu coefficient.
 

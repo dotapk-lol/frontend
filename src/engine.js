@@ -1,5 +1,5 @@
 import {createPackDispatcher} from './pack-dispatcher.js';
-import {assertPackSerializable} from './pack-services.js';
+import {assertPackSerializable,packHasDebuffImmunity,packStatusFlag} from './pack-services.js';
 import {PackCombat} from './pack-runtime.js';
 import {lookupRuntimeHero,validHeroPair,validSimulationPair} from './hero-registry.js';
 export const formatCombatNumber=value=>{if(!Number.isFinite(value))return '0';const n=Math.max(0,value);return n>0&&n<.1?'<0.1':n.toFixed(1).replace(/\.0$/,'');};
@@ -36,10 +36,10 @@ export class Engine {
  log(type,i,detail){this.logs.push({frame:this.frame,logId:++this.logSeq,type,player:i,...detail});if(this.logs.length>200)this.logs.shift();}
  buff(f,key){return f.buffs.find(b=>b.key===key);}
  addBuff(f,key,m,duration){f.buffs=f.buffs.filter(b=>b.key!==key);f.buffs.push({key,m:clone(m),life:duration||m.duration_s||2});}
- property(f,key,fallback=0){return f.buffs.reduce((v,b)=>Math.max(v,b.m[key]||0),fallback);}
+ property(f,key,fallback=0){if(key==='debuffImmune'&&packHasDebuffImmunity(f))fallback=Math.max(fallback,1);return f.buffs.reduce((v,b)=>Math.max(v,b.m[key]||0),fallback);}
  passivesEnabled(f){return !this.packCombat.broken(this,f);}
  notifyTargeted(f,t,skill){this.packCombat.targeted(this,f,t,skill);}
- isSilenced(f){return f.silence>0||this.packCombat.silenced(this,f);}
+ isSilenced(f){return f.silence>0||packStatusFlag(this,f,'silence')||this.packCombat.silenced(this,f);}
  blocked(f){return f.stun>0||f.hex>0||f.fear>0||f.taunt>0;}
  animate(f,name,duration=.35){f.animation=name;f.animTime=duration;}
  interrupt(f){this.packCombat.interrupted(this,f,'control');if(f.pack)f.pack.attackRecoveryUntil=0;if(f.cast){this.log('interrupted',f.i,{skill:f.cast.slot});f.cast=null;}if(f.channel){this.log('channel_end',f.i,{reason:'interrupted'});f.channel=null;}f.buffs=f.buffs.filter(b=>!b.m.interruptOnCC);f.chargeSlot=-1;}
@@ -84,7 +84,7 @@ export class Engine {
   damageEvent.damage=actualDebit;this.packCombat.afterDamage(this,damageEvent);
   this.log(guard?'block':'hit',attacker.i,{damage:d,target:target.i,basic,heavy:!!info.heavy,skill:info.skill||null});return !guard;
  }
- attack(i){const heavy=false;const f=this.fighters[i],t=this.fighters[1-i],h=this.hero(i);if(this.phase!=='fight'||this.paused||f.hp<=0||this.blocked(f)||this.packCombat.disarmed(this,f)||f.root>0||f.attackCd>1e-7||f.recovery>1e-7||f.cast||f.channel||(this.buff(f,'aura')&&h.id==='juggernaut'))return false;
+ attack(i){const heavy=false;const f=this.fighters[i],t=this.fighters[1-i],h=this.hero(i);if(this.phase!=='fight'||this.paused||f.hp<=0||this.blocked(f)||this.packCombat.disarmed(this,f)||packStatusFlag(this,f,'disarm')||f.root>0||f.attackCd>1e-7||f.recovery>1e-7||f.cast||f.channel||(this.buff(f,'aura')&&h.id==='juggernaut'))return false;
   const fiery=this.passivesEnabled(f)?this.buff(f,'fiery')?.m.stacks||0:0;const interval=this.packCombat.attackInterval(this,f,t,this.property(f,'attack_interval_override_s')||h.attack_interval_s*(this.property(f,'attack_interval_multiplier')||1)*(1/(1+fiery*.28)));const moon=this.buff(f,'mirana_moonlight');if(moon)moon.reveal=1.5;f.attackCd=interval*(heavy?1.65:1);f.recovery=Math.min(.22,interval);this.animate(f,heavy?'heavy':'attack',heavy?.45:.32);f.guard=0;
   let range=(this.property(f,'attack_range_override')||h.attack_range)+this.property(f,'attack_range_bonus')+this.property(f,'next_attack_range_bonus');let d=this.property(f,'attack_damage_override')||h.attack;d+=this.property(f,'attack_bonus');if(h.id==='shadow_fiend')d+=f.souls;d*=1-this.property(f,'attack_damage_debuff');if(heavy){d*=1.55;range+=24;}
   const buff=f.buffs.find(b=>b.m.next_attack_override);if(buff)d=buff.m.next_attack_override;
