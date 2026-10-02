@@ -448,32 +448,36 @@
     {
       "heroId": 15,
       "abilityId": 5082,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 15,
       "abilityId": 5083,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 15,
       "abilityId": 1224,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 15,
       "abilityId": 5084,
-      "status": "omitted_unresolved_official_numeric",
+      "status": "explicitly_omitted_core4",
       "fullOfficialSemanticsVerified": false
     },
     {
       "heroId": 15,
       "abilityId": 5085,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 16,
@@ -856,32 +860,37 @@
     {
       "heroId": 28,
       "abilityId": 5114,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 28,
       "abilityId": 5115,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 28,
       "abilityId": 5116,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 28,
       "abilityId": 1253,
-      "status": "automatic_innate_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "automatic_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 28,
       "abilityId": 5117,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 29,
@@ -1486,38 +1495,43 @@
     {
       "heroId": 47,
       "abilityId": 5218,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 47,
       "abilityId": 5219,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 47,
       "abilityId": 5220,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 47,
       "abilityId": 983,
-      "status": "omitted_by_simplified_design",
+      "status": "explicitly_omitted_core4",
       "fullOfficialSemanticsVerified": false
     },
     {
       "heroId": 47,
       "abilityId": 1461,
-      "status": "automatic_innate_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "automatic_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 47,
       "abilityId": 5221,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 48,
@@ -3430,32 +3444,37 @@
     {
       "heroId": 102,
       "abilityId": 5585,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 102,
       "abilityId": 5586,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 102,
       "abilityId": 5587,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 102,
       "abilityId": 1481,
-      "status": "automatic_innate_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "automatic_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 102,
       "abilityId": 5588,
-      "status": "selected_implementation_pending",
-      "fullOfficialSemanticsVerified": false
+      "status": "selected_adapted_candidate",
+      "fullOfficialSemanticsVerified": false,
+      "browserAccepted": false
     },
     {
       "heroId": 103,

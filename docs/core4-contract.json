@@ -1,0 +1,43 @@
+{
+  "status": "candidate_ready_for_independent_browser_acceptance_not_production",
+  "gameVersion": "duel-751bcab20194934a863a",
+  "registryVersion": "duel-heroes-127-v1",
+  "registrySha256": "5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138",
+  "rosterId": "arena-core4-24-v1",
+  "heroIds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    25,
+    31,
+    45,
+    100
+  ],
+  "gameVersions": [
+    "duel-751bcab20194934a863a"
+  ],
+  "preview": "http://127.0.0.1:4174",
+  "api": "http://127.0.0.1:18083/api/v1",
+  "tests": 598,
+  "orderedSimulationPairs": 576,
+  "browserAcceptance": false,
+  "backendBinding": "must_be_verified_by_backend_integrator",
+  "productionChanged": false
+}

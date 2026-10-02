@@ -1,0 +1,216 @@
+[
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png",
+    "path": "assets/cohort/razor-portrait.png",
+    "bytes": 60603,
+    "sha256": "d63138e3662c29f9482b2f80eccc29626aad74bde5aef1ca7097d43e31bf72f5",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/razor.png",
+    "path": "assets/cohort/razor-render.png",
+    "bytes": 1294808,
+    "sha256": "f4619a4c5b2b5de69c77d949ba47b11944ae316e91cc03202cd26743c18eaef8",
+    "pixelReview": "Viewed actual official render pixels before sprite generation; browser display pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png",
+    "path": "assets/cohort/slardar-portrait.png",
+    "bytes": 63804,
+    "sha256": "13c577aa1344964aa26a6f2dbb6e4fade97247ee9bca0699a8117858cbe4250e",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/slardar.png",
+    "path": "assets/cohort/slardar-render.png",
+    "bytes": 1306885,
+    "sha256": "b52a66dd12418d7d6031f3fe746422cdeef7ed4b0211c368551883bc740a43a0",
+    "pixelReview": "Viewed actual official render pixels before sprite generation; browser display pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/viper.png",
+    "path": "assets/cohort/viper-portrait.png",
+    "bytes": 61176,
+    "sha256": "8cd994aaf58120ee367305d06448a370f7f3b2713a80ef1c2e90c3578b33a4f9",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/viper.png",
+    "path": "assets/cohort/viper-render.png",
+    "bytes": 972280,
+    "sha256": "8d21c2b245ed1cf9c052cdecbf2cd34a6005e5be097c8f8da3f85a274de354cf",
+    "pixelReview": "Viewed actual official render pixels before sprite generation; browser display pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png",
+    "path": "assets/cohort/abaddon-portrait.png",
+    "bytes": 53683,
+    "sha256": "4282e105a2b665002d1e22cc97c27b175b5bfc9d387886d09ac8f273a054f20c",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/abaddon.png",
+    "path": "assets/cohort/abaddon-render.png",
+    "bytes": 1387597,
+    "sha256": "0f7a0023d2022fa1822add3a16a0d8fca1b7c6edb79c852225e1d485a70ab4c3",
+    "pixelReview": "Viewed actual official render pixels before sprite generation; browser display pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_plasma_field.png",
+    "path": "assets/cohort/razor_plasma_field.png",
+    "bytes": 27211,
+    "sha256": "b9d1592b790094c3b3ebab754bbb0669e5508b3f717cfd2cce3371ae8b0ba1b3",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_static_link.png",
+    "path": "assets/cohort/razor_static_link.png",
+    "bytes": 25890,
+    "sha256": "74967674f0bb0e31d2273e848925ddc649f8b3b4f4df21f8aba90b17b6f08378",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_storm_surge.png",
+    "path": "assets/cohort/razor_storm_surge.png",
+    "bytes": 34557,
+    "sha256": "63eee574c8c781148b66ffd3d363df2c25e1558d27e438941e12db2949e018e9",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_unstable_current.png",
+    "path": "assets/cohort/razor_unstable_current.png",
+    "bytes": 34557,
+    "sha256": "63eee574c8c781148b66ffd3d363df2c25e1558d27e438941e12db2949e018e9",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/razor_eye_of_the_storm.png",
+    "path": "assets/cohort/razor_eye_of_the_storm.png",
+    "bytes": 30865,
+    "sha256": "da6f11291d49f69056e13dd789f8f3109a22b944654ddd6a374b053f0946f3e5",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_sprint.png",
+    "path": "assets/cohort/slardar_sprint.png",
+    "bytes": 30976,
+    "sha256": "d03ce3b22b3f7e0db6c4883d363a1772a1b2a4a31c827edd8d7e7173696b56e1",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_slithereen_crush.png",
+    "path": "assets/cohort/slardar_slithereen_crush.png",
+    "bytes": 31156,
+    "sha256": "5cae3b401a104d0d66af2501d34891cf29141072672ebfedf597b62fa7016275",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_bash.png",
+    "path": "assets/cohort/slardar_bash.png",
+    "bytes": 31188,
+    "sha256": "c135591aae2a56a709c44cab2d646b7e35f719fa425a039439054e0a9d20b5e3",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png",
+    "path": "assets/cohort/slardar_seaborn_sentinel.png",
+    "bytes": 17150,
+    "sha256": "9fac9c18a33c52b2f30b362d815d5fb8191d8b67a44bac901af8798d5d5c3e01",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/slardar_amplify_damage.png",
+    "path": "assets/cohort/slardar_amplify_damage.png",
+    "bytes": 26407,
+    "sha256": "ccbbf973dfde4dc5ee585d63bcd9850e016f2166dcbc877f70f926ff2e8dafd1",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/viper_poison_attack.png",
+    "path": "assets/cohort/viper_poison_attack.png",
+    "bytes": 23949,
+    "sha256": "2ec1ce88d55ca17ea5388c0e022ac20012b2e8cebd3f019b18d63e455dad40a2",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/viper_nethertoxin.png",
+    "path": "assets/cohort/viper_nethertoxin.png",
+    "bytes": 31649,
+    "sha256": "dace4b521b6d870f5bc81d6daa97f803e5f461eb421009ad4abbea8bd9f5960a",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/viper_corrosive_skin.png",
+    "path": "assets/cohort/viper_corrosive_skin.png",
+    "bytes": 30756,
+    "sha256": "2d91a27877c6db16fcbe30211fed2eaae7a2233379c686126e69ef02604e8cca",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/viper_nose_dive.png",
+    "path": "assets/cohort/viper_nose_dive.png",
+    "bytes": 32275,
+    "sha256": "aad3c29ef1d4c42d907403afcc396f79fe0824fbc9579b0e9af25cfa20f9b62e",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png",
+    "path": "assets/cohort/viper_predator.png",
+    "bytes": 17150,
+    "sha256": "9fac9c18a33c52b2f30b362d815d5fb8191d8b67a44bac901af8798d5d5c3e01",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/viper_viper_strike.png",
+    "path": "assets/cohort/viper_viper_strike.png",
+    "bytes": 28640,
+    "sha256": "309a2ee186235c925c9e422aa269ee9daa2705c3ed645d38a67a3616f9d840be",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png",
+    "path": "assets/cohort/abaddon_death_coil.png",
+    "bytes": 26988,
+    "sha256": "390527527f4375f6503e6688f8af2d9769e1edeee699e3b633585dc379cd37d3",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png",
+    "path": "assets/cohort/abaddon_aphotic_shield.png",
+    "bytes": 28302,
+    "sha256": "e18d5cce26b0b0787a895899c1c70ecaeb75cf96a57047ffc490c049014af16e",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_frostmourne.png",
+    "path": "assets/cohort/abaddon_frostmourne.png",
+    "bytes": 32468,
+    "sha256": "4a55340ef3e0ff46afa829d09bdeb6fbe32c8bbf863364703b8c0a7c49c615d5",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_withering_mist.png",
+    "path": "assets/cohort/abaddon_withering_mist.png",
+    "bytes": 25768,
+    "sha256": "e9a356c43e00dc653f65d5215d49e696e1b61681b3360358faeb41c927c1514c",
+    "pixelReview": "pending"
+  },
+  {
+    "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_borrowed_time.png",
+    "path": "assets/cohort/abaddon_borrowed_time.png",
+    "bytes": 34955,
+    "sha256": "190094cc07bf8be3de3cd5f31fddf87793992c56278031c1202765a807143bab",
+    "pixelReview": "pending"
+  },
+  {
+    "path": "assets/cohort/core4-sprites.png",
+    "source": "Generated using official four hero renders and current arcade atlas as visual references",
+    "poses": [
+      "idle",
+      "attack",
+      "guard",
+      "jump"
+    ],
+    "pixelReview": "Viewed full actual generated pixels; transparent isolated sprites, 4 heroes x4 poses. Explicit atlas rectangles and per-pose pivots; not an official Valve animation."
+  }
+]

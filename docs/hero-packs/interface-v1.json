@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ownerRule": "Hero authors write only their src/hero-packs/<name>.js, qa/cohort/<name>.test.mjs and asset source manifest. Only integrator changes engine, registry, app, build and active roster.",
+  "exports": {
+    "definition": "runtime hero object: stable internal id, registryNumericId, valveHeroId, name/en/role/color, explicit arena hp/combatHp/attack/move_speed/attack_range/attack_interval_s/mana_regen, portrait/render paths, exactly4 abilities. Each ability has id=official key, valveAbilityId, slot, official source/profile, mvp fields and explicit arenaNote.",
+    "contract": "selected four ability IDs, automatic innate IDs, explicitly omitted IDs, level18/base-no-item profile, formula/source mapping, geometry, death/dispel/reflect/break behavior and adaptation notes.",
+    "sharedSystem": "Actual core4 packages export sharedSystem:CohortCombat; all four share one integrated engine adapter. Package definition is loaded via CORE4_PACKS by runtime-heroes. New independent systems require integrator wiring; this is not a drop-in plugin loader."
+  },
+  "hooks": {
+    "init(e)": "Once per round. Initialize plain serializable fighter.pack and engine.packState when a core4 hero participates.",
+    "cast(e,f,slot,options)": "Return boolean for owned ability; undefined delegates legacy.",
+    "activate(e,f,cast)": "Return true for owned effect; false delegates legacy.",
+    "targeted(e,source,target,skill)": "Explicit targeted spell notification.",
+    "attack(e,f,target,damage,m)": "Return modified basic damage; may annotate m and charge per-attack mana.",
+    "attackInterval(e,f,target,base)": "Return interval in seconds.",
+    "afterAttack(e,f,target,event,landed)": "Apply landed attack effects.",
+    "beforeDamage(e,event)": "After baseline mitigation/block before health debit; change event.damage. Event contains attacker,target,m,info,guard.",
+    "afterDamage(e,event)": "Event damage is actual HP debit; reflection flags prevent recursion.",
+    "healing(e,f,amount)": "Return healing amount.",
+    "dispel(e,f,tier)": "Remove statuses according to basic/strong/none tier.",
+    "moveMultiplier(e,f)": "Return multiplier relative to existing movement modifier.",
+    "movingAttack(e,f)": "Allow movement during active link attack recovery.",
+    "tick(e,dt)": "Once per fixed step before fighter updates; process world and fighter state.",
+    "endStep(e)": "Idempotent owner death cleanup before KO resolution.",
+    "broken(f)": "Whether live Viper Strike disables passives."
+  },
+  "engineServices": [
+    "hero(i)",
+    "ability(i,slot)",
+    "random()",
+    "hit(attacker,target,damage,m,info)",
+    "heal(f,amount,details)",
+    "control(f,type,duration)",
+    "dispel(f,tier)",
+    "move(f,dx)",
+    "fx(type,x,y,color,extra)",
+    "log(type,player,detail)"
+  ],
+  "damageFlags": [
+    "basic",
+    "dot",
+    "passive",
+    "reflected",
+    "noLifesteal",
+    "noReflect",
+    "targeted",
+    "skill"
+  ],
+  "rendering": "Use src/hero-packs render metadata and assets/cohort/<hero> sheet. 4 poses idle/attack/guard/jump with transparent background; source image pixel review required. No core renderer edits by package authors.",
+  "status": "Core4 implemented adapter ABI; source of truth src/cohort-combat.js and engine call sites. Independent future systems must be integrated and tested explicitly."
+}

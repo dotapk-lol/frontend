@@ -1,3 +1,4 @@
+import {registryFixture} from './registry-fixture.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -14,7 +15,7 @@ import {PeerSession} from '../src/p2p.js';
 import {World} from './integrity-harness.mjs';
 
 const canonical=value=>JSON.stringify(value,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
-const serverRegistry=()=>({registryVersion:REGISTRY_VERSION,registrySha256:REGISTRY_HASH,heroes:REGISTRY_DATA.heroes.map(({registryNumericId,internalHeroId,valveHeroId,legacyIndex})=>({registryNumericId,internalHeroId,valveHeroId,legacyIndex})),gameplayRosters:[{rosterId:ACTIVE_ROSTER.rosterId,registryVersion:REGISTRY_VERSION,heroIds:[...ACTIVE_ROSTER.heroIds],gameVersions:[]}]});
+const serverRegistry=registryFixture;
 test('frozen identity manifest canonical hash, all 127 identities, and legacy 20 agree',()=>{
  assert.equal(createHash('sha256').update(canonical(REGISTRY_DATA.heroes)).digest('hex'),REGISTRY_HASH);
  assert.equal(heroRegistry.rows().length,127);assert.equal(new Set(heroRegistry.rows().map(r=>r.valveHeroId)).size,127);
@@ -23,15 +24,15 @@ test('frozen identity manifest canonical hash, all 127 identities, and legacy 20
  assert.throws(()=>createHeroRegistry({...REGISTRY_DATA,heroes:[...REGISTRY_DATA.heroes,REGISTRY_DATA.heroes[0]]}));
  assert.throws(()=>{heroRegistry.byNumericId(0).internalHeroId='other';});
 });
-test('catalog records all 734 abilities and 127 innates without unlocking any of 107 heroes',()=>{
+test('catalog records all 734 abilities and 127 innates while103 unimplemented heroes stay locked',()=>{
  assert.equal(heroCatalog.heroes().length,127);assert.equal(heroCatalog.abilities().length,734);assert.equal(heroCatalog.abilities().filter(a=>a.innate).length,127);
- assert.equal(heroCatalog.counts.websiteTalentRecords,1016);assert.equal(ACTIVE_ROSTER.heroIds.length,20);
- for(const row of heroRegistry.rows()){assert(heroCatalog.byNumericId(row.registryNumericId));if(row.legacyIndex===null){assert(!isActiveHero(row.registryNumericId));assert.equal(heroCatalog.status(row.registryNumericId),'unimplemented');assert.throws(()=>new Engine(heroes,[0,row.registryNumericId]));}}
+ assert.equal(heroCatalog.counts.websiteTalentRecords,1016);assert.equal(ACTIVE_ROSTER.heroIds.length,24);
+ for(const row of heroRegistry.rows()){assert(heroCatalog.byNumericId(row.registryNumericId));if(row.legacyIndex===null&&!ACTIVE_ROSTER.heroIds.includes(row.registryNumericId)){assert(!isActiveHero(row.registryNumericId));assert.equal(heroCatalog.status(row.registryNumericId),'unimplemented');assert.throws(()=>new Engine(heroes,[0,row.registryNumericId]));}}
  assert(heroCatalog.heroes().every(h=>h.fullKitReady===false));assert(!isActiveHero('0'));assert(!isActiveHero(127));
  assert(hasOfficialBehavior('1099511627778','1099511627776'));assert(hasOfficialBehavior('1099511627778','2'));assert(!hasOfficialBehavior('1099511627778','4'));
 });
 test('display/runtime array reordering preserves selected heroes, simulation and history identity',()=>{
- const reversed=[...heroes].reverse();for(const id of ACTIVE_ROSTER.heroIds){assert.equal(lookupRuntimeHero(reversed,id),heroes[id]);const a=new Engine(heroes,[id,3],{seed:381}),b=new Engine(reversed,[id,3],{seed:381});a.start();b.start();for(let n=0;n<180;n++){a.ai(0,1/60);a.ai(1,1/60);b.ai(0,1/60);b.ai(1,1/60);a.step();b.step();}assert.deepEqual(a.snapshot(),b.snapshot());}
+ const reversed=[...heroes].reverse();for(const id of heroes.map((_,i)=>i)){assert.equal(lookupRuntimeHero(reversed,id),heroes[id]);const a=new Engine(heroes,[id,3],{seed:381}),b=new Engine(reversed,[id,3],{seed:381});a.start();b.start();for(let n=0;n<180;n++){a.ai(0,1/60);a.ai(1,1/60);b.ai(0,1/60);b.ai(1,1/60);a.step();b.step();}assert.deepEqual(a.snapshot(),b.snapshot());}
  const old={heroes:[0,19],version:'old-game'};const original=JSON.stringify(old);assert.equal(historicalHero(old,0).internalHeroId,'juggernaut');assert.equal(historicalHeroName(old,1),'潮汐猎人');assert.equal(JSON.stringify(old),original);
  assert.equal(historicalHero({heroes:[20,0]},0),null);assert.equal(historicalHero({heroes:[20,0],registryVersion:REGISTRY_VERSION},0).valveHeroId,3);assert.equal(historicalHeroName({heroes:[0],registryVersion:'unknown'},0),'未知英雄');
 });
@@ -51,9 +52,9 @@ test('backend registry resolves explicit IDs, accepts array reorder, and rejects
  const data=serverRegistry();data.heroes.reverse();data.gameplayRosters[0].heroIds.reverse();assert.equal(validateBackendRegistry(data).status,'verified');
  for(const mutate of [d=>d.heroes[0].internalHeroId='wrong',d=>d.registrySha256='wrong',d=>d.gameplayRosters[0].heroIds.push(20),d=>d.gameplayRosters.push({rosterId:'future-24',gameVersions:[NET_VERSION]})]){const bad=serverRegistry();mutate(bad);assert.throws(()=>validateBackendRegistry(bad));}
 });
-test('new backend sends optional rosterId; old/unavailable backend retains exact legacy request/result wire shape',async()=>{
+test('new backend sends rosterId; unavailable backend cannot silently save expanded matches as legacy',async()=>{
  for(const available of [true,false]){const calls=[],api=new MatchAPI({base:'/api/v1',fetcher:async(url,options)=>{calls.push({url,options});if(url.endsWith('/registry'))return {ok:available,json:async()=>serverRegistry()};return {ok:true,json:async()=>url.endsWith('/sessions')?{playerId:'a'.repeat(64),token:'b'.repeat(64)}:{id:'c'.repeat(64),status:'in_progress'}};}});
-  await Promise.all([api.createPVE(0,3,'one'),api.createLocal(0,19,'local','two')]);assert.equal(calls.filter(c=>c.url.endsWith('/registry')).length,1);for(const c of calls.filter(c=>c.url.includes('/matches/'))){const body=JSON.parse(c.options.body);assert.equal(body.rosterId,available?ACTIVE_ROSTER.rosterId:undefined);assert(!('registryVersion'in body));assert.equal(body.version,NET_VERSION);}assert.equal(api.registryStatus.status,available?'verified':'unavailable');
+  if(!available){await assert.rejects(()=>api.createPVE(0,3,'blocked'));assert.equal(calls.length,1);continue;}await Promise.all([api.createPVE(0,3,'one'),api.createLocal(0,19,'local','two')]);assert.equal(calls.filter(c=>c.url.endsWith('/registry')).length,1);for(const c of calls.filter(c=>c.url.includes('/matches/'))){const body=JSON.parse(c.options.body);assert.equal(body.rosterId,available?ACTIVE_ROSTER.rosterId:undefined);assert(!('registryVersion'in body));assert.equal(body.version,NET_VERSION);}assert.equal(api.registryStatus.status,available?'verified':'unavailable');
   await assert.rejects(()=>api.createPVE(20,0,'bad'));await assert.rejects(()=>api.createLocal(0,127,'local','bad'));
  }
 });
