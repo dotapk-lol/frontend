@@ -1,3 +1,4 @@
+import {applyCandidateAdaptations} from './candidate-adaptations.mjs';
 import fs from 'node:fs';
 const source=process.argv[2],root=new URL('../',import.meta.url).pathname;if(!source)throw new Error('Pass the folder containing official heroes.json, combat-overrides.json and assets as the first argument. Normal builds only need npm run build.');
 const data=JSON.parse(fs.readFileSync(root+'docs/prototype-data.json','utf8'));
@@ -81,6 +82,7 @@ for(const h of data.heroes){const oh=official.heroes.find(x=>x.key===h.id);h.off
  fs.copyFileSync(source+'/assets/'+h.id+'-render.png',root+h.render);
 }
 data.meta.version='1.0.0-fan';data.meta.source_policy='Dota2官网满级基础数据2026-09-30快照；二维格斗适配另列';
+applyCandidateAdaptations(data);
 fs.writeFileSync(root+'src/data.js','export const DATA='+JSON.stringify(data)+';\nexport const heroes=DATA.heroes;\n');
 fs.copyFileSync(source+'/SOURCE_NOTES.md',root+'docs/OFFICIAL_SOURCES.md');fs.copyFileSync(source+'/combat-overrides.json',root+'docs/official-combat-overrides.json');fs.copyFileSync(source+'/validation.json',root+'docs/official-validation.json');
 console.log('Integrated official data: 20 heroes,80 skills');

@@ -5,7 +5,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
-import {Engine,FIXED_DT} from '../src/engine.js';
+import {Engine,FIXED_DT,formatCombatNumber} from '../src/engine.js';
 import {DATA,heroes} from '../src/data.js';
 const appSource=['audio-score.js','audio-map.js','audio-synth.js','audio.js','official-music.js','mobile.js','music.js','net-quality.js','net-version.js','match-api.js','local-rooms.js','p2p.js'].map(f=>fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace(/export (const|class|function) /g,'$1 ')).join('\n')+'\n'+fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8').replace(/^import .*\n/gm,'');
 function environment(){
@@ -17,7 +17,7 @@ function environment(){
  const noop=()=>{};const node=()=>({innerHTML:'',textContent:'',value:'',style:{},dataset:{},classList:{add:noop,remove:noop},querySelectorAll:()=>[],querySelector:()=>null,appendChild:noop,remove:noop,focus:noop,getContext:()=>({})});
  const app=node(),toast=node(),roomInput=node(),canvas=node();const nodes={'#app':app,'#toast':toast,'#roomInput':roomInput,'#arena':canvas,'#official-player':node(),'#official-status':node()};
  const document={querySelector:s=>nodes[s]||null,createElement:node,addEventListener:(k,fn)=>(docListeners[k]??=[]).push(fn),hidden:false,documentElement:{}};
- const context={indexedDB,crypto:globalThis.crypto,console,Engine,FIXED_DT,DATA,heroes,document,location:{protocol:'http:'},navigator:{getGamepads:()=>[]},performance:{now:()=>0},localStorage:{getItem:()=>null,setItem:noop},Image:class{complete=false;naturalWidth=0;},fetch:fetcher,requestAnimationFrame:noop,clearTimeout:noop,setTimeout:()=>++seq,setInterval:fn=>{timers.set(++seq,fn);return seq;},clearInterval:id=>timers.delete(id),BroadcastChannel:BC,addEventListener:(k,fn)=>(listeners[k]??=[]).push(fn)};
+ const context={indexedDB,crypto:globalThis.crypto,console,Engine,FIXED_DT,formatCombatNumber,DATA,heroes,document,location:{protocol:'http:'},navigator:{getGamepads:()=>[]},performance:{now:()=>0},localStorage:{getItem:()=>null,setItem:noop},Image:class{complete=false;naturalWidth=0;},fetch:fetcher,requestAnimationFrame:noop,clearTimeout:noop,setTimeout:()=>++seq,setInterval:fn=>{timers.set(++seq,fn);return seq;},clearInterval:id=>timers.delete(id),BroadcastChannel:BC,addEventListener:(k,fn)=>(listeners[k]??=[]).push(fn)};
  context.window=context;vm.createContext(context);vm.runInContext(appSource+'\nwindow.QA={action,selection,startRoomMatch,sendRoom,leaveRoom,get input(){return input},get roomGuestInput(){return roomGuestInput}};',context);
  return {window:context,D:context.DUEL,Q:context.QA,roomInput,fire:(k,event={})=>(listeners[k]||[]).forEach(f=>f(event)),hide:()=>{document.hidden=true;(docListeners.visibilitychange||[]).forEach(f=>f());}};
  }

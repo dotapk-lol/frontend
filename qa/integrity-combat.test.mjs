@@ -13,7 +13,7 @@ test('Sonic Wave cannot attach its delayed damage to an invulnerable target',()=
  const hp=q.hp;run(e,3);assert.equal(q.hp,hp);
 });
 test('Sonic Wave respects blocking when its initial collision was guarded',()=>{
- const {e,p,q}=setup('queen_of_pain');e.setInput(1,{guard:true});e.cast(0,3);run(e,3);
+ const {e,p,q}=setup('queen_of_pain');e.setInput(1,{right:true,down:true});e.cast(0,3);run(e,3);
  assert.ok(q.maxHp-q.hp<=625*.2+1,'guarded wave should not deal full625-ish pure damage');
 });
 test('Mana Break must not burn mana through 100percent Windrun evasion',()=>{

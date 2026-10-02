@@ -27,7 +27,7 @@ test('distance, vertical separation, invulnerability prevent invalid basic hits'
  const inv=near(engine());inv.fighters[1].invuln=1;inv.setInput(0,{attack:true});run(inv,.3);assert.equal(inv.fighters[1].hp,inv.fighters[1].maxHp);
 });
 test('guard reduces damage and chip cannot kill',()=>{
- const a=near(engine([0,0])),b=near(engine([0,0]));b.setInput(1,{guard:true});a.setInput(0,{attack:true});b.setInput(0,{attack:true});run(a,.3);run(b,.3);
+ const a=near(engine([0,0])),b=near(engine([0,0]));b.setInput(1,{right:true,down:true});a.setInput(0,{attack:true});b.setInput(0,{attack:true});run(a,.3);run(b,.3);
  assert.ok(b.fighters[1].hp>a.fighters[1].hp);assert.ok(b.fighters[1].hp<b.fighters[1].maxHp);
  b.fighters[1].hp=1;run(b,1);assert.equal(b.fighters[1].hp,1);
 });
