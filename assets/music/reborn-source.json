@@ -1,0 +1,21 @@
+{
+  "title": "Dota 2 Reborn D+B Remix",
+  "artist": "Valve Studio Orchestra",
+  "album": "The Dota 2 Remixes EP",
+  "year": 2017,
+  "source": "User-provided local download; explicitly selected as default BGM",
+  "sourceFileName": "02 Dota 2 Reborn D+B Remix.mp3",
+  "file": "assets/music/reborn-dnb-remix.mp3",
+  "bytes": 9133967,
+  "sha256": "e19fc6ebc70965227f7e1f4bb30e69367033fdc97f6c9ca09ea53470643eae85",
+  "durationSeconds": 223.5,
+  "sampleRate": 44100,
+  "channels": 2,
+  "bitrate": 320000,
+  "sourceUnmodified": true,
+  "scenes": [
+    "menu",
+    "battle"
+  ],
+  "notOriginalReborn": true
+}
