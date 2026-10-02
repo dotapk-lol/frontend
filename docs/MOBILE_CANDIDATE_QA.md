@@ -30,10 +30,13 @@ Evidence is in `qa/browser-evidence/` locally and in the candidate evidence bund
 - `room-report.json`: real six-digit IndexedDB reservation; selected guest hero 8 carried through; third client rejected; separate host/guest browser windows both visible and independently controlled; guest rotation freezes host and blocks premature resume; guest quit disconnects. This is same-browser/same-device evidence, not cross-device networking.
 - `audio-loop-report.json`: official battle track decoded to 46.341224 seconds in Chrome and naturally wrapped twice without seeking or accelerated time; a normal-speed PVE game reached 0:2 / two rounds / completed. Media clock and native decoder evidence do not certify audible speaker output or gapless quality.
 - `result-controls-report.json`: natural result survives Escape; rematch starts round 1 at 0:0 with one controller; music and SFX switches/volumes operate independently.
+- `skills-report.json`: actual radial-button casts for Lina, Juggernaut, Pudge and Windranger; cooldown/mana changes observed, passive slots disabled, and Powershot held to 0.8 charge before release.
 - `polish-report.json`: 44 px left/right and 21 px bottom safe-area values simulated through the layout variables; bounds verified; Chrome entered actual fullscreen and reported unsupported orientation locking; offline HTML decoded embedded music and rendered two desktop control sets and loaded images.
 - Screenshots: `01-portrait-entry`, `10-final-selection`, `12-final-battle`, `size-667x375`, `size-740x360`, `size-844x390`, `size-915x412`, `08-bc-host`, `09-bc-guest`, `11-safe-area-simulation`, `13-offline-desktop-dual`, plus natural KO/result evidence.
 
 The resize browser harness waits for the requested viewport/canvas dimensions to settle (up to 2 seconds) before asserting bounds; an earlier fixed 200 ms assertion was premature under concurrent headless-window load. The final run passed after completed QA windows were closed.
+
+A clean `git archive` checkout also passed all 279 tests and built the identical standalone HTML (SHA-256 `10cf1239949a24ec7868eab54edf3aaba635a167fbb9dc7f80ba5b65efb9c8ae`).
 
 279 source/contract/integration regression tests pass; static and standalone build passes; `git diff --check` is clean. Mock input/fullscreen and source tests are not counted as real-device acceptance. Browser scripts are opt-in (`qa/browser-*.mjs`) and require the isolated local DevTools session, rather than silently launching or attaching to the user's normal browser.
 
