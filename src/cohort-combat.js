@@ -14,7 +14,7 @@ function coreDebuff(e,f,key,owner,life,values={},dispel='basic',pierces=false){
 function coreDamage(e,owner,target,amount,type,skill,flags={}){if(!coreAlive(target)||!Number.isFinite(amount)||amount<=0)return false;return e.hit(e.fighters[owner],target,amount,{damage_type:type,blockable:false},{skill,dot:true,noLifesteal:!!flags.reflected,...flags});}
 function coreBolt(e,owner,target,color='#79e6ff'){e.fx('beam',owner.x,owner.y+175,color,{tx:target.x,ty:target.y+100,life:.18,maxLife:.18});}
 function coreBorrow(e,f,automatic=false){
- if(!coreAlive(f)||f.pack.borrowed>0||f.cd[3]>1e-8||automatic&&coreBroken(f)||!automatic&&f.silence>0)return false;
+ if(!coreAlive(f)||f.pack.borrowed>0||f.cd[3]>1e-8||automatic&&coreBroken(f)||!automatic&&e.isSilenced(f))return false;
  f.pack.borrowed=6;f.cd[3]=65;f.casts++;f.cast=null;f.skillBuffer=null;e.dispel(f,'strong');e.animate(f,'cast',.3);e.fx('ring',f.x,f.y+70,e.hero(f.i).color,{size:120});e.fx('text',f.x,f.y+190,e.hero(f.i).color,{text:automatic?'回光返照 · 自动':'回光返照'});e.log('activate',f.i,{skill:'abaddon_borrowed_time'});e.log('cast',f.i,{skill:'abaddon_borrowed_time',automatic,cost:0});return true;
 }
 function coreAutoBorrow(e,f){if(coreHero(e,f,102)&&coreAlive(f)&&f.hp<400)coreBorrow(e,f,true);}
@@ -22,6 +22,7 @@ function coreShieldBurst(e,f,reason){const shield=f.pack.shield;if(!shield)retur
 function coreMissile(e,f,target,kind,abilityId,speed,range){e.packState.missiles.push({id:++e.seq,owner:f.i,target:target.i,kind,abilityId,x:f.x,y:f.y+100,dir:target.x>=f.x?1:-1,speed,remaining:range,r:18});}
 function coreSurge(e,f,attacker,targeted){if(!coreHero(e,f,15)||!coreAlive(f)||!coreAlive(attacker)||coreBroken(f)||f.pack.surgeCD>0||coreDistance(f,attacker)>385+22||!targeted&&e.random()>=.2)return;f.pack.surgeCD=2.5;coreBolt(e,f,attacker);coreDamage(e,f.i,attacker,170,'magical','razor_storm_surge',{reflected:true,noReflect:true,passive:true});coreDebuff(e,attacker,'storm_surge',f.i,1,{moveSlow:.4});e.log('passive',f.i,{skill:'razor_storm_surge',targeted});}
 export const CohortCombat={
+ usesSharedArmor:true,
  init(e){if(!e.runtimeHeroes.some(h=>h.packKey==='core4')){e.packState=null;return;}e.packState={areas:[],missiles:[],links:[],storms:[],rings:[]};for(const f of e.fighters)f.pack={statuses:[],poison:[],poisonOn:false,borrowed:0,shield:null,surgeCD:0,bashCount:0,water:false,regenTick:0,toxinExposure:0,toxinOwner:null,deathHandled:false,attackRecoveryUntil:0};},
  broken:coreBroken,
  cast(e,f,slot,options={}){
@@ -29,7 +30,7 @@ export const CohortCombat={
   const a=e.ability(f.i,slot),m=a?.mvp,id=a?.valveAbilityId,t=e.fighters[1-f.i];
   if(!m||m.passive||!coreAlive(f)||e.phase!=='fight'||e.paused)return false;
   if(id===5588)return coreBorrow(e,f,false);
-  if(e.blocked(f)||f.silence>0||f.cd[slot]>1e-8||f.cast||f.channel&&id!==5114||f.recovery>0&&id!==5114)return false;
+  if(e.blocked(f)||e.isSilenced(f)||f.cd[slot]>1e-8||f.cast||f.channel&&id!==5114||f.recovery>0&&id!==5114)return false;
   if(id===5218){f.pack.poisonOn=!f.pack.poisonOn;if(f.pack.poisonOn)e.addBuff(f,a.id,{},999);else f.buffs=f.buffs.filter(b=>b.key!==a.id);e.log('activate',f.i,{skill:a.id,toggle:f.pack.poisonOn});e.log('cast',f.i,{skill:a.id,toggle:f.pack.poisonOn,cost:0});f.casts++;return true;}
   const self=id===5585&&(options.self===true||e.input[f.i].down);
   if([5083,5221,5117].includes(id)||id===5585&&!self){if(!coreAlive(t)||t.invuln>0||coreDistance(f,t)>m.range_wu+22)return false;}
@@ -69,7 +70,7 @@ export const CohortCombat={
   if(coreHero(e,f,28)){f.pack.bashCount++;if(f.pack.bashCount>=4){f.pack.bashCount=0;coreDamage(e,f.i,t,200,'physical','slardar_bash',{passive:true});e.control(t,'stun',1,true);e.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});e.log('passive',f.i,{skill:'slardar_bash'});}}
  },
  beforeDamage(e,event){if(!e.packState)return;const {target:f,attacker,m}=event,p=f.pack;
-  if(m.damage_type==='physical'){let armor=coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0;for(const s of p.statuses)if(coreEffective(e,f,s))armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
+  if(m.damage_type==='physical'){let armor=(coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0)+(event.sharedArmor||0);for(const s of p.statuses)if(coreEffective(e,f,s))armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
   if(m.damage_type==='magical'){event.damage*=1+(e.property(f,'debuffImmune')?0:p.poison.length*.1);if(coreHero(e,f,47)&&!coreBroken(f))event.damage*=.75;}
   coreAutoBorrow(e,f);
   if(p.borrowed>0){e.heal(f,event.damage,{skill:'abaddon_borrowed_time',source:attacker.i});event.converted=event.damage;event.damage=0;return;}

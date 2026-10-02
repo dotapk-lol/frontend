@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
     "build": "node scripts/build.mjs",
-    "test": "node --test qa/*.test.mjs",
+    "test": "node scripts/run-tests.mjs",
     "deploy": "npm run build && wrangler deploy",
     "pretest": "node scripts/render-audio.mjs"
   },
