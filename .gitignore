@@ -13,3 +13,6 @@ assets/*-render.png
 *.sqlite*
 *.log
 assets/audio/
+
+incoming/
+qa/browser-evidence/

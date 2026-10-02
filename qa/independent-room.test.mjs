@@ -7,7 +7,7 @@ import vm from 'node:vm';
 import fs from 'node:fs';
 import {Engine,FIXED_DT} from '../src/engine.js';
 import {DATA,heroes} from '../src/data.js';
-const appSource=['audio-score.js','audio-map.js','audio-synth.js','audio.js','official-music.js','music.js','net-quality.js','net-version.js','match-api.js','local-rooms.js','p2p.js'].map(f=>fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace(/export (const|class|function) /g,'$1 ')).join('\n')+'\n'+fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8').replace(/^import .*\n/gm,'');
+const appSource=['audio-score.js','audio-map.js','audio-synth.js','audio.js','official-music.js','mobile.js','music.js','net-quality.js','net-version.js','match-api.js','local-rooms.js','p2p.js'].map(f=>fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace(/export (const|class|function) /g,'$1 ')).join('\n')+'\n'+fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8').replace(/^import .*\n/gm,'');
 function environment(){
  const channels=[],queue=[],indexedDB=idbFixture();
  class BC{constructor(name){this.name=name;this.closed=false;channels.push(this);}postMessage(data){for(const ch of channels)if(ch!==this&&!ch.closed&&ch.name===this.name)queue.push(()=>ch.onmessage?.({data:structuredClone(data)}));}close(){this.closed=true;}}
