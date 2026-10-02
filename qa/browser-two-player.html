@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>DOTA DUEL 实际浏览器双人输入验收</title>
+<style>body{margin:0;background:#09111d;color:#e5edf7;font:14px system-ui}header{padding:10px;display:flex;gap:12px;align-items:center}button{padding:10px;background:#e3c98d;border:0;border-radius:5px}iframe{width:100%;height:calc(100vh - 170px);border:0}pre{height:95px;overflow:auto;margin:0;padding:8px;background:#142234;white-space:pre-wrap}span{flex:1}</style>
+<header><span>真实 Chrome · 同屏双人 · 合成 keydown/keyup · 正常60Hz引擎<br>只读游戏状态；不改生命、计时、胜负或调用引擎 step。非实体键盘冲突测试。</span><button id="checks">1 双人输入断言</button><button id="match">2 完整双人对局</button><button id="rematch">3 实际重赛</button><button id="standalone">测试独立HTML</button></header>
+<iframe id="game" src="../index.html?qa=1"></iframe><pre id="report">等待游戏加载</pre>
+<script type="module">
+const frame=document.querySelector('#game'),out=document.querySelector('#report');let held=new Set(),results=[],busy=false,mode='source';
+const w=()=>frame.contentWindow, d=()=>w().DUEL,s=()=>d().snapshot,wait=ms=>new Promise(r=>setTimeout(r,ms));
+function emit(type,code){w().dispatchEvent(new (w().KeyboardEvent)(type,{code,key:code.startsWith('Key')?code.slice(3).toLowerCase():code,bubbles:true,cancelable:true}));}
+function keys(codes){const next=new Set(codes);for(const c of held)if(!next.has(c))emit('keyup',c);for(const c of next)if(!held.has(c))emit('keydown',c);held=next;}
+function record(name,pass,detail={}){results.push({name,pass,at:new Date().toISOString(),...detail});out.textContent=JSON.stringify({mode,results},null,2);out.scrollTop=out.scrollHeight;if(!pass)throw Error(name);}
+function brief(){const g=s();return {mode:g.mode,phase:g.phase,round:g.round,score:g.score,time:g.time,frame:g.frame,fighters:g.fighters.map(f=>({x:f.x,y:f.y,hp:f.hp,guard:f.guard,cd:f.cd,damage:f.damage,hits:f.hits,casts:f.casts})),history:g.history};}
+async function until(fn,max=10000){const end=performance.now()+max;while(!fn()){if(performance.now()>end)throw Error('状态等待超时');await wait(40);}}
+function click(selector){const el=w().document.querySelector(selector);if(!el)throw Error('缺少界面元素 '+selector);el.click();}
+async function choose(){keys([]);if(d().state.screen==='battle'){click('[data-action="pause"]');click('[data-action="quit"]');}click('[data-mode="local"]');click('[data-player="0"]');click('[data-hero="13"]');click('[data-player="1"]');click('[data-hero="13"]');click('[data-action="start"]');await until(()=>s()?.phase==='fight');const style=w().getComputedStyle(w().document.documentElement);record('真实浏览器主题CSS正常',style.getPropertyValue('--gold').trim()==='#eac788'&&style.color==='rgb(234, 240, 238)',{gold:style.getPropertyValue('--gold'),color:style.color});record('正常UI开始同屏双人，非CPU',s().mode==='local',brief());}
+async function run(fn){if(busy)return;busy=true;try{await fn();}catch(e){results.push({error:String(e),state:s()?brief():null});out.textContent=JSON.stringify({mode,results},null,2);}finally{keys([]);busy=false;}}
+document.querySelector('#checks').onclick=()=>run(async()=>{
+ results=[];await choose();let before=brief();keys(['KeyD','ArrowLeft']);await wait(380);keys([]);await wait(90);let a=brief();record('D与左箭头持续重叠380ms，双方同时向内移动',a.fighters[0].x>before.fighters[0].x+60&&a.fighters[1].x<before.fighters[1].x-60,{before,after:a});
+ let stopped=a;await wait(300);a=brief();record('双方keyup后停止，不残留方向',a.fighters.every((f,i)=>Math.abs(f.x-stopped.fighters[i].x)<1),{after:a});
+ keys(['KeyW','ArrowUp']);await wait(150);a=brief();record('W与上箭头同时跳跃',a.fighters.every(f=>f.y>0),{after:a});keys([]);await wait(1100);
+ keys(['ArrowDown']);await wait(120);a=brief();record('P2格挡键不串P1',a.fighters[1].guard&&!a.fighters[0].guard,{after:a});let hp=a.fighters.map(f=>f.hp);keys(['ArrowDown','KeyQ']);await wait(750);keys([]);a=brief();record('P1 Q命中P2格挡，技能冷却与伤害归属正确',a.fighters[0].cd[0]>0&&a.fighters[1].cd[0]===0&&a.fighters[0].hp===hp[0]&&hp[1]-a.fighters[1].hp===36,{beforeHp:hp,after:a});
+ await wait(600);keys(['KeyS']);await wait(120);a=brief();record('P1格挡键不串P2',a.fighters[0].guard&&!a.fighters[1].guard,{after:a});hp=a.fighters.map(f=>f.hp);keys(['KeyS','KeyU']);await wait(750);keys([]);a=brief();record('P2 U命中P1格挡，技能归属正确',a.fighters[1].cd[0]>0&&a.fighters[1].hp===hp[1]&&hp[0]-a.fighters[0].hp===36,{beforeHp:hp,after:a});
+ await wait(900);hp=s().fighters.map(f=>f.hp);keys(['KeyF','KeyJ']);await wait(3600);keys([]);await wait(400);a=brief();record('F/J持续同时普攻，双方均命中并扣血',a.fighters.every((f,i)=>f.hp<hp[i]&&f.hits>=2),{beforeHp:hp,after:a});
+ await wait(600);keys(['KeyS','ArrowDown']);await wait(100);a=brief();record('双方同时格挡',a.fighters.every(f=>f.guard),{after:a});keys([]);await wait(100);record('双方格挡松键清理',s().fighters.every(f=>!f.guard),brief());
+ record('双人输入检查完成',true,brief());
+});
+document.querySelector('#match').onclick=()=>run(async()=>{
+ await choose();let recordedRound=0,lastPulse=0,cycle=0;const end=performance.now()+300000;
+ while(s().phase!=='matchEnd'){
+  if(performance.now()>end)throw Error('完整比赛超过五分钟');const g=s();
+  if(g.round!==recordedRound){recordedRound=g.round;record('双人对局进入回合 '+g.round,true,brief());}
+  if(g.phase==='fight'){
+   const now=performance.now();if(now-lastPulse>1000){lastPulse=now;cycle++;}
+   // Both players hold attacks and move towards one another. Independent skill pulse schedules.
+   const a=g.fighters[0],b=g.fighters[1],codes=['KeyF','KeyJ'];if(Math.abs(a.x-b.x)>220)codes.push(a.x<b.x?'KeyD':'KeyA',b.x>a.x?'ArrowLeft':'ArrowRight');
+   const pulse=now-lastPulse<120;if(pulse){if(cycle%3===0)codes.push('KeyQ');if(cycle%7===0)codes.push('KeyE');if(cycle%17===0)codes.push('KeyT');if(cycle%6===0)codes.push('KeyU');}
+   keys(codes);
+  }else keys([]);
+  await wait(35);
+ }
+ keys([]);record('完整同屏双人比赛自然结算',s().score.some(n=>n===2)&&s().history.length>=2&&s().mode==='local',brief());
+});
+document.querySelector('#rematch').onclick=()=>run(async()=>{if(s()?.phase!=='matchEnd')throw Error('请先完成比赛');click('[data-action="rematch"]');await wait(150);let a=brief();record('通过真实重赛按钮重置',a.phase==='intro'&&a.round===1&&a.score.every(v=>v===0)&&s().fighters.every(f=>f.hp===f.maxHp),a);await until(()=>s().phase==='fight');keys(['KeyD','ArrowLeft','KeyF','KeyJ']);await wait(1600);keys([]);await wait(250);record('重赛后双人继续移动攻击',s().fighters.every(f=>f.damage>0),brief());});
+document.querySelector('#standalone').onclick=()=>{if(busy)return;keys([]);mode='standalone served via localhost (not file protocol)';frame.src='../release/DOTA_DUEL_1V1_候选版.html?qa=1';results=[];out.textContent='加载未修改的独立HTML；无游戏登录';};
+frame.onload=()=>{out.textContent='已加载 '+mode+'；点击验收按钮开始';};
+</script></html>

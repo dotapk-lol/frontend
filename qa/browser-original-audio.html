@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DOTA DUEL 原创音频验收</title>
+<style>body{background:#10161c;color:#e8eef2;font:16px system-ui;max-width:960px;margin:auto;padding:24px}button,select{font:inherit;padding:10px;margin:4px;background:#243240;color:inherit;border:1px solid #728291;border-radius:6px}label{display:block;margin:14px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#060c12;padding:18px}a{color:#7cdbff}textarea{width:95%;min-height:80px}</style>
+<h1>内置原创音频 · 浏览器验收</h1><p>此页使用与游戏相同的音频模块和资源。声音听感需实际播放后人工确认，状态数字不能代替听音验收。</p>
+<p><a href="/" target="_blank">打开真实游戏</a> · <a href="../assets/audio/menu.wav">菜单 WAV</a> · <a href="../assets/audio/battle.wav">战斗 WAV</a></p>
+<button id="unlock">开启声音</button><button id="menu">菜单循环</button><button id="battle">战斗循环</button><button id="silence">全部静音</button>
+<label><input type="checkbox" id="bgm" checked>背景音乐 <input id="mv" type="range" min="0" max="100" value="35"></label>
+<label><input type="checkbox" id="sfx" checked>技能音效 <input id="sv" type="range" min="0" max="100" value="70"></label>
+<select id="hero" aria-label="选择英雄"></select><select id="skill" aria-label="选择技能"></select><button id="audition">试听当前技能设计</button><button id="impact">普攻 → 命中 → 格挡</button><p>被动在此页可试听素材；真实游戏仅在对应机制触发时播放，按技能键不会虚构释放音。</p>
+<pre id="status"></pre><h2>人工验收记录</h2>
+<label><input type="checkbox" class="check" value="menu-loop">菜单连续两轮：旋律、音量和接缝</label><label><input type="checkbox" class="check" value="battle-loop">战斗连续两轮：节奏、层次和接缝</label><label><input type="checkbox" class="check" value="skills">火冰雷斩箭锤地震暗影毒治疗位移及大招可辨识</label><label><input type="checkbox" class="check" value="mute">音乐／音效独立开关音量、刷新保存</label><label><input type="checkbox" class="check" value="lifecycle">切后台／恢复／快速切换场景：无叠播、无残留</label><label><input type="checkbox" class="check" value="real-game">真实游戏选人／训练／回合／重赛／双窗口听音与画面核对</label>
+<textarea id="notes" placeholder="实际设备、浏览器、监听方式、听到的问题与未测范围"></textarea><button id="save">下载人工记录</button>
+<script type="module">
+import {ArcadeAudio} from '../src/audio.js';import {heroes} from '../src/data.js';import {NET_VERSION} from '../src/net-version.js';
+const $=id=>document.getElementById(id),a=new ArcadeAudio({storage:localStorage}),hero=$('hero'),skill=$('skill');
+hero.innerHTML=heroes.map((h,i)=>`<option value="${i}">${h.name}</option>`).join('');function skills(){skill.innerHTML=heroes[+hero.value].abilities.map(s=>`<option value="${s.id}">${s.name}${s.mvp.passive?'（被动）':''}</option>`).join('');}hero.onchange=skills;skills();
+for(const [id,key] of [['bgm','musicEnabled'],['sfx','sfxEnabled']]){$(id).checked=a.settings[key];$(id).onchange=()=>a.configure({[key]:$(id).checked});}
+for(const [id,key] of [['mv','musicVolume'],['sv','sfxVolume']]){$(id).value=a.settings[key]*100;$(id).oninput=()=>a.configure({[key]:+$(id).value/100});}
+$('unlock').onclick=()=>a.unlock();for(const scene of ['menu','battle'])$(scene).onclick=async()=>{a.setScene(scene);await a.unlock();};$('silence').onclick=()=>{a.configure({musicEnabled:false,sfxEnabled:false});$('bgm').checked=$('sfx').checked=false;};
+$('audition').onclick=async()=>{await a.unlock();a.playEffect({key:skill.value});};$('impact').onclick=async()=>{await a.unlock();for(const [i,key] of ['attack','hit','block'].entries())setTimeout(()=>a.playEffect(key),i*450);};
+document.addEventListener('visibilitychange',()=>a.lifecycle({hidden:document.hidden}));window.addEventListener('pagehide',()=>a.lifecycle({pageAway:true}));window.addEventListener('pageshow',()=>a.lifecycle({pageAway:false}));
+setInterval(()=>{$('status').textContent=JSON.stringify({version:NET_VERSION,browser:navigator.userAgent,...a.status()},null,2);},250);
+$('save').onclick=()=>{const report={version:NET_VERSION,date:new Date().toISOString(),browser:navigator.userAgent,manuallyChecked:[...document.querySelectorAll('.check:checked')].map(x=>x.value),notes:$('notes').value,status:a.status()};const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='original-audio-browser-qa.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+</script></html>
