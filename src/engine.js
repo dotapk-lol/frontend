@@ -1,3 +1,4 @@
+import {lookupRuntimeHero,validHeroPair} from './hero-registry.js';
 export const formatCombatNumber=value=>{if(!Number.isFinite(value))return '0';const n=Math.max(0,value);return n>0&&n<.1?'<0.1':n.toFixed(1).replace(/\.0$/,'');};
 // DOTA DUEL fixed-step deterministic two-sided combat engine.
 // Gameplay units use a 1200-wide arena; skill geometry is adapted to 2D.
@@ -5,9 +6,9 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const clone=x=>JSON.parse(JSON.stringify(x));
 export const FIXED_DT=1/60;
 export class Engine {
- constructor(heroes,indices=[0,3],opts={}){this.heroes=heroes;this.indices=indices;this.mode=opts.mode||'local';this.seed=opts.seed||8192;this.score=[0,0];this.round=1;this.history=[];this.logSeq=0;this.resetRound();}
+ constructor(heroes,indices=[0,3],opts={}){if(!validHeroPair(indices))throw Error('Inactive hero selection');this.heroes=heroes;this.indices=[...indices];this.runtimeHeroes=this.indices.map(id=>lookupRuntimeHero(heroes,id));this.mode=opts.mode||'local';this.seed=opts.seed||8192;this.score=[0,0];this.round=1;this.history=[];this.logSeq=0;this.resetRound();}
  random(){this.seed=(this.seed*1664525+1013904223)>>>0;return this.seed/4294967296;}
- hero(i){return this.heroes[this.indices[i]];}
+ hero(i){return this.runtimeHeroes[i];}
  ability(i,s){return this.hero(i).abilities[s];}
  resetRound(){this.time=99;this.t=0;this.frame=0;this.phase='intro';this.phaseTime=2.3;this.winner=null;this.paused=false;this.hitstop=0;this.shake=0;this.events=[];this.projectiles=[];this.zones=[];this.effects=[];this.logs=[];this.seq=0;this.input=[{},{}];this.previous=[{},{}];this.fighters=[0,1].map(i=>{let h=this.hero(i);return {i,x:i===0?320:880,y:0,vy:0,airVx:0,crouching:false,direction:5,jumpKind:'neutral',dir:i===0?1:-1,hp:h.combatHp||h.hp*2.8,maxHp:h.combatHp||h.hp*2.8,mp:h.combatMana||1200,maxMp:h.combatMana||1200,hits:0,received:0,combo:0,comboTime:0,maxCombo:0,damage:0,casts:0,cd:[0,0,0,0],attackCd:0,recovery:0,stun:0,root:0,silence:0,hex:0,fear:0,taunt:0,slow:0,slowPct:0,invuln:0,ccGrace:0,ccChain:0,guard:0,guardMeter:100,buffs:[],dots:[],animation:'idle',animTime:0,cast:null,channel:null,receivedDamage:0,healBudget:h.hp*20,souls:0,charges:h.abilities.map(a=>a.mvp.charges||0),chargeTimers:[0,0,0,0],lastDamageTime:0,cleanseDamage:0,hitFlash:0,charge:0,chargeSlot:-1,skillBuffer:null,aiDelay:.3};});}
  start(){this.phase='fight';this.phaseTime=0;return this;}
@@ -134,7 +135,8 @@ export class Engine {
    case 'multi':{if(m.invulnerable_active&&!near(m.range_wu))break;if(m.invulnerable_active){this.dispel(f,'basic');f.invuln=m.duration_s;}for(let n=0;n<m.ticks;n++)this.events.push({type:'skill_hit',at:this.t+(m.tick_offsets_s?.[n]??n*m.tick_interval_s),owner:f.i,m,id,damage:m.hit_damages?.[n]??m.damage,range:m.tracking_break_wu||m.range_wu||m.radius_wu,track:m.invulnerable_active});break;}
    case 'aura_hit':if(m.wave_speed_wu_s){this.zones.push({type:'expanding',owner:f.i,x:f.x,life:m.radius_wu/m.wave_speed_wu_s+.1,m,id,age:0,hit:false});}else if(near(m.radius_wu))hit(m.soulLines?m.damage*Math.max(1,Math.min(3,f.souls)):m.damage);this.fx('ring',f.x,60,this.hero(f.i).color,{size:m.radius_wu,life:.65,maxLife:.65});break;
    case 'ground':if(Math.abs(t.x-c.aim)<=m.radius_wu+22&&(m.height!=='ground'||t.y<45)){let d=m.damage+(id==='shadow_fiend_raze'?f.souls*2:0);if(m.stack_damage){const b=this.buff(t,'raze');d+=(b?.m.stacks||0)*m.stack_damage;this.addBuff(t,'raze',{stacks:Math.min(m.max_stacks,(b?.m.stacks||0)+1)},m.stack_duration_s);}hit(d);}this.fx('pillar',c.aim,0,this.hero(f.i).color,{size:m.radius_wu,life:.6,maxLife:.6});break;
-   default:if(near(m.range_wu||m.radius_wu)){let d=m.damage;if(m.missing_mana_multiplier)d=Math.min(m.damage_cap,d+(t.maxMp-t.mp)*m.missing_mana_multiplier);if(m.execute_threshold_pct&&t.hp/t.maxHp<=m.execute_threshold_pct)d=m.execute_damage;if(id==='sven_cleave')d+=this.property(f,'cleave_bonus');hit(d);this.fx('beam',f.x,f.y+100,this.hero(f.i).color,{tx:t.x,ty:t.y+100});}break;
+   case 'hit':if(near(m.range_wu||m.radius_wu)){let d=m.damage;if(m.missing_mana_multiplier)d=Math.min(m.damage_cap,d+(t.maxMp-t.mp)*m.missing_mana_multiplier);if(m.execute_threshold_pct&&t.hp/t.maxHp<=m.execute_threshold_pct)d=m.execute_damage;if(id==='sven_cleave')d+=this.property(f,'cleave_bonus');hit(d);this.fx('beam',f.x,f.y+100,this.hero(f.i).color,{tx:t.x,ty:t.y+100});}break;
+   default:throw Error('Unsupported ability effect: '+m.effect);
   }
   this.log('activate',f.i,{skill:id,slot:c.slot});
  }
