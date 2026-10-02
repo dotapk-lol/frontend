@@ -19,7 +19,7 @@
     "healing(e,f,amount)": "Return healing amount.",
     "dispel(e,f,tier)": "Remove statuses according to basic/strong/none tier.",
     "moveMultiplier(e,f)": "Return multiplier relative to existing movement modifier.",
-    "movingAttack(e,f)": "Allow movement during active link attack recovery.",
+    "movingAttack(e,f)": "Allow only committed attack recovery during live link; simulation timestamp independent of visual animation. Clear on hurt/control/skill/death.",
     "tick(e,dt)": "Once per fixed step before fighter updates; process world and fighter state.",
     "endStep(e)": "Idempotent owner death cleanup before KO resolution.",
     "broken(f)": "Whether live Viper Strike disables passives."
@@ -47,5 +47,8 @@
     "skill"
   ],
   "rendering": "Use src/hero-packs render metadata and assets/cohort/<hero> sheet. 4 poses idle/attack/guard/jump with transparent background; source image pixel review required. No core renderer edits by package authors.",
-  "status": "Core4 implemented adapter ABI; source of truth src/cohort-combat.js and engine call sites. Independent future systems must be integrated and tested explicitly."
+  "status": "Core4 implemented adapter ABI; source of truth src/cohort-combat.js and engine call sites. Independent future systems must be integrated and tested explicitly.",
+  "stateSemantics": {
+    "debuffPierces": "Store boolean on persistent debuffs. Nonpiercing move/attack/negative-stat effects are suppressed while target has debuffImmune; keep expiry advancing for restoration after immunity."
+  }
 }

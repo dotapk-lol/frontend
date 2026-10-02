@@ -1,6 +1,7 @@
 // Core4 arena adaptation. All mutable data is plain, snapshot-visible simulation state.
 const coreClamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const coreStatus=(f,key)=>f.pack?.statuses.find(s=>s.key===key&&s.life>1e-8);
+const coreEffective=(e,f,s)=>!!s&&s.life>1e-8&&(s.pierces===true||!e.property(f,'debuffImmune'));
 const coreBroken=f=>!!coreStatus(f,'viper_strike');
 const coreAlive=f=>f&&f.hp>0;
 const coreHero=(e,f,id)=>e.hero(f.i).valveHeroId===id;
@@ -8,7 +9,7 @@ const coreDistance=(a,b)=>Math.abs(a.x-b.x);
 const coreArmorFactor=a=>1-.06*a/(1+.06*Math.abs(a));
 function coreDebuff(e,f,key,owner,life,values={},dispel='basic',pierces=false){
  if(!coreAlive(f)||f.invuln>0||!pierces&&e.property(f,'debuffImmune'))return null;
- let s=coreStatus(f,key);if(!s){s={key,owner,life,duration:life,elapsed:0,tick:0,values,dispel};f.pack.statuses.push(s);}else Object.assign(s,{owner,life,duration:life,elapsed:0,values});return s;
+ let s=coreStatus(f,key);if(!s){s={key,owner,life,duration:life,elapsed:0,tick:0,values,dispel,pierces};f.pack.statuses.push(s);}else Object.assign(s,{owner,life,duration:life,elapsed:0,values,dispel,pierces});return s;
 }
 function coreDamage(e,owner,target,amount,type,skill,flags={}){if(!coreAlive(target)||!Number.isFinite(amount)||amount<=0)return false;return e.hit(e.fighters[owner],target,amount,{damage_type:type,blockable:false},{skill,dot:true,noLifesteal:!!flags.reflected,...flags});}
 function coreBolt(e,owner,target,color='#79e6ff'){e.fx('beam',owner.x,owner.y+175,color,{tx:target.x,ty:target.y+100,life:.18,maxLife:.18});}
@@ -21,7 +22,7 @@ function coreShieldBurst(e,f,reason){const shield=f.pack.shield;if(!shield)retur
 function coreMissile(e,f,target,kind,abilityId,speed,range){e.packState.missiles.push({id:++e.seq,owner:f.i,target:target.i,kind,abilityId,x:f.x,y:f.y+100,dir:target.x>=f.x?1:-1,speed,remaining:range,r:18});}
 function coreSurge(e,f,attacker,targeted){if(!coreHero(e,f,15)||!coreAlive(f)||!coreAlive(attacker)||coreBroken(f)||f.pack.surgeCD>0||coreDistance(f,attacker)>385+22||!targeted&&e.random()>=.2)return;f.pack.surgeCD=2.5;coreBolt(e,f,attacker);coreDamage(e,f.i,attacker,170,'magical','razor_storm_surge',{reflected:true,noReflect:true,passive:true});coreDebuff(e,attacker,'storm_surge',f.i,1,{moveSlow:.4});e.log('passive',f.i,{skill:'razor_storm_surge',targeted});}
 export const CohortCombat={
- init(e){if(!e.runtimeHeroes.some(h=>h.packKey==='core4')){e.packState=null;return;}e.packState={areas:[],missiles:[],links:[],storms:[],rings:[]};for(const f of e.fighters)f.pack={statuses:[],poison:[],poisonOn:false,borrowed:0,shield:null,surgeCD:0,bashCount:0,water:false,regenTick:0,toxinExposure:0,toxinOwner:null,deathHandled:false};},
+ init(e){if(!e.runtimeHeroes.some(h=>h.packKey==='core4')){e.packState=null;return;}e.packState={areas:[],missiles:[],links:[],storms:[],rings:[]};for(const f of e.fighters)f.pack={statuses:[],poison:[],poisonOn:false,borrowed:0,shield:null,surgeCD:0,bashCount:0,water:false,regenTick:0,toxinExposure:0,toxinOwner:null,deathHandled:false,attackRecoveryUntil:0};},
  broken:coreBroken,
  cast(e,f,slot,options={}){
   if(!e.packState||e.hero(f.i).packKey!=='core4')return undefined;
@@ -38,7 +39,7 @@ export const CohortCombat={
   if(m.startup_frames===0)this.activate(e,f,cast);else f.cast=cast;e.animate(f,'cast',.35);e.log('cast',f.i,{skill:a.id,slot,cost:m.mana,self});return true;
  },
  activate(e,f,c){
-  if(e.hero(f.i).packKey!=='core4')return false;const a=e.ability(f.i,c.slot),id=a.valveAbilityId,t=e.fighters[1-f.i];f.recovery=.2;
+  if(e.hero(f.i).packKey!=='core4')return false;const a=e.ability(f.i,c.slot),id=a.valveAbilityId,t=e.fighters[1-f.i];f.pack.attackRecoveryUntil=0;f.recovery=.2;
   if(id===5082)e.packState.rings.push({id:++e.seq,owner:f.i,x:f.x,age:0,life:2.2,out:[],back:[],radius:0,lastDistance:coreDistance(f,t)});
   else if(id===5083){if(coreAlive(t)&&coreDistance(f,t)<=324.5)e.packState.links.push({id:++e.seq,owner:f.i,target:t.i,draining:true,age:0,amount:0,life:28});}
   else if(id===5085)e.packState.storms.push({id:++e.seq,owner:f.i,life:30,tick:.5});
@@ -53,13 +54,13 @@ export const CohortCombat={
   e.log('activate',f.i,{skill:a.id,slot:c.slot});return true;
  },
  targeted(e,source,target,skill){if(e.packState&&coreAlive(source)&&coreAlive(target)&&source!==target){coreSurge(e,target,source,true);e.log('targeted_spell',source.i,{target:target.i,skill});}},
- attack(e,f,t,damage,m){if(!e.packState)return damage;const p=f.pack;
+ attack(e,f,t,damage,m){if(!e.packState)return damage;const p=f.pack;p.attackRecoveryUntil=e.t+f.recovery;
   for(const link of e.packState.links){if(link.life>0){if(link.owner===f.i)damage+=link.amount;if(link.target===f.i)damage-=link.amount;}}
   if(coreHero(e,f,28)&&p.water&&!coreBroken(f))damage*=1.222;
   if(coreHero(e,f,47)&&p.poisonOn&&f.mp>=20){f.mp-=20;m.corePoison=true;e.log('attack_cost',f.i,{skill:'viper_poison_attack',mana:20});}
   return Math.max(0,damage);
  },
- attackInterval(e,f,t,base){if(!e.packState)return base;let bonus=coreStatus(t,'curse')?.owner===f.i?40:0,slow=0;for(const s of f.pack.statuses){if(s.values.delay&&s.elapsed<s.values.delay)continue;slow=Math.max(slow,s.key==='viper_strike'?180*s.life/6:s.values.attackSlow||0);}if(f.pack.toxinExposure>0)slow=Math.max(slow,60);return base*100/Math.max(20,100+bonus-slow);},
+ attackInterval(e,f,t,base){if(!e.packState)return base;const curse=coreStatus(t,'curse');let bonus=curse?.owner===f.i&&coreEffective(e,t,curse)?40:0,slow=0;for(const s of f.pack.statuses){if(!coreEffective(e,f,s)||s.values.delay&&s.elapsed<s.values.delay)continue;slow=Math.max(slow,s.key==='viper_strike'?180*s.life/6:s.values.attackSlow||0);}if(f.pack.toxinExposure>0&&!e.property(f,'debuffImmune'))slow=Math.max(slow,60);return base*100/Math.max(20,100+bonus-slow);},
  afterAttack(e,f,t,event,landed){if(!e.packState||!landed)return;
   if(event.m?.corePoison&&coreAlive(t)&&!e.property(t,'debuffImmune')){if(t.pack.poison.length>=6)t.pack.poison.sort((a,b)=>a.life-b.life).shift();t.pack.poison.push({owner:f.i,life:4,tick:0,id:++e.seq});e.log('poison_stack',f.i,{target:t.i,stacks:t.pack.poison.length});}
   if(coreBroken(f))return;
@@ -68,13 +69,13 @@ export const CohortCombat={
   if(coreHero(e,f,28)){f.pack.bashCount++;if(f.pack.bashCount>=4){f.pack.bashCount=0;coreDamage(e,f.i,t,200,'physical','slardar_bash',{passive:true});e.control(t,'stun',1,true);e.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});e.log('passive',f.i,{skill:'slardar_bash'});}}
  },
  beforeDamage(e,event){if(!e.packState)return;const {target:f,attacker,m}=event,p=f.pack;
-  if(m.damage_type==='physical'){let armor=coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0;for(const s of p.statuses)armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
-  if(m.damage_type==='magical'){event.damage*=1+p.poison.length*.1;if(coreHero(e,f,47)&&!coreBroken(f))event.damage*=.75;}
+  if(m.damage_type==='physical'){let armor=coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0;for(const s of p.statuses)if(coreEffective(e,f,s))armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
+  if(m.damage_type==='magical'){event.damage*=1+(e.property(f,'debuffImmune')?0:p.poison.length*.1);if(coreHero(e,f,47)&&!coreBroken(f))event.damage*=.75;}
   coreAutoBorrow(e,f);
   if(p.borrowed>0){e.heal(f,event.damage,{skill:'abaddon_borrowed_time',source:attacker.i});event.converted=event.damage;event.damage=0;return;}
   if(p.shield&&event.damage>0){const absorbed=Math.min(event.damage,p.shield.amount);p.shield.amount-=absorbed;event.damage-=absorbed;e.log('shield_absorb',f.i,{amount:absorbed,remaining:p.shield.amount});if(p.shield.amount<=1e-8)coreShieldBurst(e,f,'damage');}
  },
- afterDamage(e,event){if(!e.packState)return;const {attacker:f,target:t,damage,info,guard}=event;
+ afterDamage(e,event){if(!e.packState)return;const {attacker:f,target:t,damage,info,guard}=event;if(!guard&&!info.dot)t.pack.attackRecoveryUntil=0;
   if(event.burstShield)coreShieldBurst(e,t,'damage');coreAutoBorrow(e,t);
   if(damage<=0||f===t)return;
   if(coreHero(e,f,102)&&coreAlive(f)&&!coreBroken(f))coreDebuff(e,t,'withering',f.i,5,{healReduction:.335},'none');
@@ -82,10 +83,10 @@ export const CohortCombat={
   if(coreHero(e,t,15)&&info.basic)coreSurge(e,t,f,false);
   if(coreHero(e,t,47)&&coreAlive(t)&&!coreBroken(t)&&coreDistance(f,t)<=660)coreDebuff(e,f,'skin',t.i,4,{dps:25,attackSlow:36,reflected:true},'basic');
  },
- healing(e,f,amount){if(!e.packState)return amount;return coreStatus(f,'withering')&&f.hp/f.maxHp<.4?amount*.665:amount;},
+ healing(e,f,amount){if(!e.packState)return amount;return coreEffective(e,f,coreStatus(f,'withering'))&&f.hp/f.maxHp<.4?amount*.665:amount;},
  dispel(e,f,tier){if(!e.packState)return;f.pack.statuses=f.pack.statuses.filter(s=>!(s.dispel==='basic'||tier==='strong'&&s.dispel==='strong'));f.pack.poison=[];},
- moveMultiplier(e,f){if(!e.packState)return 1;let slow=f.pack.poison.length*.12;for(const s of f.pack.statuses){if(s.values.delay&&s.elapsed<s.values.delay)continue;slow=Math.max(slow,s.key==='viper_strike'?.8*s.life/6:s.values.moveSlow||0);}const sprint=f.pack.sprint;const resist=sprint?(sprint.age<=2.5?1:Math.max(0,sprint.life/7.5)):0;const combined=Math.max(f.slowPct,Math.min(.95,slow));const oldFactor=1-f.slowPct*(1-e.property(f,'slow_resistance'));const slowFactor=1-combined*(1-Math.max(e.property(f,'slow_resistance'),resist));return (sprint?1.34:1)*(coreHero(e,f,28)&&f.pack.water&&!coreBroken(f)?1.18:1)*slowFactor/Math.max(.001,oldFactor);},
- movingAttack(e,f){return !!e.packState&&f.animation==='attack'&&e.packState.links.some(l=>l.owner===f.i&&l.draining);},
+ moveMultiplier(e,f){if(!e.packState)return 1;let slow=e.property(f,'debuffImmune')?0:f.pack.poison.length*.12;for(const s of f.pack.statuses){if(!coreEffective(e,f,s)||s.values.delay&&s.elapsed<s.values.delay)continue;slow=Math.max(slow,s.key==='viper_strike'?.8*s.life/6:s.values.moveSlow||0);}const sprint=f.pack.sprint;const resist=sprint?(sprint.age<=2.5?1:Math.max(0,sprint.life/7.5)):0;const combined=Math.max(f.slowPct,Math.min(.95,slow));const oldFactor=1-f.slowPct*(1-e.property(f,'slow_resistance'));const slowFactor=1-combined*(1-Math.max(e.property(f,'slow_resistance'),resist));return (sprint?1.34:1)*(coreHero(e,f,28)&&f.pack.water&&!coreBroken(f)?1.18:1)*slowFactor/Math.max(.001,oldFactor);},
+ movingAttack(e,f){return !!e.packState&&f.recovery>0&&f.pack.attackRecoveryUntil>e.t+1e-8&&!e.blocked(f)&&!f.cast&&!f.channel&&e.packState.links.some(l=>l.owner===f.i&&l.draining);},
  tick(e,dt){if(!e.packState)return;const world=e.packState;
   for(const area of world.areas)area.life-=dt;world.areas=world.areas.filter(a=>a.life>1e-8);
   for(const f of e.fighters){if(!coreAlive(f))continue;const p=f.pack;p.deathHandled=false;p.surgeCD=Math.max(0,p.surgeCD-dt);p.borrowed=Math.max(0,p.borrowed-dt);if(p.sprint){p.sprint.age+=dt;p.sprint.life-=dt;if(p.sprint.life<=1e-8)p.sprint=null;}if(p.shield){p.shield.life-=dt;if(p.shield.life<=1e-8)coreShieldBurst(e,f,'expired');}
@@ -108,5 +109,5 @@ export const CohortCombat={
    }else if(p.remaining<=1e-8||p.x<=0||p.x>=1200)p.dead=true;
   }world.missiles=world.missiles.filter(p=>!p.dead);
  },
- endStep(e){if(!e.packState)return;for(const f of e.fighters)if(f.hp<=0&&!f.pack.deathHandled){f.pack.deathHandled=true;f.pack.shield=null;f.pack.borrowed=0;f.pack.poisonOn=false;f.pack.sprint=null;f.pack.statuses=[];f.pack.poison=[];for(const storm of e.packState.storms)if(storm.owner===f.i){storm.life=0;for(const target of e.fighters)target.pack.statuses=target.pack.statuses.filter(s=>s.key!=='storm_armor_'+storm.id);}for(const link of e.packState.links)if(link.owner===f.i||link.target===f.i){link.draining=false;link.life=Math.min(link.life,18);}}},
+ endStep(e){if(!e.packState)return;for(const f of e.fighters)if(f.hp<=0&&!f.pack.deathHandled){f.pack.deathHandled=true;f.pack.attackRecoveryUntil=0;f.pack.shield=null;f.pack.borrowed=0;f.pack.poisonOn=false;f.pack.sprint=null;f.pack.statuses=[];f.pack.poison=[];for(const storm of e.packState.storms)if(storm.owner===f.i){storm.life=0;for(const target of e.fighters)target.pack.statuses=target.pack.statuses.filter(s=>s.key!=='storm_armor_'+storm.id);}for(const link of e.packState.links)if(link.owner===f.i||link.target===f.i){link.draining=false;link.life=Math.min(link.life,18);}}},
 };
