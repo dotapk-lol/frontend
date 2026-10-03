@@ -14,10 +14,11 @@ const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
 const activeMigrations=new Set(['21:0','28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3','21:1','28:0','29:0','36:3','50:0','32:1','50:1']);
 export function usesPrivateRuleCast(engine,actor,slot){return activeMigrations.has(engine.indices[actor]+':'+slot)&&binding(engine).has(engine.indices[actor],slot);}
 const overlay=(a,b)=>b&&typeof b==='object'&&!Array.isArray(b)?Object.fromEntries(Object.entries({...a,...b}).map(([k,v])=>[k,k in b?overlay(a?.[k],v):v])):b;
+const staticPassiveMigrations=new Set(['28:2']);
 const legacyActiveMigrations=new Set(['5:1','5:3','9:1','3:3','8:3','13:0','13:1','13:3','17:1']);
 const legacyPassiveMigrations=new Set(['0:2','1:2','4:1','6:2','7:3']);
 function selectedActivation(engine,actor,slot){const key=engine.indices[actor]+':'+slot;return usesPrivateRuleCast(engine,actor,slot)||legacyActiveMigrations.has(key);}
-export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId],key=heroId+':'+slot;if(!session.sealed.implementation(heroId,slot)||!selectedActivation(engine,actorId,slot)&&!legacyPassiveMigrations.has(key)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
+export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId],key=heroId+':'+slot;if(!session.sealed.implementation(heroId,slot)||!selectedActivation(engine,actorId,slot)&&!legacyPassiveMigrations.has(key)&&!staticPassiveMigrations.has(key)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
 
 const bounded=(v,min,max)=>{if(!Number.isFinite(v)||v<min||v>max)throw Error('Invalid effect amount/duration');return v;};
 function host(engine,abilityId,origin,capture={}){
@@ -376,3 +377,25 @@ function validRuleAreasSnapshot(engine,g,saved){
 function pruneAreaBirths(entry){const latest=new Map();for(const b of entry.areaBirths.values()){const key=b.namespace+':'+b.origin.actor;latest.set(key,Math.max(latest.get(key)??0,b.nativeId));}const active=new Set([...entry.entities.values()].map(r=>r.nativeId));for(const [id,b]of entry.areaBirths)if(!active.has(id)&&latest.get(b.namespace+':'+b.origin.actor)!==id)entry.areaBirths.delete(id);}
 function validAreaBirths(session,g){const h=g.heroHost;if(h.version===4)return h.areaBirths===undefined;const rows=h.areaBirths;if(!Array.isArray(rows)||rows.length>128)return false;const ids=new Set(),latest=new Map(),ordinals=new Set();for(const b of rows){if(!b||Object.keys(b).sort().join(',')!=='castId,createdAt,handle,namespace,nativeId,ordinal,origin,pulse,record'||!['castId','nativeId','ordinal','record'].every(k=>Number.isSafeInteger(b[k])&&b[k]>=1)||b.castId>=b.nativeId||b.nativeId>g.packClock.seq||b.ordinal>=h.nextEntity||!Number.isFinite(b.createdAt)||b.createdAt<0||b.createdAt>g.t||ids.has(b.nativeId)||ordinals.has(b.ordinal)||!new RegExp('^rule-entity:'+h.generation+':'+b.ordinal+':'+b.nativeId+'$').test(b.handle))return false;const o=b.origin;if(!o||Object.keys(o).sort().join(',')!=='abilityId,actor,heroId,slot'||![0,1].includes(o.actor)||g.indices[o.actor]!==o.heroId||!usesPrivateRuleCastForSnapshot(session,o.heroId,o.slot)||session.sealed.hero(o.heroId).abilities[o.slot].id!==o.abilityId||allocationNamespace(session,o)!==b.namespace)return false;const c=h.allocations.find(r=>r.namespace===b.namespace),p=b.pulse;if(!c?.areas||b.record>c.lastArea||b.nativeId>c.entityId||!p||Object.keys(p).sort().join(',')!=='consumed,issued,ordinal'||!['issued','consumed','ordinal'].every(k=>Number.isSafeInteger(p[k])&&p[k]>=0)||p.issued<1||p.issued>c.areaCallbacks||p.issued-p.consumed<0||p.issued-p.consumed>1||p.ordinal<1||p.ordinal>=h.nextJob)return false;ids.add(b.nativeId);ordinals.add(b.ordinal);latest.set(b.namespace+':'+o.actor,Math.max(latest.get(b.namespace+':'+o.actor)??0,b.nativeId));}
 for(const c of h.allocations.filter(c=>c.areas)){const births=rows.filter(b=>b.namespace===c.namespace);if(c.entityId!==Math.max(0,...births.map(b=>b.nativeId))||c.lastArea!==Math.max(0,...births.map(b=>b.record)))return false;}for(const b of rows)if(!h.entities.some(r=>r.nativeId===b.nativeId)&&latest.get(b.namespace+':'+b.origin.actor)!==b.nativeId)return false;return true;}
+
+// A stateless scalar contribution at the original native aggregate stage.
+// The public projectAttack sees unit amount; the host combines other contributors once.
+export function projectRuleStaticPassive(engine,f,abilityId,key){
+ const session=binding(engine),heroId=engine.indices[f.i],slot=session.sealed.hero(heroId)?.abilities.findIndex(a=>a.id===abilityId);
+ if(!staticPassiveMigrations.has(heroId+':'+slot)||key!=='attackPct'||!session.sealed.implementation(heroId,slot))return undefined;
+ if(engine.fighters[f.i]!==f)throw Error('Foreign passive actor');
+ if(!readyStaticPassive(session,heroId,slot))throw Error('Unready static passive projection profile');
+ const result=session.invoke(heroId,slot,'projectAttack',host(engine,abilityId,{actor:f.i,heroId,slot,abilityId}),{actor:f.i,amount:1,abilityId}).value;
+ if(!result||Object.keys(result).join(',')!=='amount')throw Error('Invalid scalar attack projection');
+ return bounded(result.amount,0,1e6)-1;
+}
+
+function readyStaticPassive(session,heroId,slot){
+ const a=session.sealed.hero(heroId).abilities[slot],r=a.recipe,impl=session.sealed.implementation(heroId,slot);
+ return a.mvp.passive&&r.target==='passive'&&!r.ops.length&&Object.keys(r.stats??{}).join(',')==='attackPct'&&!r.attack&&!r.aura&&!r.dynamic&&session.has(heroId,slot,'projectAttack')&&impl.requires.every(cap=>['status','cue'].includes(cap));
+}
+export function validateRuleStaticPassives(engine,actor){
+ const session=binding(engine),heroId=engine.indices[actor];
+ for(let slot=0;slot<4;slot++)if(staticPassiveMigrations.has(heroId+':'+slot)&&session.sealed.implementation(heroId,slot)&&!readyStaticPassive(session,heroId,slot))return false;
+ return true;
+}

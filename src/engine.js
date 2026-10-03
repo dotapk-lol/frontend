@@ -1,5 +1,5 @@
 import {PackTargeting} from './pack-targeting.js';
-import {dispatchRuleEntityPulse,reconcileRuleAreas,dispatchRuleJobDue,reconcileRuleJobs,dispatchRuleStatusPulse,projectLegacyPassive,activateHeroRule,castHeroRule,usesPrivateRuleCast,reconcileRuleStatuses,ruleHostSnapshot,ruleHostEpochSnapshot,validRuleHostSnapshot,validRulePackSnapshot,restoreRuleHostSnapshot,moduleAbility,rulesSnapshot,validRulesSnapshot,restoreRulesSnapshot,validHeroRuleResources,validateHeroRuleFacts} from './hero-rules-host.js';
+import {validateRuleStaticPassives,projectRuleStaticPassive,dispatchRuleEntityPulse,reconcileRuleAreas,dispatchRuleJobDue,reconcileRuleJobs,dispatchRuleStatusPulse,projectLegacyPassive,activateHeroRule,castHeroRule,usesPrivateRuleCast,reconcileRuleStatuses,ruleHostSnapshot,ruleHostEpochSnapshot,validRuleHostSnapshot,validRulePackSnapshot,restoreRuleHostSnapshot,moduleAbility,rulesSnapshot,validRulesSnapshot,restoreRulesSnapshot,validHeroRuleResources,validateHeroRuleFacts} from './hero-rules-host.js';
 import {PackControl} from './pack-control.js';
 import {PackHP} from './pack-hp.js';
 import {createPackDispatcher} from './pack-dispatcher.js';
@@ -18,6 +18,7 @@ export class Engine {
  hero(i){return this.runtimeHeroes[i];}
  ability(i,s){return moduleAbility(this,i,s,this.hero(i).abilities[s]);}
  resetRound(){this.packCore=null;this.packModules=null;this.time=99;this.t=0;this.frame=0;this.phase='intro';this.phaseTime=2.3;this.winner=null;this.paused=false;this.hitstop=0;this.shake=0;this.events=[];this.projectiles=[];this.zones=[];this.effects=[];this.logs=[];this.seq=0;this.input=[{},{}];this.previous=[{},{}];this.fighters=[0,1].map(i=>{let h=this.hero(i);return {i,x:i===0?320:880,y:0,vy:0,airVx:0,crouching:false,direction:5,jumpKind:'neutral',dir:i===0?1:-1,hp:h.combatHp||h.hp*2.8,maxHp:h.combatHp||h.hp*2.8,mp:h.combatMana||1200,maxMp:h.combatMana||1200,hits:0,received:0,combo:0,comboTime:0,maxCombo:0,damage:0,casts:0,cd:[0,0,0,0],attackCd:0,recovery:0,stun:0,root:0,silence:0,hex:0,fear:0,taunt:0,slow:0,slowPct:0,invuln:0,ccGrace:0,ccChain:0,guard:0,guardMeter:100,buffs:[],dots:[],animation:'idle',animTime:0,cast:null,channel:null,receivedDamage:0,healBudget:h.hp*20,souls:0,charges:h.abilities.map(a=>a.mvp.charges||0),chargeTimers:[0,0,0,0],lastDamageTime:0,cleanseDamage:0,hitFlash:0,charge:0,chargeSlot:-1,skillBuffer:null,aiDelay:.3};});this.packCombat.init(this);}
+ heroRulePassiveProjection(f,abilityId,key){return projectRuleStaticPassive(this,f,abilityId,key);}
  heroRuleEntityPulse(entity,event){return dispatchRuleEntityPulse(this,entity,event);}
  heroRuleJobDue(job,accepted,namespace){return dispatchRuleJobDue(this,job,accepted,namespace);}
  heroRuleStatusPulse(f,record,enabled){return dispatchRuleStatusPulse(this,f,record,enabled);}
@@ -105,6 +106,7 @@ export class Engine {
   this.log(guard?'block':'hit',attacker.i,{damage:d,target:target.i,basic,heavy:!!info.heavy,skill:info.skill||null});return !guard;
  }
  attack(i,{forced=false}={}){const heavy=false;const f=this.fighters[i],t=this.fighters[1-i],h=this.hero(i);if(this.phase!=='fight'||this.paused||f.hp<=0||this.blocked(f,{ignoreTaunt:forced})||this.packCombat.disarmed(this,f)||packStatusFlag(this,f,'disarm')||this.controlRemaining(f,'root')>0||f.attackCd>1e-7||f.recovery>1e-7||f.cast||f.channel||(this.buff(f,'aura')&&h.id==='juggernaut'))return false;
+  if(!validateRuleStaticPassives(this,i))return false;
   if(!forced)this.commitAction(f);const fiery=this.passivesEnabled(f)?this.buff(f,'fiery')?.m.stacks||0:0;const interval=this.packCombat.attackInterval(this,f,t,this.property(f,'attack_interval_override_s')||h.attack_interval_s*(this.property(f,'attack_interval_multiplier')||1)*(1/(1+fiery*.28)));const moon=this.buff(f,'mirana_moonlight');if(moon)moon.reveal=1.5;f.attackCd=interval*(heavy?1.65:1);f.recovery=Math.min(.22,interval);this.animate(f,heavy?'heavy':'attack',heavy?.45:.32);f.guard=0;
   let range=(this.property(f,'attack_range_override')||h.attack_range)+this.property(f,'attack_range_bonus')+this.property(f,'next_attack_range_bonus');let d=this.property(f,'attack_damage_override')||h.attack;d+=this.property(f,'attack_bonus');if(h.id==='shadow_fiend')d+=f.souls;d*=1-this.property(f,'attack_damage_debuff');if(heavy){d*=1.55;range+=24;}
   const buff=f.buffs.find(b=>b.m.next_attack_override);if(buff)d=buff.m.next_attack_override;
