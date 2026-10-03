@@ -11,7 +11,7 @@ function binding(engine){
 }
 const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
 // Executable migration allowlist, not a roster unlock. Other registered drafts retain native dispatch.
-const activeMigrations=new Set(['50:2']);
+const activeMigrations=new Set(['28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3']);
 export function usesPrivateRuleCast(engine,actor,slot){return activeMigrations.has(engine.indices[actor]+':'+slot)&&binding(engine).has(engine.indices[actor],slot);}
 const overlay=(a,b)=>b&&typeof b==='object'&&!Array.isArray(b)?Object.fromEntries(Object.entries({...a,...b}).map(([k,v])=>[k,k in b?overlay(a?.[k],v):v])):b;
 export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId];if(!session.sealed.implementation(heroId,slot)||engine.hero(actorId).packKey&&!usesPrivateRuleCast(engine,actorId,slot)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
@@ -93,10 +93,10 @@ export function castHeroRule(engine,i,slot,options={}){
  const session=binding(engine),f=engine.fighters[i],t=engine.fighters[1-i],heroId=engine.indices[i],a=engine.ability(i,slot),m=a.mvp,origin={actor:i,heroId,slot,abilityId:a.id},ctxHost=host(engine,a.id,origin);
  if(!session.validateFacts(ctxHost))return false;
  const ready=f.hp>0&&engine.phase==='fight'&&!engine.paused&&!engine.blocked(f)&&!engine.isSilenced(f)&&f.chargeSlot<0&&!f.cast&&!f.channel&&f.recovery<=0;
- const aim=options.aim??t.x;
+ const aim=options.aim??t.x,targetProfile=session.sealed.hero(heroId).abilities[slot].recipe?.target;
  if(!ready||!Number.isFinite(aim))return false;
- const result=session.invoke(heroId,slot,'planCast',ctxHost,{owner:i,target:1-i,abilityId:a.id,actionReady:ready,manaAvailable:f.mp,cooldownRemaining:f.cd[slot],chargesAvailable:f.charges[slot],aimX:aim});
- const plan=result.handled?result.value:{accepted:f.cd[slot]<=1e-8&&f.mp>=m.mana&&(!m.charges||f.charges[slot]>0)&&engine.canTargetSpell({owner:i,target:1-i,abilityId:a.id,range:m.range_wu}).ok,manaCost:m.mana,cooldownSeconds:m.cooldown_s,chargeCost:m.charges?1:0,windupSeconds:m.startup_frames/60,recoverySeconds:m.recovery_frames/60,action:'cast'};
+ const result=session.invoke(heroId,slot,'planCast',ctxHost,{owner:i,target:1-i,abilityId:a.id,slot,direction:options.dir??f.dir,heldSeconds:options.charge??0,actionReady:ready,manaAvailable:f.mp,cooldownRemaining:f.cd[slot],chargesAvailable:f.charges[slot],aimX:aim});
+ const plan=result.handled?result.value:{accepted:f.cd[slot]<=1e-8&&f.mp>=m.mana&&(!m.charges||f.charges[slot]>0)&&(targetProfile!=='enemy'||engine.canTargetSpell({owner:i,target:1-i,abilityId:a.id,range:m.range_wu}).ok),manaCost:m.mana,cooldownSeconds:m.cooldown_s,chargeCost:m.charges?1:0,windupSeconds:m.startup_frames/60,recoverySeconds:m.recovery_frames/60,action:'cast'};
  if(!plan?.accepted)return false;
  for(const [key,max]of [['manaCost',1e7],['cooldownSeconds',3600],['windupSeconds',3600],['recoverySeconds',3600],['chargeCost',1]])bounded(plan[key],0,max);
  if(plan.action!=='cast'||plan.manaCost>f.mp||plan.chargeCost>f.charges[slot]||!Number.isInteger(plan.chargeCost))return false;
@@ -104,15 +104,15 @@ export function castHeroRule(engine,i,slot,options={}){
  const supported=new Set(['damage','heal','status','target-route','cue']);if(session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap)))return false;
  statusVariants(engine,origin);
  engine.commitAction(f);f.mp-=plan.manaCost;f.cd[slot]=plan.cooldownSeconds;if(plan.chargeCost){f.charges[slot]-=plan.chargeCost;if(f.chargeTimers[slot]<=0)f.chargeTimers[slot]=m.charge_restore_s;}f.casts++;f.guard=false;
- const x=Math.max(Math.max(45,f.x-m.range_wu),Math.min(Math.min(1155,f.x+m.range_wu),aim)),cast={id:++engine.seq,slot,abilityId:a.id,remaining:plan.windupSeconds,aim:x};
- engine.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else engine.activate(f,cast);engine.animate(f,'cast',.35);engine.log('cast',i,{skill:a.id,slot,cost:plan.manaCost});return true;
+ const x=targetProfile==='self'?f.x:Math.max(Math.max(45,f.x-m.range_wu),Math.min(Math.min(1155,f.x+m.range_wu),aim)),cast={id:++engine.seq,slot,abilityId:a.id,remaining:plan.windupSeconds,aim:x};
+ if(targetProfile==='enemy')engine.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else engine.activate(f,cast);engine.animate(f,'cast',.35);engine.log('cast',i,{skill:a.id,slot,cost:plan.manaCost});return true;
 }
 export function ruleHostSnapshot(engine){
  const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1)return null;
  return {version:1,rulesHash:entry.session.sealed.rulesHash,nextHandle:entry.nextHandle,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec}))};
 }
 export function validRuleHostSnapshot(engine,g){
- const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>id===50)&&session.has(50,2)&&s.abilityId===session.sealed.hero(50).abilities[2].id).map(s=>({target:f.i,status:s})));if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length);
+ const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>activeMigrations.has(id+':'+slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length);
  try{if(Object.keys(saved).sort().join(',')!=='nextHandle,rulesHash,statuses,version'||saved.version!==1||saved.rulesHash!==session.sealed.rulesHash||!Number.isSafeInteger(saved.nextHandle)||saved.nextHandle<1||!Array.isArray(saved.statuses)||saved.statuses.length>128)return false;
  const seen=new Set();for(const row of saved.statuses){if(Object.keys(row).sort().join(',')!=='handle,origin,spec'||typeof row.handle!=='string'||!/^rule-status:[1-9][0-9]*$/.test(row.handle)||Number(row.handle.split(':')[1])>=saved.nextHandle||seen.has(row.handle))return false;seen.add(row.handle);const o=row.origin,s=row.spec;
  if(Object.keys(o).sort().join(',')!=='abilityId,actor,heroId,slot'||![0,1].includes(o.actor)||g.indices[o.actor]!==o.heroId||!activeMigrations.has(originKey(o))||session.sealed.hero(o.heroId).abilities[o.slot].id!==o.abilityId||s.abilityId!==o.abilityId||![0,1].includes(s.target)||![0,1].includes(s.owner))return false;
