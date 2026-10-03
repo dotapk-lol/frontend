@@ -11,7 +11,7 @@ function binding(engine){
 }
 const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
 // Executable migration allowlist, not a roster unlock. Other registered drafts retain native dispatch.
-const activeMigrations=new Set(['21:0','28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3','21:1','28:0','29:0','36:3','50:0','32:1','50:1','42:1','55:1','36:1']);
+const activeMigrations=new Set(['21:0','28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3','21:1','28:0','29:0','36:3','50:0','32:1','50:1','42:1','55:1','36:1','29:1','50:3']);
 export function usesPrivateRuleCast(engine,actor,slot){return activeMigrations.has(engine.indices[actor]+':'+slot)&&!!binding(engine).sealed.implementation(engine.indices[actor],slot);}
 const overlay=(a,b)=>b&&typeof b==='object'&&!Array.isArray(b)?Object.fromEntries(Object.entries({...a,...b}).map(([k,v])=>[k,k in b?overlay(a?.[k],v):v])):b;
 const staticPassiveMigrations=new Set(['28:2']);
@@ -49,8 +49,9 @@ function host(engine,abilityId,origin,capture={}){
    schedule(spec){identity(spec);return spec.binding?.kind==='entity'?scheduleRuleArea(engine,origin,spec):spec.binding?.kind==='source-job'?scheduleRuleSourceJob(engine,origin,spec,capture):scheduleRuleStatus(engine,origin,spec);},
    cancelJob(handle){const entry=bridgeEntry(engine),job=entry.jobs.get(handle);if(!job)return false;if(originKey(job.origin)!==originKey(origin)||job.origin.actor!==origin.actor)throw Error('Cross-origin job cancellation');entry.jobs.delete(handle);if(job.nativeId!==undefined){const world=engine.packModules?.r20_55;if(world)world.jobs=world.jobs.filter(j=>j.id!==job.nativeId);}return true;},
    selfDamage(spec){identity(spec);if(Object.keys(spec).sort().join(',')!=='abilityId,actor,amount,nonlethal'||spec.actor!==origin.actor||spec.nonlethal!==true)throw Error('Unsupported self damage receipt');const f=actor(spec.actor),amount=bounded(spec.amount,0,1e7),actual=engine.nonlethalSelfDamage(f,amount);return {accepted:f.hp>0,landed:f.hp>0,guarded:false,raw:amount,actual,deferred:0,killedAtDebit:false};},
+   mana(spec){identity(spec);const entry=bridgeEntry(engine),lease=entry.lease,row=entry.handles.get(lease?.ref),cost=declaredUpkeep(entry.session,origin);if(Object.keys(spec).sort().join(',')!=='abilityId,actor,delta'||!row||!lease?.job||lease.record!==row.record||JSON.stringify(row.origin)!==JSON.stringify(origin)||cost===null||spec.actor!==origin.actor||spec.delta!==-cost||cost>actor(spec.actor).mp)throw Error('Unsupported upkeep mana transaction');const f=actor(spec.actor);f.mp+=spec.delta;return spec.delta;},
    heal(spec){identity(spec);actor(spec.source);const target=actor(spec.target),receipt={actual:0,deferred:0};engine.heal(target,bounded(spec.amount,0,1e7),{skill:abilityId},receipt);return receipt;},
-   cue(event){identity(event);if(aProfile&&event.kind==='cast')return;const f=actor(event.actor),color=engine.hero(f.i).color;if(event.kind==='blink')engine.fx('dash',f.x,f.y+80,color);else if(event.kind==='targeted-hit'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,color,{tx:t.x,ty:t.y+100});}else if(event.kind==='passive'&&abilityId==='slardar_bash'){const t=actor(event.target);engine.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});engine.log('passive',f.i,{skill:abilityId});}else if(event.kind==='reflect'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,'#95dcff',{tx:t.x,ty:t.y+100});engine.fx('text',f.x,f.y+180,'#bbf0ff',{text:'法术反制'});engine.log('reflect',f.i,{skill:abilityId});}else throw Error('Unknown semantic cue');}
+   cue(event){identity(event);if(aProfile&&event.kind==='cast'){actor(event.actor);retainRejectedTogglePresentation(engine,origin,event);return;}const f=actor(event.actor),color=engine.hero(f.i).color;if(event.kind==='blink')engine.fx('dash',f.x,f.y+80,color);else if(event.kind==='targeted-hit'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,color,{tx:t.x,ty:t.y+100});}else if(event.kind==='passive'&&abilityId==='slardar_bash'){const t=actor(event.target);engine.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});engine.log('passive',f.i,{skill:abilityId});}else if(event.kind==='reflect'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,'#95dcff',{tx:t.x,ty:t.y+100});engine.fx('text',f.x,f.y+180,'#bbf0ff',{text:'法术反制'});engine.log('reflect',f.i,{skill:abilityId});}else throw Error('Unknown semantic cue');}
   }
  };
 }
@@ -75,8 +76,8 @@ export function validateHeroRuleFacts(engine,actorId,slot){
  const session=binding(engine),heroId=engine.indices[actorId];
  if(!selectedActivation(engine,actorId,slot)||!session.sealed.implementation(heroId,slot))return true;
  if(!session.has(heroId,slot,'activate'))return false;
- const supported=new Set(['damage','heal','control','target-route','motion-request','protect','cue',...(usesPrivateRuleCast(engine,actorId,slot)?['status','schedule','self-damage','legacy-effect']:[])]);
- const impl=session.sealed.implementation(heroId,slot);if(!scheduledBindingsAdmission(impl)||impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!scheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
+ const supported=new Set(['mana','damage','heal','control','target-route','motion-request','protect','cue',...(usesPrivateRuleCast(engine,actorId,slot)?['status','schedule','self-damage','legacy-effect']:[])]);
+ const impl=session.sealed.implementation(heroId,slot);if(impl.requires.includes('mana')&&declaredUpkeep(session,{heroId,slot})===null)return false;if(!scheduledBindingsAdmission(impl)||impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!scheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
  try{if(usesPrivateRuleCast(engine,actorId,slot))statusVariants(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id});return session.validateFacts(host(engine,session.sealed.hero(heroId).abilities[slot].id));}catch{return false;}
 }
 
@@ -84,9 +85,9 @@ export function validateHeroRuleFacts(engine,actorId,slot){
 // Detached definitions compile a closed status vocabulary. No private hero operation is called here.
 function statusVariants(engine,origin){return compileStatusVariants(binding(engine),origin);}
 function compileStatusVariants(session,origin){
- const ability=session.sealed.hero(origin.heroId).abilities[origin.slot],params=ability.mvp.params??{},out=[],fields=new Set(['armor','attackReduction','moveSlow','attackSlow','attackSpeed','spellAmp','physicalImmune','stun','silence','basicReduction','debuffImmune','magicResist','disarm','magicVulnerable','healAmp']);
+ const ability=session.sealed.hero(origin.heroId).abilities[origin.slot],params=ability.mvp.params??{},out=[],fields=new Set(['armor','attackReduction','moveSlow','attackSlow','attackSpeed','spellAmp','physicalImmune','stun','silence','basicReduction','debuffImmune','magicResist','disarm','magicVulnerable','healAmp','armed','pulseToggle']);
  const value=x=>{if(typeof x==='number'||typeof x==='boolean')return x;if(typeof x==='string'&&Number.isFinite(params[x]))return params[x];if(x&&typeof x==='object'){if(x.div)return value(x.div[0])/value(x.div[1]);if(x.mul)return x.mul.reduce((n,v)=>n*value(v),1);if(x.add)return x.add.reduce((n,v)=>n+value(v),0);}throw Error('Unsupported batch status expression');};
- const visit=(node,path='recipe')=>{if(!node||typeof node!=='object')return;if(Array.isArray(node)){node.forEach((v,i)=>visit(v,path+'.'+i));return;}if(node.op==='status'){if(Object.keys(node.values??{}).some(k=>!fields.has(k)))throw Error('Unimplemented static status projection');const interval=node.tick?bounded(value(node.tick.interval),.001,3600):0;const values=Object.fromEntries(Object.entries(node.values??{}).map(([k,v])=>[k,value(v)])),key=node.key??ability.id,negative=new Set(['disarm','magicVulnerable','moveSlow']),mixed=!!values.physicalImmune&&Object.keys(values).some(k=>negative.has(k));const parts=mixed?[{key:key+'_positive',polarity:'positive',pierces:false,group:key,values:Object.fromEntries(Object.entries(values).filter(([k])=>!negative.has(k)))},{key:key+'_hostile',polarity:'negative',pierces:!!node.pierces,group:key,values:Object.fromEntries(Object.entries(values).filter(([k])=>negative.has(k)))}]:[{key,polarity:node.to==='self'?'positive':'negative',pierces:!!node.pierces,group:null,values}];for(const part of parts)out.push({...part,duration:value(node.duration),dispel:node.dispel??'basic',interval,program:node.tick?ability.id+':'+path+'.tick.ops':null});}for(const [k,v]of Object.entries(node))visit(v,path+'.'+k);};visit(ability.recipe);return out;
+ const visit=(node,path='recipe')=>{if(!node||typeof node!=='object')return;if(Array.isArray(node)){node.forEach((v,i)=>visit(v,path+'.'+i));return;}if(node.op==='status'||node.op==='toggle'){if(node.op==='toggle'&&(Object.keys(node.values??{}).length!==1||!['armed','pulseToggle'].some(k=>node.values?.[k]===true)))throw Error('Unsupported toggle projection vocabulary');if(Object.keys(node.values??{}).some(k=>!fields.has(k)))throw Error('Unimplemented static status projection');const interval=node.tick?bounded(value(node.tick.interval),.001,3600):0;const values=Object.fromEntries(Object.entries(node.values??{}).map(([k,v])=>[k,value(v)])),key=node.key??ability.id,negative=new Set(['disarm','magicVulnerable','moveSlow']),mixed=!!values.physicalImmune&&Object.keys(values).some(k=>negative.has(k));const parts=mixed?[{key:key+'_positive',polarity:'positive',pierces:false,group:key,values:Object.fromEntries(Object.entries(values).filter(([k])=>!negative.has(k)))},{key:key+'_hostile',polarity:'negative',pierces:!!node.pierces,group:key,values:Object.fromEntries(Object.entries(values).filter(([k])=>negative.has(k)))}]:[{key,polarity:node.op==='toggle'||node.to==='self'?'positive':'negative',pierces:!!node.pierces,group:null,values}];for(const part of parts)out.push({...part,duration:node.op==='toggle'?3600:value(node.duration),toggle:node.op==='toggle',dispel:node.dispel??'basic',interval,program:node.tick?ability.id+':'+path+'.tick.ops':null});}for(const [k,v]of Object.entries(node))visit(v,path+'.'+k);};visit(ability.recipe);return out;
 }
 const same=(a,b)=>JSON.stringify(Object.entries(a).sort())===JSON.stringify(Object.entries(b).sort());
 const originKey=o=>o.heroId+':'+o.slot;
@@ -96,7 +97,7 @@ function applyRuleStatus(engine,origin,spec,capture){
  if(Object.keys(spec).sort().join(',')!=='abilityId,dispel,duration,key,owner,pierces,polarity,target,values'||![0,1].includes(spec.owner)||![0,1].includes(spec.target)||!variants.some(v=>v.key===spec.key&&v.duration===spec.duration&&v.polarity===spec.polarity&&v.dispel===spec.dispel&&v.pierces===spec.pierces&&same(v.values,spec.values)))throw Error('Status request differs from sealed source schema');
  const variant=variants.find(v=>v.key===spec.key&&v.duration===spec.duration&&same(v.values,spec.values));const entry=bridgeEntry(engine),sourceId=capture.sourceId,n=namespaceState(entry.session,origin)?.next??1;if(!Number.isSafeInteger(sourceId)||sourceId<1||sourceId>engine.seq||!Number.isSafeInteger(n)||n<1)throw Error('Missing native status birth identity');const f=engine.fighters[spec.target],options={key:spec.key,owner:spec.owner,duration:spec.duration,values:spec.values,dispel:spec.dispel,pierces:spec.pierces,interval:variant.interval};
  const record=spec.polarity==='positive'?aStatusStore.applyPositiveStatus(engine,f,options):aStatusStore.applyStatus(engine,f,options);
- if(!record)return null;Object.assign(record,{abilityId:spec.abilityId,reflected:spec.owner!==origin.actor,programId:variant.program,group:variant.group,polarity:variant.group?'mixed':record.polarity});
+ if(!record)return null;if(variant.toggle)engine.addBuff(f,spec.key,{r20Toggle:true},spec.duration);Object.assign(record,{abilityId:spec.abilityId,reflected:spec.owner!==origin.actor,programId:variant.program,group:variant.group,polarity:variant.group?'mixed':record.polarity});
  // Admission rejection above leaves the prior handle/record untouched. Successful recast invalidates it.
  for(const [handle,row]of entry.handles)if(row.spec.target===spec.target&&row.spec.key===spec.key)dropRuleStatusJobs(entry,handle),entry.handles.delete(handle);
  allocated(entry,origin,'status',n);entry.statusBirths.set(allocationNamespace(entry.session,origin)+':'+spec.target+':'+spec.key,{namespace:allocationNamespace(entry.session,origin),origin:{...origin},target:spec.target,key:spec.key,owner:spec.owner,ordinal:entry.nextHandle,sourceId,record:n,startedAt:engine.t,...(variant.interval>0?{pulse:{issued:0,consumed:0,ordinal:0}}:{})});const handle='rule-status:'+entry.generation+':'+(entry.nextHandle++)+':'+sourceId+':'+n;entry.handles.set(handle,{origin:{...origin},spec:structuredClone(spec),stamp:{generation:entry.generation,round:engine.round,sourceId,record:n,targetLife:engine.packCore?.life?.[spec.target]??0},record});return handle;
@@ -107,10 +108,10 @@ function queryRuleStatus(engine,origin,target,key){
 }
 function removeRuleStatus(engine,origin,handle){
  const entry=bridgeEntry(engine),row=entry.handles.get(handle);if(!row)return false;if(!origin||originKey(row.origin)!==originKey(origin))throw Error('Cross-origin status removal');
- const record=liveRecord(engine,row);dropRuleStatusJobs(entry,handle);entry.handles.delete(handle);if(!record)return false;const state=engine.fighters[row.spec.target].packModules.r20_55;state.statuses=state.statuses.filter(s=>s!==record);return true;
+ const record=liveRecord(engine,row);if(statusVariants(engine,row.origin).some(v=>v.key===row.spec.key&&v.toggle))engine.fighters[row.spec.target].buffs=engine.fighters[row.spec.target].buffs.filter(b=>b.key!==row.spec.key);dropRuleStatusJobs(entry,handle);entry.handles.delete(handle);if(!record)return false;const state=engine.fighters[row.spec.target].packModules.r20_55;state.statuses=state.statuses.filter(s=>s!==record);return true;
 }
 export function reconcileRuleStatuses(engine){
- const entry=bridgeEntry(engine);for(const [handle,row]of [...entry.handles])if(!liveRecord(engine,row)){dropRuleStatusJobs(entry,handle);entry.handles.delete(handle);entry.session.invoke(row.origin.heroId,row.origin.slot,'onStage',host(engine,row.spec.abilityId,row.origin),{kind:'status-removed',abilityId:row.spec.abilityId,handle});}
+ const entry=bridgeEntry(engine);for(const [handle,row]of [...entry.handles])if(!liveRecord(engine,row)){if(statusVariants(engine,row.origin).some(v=>v.key===row.spec.key&&v.toggle))engine.fighters[row.spec.target].buffs=engine.fighters[row.spec.target].buffs.filter(b=>b.key!==row.spec.key);dropRuleStatusJobs(entry,handle);entry.handles.delete(handle);entry.session.invoke(row.origin.heroId,row.origin.slot,'onStage',host(engine,row.spec.abilityId,row.origin),{kind:'status-removed',abilityId:row.spec.abilityId,handle});}
 }
 export function castHeroRule(engine,i,slot,options={}){
  if(!usesPrivateRuleCast(engine,i,slot))return undefined;
@@ -123,10 +124,11 @@ export function castHeroRule(engine,i,slot,options={}){
  const plan=result.handled?result.value:{accepted:f.cd[slot]<=1e-8&&f.mp>=m.mana&&(!m.charges||f.charges[slot]>0)&&(targetProfile!=='enemy'||engine.canTargetSpell({owner:i,target:1-i,abilityId:a.id,range:m.range_wu}).ok),manaCost:m.mana,cooldownSeconds:m.cooldown_s,chargeCost:m.charges?1:0,windupSeconds:m.startup_frames/60,recoverySeconds:m.recovery_frames/60,action:'cast'};
  if(!plan?.accepted)return false;
  for(const [key,max]of [['manaCost',1e7],['cooldownSeconds',3600],['windupSeconds',3600],['recoverySeconds',3600],['chargeCost',1]])bounded(plan[key],0,max);
- if(plan.action!=='cast'||plan.manaCost>f.mp||plan.chargeCost>f.charges[slot]||!Number.isInteger(plan.chargeCost))return false;
+ if(!['cast','toggle-off'].includes(plan.action)||plan.manaCost>f.mp||plan.chargeCost>f.charges[slot]||!Number.isInteger(plan.chargeCost))return false;
  // Only supported requirements reach a resource transaction. No missing port may fail after payment.
- const supported=new Set(['damage','heal','status','control','target-route','cue','schedule','self-damage','legacy-effect']);if(!scheduledBindingsAdmission(session.sealed.implementation(heroId,slot))||session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!scheduleAdmission(engine,origin))return false;
- statusVariants(engine,origin);
+ const supported=new Set(['mana','damage','heal','status','control','target-route','cue','schedule','self-damage','legacy-effect']);if(!scheduledBindingsAdmission(session.sealed.implementation(heroId,slot))||session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!scheduleAdmission(engine,origin))return false;
+ statusVariants(engine,origin);if(session.sealed.implementation(heroId,slot).requires.includes('mana')&&declaredUpkeep(session,origin)===null)return false;
+ if(plan.action==='toggle-off'){if(!a.recipe?.toggle||!queryRuleStatus(engine,origin,i,a.id).length||['manaCost','cooldownSeconds','chargeCost','windupSeconds','recoverySeconds'].some(k=>plan[k]!==0))return false;engine.commitAction(f);session.invoke(heroId,slot,'activate',host(engine,a.id,origin,{aimX:f.x,sourceId:engine.seq,castId:String(engine.seq)}),{owner:i,target:1-i,abilityId:a.id,slot,castId:String(engine.seq),aimX:f.x,direction:f.dir,heldSeconds:0,reflected:false});return true;}
  engine.commitAction(f);f.mp-=plan.manaCost;f.cd[slot]=plan.cooldownSeconds;if(plan.chargeCost){f.charges[slot]-=plan.chargeCost;if(f.chargeTimers[slot]<=0)f.chargeTimers[slot]=m.charge_restore_s;}f.casts++;f.guard=false;
  const x=targetProfile==='self'?f.x:Math.max(Math.max(45,f.x-m.range_wu),Math.min(Math.min(1155,f.x+m.range_wu),aim)),cast={id:++engine.seq,slot,abilityId:a.id,remaining:plan.windupSeconds,aim:x};
  if(targetProfile==='enemy')engine.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else engine.activate(f,cast);engine.animate(f,'cast',.35);engine.log('cast',i,{skill:a.id,slot,cost:plan.manaCost});return true;
@@ -264,7 +266,7 @@ function scheduledBindingsAdmission(impl){const area=Object.values(impl.schedule
 function statusScheduleAdmission(engine,origin){
  const session=binding(engine),impl=session.sealed.implementation(origin.heroId,origin.slot),a=session.sealed.hero(origin.heroId).abilities[origin.slot];
  if(!scheduledBindingsAdmission(impl)||!impl.scheduledBindings?.statusPulse?.some(p=>p.binding==='status'&&p.delivery==='actor.status-advance'))return false;
- let unsupported=false;const scan=node=>{if(!node||typeof node!=='object')return;if(['delay','area','toggle','special','mark','rupture','pullStep'].includes(node.op)||node.aura)unsupported=true;Object.values(node).forEach(scan);};scan(a.recipe);
+ let unsupported=false;const scan=node=>{if(!node||typeof node!=='object')return;if(['delay','area','special','mark','rupture','pullStep'].includes(node.op)||node.aura)unsupported=true;Object.values(node).forEach(scan);};scan(a.recipe);
  try{const variants=statusVariants(engine,origin),periodic=variants.filter(v=>v.interval>0),keys=variants.map(v=>v.key);return !unsupported&&new Set(keys).size===keys.length&&periodic.length>0&&periodic.every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
 }
 
@@ -285,7 +287,7 @@ function scheduleAdmission(engine,origin){
  if(status&&!statusScheduleAdmission(engine,origin))return false;
  if(source){try{if(sourceDelayProfiles(engine,origin).length!==1||(engine.packModules?.r20_55?.jobs.length??0)>=128||bridgeEntry(engine).jobs.size>=256)return false;}catch{return false;}}
  if(area){try{if(areaVariants(engine,origin).length!==1||(engine.packModules?.r20_55?.entities.length??0)>=64||bridgeEntry(engine).jobs.size>=256)return false;}catch{return false;}}
- return status||source||area;
+ return status||source||area||staticToggleProfile(binding(engine).sealed.hero(origin.heroId).abilities[origin.slot]);
 }
 function scheduleRuleSourceJob(engine,origin,spec,capture){
  const entry=bridgeEntry(engine),impl=entry.session.sealed.implementation(origin.heroId,origin.slot),profiles=sourceDelayProfiles(engine,origin),state=namespaceState(entry.session,origin);
@@ -485,3 +487,24 @@ function validAuraWitness(engine,g){try{
  }
  return true;
 }catch{return false;}}
+
+function staticToggleProfile(a){const r=a.recipe;return r?.toggle===true&&r.ops?.length===1&&r.ops[0].op==='toggle'&&!r.ops[0].tick;}
+const attackRuleMigrations=new Set(['29:1','47:2']);
+export function withRuleAttackReceipt(engine,f,t,event,landed,callback){const entry=bridgeEntry(engine);if(entry.attackLease)throw Error('Nested basic attack receipt');entry.attackLease={f,t,event,landed,consumed:new Set()};try{return callback();}finally{entry.attackLease=null;}}
+export function dispatchRuleAfterAttack(engine,f,t,a,event,landed){
+ if(!attackRuleMigrations.has(engine.indices[f.i]+':'+engine.hero(f.i).abilities.findIndex(x=>x.id===a.id)))return false;
+ const entry=bridgeEntry(engine),slot=entry.session.sealed.hero(engine.indices[f.i]).abilities.findIndex(x=>x.id===a.id),impl=entry.session.sealed.implementation(engine.indices[f.i],slot);if(!impl)return false;
+ const lease=entry.attackLease;if(!lease||lease.f!==f||lease.t!==t||lease.event!==event||lease.landed!==landed||lease.consumed.has(a.id))return true;lease.consumed.add(a.id);
+ if(!entry.session.has(engine.indices[f.i],slot,'onAttack')||impl.requires.some(x=>!['damage','status','cue','schedule'].includes(x)))return true;
+ entry.session.invoke(engine.indices[f.i],slot,'onAttack',host(engine,a.id,{actor:f.i,heroId:engine.indices[f.i],slot,abilityId:a.id}),{owner:f.i,target:t.i,abilityId:a.id,landed,secondary:!!event.m?.r20Secondary,attackId:event.id});return true;
+}
+export function projectRuleArmedAttack(engine,f,t,amount){const entry=bridgeEntry(engine),slot=engine.hero(f.i).abilities.findIndex(a=>a.recipe?.attack?.requiresToggle&&a.recipe.attack.consumeToggle);if(slot<0||!attackRuleMigrations.has(engine.indices[f.i]+':'+slot)||!entry.session.sealed.implementation(engine.indices[f.i],slot))return null;if(!entry.session.has(engine.indices[f.i],slot,'projectAttack'))return {amount};const a=entry.session.sealed.hero(engine.indices[f.i]).abilities[slot],out=entry.session.invoke(engine.indices[f.i],slot,'projectAttack',host(engine,a.id,{actor:f.i,heroId:engine.indices[f.i],slot,abilityId:a.id}),{actor:f.i,owner:f.i,target:t.i,amount}).value;if(!out||Object.keys(out).join(',')!=='amount')throw Error('Unsupported armed attack projection');return {amount:bounded(out.amount,0,1e7)};}
+
+function declaredUpkeep(session,origin){const a=session.sealed.hero(origin.heroId).abilities[origin.slot],r=a.recipe,root=r?.ops?.[0],pulse=root?.tick?.ops?.[0];if(!r?.toggle||r.ops.length!==1||root.op!=='toggle'||root.tick?.ops.length!==1||pulse?.op!=='upkeepPulse')return null;const cost=typeof pulse.cost==='number'?pulse.cost:a.mvp.params?.[pulse.cost];return Number.isFinite(cost)&&cost>=0&&cost<=1e7?cost:null;}
+
+// The native cast UI marker survives rejection of a positive status under invulnerability.
+// This compatibility marker supplies no armed bonus, upkeep clock, or status handle.
+function retainRejectedTogglePresentation(engine,origin,event){
+ const f=engine.fighters[event.actor],entry=bridgeEntry(engine),a=entry.session.sealed.hero(origin.heroId).abilities[origin.slot];
+ if(event.actor===origin.actor&&f.invuln>0&&a.recipe?.toggle&&a.recipe.ops?.length===1&&a.recipe.ops[0].op==='toggle'&&entry.session.sealed.implementation(origin.heroId,origin.slot).requires.includes('status'))engine.addBuff(f,a.id,{r20Toggle:true},3600);
+}
