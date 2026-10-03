@@ -29,7 +29,7 @@ function buff(c,op){const e=c.e,f=op.to==='self'?c.f:c.t,v=values(op.values,c),d
  return parts.find(s=>s.hostile)||parts[0]||null;
 }
 function addArea(c,op){const duration=resolve(op.duration,c),interval=resolve(op.interval,c);if(interval<=0)throw Error('Invalid interval');services.spawn(c.e,{kind:'area',owner:c.f.i,x:op.follow?c.f.x:c.aim,life:duration,data:{abilityId:c.id,target:c.t.i,programId:program(op.ops),interval,tick:0,radius:resolve(op.radius,c)*.55,growth:resolve(op.growth,c)*.55,pulses:0,hits:0,maxHits:resolve(op.maxHits,c),follow:!!op.follow,channel:!!op.channel,breakOnRange:!!op.breakOnRange,cancelOnLeave:!!op.cancelOnLeave,reflected:!!c.reflected}});if(op.channel)state(c.e,c.f).data.channel={abilityId:c.id,life:duration,token:services.actionToken(c.e,c.f)};}
-function execute(c,ops){for(const op of ops){const e=c.e,f=op.to==='self'?c.f:c.t;if(!['area','delay'].includes(op.op)&&op.radius!==undefined&&Math.abs((op.center==='aim'?c.aim:c.f.x)-f.x)>resolve(op.radius,c)*.55)continue;
+function execute(c,ops){for(const op of ops){const e=c.e,f=op.to==='self'?c.f:c.t;if(!['area','delay','upkeepPulse'].includes(op.op)&&op.radius!==undefined&&Math.abs((op.center==='aim'?c.aim:c.f.x)-f.x)>resolve(op.radius,c)*.55)continue;
  switch(op.op){
  case 'damage':{const actual=hit({...c,t:f},resolve(op.amount,c),op.type||c.a.mvp.damage_type);if(op.healFraction)services.heal(e,c.f,actual*resolve(op.healFraction,c),{skill:c.id});break;}
  case 'heal':services.heal(e,f,resolve(op.amount,c),{skill:c.id});break;
@@ -44,7 +44,7 @@ function execute(c,ops){for(const op of ops){const e=c.e,f=op.to==='self'?c.f:c.
  case 'pullStep':if(c.t.invuln<=0&&!e.property(c.t,'debuffImmune'))e.move(c.t,Math.sign(c.f.x-c.t.x)*Math.min(Math.abs(c.f.x-c.t.x),resolve(op.amount,c)));break;
  case 'dispel':e.dispel(f,op.tier);break;
  case 'toggle':{const old=state(e,c.f).statuses.find(s=>s.key===c.id);if(old){state(e,c.f).statuses=state(e,c.f).statuses.filter(s=>s!==old);c.f.buffs=c.f.buffs.filter(s=>s.key!==c.id);}else{buff(c,{...op,to:'self',duration:3600});e.addBuff(c.f,c.id,{r20Toggle:true},3600);}break;}
- case 'upkeepPulse':if(c.f.mp<resolve(op.cost,c)){state(e,c.f).statuses=state(e,c.f).statuses.filter(s=>s.key!==c.id);c.f.buffs=c.f.buffs.filter(s=>s.key!==c.id);}else{c.f.mp-=resolve(op.cost,c);if(Math.abs(c.f.x-c.t.x)<=resolve(op.radius,c)*.55)execute(c,op.ops);}break;
+ case 'upkeepPulse':if(c.f.mp<resolve(op.cost,c)){state(e,c.f).statuses=state(e,c.f).statuses.filter(s=>s.key!==c.id);c.f.buffs=c.f.buffs.filter(s=>s.key!==c.id);}else{c.f.mp-=resolve(op.cost,c);const pulse={...c,t:e.fighters[1-c.f.i]};if(Math.abs(c.f.x-pulse.t.x)<=resolve(op.radius,c)*.55)execute(pulse,op.ops);}break;
  case 'mark':{const s=buff(c,{duration:op.duration,values:{},dispel:'none'});if(s)s.returnX=c.t.x;break;}
  case 'rupture':{const s=buff(c,{duration:op.duration,values:{rupture:resolve(op.percent,c)/100,damageCap:resolve(op.cap,c)},dispel:'none',pierces:true});if(s)s.lastX=c.t.x;break;}
  case 'attackBuff':{buff(c,{to:'self',duration:3600,values:{attackBonus:resolve(op.damage,c),attackRange:resolve(op.range,c)*.55,charges:resolve(op.charges,c)},dispel:'none'});e.addBuff(c.f,c.id,{attack_range_override:resolve(op.range,c)*.55},3600);break;}
