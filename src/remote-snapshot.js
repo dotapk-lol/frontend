@@ -1,5 +1,5 @@
 import {Engine} from './engine.js';
-import {validRulesSnapshot,validHeroRuleResources} from './hero-rules-host.js';
+import {validRulesSnapshot,validHeroRuleResources,validRuleHostSnapshot} from './hero-rules-host.js';
 import {ACTIVE_ROSTER,validSimulationPair} from './hero-registry.js';
 import {validCohortSnapshot} from './cohort-render.js';
 import {assertPackSerializable} from './pack-services.js';
@@ -15,7 +15,7 @@ export function createRemoteSnapshotValidator(pool,{roster=ACTIVE_ROSTER,heroRul
   if(!g.projectiles.every(p=>actor(p.owner)&&['x','y','r','dir'].every(k=>finite(p[k]))&&p.r>=0)||!g.zones.every(z=>actor(z.owner)&&finite(z.x)&&finite(z.life)&&z.m&&typeof z.type==='string')||!g.effects.every(v=>v&&typeof v.type==='string'&&finite(v.x)&&finite(v.y)&&finite(v.life)&&typeof v.color==='string'))return false;
   if(!validCohortSnapshot(g))return false;
   const key=g.indices.join('/');let e=cache.get(key);if(!e){e=new Engine(pool,g.indices,{simulationRoster:roster,heroRuleRegistry});if(cache.size>=4)cache.delete(cache.keys().next().value);cache.set(key,e);}
-  if(!validRulesSnapshot(e,g.heroRules)||!validHeroRuleResources(e,g.fighters))return false;
+  if(!validRulesSnapshot(e,g.heroRules,g.fighters)||!validHeroRuleResources(e,g.fighters)||!validRuleHostSnapshot(e,g))return false;
   const names=Object.keys(e.packModules||{});if(g.fighters.some(f=>Object.keys(f.packModules||{}).some(n=>!names.includes(n)))||!!g.packState!==!!e.packState)return false;
   if(e.packModules||g.packModules||g.packCore){e.restoreSimulation(g);}else if(g.packClock||g.packModules!==undefined&&g.packModules!==null)return false;
   return true;

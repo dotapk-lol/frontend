@@ -1,3 +1,4 @@
+import {invokeHeroHook} from './hero-rules-host.js';
 // Core4 arena adaptation. All mutable data is plain, snapshot-visible simulation state.
 const coreClamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const coreStatus=(f,key)=>f.pack?.statuses.find(s=>s.key===key&&s.life>1e-8);
@@ -67,7 +68,7 @@ export const CohortCombat={
   if(coreBroken(f))return;
   if(coreHero(e,f,47)&&coreAlive(t))coreDamage(e,f.i,t,(1-t.hp/t.maxHp)*100*.25,'physical','viper_predator',{passive:true});
   if(coreHero(e,f,102))coreDebuff(e,t,'curse',f.i,2,{dps:45,moveSlow:.25,attackBonus:40},'basic');
-  if(coreHero(e,f,28)){f.pack.bashCount++;if(f.pack.bashCount>=4){f.pack.bashCount=0;coreDamage(e,f.i,t,200,'physical','slardar_bash',{passive:true});e.control(t,'stun',1,true);e.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});e.log('passive',f.i,{skill:'slardar_bash'});}}
+  if(coreHero(e,f,28)){const result=invokeHeroHook(e,f.i,2,'onAttack',{actor:f.i,target:t.i,landed,priorCount:f.pack.bashCount});if(result.handled)f.pack.bashCount=result.value.bashCount;else{f.pack.bashCount++;if(f.pack.bashCount>=4){f.pack.bashCount=0;coreDamage(e,f.i,t,200,'physical','slardar_bash',{passive:true});e.control(t,'stun',1,true);e.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});e.log('passive',f.i,{skill:'slardar_bash'});}}}
  },
  beforeDamage(e,event){if(!e.packState)return;const {target:f,attacker,m}=event,p=f.pack;
   if(m.damage_type==='physical'){let armor=(coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0)+(event.sharedArmor||0);for(const s of p.statuses)if(coreEffective(e,f,s))armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
