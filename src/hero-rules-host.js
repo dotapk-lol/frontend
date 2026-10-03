@@ -5,8 +5,8 @@ const defaultRules=createHeroRegistry().seal(),sessions=new WeakMap();
 export const HERO_RULES_HASH=defaultRules.rulesHash;
 function binding(engine){
  let entry=sessions.get(engine);
- if(!entry){entry={fighters:engine.fighters,handles:new Map(),nextHandle:1,jobs:new Map(),nextJob:1,generation:1,lease:null,session:createRuleSession(engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules)};sessions.set(engine,entry);}
- if(entry.fighters!==engine.fighters){entry.fighters=engine.fighters;entry.handles=new Map();entry.nextHandle=1;entry.jobs=new Map();entry.nextJob=1;entry.generation++;entry.lease=null;entry.session=createRuleSession(entry.session.sealed);}
+ if(!entry){entry={fighters:engine.fighters,handles:new Map(),nextHandle:1,jobs:new Map(),nextJob:1,sourceId:0,generation:1,lease:null,session:createRuleSession(engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules)};sessions.set(engine,entry);}
+ if(entry.fighters!==engine.fighters){entry.fighters=engine.fighters;entry.handles=new Map();entry.nextHandle=1;entry.jobs=new Map();entry.nextJob=1;entry.sourceId=0;entry.generation++;entry.lease=null;entry.session=createRuleSession(entry.session.sealed);}
  return entry.session;
 }
 const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
@@ -131,10 +131,25 @@ export function ruleHostSnapshot(engine){
  const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.nextJob===1&&entry.generation===1)return null;
  return {version:2,rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};
 }
+// Persist allocation history independently in the simulation clock, including empty queues.
+// This is cross-field integrity, not authentication of a coherently forged whole world.
+export function ruleHostEpochSnapshot(engine){const e=bridgeEntry(engine);return e.generation!==1||e.nextHandle!==1||e.nextJob!==1||e.handles.size||e.jobs.size?{version:1,generation:e.generation,nextHandle:e.nextHandle,nextJob:e.nextJob,sourceId:e.sourceId}:null;}
+function publicAllocationHistory(session,g){
+ const namespaces=new Set();for(const id of g.indices)for(let slot=0;slot<4;slot++)if(usesPrivateRuleCastForSnapshot(session,id,slot)){const impl=session.sealed.implementation(id,slot);namespaces.add(impl.namespace??('skill:'+id+':'+session.sealed.hero(id).abilities[slot].id));}
+ return g.heroRules.namespaces.filter(r=>namespaces.has(r.namespace)).reduce((n,r)=>n+(Number.isSafeInteger(r.state?.next)?r.state.next-1:0),0);
+}
+function usesPrivateRuleCastForSnapshot(session,id,slot){return activeMigrations.has(id+':'+slot)&&session.has(id,slot);}
+function validAllocationEpoch(session,g){
+ const h=g.heroHost,w=g.packClock?.heroEpoch,history=publicAllocationHistory(session,g);
+ if(!h)return !w&&history===0&&g.round===1;
+ if(!w||Object.keys(w).sort().join(',')!=='generation,nextHandle,nextJob,sourceId,version'||w.version!==1||w.generation<g.round||!['generation','nextHandle','nextJob'].every(k=>Number.isSafeInteger(w[k])&&w[k]>=1&&w[k]===h[k])||!Number.isSafeInteger(w.sourceId)||w.sourceId<0||w.sourceId>(g.packClock?.seq??-1)||(h.nextHandle-1)+(h.nextJob-1)<history)return false;
+ return Array.isArray(h.jobs)&&h.jobs.every(j=>j.nativeId===undefined||j.nativeId<=w.sourceId);
+}
+function validJobHandle(job,saved){const parts=job.handle?.split(':');return parts?.length===(job.nativeId===undefined?3:4)&&parts[0]==='rule-job'&&parts[1]===String(saved.generation)&&/^[1-9][0-9]*$/.test(parts[2])&&Number.isSafeInteger(Number(parts[2]))&&Number(parts[2])<saved.nextJob&&(job.nativeId===undefined||parts[3]===String(job.nativeId));}
 export function validRuleHostSnapshot(engine,g){
- const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,g.indices.indexOf(id),slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length||row.state?.jobs?.length)&&!(g.packModules?.r20_55?.jobs??[]).some(j=>g.indices.some((id,actor)=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,actor,slot)&&session.sealed.hero(id).abilities[slot].id===j.abilityId)));
+ const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,g.indices.indexOf(id),slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(!validAllocationEpoch(session,g))return false;if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length||row.state?.jobs?.length)&&!(g.packModules?.r20_55?.jobs??[]).some(j=>g.indices.some((id,actor)=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,actor,slot)&&session.sealed.hero(id).abilities[slot].id===j.abilityId)));
  try{if(Object.keys(saved).sort().join(',')!=='generation,jobs,nextHandle,nextJob,rulesHash,statuses,version'||saved.version!==2||!Number.isSafeInteger(saved.generation)||saved.generation<1||!Number.isSafeInteger(saved.nextJob)||saved.nextJob<1||!Array.isArray(saved.jobs)||saved.jobs.length>256||saved.rulesHash!==session.sealed.rulesHash||!Number.isSafeInteger(saved.nextHandle)||saved.nextHandle<1||!Array.isArray(saved.statuses)||saved.statuses.length>128)return false;
- const jobHandles=new Set();for(const j of saved.jobs){if(!j?.request?.binding||!['status','source-job'].includes(j.request.binding.kind)||!new RegExp('^rule-job:'+saved.generation+':[1-9][0-9]*$').test(j.handle)||Number(j.handle.split(':')[2])>=saved.nextJob||jobHandles.has(j.handle))return false;jobHandles.add(j.handle);}
+ const jobHandles=new Set();for(const j of saved.jobs){if(!j?.request?.binding||!['status','source-job'].includes(j.request.binding.kind)||!validJobHandle(j,saved)||jobHandles.has(j.handle))return false;jobHandles.add(j.handle);}
  const seen=new Set();for(const row of saved.statuses){if(Object.keys(row).sort().join(',')!=='handle,origin,spec,stamp'||typeof row.handle!=='string'||!new RegExp('^rule-status:'+saved.generation+':[1-9][0-9]*$').test(row.handle)||Number(row.handle.split(':')[2])>=saved.nextHandle||seen.has(row.handle))return false;seen.add(row.handle);const o=row.origin,s=row.spec;
  if(!row.stamp||Object.keys(row.stamp).sort().join(',')!=='generation,round,targetLife'||row.stamp.generation!==saved.generation||row.stamp.round!==g.round||row.stamp.targetLife!==(g.packCore?.life?.[s.target]??0))return false;
  if(Object.keys(o).sort().join(',')!=='abilityId,actor,heroId,slot'||![0,1].includes(o.actor)||g.indices[o.actor]!==o.heroId||!usesPrivateRuleCast(engine,o.actor,o.slot)||session.sealed.hero(o.heroId).abilities[o.slot].id!==o.abilityId||s.abilityId!==o.abilityId||![0,1].includes(s.target)||![0,1].includes(s.owner))return false;
@@ -159,7 +174,7 @@ export function validRuleHostSnapshot(engine,g){
  return true;
  }catch{return false;}
 }
-export function restoreRuleHostSnapshot(engine,value){const entry=bridgeEntry(engine);entry.handles=new Map();entry.nextHandle=value?.nextHandle??1;entry.nextJob=value?.nextJob??1;entry.generation=value?.generation??1;entry.jobs=new Map((value?.jobs??[]).map(j=>[j.handle,j]));entry.lease=null;for(const row of value?.statuses??[]){const record=engine.fighters[row.spec.target].packModules.r20_55.statuses.find(s=>s.key===row.spec.key&&s.abilityId===row.spec.abilityId&&s.owner===row.spec.owner);entry.handles.set(row.handle,{origin:row.origin,spec:row.spec,stamp:row.stamp,record});}}
+export function restoreRuleHostSnapshot(engine,value,epoch){const entry=bridgeEntry(engine);entry.handles=new Map();entry.nextHandle=value?.nextHandle??1;entry.nextJob=value?.nextJob??1;entry.sourceId=epoch?.sourceId??0;entry.generation=value?.generation??1;entry.jobs=new Map((value?.jobs??[]).map(j=>[j.handle,j]));entry.lease=null;for(const row of value?.statuses??[]){const record=engine.fighters[row.spec.target].packModules.r20_55.statuses.find(s=>s.key===row.spec.key&&s.abilityId===row.spec.abilityId&&s.owner===row.spec.owner);entry.handles.set(row.handle,{origin:row.origin,spec:row.spec,stamp:row.stamp,record});}}
 
 export function invokeHeroHook(engine,actor,slot,hook,event){const session=binding(engine),heroId=engine.indices[actor],abilityId=session.sealed.hero(heroId)?.abilities[slot]?.id;if(!abilityId)return {handled:false};return session.invoke(heroId,slot,hook,host(engine,abilityId,{actor,heroId,slot,abilityId}),{...event,abilityId});}
 
@@ -244,7 +259,7 @@ function scheduleRuleSourceJob(engine,origin,spec,capture){
  const entry=bridgeEntry(engine),impl=entry.session.sealed.implementation(origin.heroId,origin.slot),profiles=sourceDelayProfiles(engine,origin),state=namespaceState(entry.session,origin);
  if(Object.keys(spec).sort().join(',')!=='abilityId,binding,data,delay,delivery,handler,owner,target'||Object.keys(spec.binding).sort().join(',')!=='kind'||spec.delivery!=='pack.job-due'||spec.handler!=='delayedProgram'||!impl.scheduledBindings?.[spec.handler]?.some(p=>p.binding==='source-job'&&p.delivery===spec.delivery)||![0,1].includes(spec.owner)||![0,1].includes(spec.target)||spec.target!==1-spec.owner||spec.abilityId!==origin.abilityId||Object.keys(spec.data??{}).sort().join(',')!=='job'||!Number.isSafeInteger(spec.data.job)||spec.data.job!==(state?.next??1)||profiles.length!==1||spec.delay!==profiles[0].delay||!Number.isFinite(capture.aimX)||capture.aimX<0||capture.aimX>1200)throw Error('Invalid typed source-job admission');
  const native=aStatusStore.scheduleEffect(engine,{abilityId:spec.abilityId,kind:'program',owner:spec.owner,target:spec.target,delay:spec.delay,data:{programId:profiles[0].program,aim:capture.aimX,reflected:spec.owner!==origin.actor,routeAtDelivery:false}});
- const handle='rule-job:'+entry.generation+':'+entry.nextJob++;entry.jobs.set(handle,{handle,nativeId:native.id,origin:{...origin},stamp:{generation:entry.generation,round:engine.round,createdAt:engine.t,revision:native.revision,ownerLife:engine.packCore?.life?.[spec.owner]??0,targetLife:engine.packCore?.life?.[spec.target]??0},request:structuredClone(spec),at:native.at});return handle;
+ entry.sourceId=native.id;const handle='rule-job:'+entry.generation+':'+(entry.nextJob++)+':'+native.id;entry.jobs.set(handle,{handle,nativeId:native.id,origin:{...origin},stamp:{generation:entry.generation,round:engine.round,createdAt:engine.t,revision:native.revision,ownerLife:engine.packCore?.life?.[spec.owner]??0,targetLife:engine.packCore?.life?.[spec.target]??0},request:structuredClone(spec),at:native.at});return handle;
 }
 function syncRuleSourceJobs(engine){
  const entry=bridgeEntry(engine);for(const job of entry.jobs.values())if(job.request.binding.kind==='source-job'){
