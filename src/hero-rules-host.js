@@ -72,7 +72,7 @@ export function validateHeroRuleFacts(engine,actorId,slot){
  const session=binding(engine),heroId=engine.indices[actorId];
  if(!selectedActivation(engine,actorId,slot)||!session.has(heroId,slot,'activate')&&!session.has(heroId,slot,'planCast'))return true;
  const supported=new Set(['damage','heal','control','target-route','motion-request','protect','cue',...(usesPrivateRuleCast(engine,actorId,slot)?['status','schedule','self-damage']:[])]);
- const impl=session.sealed.implementation(heroId,slot);if(impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!statusScheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
+ const impl=session.sealed.implementation(heroId,slot);if(!scheduledBindingsAdmission(impl)||impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!statusScheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
  try{if(usesPrivateRuleCast(engine,actorId,slot))statusVariants(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id});return session.validateFacts(host(engine,session.sealed.hero(heroId).abilities[slot].id));}catch{return false;}
 }
 
@@ -120,7 +120,7 @@ export function castHeroRule(engine,i,slot,options={}){
  for(const [key,max]of [['manaCost',1e7],['cooldownSeconds',3600],['windupSeconds',3600],['recoverySeconds',3600],['chargeCost',1]])bounded(plan[key],0,max);
  if(plan.action!=='cast'||plan.manaCost>f.mp||plan.chargeCost>f.charges[slot]||!Number.isInteger(plan.chargeCost))return false;
  // Only supported requirements reach a resource transaction. No missing port may fail after payment.
- const supported=new Set(['damage','heal','status','target-route','cue','schedule','self-damage']);if(session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!statusScheduleAdmission(engine,origin))return false;
+ const supported=new Set(['damage','heal','status','target-route','cue','schedule','self-damage']);if(!scheduledBindingsAdmission(session.sealed.implementation(heroId,slot))||session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!statusScheduleAdmission(engine,origin))return false;
  statusVariants(engine,origin);
  engine.commitAction(f);f.mp-=plan.manaCost;f.cd[slot]=plan.cooldownSeconds;if(plan.chargeCost){f.charges[slot]-=plan.chargeCost;if(f.chargeTimers[slot]<=0)f.chargeTimers[slot]=m.charge_restore_s;}f.casts++;f.guard=false;
  const x=targetProfile==='self'?f.x:Math.max(Math.max(45,f.x-m.range_wu),Math.min(Math.min(1155,f.x+m.range_wu),aim)),cast={id:++engine.seq,slot,abilityId:a.id,remaining:plan.windupSeconds,aim:x};
@@ -191,13 +191,13 @@ function scheduleRuleStatus(engine,origin,spec){
  if(Object.keys(spec).sort().join(',')!=='abilityId,binding,data,delay,delivery,handler,owner,target'||spec.binding?.kind!=='status'||Object.keys(spec.binding).sort().join(',')!=='kind,ref'||spec.delivery!=='actor.status-advance'||!impl.scheduledBindings?.[spec.handler]?.some(p=>p.binding==='status'&&p.delivery===spec.delivery)||!row||!liveRecord(engine,row)||row.origin.actor!==origin.actor||originKey(row.origin)!==originKey(origin)||spec.owner!==row.spec.owner||spec.target!==row.spec.target||spec.handler!=='statusPulse')throw Error('Unsupported/foreign typed status binding');
  const native=row.record,ns=impl.namespace??('skill:'+origin.heroId+':'+origin.abilityId),state=entry.session.snapshot().namespaces.find(n=>n.namespace===ns)?.state,r=state?.records?.find(x=>x.handle===spec.binding.ref);
  if(Object.keys(spec.data??{}).sort().join(',')!=='record'||!r||r.n!==spec.data.record||spec.delay!==native.interval||native.interval<=0||r.interval!==native.interval||r.program!==native.programId||entry.jobs.size>=256||[...entry.jobs.values()].some(j=>j.request.binding.ref===spec.binding.ref&&j.request.handler===spec.handler))throw Error('Invalid source status cadence/record');
- const handle='rule-job:'+entry.generation+':'+entry.nextJob++;entry.jobs.set(handle,{handle,origin:{...origin},stamp:{...row.stamp},request:structuredClone(spec),at:engine.t+bounded(spec.delay,.001,3600)});return handle;
+ const handle='rule-job:'+entry.generation+':'+entry.nextJob++;entry.jobs.set(handle,{handle,origin:{...origin},stamp:{...row.stamp},request:structuredClone(spec),at:(entry.lease?.job?.at??engine.t)+bounded(spec.delay,.001,3600)});return handle;
 }
 export function dispatchRuleStatusPulse(engine,f,record,enabled){
  const entry=bridgeEntry(engine),pair=[...entry.handles].find(([,r])=>r.record===record);if(!pair||!record.programId)return false;
  const [ref,row]=pair,jobs=[...entry.jobs.values()].filter(j=>j.request.binding.ref===ref&&j.request.delivery==='actor.status-advance'&&j.at<=engine.t+1e-8);
  if(jobs.length!==1)throw Error('Missing unique native status callback');
- const job=jobs[0];entry.jobs.delete(job.handle);entry.lease={record,ref};
+ const job=jobs[0];entry.jobs.delete(job.handle);entry.lease={record,ref,job};
  try{entry.session.scheduled(row.origin.heroId,row.origin.slot,job.request.handler,host(engine,row.spec.abilityId,row.origin),{...structuredClone(job.request.data),handle:job.handle});}finally{entry.lease=null;}
  return true;
 }
@@ -208,13 +208,14 @@ function validRuleStatusJobs(engine,g,saved){
   const o=row.origin,impl=session.sealed.implementation(o.heroId,o.slot),ns=impl.namespace??('skill:'+o.heroId+':'+o.abilityId),r=g.heroRules.namespaces.find(n=>n.namespace===ns)?.state?.records?.find(r=>r.handle===row.handle),native=g.fighters[row.spec.target].packModules.r20_55.statuses.find(n=>n.key===row.spec.key&&n.owner===row.spec.owner&&n.abilityId===row.spec.abilityId);
   if(!impl.scheduledBindings?.[q.handler]?.some(p=>p.binding==='status'&&p.delivery===q.delivery)||!r||r.n!==q.data.record||q.delay!==r.interval||native.interval!==q.delay||native.programId!==r.program||Math.abs(job.at-(g.t+native.interval-native.tick))>1e-7)return false;
  }
- for(const row of saved.statuses){const o=row.origin,native=g.fighters[row.spec.target].packModules.r20_55.statuses.find(n=>n.key===row.spec.key&&n.owner===row.spec.owner&&n.abilityId===row.spec.abilityId);if(saved.jobs.filter(j=>j.request.binding.ref===row.handle).length!==(native.interval>0?1:0))return false;}
+ for(const row of saved.statuses){const o=row.origin,native=g.fighters[row.spec.target].packModules.r20_55.statuses.find(n=>n.key===row.spec.key&&n.owner===row.spec.owner&&n.abilityId===row.spec.abilityId);const count=saved.jobs.filter(j=>j.request.binding.ref===row.handle).length,tail=native.interval>0&&native.elapsed>=native.interval-1e-8&&native.interval-native.tick>native.life+1e-8;if(count!==(native.interval>0&&!tail?1:0))return false;}
  return true;
 }
 
+function scheduledBindingsAdmission(impl){return Object.entries(impl.scheduledBindings??{}).every(([handler,pairs])=>handler==='statusPulse'&&pairs.length>0&&pairs.every(p=>p.binding==='status'&&p.delivery==='actor.status-advance'));}
 function statusScheduleAdmission(engine,origin){
  const session=binding(engine),impl=session.sealed.implementation(origin.heroId,origin.slot),a=session.sealed.hero(origin.heroId).abilities[origin.slot];
- if(!impl.scheduledBindings?.statusPulse?.some(p=>p.binding==='status'&&p.delivery==='actor.status-advance'))return false;
+ if(!scheduledBindingsAdmission(impl)||!impl.scheduledBindings?.statusPulse?.some(p=>p.binding==='status'&&p.delivery==='actor.status-advance'))return false;
  let unsupported=false;const scan=node=>{if(!node||typeof node!=='object')return;if(['delay','area','toggle','special','mark','rupture','pullStep'].includes(node.op)||node.aura)unsupported=true;Object.values(node).forEach(scan);};scan(a.recipe);
- try{return !unsupported&&statusVariants(engine,origin).filter(v=>v.interval>0).every(v=>v.interval>=1/60);}catch{return false;}
+ try{return !unsupported&&statusVariants(engine,origin).filter(v=>v.interval>0).every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
 }
