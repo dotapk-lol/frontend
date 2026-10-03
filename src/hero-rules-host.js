@@ -5,8 +5,8 @@ const defaultRules=createHeroRegistry().seal(),sessions=new WeakMap();
 export const HERO_RULES_HASH=defaultRules.rulesHash;
 function binding(engine){
  let entry=sessions.get(engine);
- if(!entry){entry={fighters:engine.fighters,handles:new Map(),nextHandle:1,jobs:new Map(),nextJob:1,sourceId:0,entityId:0,entities:new Map(),nextEntity:1,entityLease:null,allocations:new Map(),statusBirths:new Map(),sourceBirths:new Map(),areaBirths:new Map(),generation:1,lease:null,session:createRuleSession(engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules)};sessions.set(engine,entry);}
- if(entry.fighters!==engine.fighters){entry.fighters=engine.fighters;entry.handles=new Map();entry.nextHandle=1;entry.jobs=new Map();entry.nextJob=1;entry.sourceId=0;entry.entityId=0;entry.entities=new Map();entry.nextEntity=1;entry.entityLease=null;entry.allocations=new Map();entry.statusBirths=new Map();entry.sourceBirths=new Map();entry.areaBirths=new Map();entry.generation++;entry.lease=null;entry.session=createRuleSession(entry.session.sealed);}
+ if(!entry){entry={fighters:engine.fighters,handles:new Map(),nextHandle:1,jobs:new Map(),nextJob:1,sourceId:0,entityId:0,entities:new Map(),nextEntity:1,entityLease:null,allocations:new Map(),statusBirths:new Map(),sourceBirths:new Map(),areaBirths:new Map(),auraClocks:new Map(),generation:1,lease:null,session:createRuleSession(engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules)};sessions.set(engine,entry);}
+ if(entry.fighters!==engine.fighters){entry.fighters=engine.fighters;entry.handles=new Map();entry.nextHandle=1;entry.jobs=new Map();entry.nextJob=1;entry.sourceId=0;entry.entityId=0;entry.entities=new Map();entry.nextEntity=1;entry.entityLease=null;entry.allocations=new Map();entry.statusBirths=new Map();entry.sourceBirths=new Map();entry.areaBirths=new Map();entry.auraClocks=new Map();entry.generation++;entry.lease=null;entry.session=createRuleSession(entry.session.sealed);}
  return entry.session;
 }
 const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
@@ -130,12 +130,12 @@ export function castHeroRule(engine,i,slot,options={}){
  if(targetProfile==='enemy')engine.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else engine.activate(f,cast);engine.animate(f,'cast',.35);engine.log('cast',i,{skill:a.id,slot,cost:plan.manaCost});return true;
 }
 export function ruleHostSnapshot(engine){
- const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.nextJob===1&&!entry.entities.size&&entry.nextEntity===1&&entry.generation===1)return null;
- pruneSourceBirths(entry);pruneAreaBirths(entry);const snapshot={version:4,sourceBirths:[...entry.sourceBirths.values()].map(r=>structuredClone(r)),statusBirths:[...entry.statusBirths.values()].map(r=>structuredClone(r)),allocations:[...entry.allocations.values()].map(r=>({...r})),rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};if(entry.entities.size||entry.nextEntity!==1)Object.assign(snapshot,{version:5,areaBirths:[...entry.areaBirths.values()].map(r=>structuredClone(r)),nextEntity:entry.nextEntity,entities:[...entry.entities].map(([handle,r])=>({handle,nativeId:r.nativeId,origin:r.origin,spec:r.spec,stamp:r.stamp,clock:r.clock,aimX:r.aimX,record:r.canonicalN}))});return snapshot;
+ const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.nextJob===1&&!entry.entities.size&&entry.nextEntity===1&&entry.generation===1&&!entry.auraClocks.size)return null;
+ pruneSourceBirths(entry);pruneAreaBirths(entry);const snapshot={version:4,sourceBirths:[...entry.sourceBirths.values()].map(r=>structuredClone(r)),statusBirths:[...entry.statusBirths.values()].map(r=>structuredClone(r)),allocations:[...entry.allocations.values()].map(r=>({...r})),rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};if(entry.entities.size||entry.nextEntity!==1)Object.assign(snapshot,{version:5,areaBirths:[...entry.areaBirths.values()].map(r=>structuredClone(r)),nextEntity:entry.nextEntity,entities:[...entry.entities].map(([handle,r])=>({handle,nativeId:r.nativeId,origin:r.origin,spec:r.spec,stamp:r.stamp,clock:r.clock,aimX:r.aimX,record:r.canonicalN}))});if(entry.auraClocks.size)Object.assign(snapshot,{baseVersion:snapshot.version,version:6,auraClocks:[...entry.auraClocks.values()].map(snapshotAuraClock)});return snapshot;
 }
 // Persist allocation history independently in the simulation clock, including empty queues.
 // This is cross-field integrity, not authentication of a coherently forged whole world.
-export function ruleHostEpochSnapshot(engine){const e=bridgeEntry(engine);if(e.generation===1&&e.nextHandle===1&&e.nextJob===1&&e.nextEntity===1&&!e.handles.size&&!e.jobs.size&&!e.entities.size)return null;const w={version:1,generation:e.generation,nextHandle:e.nextHandle,nextJob:e.nextJob,sourceId:e.sourceId};if(e.nextEntity!==1||e.entities.size)Object.assign(w,{version:2,nextEntity:e.nextEntity,entityId:e.entityId});return w;}
+export function ruleHostEpochSnapshot(engine){const e=bridgeEntry(engine);if(e.generation===1&&e.nextHandle===1&&e.nextJob===1&&e.nextEntity===1&&!e.handles.size&&!e.jobs.size&&!e.entities.size&&!e.auraClocks.size)return null;const w={version:1,generation:e.generation,nextHandle:e.nextHandle,nextJob:e.nextJob,sourceId:e.sourceId};if(e.nextEntity!==1||e.entities.size)Object.assign(w,{version:2,nextEntity:e.nextEntity,entityId:e.entityId});if(e.auraClocks.size)Object.assign(w,{baseVersion:w.version,version:3,auraClocks:[...e.auraClocks.values()].map(snapshotAuraClock)});return w;}
 function publicAllocationHistory(session,g){
  const namespaces=new Set();for(const id of g.indices)for(let slot=0;slot<4;slot++)if(usesPrivateRuleCastForSnapshot(session,id,slot)){const impl=session.sealed.implementation(id,slot);namespaces.add(impl.namespace??('skill:'+id+':'+session.sealed.hero(id).abilities[slot].id));}
  return g.heroRules.namespaces.filter(r=>namespaces.has(r.namespace)).reduce((n,r)=>n+(Number.isSafeInteger(r.state?.next)?r.state.next-1:0),0);
@@ -172,7 +172,8 @@ function validAllocationEpoch(session,g){
 }
 function validJobHandle(job,saved){const p=job.handle?.split(':'),source=job.request?.binding?.kind==='source-job';if(p?.length!==(source?4:6)||p[0]!=='rule-job'||p[1]!==String(saved.generation)||!p.slice(2).every(n=>/^[1-9][0-9]*$/.test(n)&&Number.isSafeInteger(Number(n)))||Number(p[2])>=saved.nextJob)return false;if(source)return p[3]===String(job.nativeId);if(job.request?.binding?.kind==='entity'){const r=saved.entities?.find(r=>r.handle===job.request.binding.ref);return !!r&&p[3]===String(r.nativeId)&&p[4]===String(r.record);}const row=saved.statuses.find(r=>r.handle===job.request?.binding?.ref);return !!row&&p[3]===String(row.stamp.sourceId)&&p[4]===String(row.stamp.record)&&Number(p[5])>=1;}
 
-export function validRuleHostSnapshot(engine,g){
+export function validRuleHostSnapshot(engine,g,auraChecked=false){
+ if(!auraChecked){if(!validAuraWitness(engine,g))return false;const core=auraCoreView(g);if(core!==g)return validRuleHostSnapshot(engine,core,true);}
  const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,g.indices.indexOf(id),slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(!validAllocationEpoch(session,g))return false;if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length||row.state?.jobs?.length||row.state?.areas?.length)&&!(g.packModules?.r20_55?.jobs??[]).some(j=>g.indices.some((id,actor)=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,actor,slot)&&session.sealed.hero(id).abilities[slot].id===j.abilityId)))&&!migratedNativeAreas(engine,g).length;
  try{if(Object.keys(saved).sort().join(',')!==(saved.version===5?'allocations,areaBirths,entities,generation,jobs,nextEntity,nextHandle,nextJob,rulesHash,sourceBirths,statusBirths,statuses,version':'allocations,generation,jobs,nextHandle,nextJob,rulesHash,sourceBirths,statusBirths,statuses,version')||![4,5].includes(saved.version)||!Number.isSafeInteger(saved.generation)||saved.generation<1||!Number.isSafeInteger(saved.nextJob)||saved.nextJob<1||!Array.isArray(saved.jobs)||saved.jobs.length>256||saved.rulesHash!==session.sealed.rulesHash||!Number.isSafeInteger(saved.nextHandle)||saved.nextHandle<1||!Array.isArray(saved.statuses)||saved.statuses.length>128)return false;
  const jobHandles=new Set();for(const j of saved.jobs){if(!j?.request?.binding||!['status','source-job','entity'].includes(j.request.binding.kind)||!validJobHandle(j,saved)||jobHandles.has(j.handle))return false;jobHandles.add(j.handle);}
@@ -200,7 +201,7 @@ export function validRuleHostSnapshot(engine,g){
  return true;
  }catch{return false;}
 }
-export function restoreRuleHostSnapshot(engine,value,epoch){const entry=bridgeEntry(engine);entry.handles=new Map();entry.nextHandle=value?.nextHandle??1;entry.nextJob=value?.nextJob??1;entry.sourceId=epoch?.sourceId??0;entry.entityId=epoch?.entityId??0;entry.allocations=new Map((value?.allocations??[]).map(r=>[r.namespace,r]));entry.sourceBirths=new Map((value?.sourceBirths??[]).map(r=>[r.nativeId,r]));entry.areaBirths=new Map((value?.areaBirths??[]).map(r=>[r.nativeId,r]));entry.statusBirths=new Map((value?.statusBirths??[]).map(r=>[r.namespace+':'+r.target+':'+r.key,r]));entry.generation=value?.generation??1;entry.jobs=new Map((value?.jobs??[]).map(j=>[j.handle,j]));entry.lease=null;entry.entityLease=null;entry.nextEntity=value?.nextEntity??1;entry.entities=new Map((value?.entities??[]).map(r=>[r.handle,{...r,canonicalN:r.record,record:engine.packModules.r20_55.entities.find(n=>n.id===r.nativeId)}]));for(const row of value?.statuses??[]){const record=engine.fighters[row.spec.target].packModules.r20_55.statuses.find(s=>s.key===row.spec.key&&s.abilityId===row.spec.abilityId&&s.owner===row.spec.owner);entry.handles.set(row.handle,{origin:row.origin,spec:row.spec,stamp:row.stamp,record});}}
+export function restoreRuleHostSnapshot(engine,value,epoch){const entry=bridgeEntry(engine);entry.auraClocks=new Map((value?.auraClocks??[]).map(r=>[r.actor+':'+r.abilityId,{...r,spans:restoreAuraSpans(r.spans)}]));const core=auraCoreView({heroHost:value,packClock:{heroEpoch:epoch}});value=core.heroHost;epoch=core.packClock.heroEpoch;entry.handles=new Map();entry.nextHandle=value?.nextHandle??1;entry.nextJob=value?.nextJob??1;entry.sourceId=epoch?.sourceId??0;entry.entityId=epoch?.entityId??0;entry.allocations=new Map((value?.allocations??[]).map(r=>[r.namespace,r]));entry.sourceBirths=new Map((value?.sourceBirths??[]).map(r=>[r.nativeId,r]));entry.areaBirths=new Map((value?.areaBirths??[]).map(r=>[r.nativeId,r]));entry.statusBirths=new Map((value?.statusBirths??[]).map(r=>[r.namespace+':'+r.target+':'+r.key,r]));entry.generation=value?.generation??1;entry.jobs=new Map((value?.jobs??[]).map(j=>[j.handle,j]));entry.lease=null;entry.entityLease=null;entry.nextEntity=value?.nextEntity??1;entry.entities=new Map((value?.entities??[]).map(r=>[r.handle,{...r,canonicalN:r.record,record:engine.packModules.r20_55.entities.find(n=>n.id===r.nativeId)}]));for(const row of value?.statuses??[]){const record=engine.fighters[row.spec.target].packModules.r20_55.statuses.find(s=>s.key===row.spec.key&&s.abilityId===row.spec.abilityId&&s.owner===row.spec.owner);entry.handles.set(row.handle,{origin:row.origin,spec:row.spec,stamp:row.stamp,record});}}
 
 export function invokeHeroHook(engine,actor,slot,hook,event){const session=binding(engine),heroId=engine.indices[actor],abilityId=session.sealed.hero(heroId)?.abilities[slot]?.id;if(!abilityId)return {handled:false};return session.invoke(heroId,slot,hook,host(engine,abilityId,{actor,heroId,slot,abilityId}),{...event,abilityId});}
 
@@ -399,3 +400,66 @@ export function validateRuleStaticPassives(engine,actor){
  for(let slot=0;slot<4;slot++)if(staticPassiveMigrations.has(heroId+':'+slot)&&session.sealed.implementation(heroId,slot)&&!readyStaticPassive(session,heroId,slot))return false;
  return true;
 }
+
+// Native source aura clocks remain in the pack. Public rules receive only the
+// named due stage; these private spans witness enabled time across pauses/deaths.
+const passiveAuraMigrations=new Set(['36:2']),MAX_AURA_SPANS=512;
+const auraClose=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<1e-7;
+function snapshotAuraClock(row){return {...structuredClone(row),spans:row.spans.map(s=>JSON.stringify([s.active,s.dt,s.start,s.end,s.steps,s.firstFrame,s.lastFrame]))};}
+function restoreAuraSpans(values){return values.map(value=>{if(typeof value!=='string'||value.length>2048)throw Error('Invalid compact aura span');const a=JSON.parse(value);if(!Array.isArray(a)||a.length!==7||JSON.stringify(a)!==value)throw Error('Invalid compact aura span');const [active,dt,start,end,steps,firstFrame,lastFrame]=a;return {active,dt,start,end,steps,firstFrame,lastFrame};});}
+function auraOrigins(engine,session){return engine.indices.flatMap((heroId,actor)=>[0,1,2,3].filter(slot=>passiveAuraMigrations.has(heroId+':'+slot)&&session.sealed.implementation(heroId,slot)).map(slot=>({actor,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id})));}
+function auraReady(engine,o){
+ const session=binding(engine),a=session.sealed.hero(o.heroId).abilities[o.slot],r=a.recipe,impl=session.sealed.implementation(o.heroId,o.slot),native=engine.hero(o.actor).abilities[o.slot].recipe?.aura,au=r?.aura;
+ const radius=typeof au?.radius==='number'?au.radius:a.mvp.params?.[au?.radius];
+ return a.mvp.passive&&r.target==='passive'&&r.ops.length===0&&!r.stats&&!r.attack&&!r.dynamic&&!!au&&au.interval===native?.interval&&Number.isFinite(au.interval)&&au.interval>=1/60&&Math.abs(au.interval*60-Math.round(au.interval*60))<1e-8&&Number.isFinite(radius)&&radius>=0&&radius<=10000&&au.ops.length===1&&au.ops[0].op==='damage'&&Object.keys(au.ops[0]).every(k=>['op','amount','type'].includes(k))&&session.has(o.heroId,o.slot,'onStage')&&impl.requires.every(c=>['cue','status','damage','schedule'].includes(c))&&Object.keys(impl.scheduledBindings??{}).length===0;
+}
+export function initRulePassiveAuras(engine){
+ const sealed=engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules;
+ if(!engine.indices.some(id=>[0,1,2,3].some(slot=>passiveAuraMigrations.has(id+':'+slot)&&sealed.implementation(id,slot))))return;
+ const entry=bridgeEntry(engine);entry.auraClocks=new Map();
+ for(const o of auraOrigins(engine,entry.session)){const interval=engine.hero(o.actor).abilities[o.slot].recipe.aura.interval;entry.auraClocks.set(o.actor+':'+o.abilityId,{...o,generation:entry.generation,round:engine.round,interval,bornAt:0,phaseSteps:0,activeSteps:0,activeTime:0,pulses:0,lastPulseAt:0,lastPulseFrame:0,lastAt:0,lastFrame:0,eligible:false,spans:[]});}
+}
+export function observeRulePassiveAura(engine,f,dt,alive){
+ const entry=bridgeEntry(engine);if(engine.fighters[f.i]!==f)return;
+ for(const row of entry.auraClocks.values())if(row.actor===f.i){
+  if(row.lastFrame===engine.frame)return;
+  if(!auraClose(engine.t-row.lastAt,dt)||engine.frame<=row.lastFrame)throw Error('Aura phase clock discontinuity');
+  let eligible=alive&&engine.passivesEnabled(f)&&auraReady(engine,row)&&Number.isFinite(dt)&&dt>=0&&dt<=.05;
+  const last=row.spans.at(-1);if(eligible&&(!last?.active||last.dt!==dt)&&row.spans.length>=MAX_AURA_SPANS)eligible=false;
+  if(last?.active===eligible&&(!eligible||last.dt===dt)){last.end=engine.t;last.steps++;last.lastFrame=engine.frame;}else row.spans.push({active:eligible,dt:eligible?dt:null,start:row.lastAt,end:engine.t,steps:1,firstFrame:engine.frame,lastFrame:engine.frame});
+  row.phaseSteps++;if(eligible){row.activeSteps++;row.activeTime+=dt;}row.eligible=eligible;row.lastAt=engine.t;row.lastFrame=engine.frame;
+ }
+}
+export function readyRulePassiveAura(engine,f,abilityId){const row=bridgeEntry(engine).auraClocks.get(f.i+':'+abilityId);if(!row)return undefined;return engine.fighters[f.i]===f&&row.lastFrame===engine.frame&&row.eligible;}
+export function dispatchRulePassiveAura(engine,f,abilityId){
+ const entry=bridgeEntry(engine),row=entry.auraClocks.get(f.i+':'+abilityId);if(!row)return false;
+ const due=Math.floor((row.activeTime+1e-8)/row.interval),tick=f.packModules?.r20_55?.data?.aura?.[abilityId];
+ // A duplicate, stale or disabled native callback is handled without effects.
+ if(engine.fighters[f.i]!==f||row.lastFrame!==engine.frame||!row.eligible||due===row.pulses)return true;
+ if(due!==row.pulses+1||!auraClose(tick,row.activeTime-due*row.interval))throw Error('Invalid native aura due stage');
+ row.pulses++;row.lastPulseAt=engine.t;row.lastPulseFrame=engine.frame;
+ entry.session.invoke(row.heroId,row.slot,'onStage',host(engine,abilityId,row),{kind:'passive-pulse',owner:f.i,abilityId});return true;
+}
+function auraCoreView(g){
+ if(g.heroHost?.version!==6)return g;
+ const {auraClocks,baseVersion,...h}=g.heroHost,{auraClocks:clockRows,baseVersion:clockVersion,...w}=g.packClock.heroEpoch;
+ return {...g,heroHost:{...h,version:baseVersion},packClock:{...g.packClock,heroEpoch:{...w,version:clockVersion}}};
+}
+function validAuraWitness(engine,g){try{
+ const expected=auraOrigins(engine,binding(engine)),h=g.heroHost,w=g.packClock?.heroEpoch;
+ if(!expected.length)return h?.version!==6&&w?.version!==3&&!h?.auraClocks&&!w?.auraClocks;
+ if(!Number.isSafeInteger(g.frame)||g.frame<0||h?.version!==6||![4,5].includes(h.baseVersion)||w?.version!==3||w.baseVersion!==h.baseVersion-3||!Array.isArray(h.auraClocks)||h.auraClocks.length!==expected.length||JSON.stringify(h.auraClocks)!==JSON.stringify(w.auraClocks))return false;
+ const seen=new Set();for(const row of h.auraClocks){
+  if(Object.keys(row).sort().join(',')!=='abilityId,activeSteps,activeTime,actor,bornAt,eligible,generation,heroId,interval,lastAt,lastFrame,lastPulseAt,lastPulseFrame,phaseSteps,pulses,round,slot,spans'||!expected.some(o=>o.actor===row.actor&&o.heroId===row.heroId&&o.slot===row.slot&&o.abilityId===row.abilityId)||seen.has(row.actor)||row.generation!==h.generation||row.round!==g.round||row.bornAt!==0||row.interval!==engine.hero(row.actor).abilities[row.slot].recipe.aura.interval||typeof row.eligible!=='boolean'||!Array.isArray(row.spans)||row.spans.length>MAX_AURA_SPANS+1||!['phaseSteps','activeSteps','pulses','lastFrame','lastPulseFrame'].every(k=>Number.isSafeInteger(row[k])&&row[k]>=0)||row.lastFrame>g.frame||!auraClose(row.lastAt,g.t))return false;seen.add(row.actor);
+  let end=0,frame=0,steps=0,active=0,activeTime=0,lastPulseAt=0,lastPulseFirst=0,lastPulseLast=0,previous;
+  const period=row.interval;
+  for(const span of restoreAuraSpans(row.spans)){
+   if(Object.keys(span).sort().join(',')!=='active,dt,end,firstFrame,lastFrame,start,steps'||typeof span.active!=='boolean'||(previous?.active===span.active&&(!span.active||previous.dt===span.dt))||!auraClose(span.start,end)||!Number.isFinite(span.end)||span.end<span.start||span.end>g.t+1e-7||!Number.isSafeInteger(span.steps)||span.steps<1||!Number.isSafeInteger(span.firstFrame)||span.firstFrame<=frame||!Number.isSafeInteger(span.lastFrame)||span.lastFrame<span.firstFrame||span.lastFrame>g.frame||span.lastFrame-span.firstFrame+1<span.steps||span.end-span.start>span.steps*.05+1e-7)return false;
+   if(span.active){if(!Number.isFinite(span.dt)||span.dt<0||span.dt>.05||!auraClose(span.end-span.start,span.steps*span.dt))return false;const after=activeTime+span.steps*span.dt;if(Math.floor((after+1e-8)/period)>Math.floor((activeTime+1e-8)/period)){const boundary=Math.floor((after+1e-8)/period)*period-activeTime;lastPulseAt=span.start+Math.ceil((boundary-1e-8)/span.dt)*span.dt;lastPulseFirst=span.firstFrame;lastPulseLast=span.lastFrame;}active+=span.steps;activeTime=after;}else if(span.dt!==null)return false;
+   end=span.end;frame=span.lastFrame;steps+=span.steps;previous=span;
+  }
+  if(!auraClose(end,g.t)||steps!==row.phaseSteps||active!==row.activeSteps||frame!==row.lastFrame||row.eligible!==(previous?.active??false)||row.spans.length===MAX_AURA_SPANS+1&&restoreAuraSpans(row.spans).at(-1).active||!auraClose(row.activeTime,activeTime)||row.pulses!==Math.floor((activeTime+1e-8)/period)||!auraClose(row.lastPulseAt,lastPulseAt)||row.pulses===0&&row.lastPulseFrame!==0||row.pulses>0&&(row.lastPulseFrame<lastPulseFirst||row.lastPulseFrame>lastPulseLast))return false;
+  const native=g.fighters[row.actor]?.packModules?.r20_55?.data?.aura;if(!native||(active===0?Object.hasOwn(native,row.abilityId):!auraClose(native[row.abilityId],activeTime-row.pulses*period)))return false;
+ }
+ return true;
+}catch{return false;}}
