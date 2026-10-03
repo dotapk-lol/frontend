@@ -20,6 +20,7 @@ export function createPackDispatcher(packs){
  const notify=(e,hook,...args)=>{for(const system of active(e))system[hook]?.(e,...args);};
  const scalar=(e,hook,args,value)=>{for(const system of active(e)){if(!system[hook])continue;value=system[hook](e,...args,value);if(!Number.isFinite(value))throw Error('Invalid numeric result from '+hook);}return value;};
  const dispatcher={
+  unitTemplates(e){return active(e).flatMap(s=>s.unitTemplates||[]);},
   validateSnapshot(e,g){const registered=active(e),names=registered.map(s=>s.namespace).filter(Boolean);if(Object.keys(g.packModules||{}).some(key=>!names.includes(key)))return false;return registered.every(s=>!s.validateSnapshot||s.validateSnapshot(e,g));},
   beforeDamage(e,event){notify(e,'modifyDamage',event);if(event.m?.damage_type==='physical'&&event.sharedArmor&&!active(e).some(s=>s.usesSharedArmor))event.damage*=arenaArmorFactor(event.sharedArmor);notify(e,'beforeDamage',event);},
   init(e){e.packState=null;for(const system of active(e))system.init?.(e);},
@@ -35,6 +36,6 @@ export function createPackDispatcher(packs){
   broken(e,f){return active(e).some(system=>system.broken?.(f)===true);},
   dispelDescriptors(e,f){return active(e).flatMap(system=>system.dispelDescriptors?.(e,f)||[]);},
  };
- for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled','actionChanged','controlEnded','statusesDispelled'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
+ for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled','actionChanged','controlEnded','statusesDispelled','actorSpawned','actorDeath','beforeActorDamage','afterActorDamage','afterActorAttack'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
  return Object.freeze(dispatcher);
 }

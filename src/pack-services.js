@@ -2,6 +2,7 @@
 export const PACK_ABI_VERSION='duel-pack-2.4-targeting';
 export const PACK_STATUS_ABI_VERSION='duel-status-1';
 export const PACK_SLOW_ABI_VERSION='duel-slow-1';
+export const PACK_UNIT_ABI_VERSION='duel-unit-protocol-0.1';
 export const PACK_CAPABILITIES=Object.freeze(['fighter-state','fighter-damage','fighter-control','fighter-heal','negative-status','typed-status','effective-status-values','effect-entities','scheduled-effects','attack-hooks','damage-hooks','input-interruption','local-snapshot','deferred-hp','death-events','source-controls','action-cancellation','cross-pack-status-query','targeted-spell-routing','positive-buff-purge','cross-system-positive-dispel','invulnerable-target-dispel','status-resistance','control-duration-projection','global-slow-resistance','slow-strength-projection']);
 const packKey=value=>{if(typeof value!=='string'||!/^[a-z][a-z0-9_-]{0,63}$/.test(value)||['constructor','prototype','__proto__'].includes(value))throw Error('Invalid pack state key');return value;};
 const packNumber=(value,label)=>{if(!Number.isFinite(value))throw Error('Non-finite '+label);return value;};
@@ -67,6 +68,15 @@ export function createPackServices(namespace,{maxStatuses=64,maxEntities=64,maxJ
   slowResistance(e,f){checkFighter(e,f);return e.slowResistance(f);},
   projectSlowMagnitude(e,f,options){checkFighter(e,f);return e.projectSlowMagnitude(f,options);},
   slowValue(e,f,status,key){checkFighter(e,f);return PackSlow.value(e,f,status,key);},
+  actorRef(e,f){checkFighter(e,f);return e.actorRef(f);},
+  resolveActor(e,ref,options){return e.resolveActor(ref,options);},
+  spawnUnit(e,options){if(!allowedAbilities.has(options?.abilityId)||e.unitTemplates.get(options.templateId)?.namespace!==namespace)throw Error('Unknown owned unit template or ability');return e.spawnUnit(options);},
+  actors(e,options){return e.actors(options);},
+  removeUnit(e,ref,reason,killer){const actor=e.resolveActor(ref);if(!actor||ref.kind!=='unit'||e.unitTemplates.get(actor.templateId)?.namespace!==namespace)throw Error('Foreign unit removal');return e.removeUnit(ref,reason,killer);},
+  queueActorAttack(e,options){return e.queueActorAttack(options);},
+  resolveActorDamage(e,options){if(!allowedAbilities.has(options?.abilityId))throw Error('Unknown actor damage ability');return e.resolveActorDamage(options);},
+  controlActor(e,options){return e.controlActor(options);},
+  routeActorSpell(e,options){if(!allowedAbilities.has(options?.abilityId))throw Error('Unknown actor spell ability');return e.routeActorSpell(options);},
   statusDurationMatches(status,rawDuration){return packStatusDurationMatches(status,rawDuration);},
  });
 }

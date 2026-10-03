@@ -73,9 +73,10 @@ export const CohortCombat={
   if(m.damage_type==='physical'){let armor=(coreHero(e,f,28)&&p.water&&!coreBroken(f)?5.4:0)+(event.sharedArmor||0);for(const s of p.statuses)if(coreEffective(e,f,s))armor+=s.values.armor||0;event.damage*=coreArmorFactor(armor);}
   if(m.damage_type==='magical'){event.damage*=1+(e.property(f,'debuffImmune')?0:p.poison.length*.1);if(coreHero(e,f,47)&&!coreBroken(f))event.damage*=.75;}
   coreAutoBorrow(e,f);
-  if(p.borrowed>0){e.heal(f,event.damage,{skill:'abaddon_borrowed_time',source:attacker.i});event.converted=event.damage;event.damage=0;return;}
+  if(p.borrowed>0){e.heal(f,event.damage,{skill:'abaddon_borrowed_time',source:event.sourceOwner??attacker.i});event.converted=event.damage;event.damage=0;return;}
   if(p.shield&&event.damage>0){const absorbed=Math.min(event.damage,p.shield.amount);p.shield.amount-=absorbed;event.damage-=absorbed;e.log('shield_absorb',f.i,{amount:absorbed,remaining:p.shield.amount});if(p.shield.amount<=1e-8)coreShieldBurst(e,f,'damage');}
  },
+ beforeActorDamage(e,event){if(event.targetRef.kind==='fighter')this.beforeDamage(e,event);},
  afterDamage(e,event){if(!e.packState)return;const {attacker:f,target:t,damage,info,guard}=event;if(!guard&&!info.dot)t.pack.attackRecoveryUntil=0;
   if(event.burstShield)coreShieldBurst(e,t,'damage');coreAutoBorrow(e,t);
   if(damage<=0||f===t)return;

@@ -1,0 +1,2 @@
+// Shared base mitigation for native fighters and the explicit actor protocol.
+export function mitigateActorAmount(amount,{outgoing=1,physical=false,physicalReduction=0,vulnerability=0,magicReduction=0,magical=false,blocks=[]}={}){let d=amount*outgoing;if(physical){d*=1-Math.max(physicalReduction,0);d*=1+Math.max(vulnerability,0);}if(magical)d*=1-Math.max(magicReduction,0);for(const b of blocks)d-=Math.min(b.amount,d*(b.fraction||.4));return Math.max(0,d);}
