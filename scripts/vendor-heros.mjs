@@ -1,7 +1,7 @@
 import {build} from 'esbuild';
 import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';import{fileURLToPath}from'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.4-a-area-clock.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/area-clock-source-manifest.json'),'utf8'));
-if(hash(tar)!=='ab7f2cc3382ecb17207784280b0354a6e3084dcd475ed90b6ff8edee075db7be')throw Error('Wrong frozen integrated area-clock public tarball');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.4-cleave.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/cleave-area-source-manifest.json'),'utf8'));
+if(hash(tar)!=='0a95a4d2136843f95c8841025b28409501ee0fbc2091611170b3b0f689c2c1b3')throw Error('Wrong frozen integrated Cleave+area-clock public tarball');
 for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Installed public source differs: '+file);
 const result=await build({absWorkingDir:root,stdin:{contents:`export * from './index.js';
 export {registerA} from './rules/a/register.js';
@@ -11,4 +11,4 @@ export {createBash} from './rules/core4/bash.js';
 export {probeFactory} from './test/probes.mjs';`,resolveDir:pkg,sourcefile:'private-consumer-entry.mjs',loader:'js'},bundle:true,format:'esm',platform:'browser',target:'es2022',outfile:'src/heros-rules.js',write:false,legalComments:'none',charset:'utf8'});
 for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Source changed during build: '+file);
 fs.writeFileSync(path.join(root,'src/heros-rules.js'),result.outputFiles[0].contents);
-console.log('Verified 131 frozen public files; built private consumer bundle.');
+console.log('Verified 134 frozen public files; built private consumer bundle.');
