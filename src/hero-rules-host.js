@@ -11,7 +11,7 @@ function binding(engine){
 }
 const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
 // Executable migration allowlist, not a roster unlock. Other registered drafts retain native dispatch.
-const activeMigrations=new Set(['21:0','28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3']);
+const activeMigrations=new Set(['21:0','28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3','21:1','28:0','29:0','36:3','50:0']);
 export function usesPrivateRuleCast(engine,actor,slot){return activeMigrations.has(engine.indices[actor]+':'+slot)&&binding(engine).has(engine.indices[actor],slot);}
 const overlay=(a,b)=>b&&typeof b==='object'&&!Array.isArray(b)?Object.fromEntries(Object.entries({...a,...b}).map(([k,v])=>[k,k in b?overlay(a?.[k],v):v])):b;
 const legacyActiveMigrations=new Set(['5:1','5:3','9:1','3:3','8:3','13:0','13:1','13:3','17:1']);
@@ -20,7 +20,7 @@ function selectedActivation(engine,actor,slot){const key=engine.indices[actor]+'
 export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId],key=heroId+':'+slot;if(!session.sealed.implementation(heroId,slot)||!selectedActivation(engine,actorId,slot)&&!legacyPassiveMigrations.has(key)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
 
 const bounded=(v,min,max)=>{if(!Number.isFinite(v)||v<min||v>max)throw Error('Invalid effect amount/duration');return v;};
-function host(engine,abilityId,origin){
+function host(engine,abilityId,origin,capture={}){
  const aProfile=origin&&engine.hero(origin.actor).packKey==='r20_55';
  const actor=id=>{if((id!==0&&id!==1)||engine.fighters[id]?.i!==id)throw Error('Invalid effect actor');return engine.fighters[id];};
  const identity=spec=>{if(spec.abilityId!==abilityId)throw Error('Cross-ability effect');};
@@ -44,8 +44,8 @@ function host(engine,abilityId,origin){
     query(target,key){actor(target);return queryRuleStatus(engine,origin,target,key);},
     cleanse(target,tier,id){if(id!==abilityId||!['basic','strong'].includes(tier))throw Error('Invalid status cleanse');actor(target);const before=queryRuleStatus(engine,origin,target);engine.dispel(actor(target),tier);reconcileRuleStatuses(engine);return before.filter(s=>!queryRuleStatus(engine,origin,target).some(x=>x.handle===s.handle)).map(s=>s.handle);}
    },
-   schedule(spec){identity(spec);return scheduleRuleStatus(engine,origin,spec);},
-   cancelJob(handle){const entry=bridgeEntry(engine),job=entry.jobs.get(handle);if(!job)return false;if(originKey(job.origin)!==originKey(origin)||job.origin.actor!==origin.actor)throw Error('Cross-origin job cancellation');entry.jobs.delete(handle);return true;},
+   schedule(spec){identity(spec);return spec.binding?.kind==='source-job'?scheduleRuleSourceJob(engine,origin,spec,capture):scheduleRuleStatus(engine,origin,spec);},
+   cancelJob(handle){const entry=bridgeEntry(engine),job=entry.jobs.get(handle);if(!job)return false;if(originKey(job.origin)!==originKey(origin)||job.origin.actor!==origin.actor)throw Error('Cross-origin job cancellation');entry.jobs.delete(handle);if(job.nativeId!==undefined){const world=engine.packModules?.r20_55;if(world)world.jobs=world.jobs.filter(j=>j.id!==job.nativeId);}return true;},
    selfDamage(spec){identity(spec);if(Object.keys(spec).sort().join(',')!=='abilityId,actor,amount,nonlethal'||spec.actor!==origin.actor||spec.nonlethal!==true)throw Error('Unsupported self damage receipt');const f=actor(spec.actor),amount=bounded(spec.amount,0,1e7),actual=engine.nonlethalSelfDamage(f,amount);return {accepted:f.hp>0,landed:f.hp>0,guarded:false,raw:amount,actual,deferred:0,killedAtDebit:false};},
    heal(spec){identity(spec);actor(spec.source);const target=actor(spec.target),receipt={actual:0,deferred:0};engine.heal(target,bounded(spec.amount,0,1e7),{skill:abilityId},receipt);return receipt;},
    cue(event){identity(event);if(aProfile&&event.kind==='cast')return;const f=actor(event.actor),color=engine.hero(f.i).color;if(event.kind==='blink')engine.fx('dash',f.x,f.y+80,color);else if(event.kind==='targeted-hit'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,color,{tx:t.x,ty:t.y+100});}else if(event.kind==='passive'&&abilityId==='slardar_bash'){const t=actor(event.target);engine.fx('text',t.x,t.y+170,'#cea4ff',{text:'深海重击'});engine.log('passive',f.i,{skill:abilityId});}else if(event.kind==='reflect'){const t=actor(event.target);engine.fx('beam',f.x,f.y+100,'#95dcff',{tx:t.x,ty:t.y+100});engine.fx('text',f.x,f.y+180,'#bbf0ff',{text:'法术反制'});engine.log('reflect',f.i,{skill:abilityId});}else throw Error('Unknown semantic cue');}
@@ -55,7 +55,8 @@ function host(engine,abilityId,origin){
 export function activateHeroRule(engine,f,cast){
  const session=binding(engine),heroId=engine.indices[f.i],abilityId=engine.ability(f.i,cast.slot).id;
  if(!session.has(heroId,cast.slot)||!selectedActivation(engine,f.i,cast.slot))return {handled:false};
- const result=session.invoke(heroId,cast.slot,'activate',host(engine,abilityId,{actor:f.i,heroId,slot:cast.slot,abilityId}),{owner:f.i,target:1-f.i,abilityId,slot:cast.slot,castId:String(cast.id),direction:cast.dir??f.dir,aimX:cast.aim,heldSeconds:cast.charge??0,reflected:!!cast.reflected});
+ const result=session.invoke(heroId,cast.slot,'activate',host(engine,abilityId,{actor:f.i,heroId,slot:cast.slot,abilityId},{aimX:cast.aim}),{owner:f.i,target:1-f.i,abilityId,slot:cast.slot,castId:String(cast.id),direction:cast.dir??f.dir,aimX:cast.aim,heldSeconds:cast.charge??0,reflected:!!cast.reflected});
+ syncRuleSourceJobs(engine);
  if(result.value?.presentation){
   const p=result.value.presentation,m=engine.ability(f.i,cast.slot).mvp;
   if(heroId!==13||cast.slot!==1||Object.keys(p).sort().join(',')!=='aimX,kind,lifeSeconds,radius'||p.kind!=='ground-pillar'||p.aimX!==cast.aim||p.radius!==m.radius_wu||p.lifeSeconds!==.6)throw Error('Invalid ground presentation');
@@ -72,14 +73,14 @@ export function validateHeroRuleFacts(engine,actorId,slot){
  const session=binding(engine),heroId=engine.indices[actorId];
  if(!selectedActivation(engine,actorId,slot)||!session.has(heroId,slot,'activate')&&!session.has(heroId,slot,'planCast'))return true;
  const supported=new Set(['damage','heal','control','target-route','motion-request','protect','cue',...(usesPrivateRuleCast(engine,actorId,slot)?['status','schedule','self-damage']:[])]);
- const impl=session.sealed.implementation(heroId,slot);if(!scheduledBindingsAdmission(impl)||impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!statusScheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
+ const impl=session.sealed.implementation(heroId,slot);if(!scheduledBindingsAdmission(impl)||impl.requires.some(cap=>!supported.has(cap))||impl.requires.includes('schedule')&&!scheduleAdmission(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id}))return false;
  try{if(usesPrivateRuleCast(engine,actorId,slot))statusVariants(engine,{actor:actorId,heroId,slot,abilityId:session.sealed.hero(heroId).abilities[slot].id});return session.validateFacts(host(engine,session.sealed.hero(heroId).abilities[slot].id));}catch{return false;}
 }
 
 
 // Detached definitions compile a closed status vocabulary. No private hero operation is called here.
 function statusVariants(engine,origin){
- const ability=binding(engine).sealed.hero(origin.heroId).abilities[origin.slot],params=ability.mvp.params??{},out=[],fields=new Set(['armor','attackReduction','moveSlow','attackSlow','attackSpeed','spellAmp','physicalImmune']);
+ const ability=binding(engine).sealed.hero(origin.heroId).abilities[origin.slot],params=ability.mvp.params??{},out=[],fields=new Set(['armor','attackReduction','moveSlow','attackSlow','attackSpeed','spellAmp','physicalImmune','stun','silence']);
  const value=x=>{if(typeof x==='number'||typeof x==='boolean')return x;if(typeof x==='string'&&Number.isFinite(params[x]))return params[x];if(x&&typeof x==='object'){if(x.div)return value(x.div[0])/value(x.div[1]);if(x.mul)return x.mul.reduce((n,v)=>n*value(v),1);if(x.add)return x.add.reduce((n,v)=>n+value(v),0);}throw Error('Unsupported batch status expression');};
  const visit=(node,path='recipe')=>{if(!node||typeof node!=='object')return;if(Array.isArray(node)){node.forEach((v,i)=>visit(v,path+'.'+i));return;}if(node.op==='status'){if(Object.keys(node.values??{}).some(k=>!fields.has(k)))throw Error('Unimplemented static status projection');const interval=node.tick?bounded(value(node.tick.interval),.001,3600):0;out.push({key:node.key??ability.id,duration:value(node.duration),polarity:node.to==='self'?'positive':'negative',dispel:node.dispel??'basic',pierces:!!node.pierces,interval,program:node.tick?ability.id+':'+path+'.tick.ops':null,values:Object.fromEntries(Object.entries(node.values??{}).map(([k,v])=>[k,value(v)]))});}for(const [k,v]of Object.entries(node))visit(v,path+'.'+k);};visit(ability.recipe);return out;
 }
@@ -120,19 +121,20 @@ export function castHeroRule(engine,i,slot,options={}){
  for(const [key,max]of [['manaCost',1e7],['cooldownSeconds',3600],['windupSeconds',3600],['recoverySeconds',3600],['chargeCost',1]])bounded(plan[key],0,max);
  if(plan.action!=='cast'||plan.manaCost>f.mp||plan.chargeCost>f.charges[slot]||!Number.isInteger(plan.chargeCost))return false;
  // Only supported requirements reach a resource transaction. No missing port may fail after payment.
- const supported=new Set(['damage','heal','status','target-route','cue','schedule','self-damage']);if(!scheduledBindingsAdmission(session.sealed.implementation(heroId,slot))||session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!statusScheduleAdmission(engine,origin))return false;
+ const supported=new Set(['damage','heal','status','control','target-route','cue','schedule','self-damage']);if(!scheduledBindingsAdmission(session.sealed.implementation(heroId,slot))||session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap))||session.sealed.implementation(heroId,slot).requires.includes('schedule')&&!scheduleAdmission(engine,origin))return false;
  statusVariants(engine,origin);
  engine.commitAction(f);f.mp-=plan.manaCost;f.cd[slot]=plan.cooldownSeconds;if(plan.chargeCost){f.charges[slot]-=plan.chargeCost;if(f.chargeTimers[slot]<=0)f.chargeTimers[slot]=m.charge_restore_s;}f.casts++;f.guard=false;
  const x=targetProfile==='self'?f.x:Math.max(Math.max(45,f.x-m.range_wu),Math.min(Math.min(1155,f.x+m.range_wu),aim)),cast={id:++engine.seq,slot,abilityId:a.id,remaining:plan.windupSeconds,aim:x};
  if(targetProfile==='enemy')engine.notifyTargeted(f,t,a.id);if(cast.remaining>0)f.cast=cast;else engine.activate(f,cast);engine.animate(f,'cast',.35);engine.log('cast',i,{skill:a.id,slot,cost:plan.manaCost});return true;
 }
 export function ruleHostSnapshot(engine){
- const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.generation===1)return null;
+ const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.nextJob===1&&entry.generation===1)return null;
  return {version:2,rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};
 }
 export function validRuleHostSnapshot(engine,g){
- const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,g.indices.indexOf(id),slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length);
+ const saved=g.heroHost,session=binding(engine),nativeRefs=g.fighters.flatMap(f=>(f.packModules?.r20_55?.statuses??[]).filter(s=>g.indices.some(id=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,g.indices.indexOf(id),slot)&&session.has(id,slot)&&s.abilityId===session.sealed.hero(id).abilities[slot].id))).map(s=>({target:f.i,status:s})));if(saved===undefined||saved===null)return nativeRefs.length===0&&!g.heroRules.namespaces.some(row=>row.state?.records?.length||row.state?.jobs?.length)&&!(g.packModules?.r20_55?.jobs??[]).some(j=>g.indices.some((id,actor)=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,actor,slot)&&session.sealed.hero(id).abilities[slot].id===j.abilityId)));
  try{if(Object.keys(saved).sort().join(',')!=='generation,jobs,nextHandle,nextJob,rulesHash,statuses,version'||saved.version!==2||!Number.isSafeInteger(saved.generation)||saved.generation<1||!Number.isSafeInteger(saved.nextJob)||saved.nextJob<1||!Array.isArray(saved.jobs)||saved.jobs.length>256||saved.rulesHash!==session.sealed.rulesHash||!Number.isSafeInteger(saved.nextHandle)||saved.nextHandle<1||!Array.isArray(saved.statuses)||saved.statuses.length>128)return false;
+ const jobHandles=new Set();for(const j of saved.jobs){if(!j?.request?.binding||!['status','source-job'].includes(j.request.binding.kind)||!new RegExp('^rule-job:'+saved.generation+':[1-9][0-9]*$').test(j.handle)||Number(j.handle.split(':')[2])>=saved.nextJob||jobHandles.has(j.handle))return false;jobHandles.add(j.handle);}
  const seen=new Set();for(const row of saved.statuses){if(Object.keys(row).sort().join(',')!=='handle,origin,spec,stamp'||typeof row.handle!=='string'||!new RegExp('^rule-status:'+saved.generation+':[1-9][0-9]*$').test(row.handle)||Number(row.handle.split(':')[2])>=saved.nextHandle||seen.has(row.handle))return false;seen.add(row.handle);const o=row.origin,s=row.spec;
  if(!row.stamp||Object.keys(row.stamp).sort().join(',')!=='generation,round,targetLife'||row.stamp.generation!==saved.generation||row.stamp.round!==g.round||row.stamp.targetLife!==(g.packCore?.life?.[s.target]??0))return false;
  if(Object.keys(o).sort().join(',')!=='abilityId,actor,heroId,slot'||![0,1].includes(o.actor)||g.indices[o.actor]!==o.heroId||!usesPrivateRuleCast(engine,o.actor,o.slot)||session.sealed.hero(o.heroId).abilities[o.slot].id!==o.abilityId||s.abilityId!==o.abilityId||![0,1].includes(s.target)||![0,1].includes(s.owner))return false;
@@ -153,7 +155,7 @@ export function validRuleHostSnapshot(engine,g){
   if(!close(r.expires-r.startedAt,s.duration)||!close(g.t-r.startedAt,native.elapsed)||!close(r.expires-g.t,native.life)||!close(native.elapsed+native.life,native.duration)||native.reflected!==r.reflected)return false;
  }
  if(publicHandles.size!==saved.statuses.length||nativeIdentities.size!==nativeRefs.length)return false;
- if(!validRuleStatusJobs(engine,g,saved))return false;
+ if(!validRuleStatusJobs(engine,g,saved)||!validRuleSourceJobs(engine,g,saved))return false;
  return true;
  }catch{return false;}
 }
@@ -184,7 +186,7 @@ export function projectLegacyPassive(engine,heroId,slot,hook,event,fallback){
  return result;
 }
 
-// Only typed status callbacks are enabled in this batch. Other binding kinds reject.
+// Typed callbacks bind to one native status clock or one native source-owned queue item.
 function dropRuleStatusJobs(entry,ref){for(const [handle,j]of entry.jobs)if(j.request.binding.ref===ref)entry.jobs.delete(handle);}
 function scheduleRuleStatus(engine,origin,spec){
  const entry=bridgeEntry(engine),row=entry.handles.get(spec.binding?.ref),impl=entry.session.sealed.implementation(origin.heroId,origin.slot);
@@ -202,7 +204,7 @@ export function dispatchRuleStatusPulse(engine,f,record,enabled){
  return true;
 }
 function validRuleStatusJobs(engine,g,saved){
- const session=binding(engine),seen=new Set();for(const job of saved.jobs){
+ const session=binding(engine),seen=new Set();for(const job of saved.jobs.filter(j=>j.request?.binding?.kind==='status')){
   if(Object.keys(job).sort().join(',')!=='at,handle,origin,request,stamp'||!new RegExp('^rule-job:'+saved.generation+':[1-9][0-9]*$').test(job.handle)||Number(job.handle.split(':')[2])>=saved.nextJob||seen.has(job.handle)||!Number.isFinite(job.at)||job.at<g.t-1e-7)return false;seen.add(job.handle);
   const q=job.request,row=saved.statuses.find(r=>r.handle===q.binding?.ref);if(!row||JSON.stringify(row.stamp)!==JSON.stringify(job.stamp)||JSON.stringify(row.origin)!==JSON.stringify(job.origin)||Object.keys(q).sort().join(',')!=='abilityId,binding,data,delay,delivery,handler,owner,target'||Object.keys(q.binding).sort().join(',')!=='kind,ref'||q.binding.kind!=='status'||q.delivery!=='actor.status-advance'||q.handler!=='statusPulse'||q.abilityId!==row.spec.abilityId||q.owner!==row.spec.owner||q.target!==row.spec.target||Object.keys(q.data??{}).sort().join(',')!=='record')return false;
   const o=row.origin,impl=session.sealed.implementation(o.heroId,o.slot),ns=impl.namespace??('skill:'+o.heroId+':'+o.abilityId),r=g.heroRules.namespaces.find(n=>n.namespace===ns)?.state?.records?.find(r=>r.handle===row.handle),native=g.fighters[row.spec.target].packModules.r20_55.statuses.find(n=>n.key===row.spec.key&&n.owner===row.spec.owner&&n.abilityId===row.spec.abilityId);
@@ -212,10 +214,71 @@ function validRuleStatusJobs(engine,g,saved){
  return true;
 }
 
-function scheduledBindingsAdmission(impl){return Object.entries(impl.scheduledBindings??{}).every(([handler,pairs])=>handler==='statusPulse'&&pairs.length>0&&pairs.every(p=>p.binding==='status'&&p.delivery==='actor.status-advance'));}
+function scheduledBindingsAdmission(impl){return Object.entries(impl.scheduledBindings??{}).every(([handler,pairs])=>pairs.length>0&&pairs.every(p=>handler==='statusPulse'&&p.binding==='status'&&p.delivery==='actor.status-advance'||handler==='delayedProgram'&&p.binding==='source-job'&&p.delivery==='pack.job-due'));}
 function statusScheduleAdmission(engine,origin){
  const session=binding(engine),impl=session.sealed.implementation(origin.heroId,origin.slot),a=session.sealed.hero(origin.heroId).abilities[origin.slot];
  if(!scheduledBindingsAdmission(impl)||!impl.scheduledBindings?.statusPulse?.some(p=>p.binding==='status'&&p.delivery==='actor.status-advance'))return false;
  let unsupported=false;const scan=node=>{if(!node||typeof node!=='object')return;if(['delay','area','toggle','special','mark','rupture','pullStep'].includes(node.op)||node.aura)unsupported=true;Object.values(node).forEach(scan);};scan(a.recipe);
- try{return !unsupported&&statusVariants(engine,origin).filter(v=>v.interval>0).every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
+ try{const periodic=statusVariants(engine,origin).filter(v=>v.interval>0);return !unsupported&&periodic.length>0&&periodic.every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
+}
+
+
+function namespaceState(session,origin,snapshot=session.snapshot()){
+ const impl=session.sealed.implementation(origin.heroId,origin.slot),ns=impl.namespace??('skill:'+origin.heroId+':'+origin.abilityId);
+ return snapshot.namespaces.find(n=>n.namespace===ns)?.state;
+}
+function sourceDelayProfiles(engine,origin){
+ const session=binding(engine),a=session.sealed.hero(origin.heroId).abilities[origin.slot],params=a.mvp.params??{},profiles=[],nativePrograms=new Set();
+ const collect=(node,path='recipe')=>{if(!node||typeof node!=='object')return;if(Array.isArray(node)){if(node.length&&node.every(o=>o&&typeof o.op==='string'))nativePrograms.add(a.id+':'+path);node.forEach((v,i)=>collect(v,path+'.'+i));return;}for(const [k,v]of Object.entries(node))collect(v,path+'.'+k);};collect(engine.hero(origin.actor).abilities[origin.slot].recipe);
+ const value=v=>{if(typeof v==='number')return v;if(typeof v==='string'&&Number.isFinite(params[v]))return params[v];throw Error('Unsupported declared source-job delay');};
+ const scan=(node,path='recipe')=>{if(!node||typeof node!=='object')return;if(Array.isArray(node)){node.forEach((v,i)=>scan(v,path+'.'+i));return;}if(node.op&&!['delay','damage','status','heal','selfCost','dispel'].includes(node.op)||node.tick||node.aura)throw Error('Unsupported source-job operation');if(node.op==='delay'){const program=a.id+':'+path+'.ops';if(!nativePrograms.has(program)||!Array.isArray(node.ops))throw Error('Unsupported source-job program identity');profiles.push({program,delay:bounded(value(node.delay),0,3600)});}for(const [k,v]of Object.entries(node))scan(v,path+'.'+k);};scan(a.recipe);return profiles;
+}
+function scheduleAdmission(engine,origin){
+ const impl=binding(engine).sealed.implementation(origin.heroId,origin.slot);if(!scheduledBindingsAdmission(impl))return false;
+ const status=Object.values(impl.scheduledBindings??{}).some(pairs=>pairs.some(p=>p.binding==='status')),source=Object.values(impl.scheduledBindings??{}).some(pairs=>pairs.some(p=>p.binding==='source-job'));
+ if(status&&!statusScheduleAdmission(engine,origin))return false;
+ if(source){try{if(sourceDelayProfiles(engine,origin).length!==1||(engine.packModules?.r20_55?.jobs.length??0)>=128||bridgeEntry(engine).jobs.size>=256)return false;}catch{return false;}}
+ return status||source;
+}
+function scheduleRuleSourceJob(engine,origin,spec,capture){
+ const entry=bridgeEntry(engine),impl=entry.session.sealed.implementation(origin.heroId,origin.slot),profiles=sourceDelayProfiles(engine,origin),state=namespaceState(entry.session,origin);
+ if(Object.keys(spec).sort().join(',')!=='abilityId,binding,data,delay,delivery,handler,owner,target'||Object.keys(spec.binding).sort().join(',')!=='kind'||spec.delivery!=='pack.job-due'||spec.handler!=='delayedProgram'||!impl.scheduledBindings?.[spec.handler]?.some(p=>p.binding==='source-job'&&p.delivery===spec.delivery)||![0,1].includes(spec.owner)||![0,1].includes(spec.target)||spec.target!==1-spec.owner||spec.abilityId!==origin.abilityId||Object.keys(spec.data??{}).sort().join(',')!=='job'||!Number.isSafeInteger(spec.data.job)||spec.data.job!==(state?.next??1)||profiles.length!==1||spec.delay!==profiles[0].delay||!Number.isFinite(capture.aimX)||capture.aimX<0||capture.aimX>1200)throw Error('Invalid typed source-job admission');
+ const native=aStatusStore.scheduleEffect(engine,{abilityId:spec.abilityId,kind:'program',owner:spec.owner,target:spec.target,delay:spec.delay,data:{programId:profiles[0].program,aim:capture.aimX,reflected:spec.owner!==origin.actor,routeAtDelivery:false}});
+ const handle='rule-job:'+entry.generation+':'+entry.nextJob++;entry.jobs.set(handle,{handle,nativeId:native.id,origin:{...origin},stamp:{generation:entry.generation,round:engine.round,createdAt:engine.t,revision:native.revision,ownerLife:engine.packCore?.life?.[spec.owner]??0,targetLife:engine.packCore?.life?.[spec.target]??0},request:structuredClone(spec),at:native.at});return handle;
+}
+function syncRuleSourceJobs(engine){
+ const entry=bridgeEntry(engine);for(const job of entry.jobs.values())if(job.request.binding.kind==='source-job'){
+  const row=namespaceState(entry.session,job.origin)?.jobs?.find(r=>r.handle===job.handle),native=engine.packModules?.r20_55?.jobs.find(j=>j.id===job.nativeId);
+  if(!row||!native||row.n!==job.request.data.job||row.owner!==job.request.owner||row.target!==job.request.target||row.reflected!==(row.owner!==job.origin.actor)||!sourceDelayProfiles(engine,job.origin).some(p=>p.program===row.program&&p.delay===job.request.delay))throw Error('Public/native source-job commit mismatch');
+  native.data={programId:row.program,aim:row.aimX,reflected:row.reflected,routeAtDelivery:row.route};
+ }
+}
+export function dispatchRuleJobDue(engine,native,accepted,namespace){
+ if(namespace!=='r20_55')return false;
+ const entry=bridgeEntry(engine),job=[...entry.jobs.values()].find(j=>j.nativeId===native.id);if(!job)return false;
+ entry.jobs.delete(job.handle);
+ if(accepted)entry.session.scheduled(job.origin.heroId,job.origin.slot,job.request.handler,host(engine,job.origin.abilityId,job.origin,{aimX:native.data.aim}),{...structuredClone(job.request.data),handle:job.handle});
+ else entry.session.invoke(job.origin.heroId,job.origin.slot,'onStage',host(engine,job.origin.abilityId,job.origin),{kind:'job-ended',abilityId:job.origin.abilityId,handle:job.handle});
+ syncRuleSourceJobs(engine);return true;
+}
+export function reconcileRuleJobs(engine){
+ const entry=bridgeEntry(engine);for(const job of [...entry.jobs.values()])if(job.request.binding.kind==='source-job'&&!engine.packModules?.r20_55?.jobs.some(j=>j.id===job.nativeId)){
+  entry.jobs.delete(job.handle);entry.session.invoke(job.origin.heroId,job.origin.slot,'onStage',host(engine,job.origin.abilityId,job.origin),{kind:'job-ended',abilityId:job.origin.abilityId,handle:job.handle});
+ }
+}
+function validRuleSourceJobs(engine,g,saved){
+ const session=binding(engine),bound=saved.jobs.filter(j=>j.request.binding.kind==='source-job'),nativeRows=g.packModules?.r20_55?.jobs??[],publicHandles=new Set(),nativeIds=new Set();
+ for(const job of bound){
+  const o=job.origin,q=job.request,st=job.stamp;
+  if(Object.keys(job).sort().join(',')!=='at,handle,nativeId,origin,request,stamp'||Object.keys(o).sort().join(',')!=='abilityId,actor,heroId,slot'||![0,1].includes(o.actor)||g.indices[o.actor]!==o.heroId||!usesPrivateRuleCast(engine,o.actor,o.slot)||session.sealed.hero(o.heroId).abilities[o.slot].id!==o.abilityId||Object.keys(q).sort().join(',')!=='abilityId,binding,data,delay,delivery,handler,owner,target'||Object.keys(q.binding).sort().join(',')!=='kind'||q.delivery!=='pack.job-due'||q.handler!=='delayedProgram'||q.abilityId!==o.abilityId||![0,1].includes(q.owner)||q.target!==1-q.owner||Object.keys(q.data??{}).sort().join(',')!=='job'||!Number.isSafeInteger(q.data.job)||!Number.isSafeInteger(job.nativeId)||job.nativeId<1||!Number.isSafeInteger(g.packClock?.seq)||job.nativeId>g.packClock.seq||nativeIds.has(job.nativeId)||!Number.isFinite(job.at)||job.at<g.t-1e-7)return false;
+  nativeIds.add(job.nativeId);
+  if(Object.keys(st).sort().join(',')!=='createdAt,generation,ownerLife,revision,round,targetLife'||st.generation!==saved.generation||st.round!==g.round||!Number.isSafeInteger(st.ownerLife)||st.ownerLife<0||st.ownerLife!==(g.packCore?.life?.[q.owner]??0)||!Number.isSafeInteger(st.targetLife)||st.targetLife<0||st.targetLife>(g.packCore?.life?.[q.target]??0)||!Number.isFinite(st.createdAt)||st.createdAt<0||st.createdAt>g.t+1e-7||!Number.isSafeInteger(st.revision)||st.revision<0||Math.abs(job.at-(st.createdAt+q.delay))>1e-7)return false;
+  const impl=session.sealed.implementation(o.heroId,o.slot),r=namespaceState(session,o,g.heroRules)?.jobs?.find(r=>r.handle===job.handle),native=nativeRows.filter(n=>n.id===job.nativeId);
+  if(!impl.scheduledBindings?.[q.handler]?.some(p=>p.binding==='source-job'&&p.delivery===q.delivery)||!r||r.n!==q.data.job||r.owner!==q.owner||r.target!==q.target||r.reflected!==(q.owner!==o.actor)||!sourceDelayProfiles(engine,o).some(p=>p.program===r.program&&p.delay===q.delay)||native.length!==1)return false;
+  const n=native[0];if(Object.keys(n).sort().join(',')!=='abilityId,at,cancelOnInterrupt,data,id,kind,owner,persist,revision,target'||n.kind!=='program'||n.abilityId!==q.abilityId||n.owner!==q.owner||n.target!==q.target||n.at!==job.at||n.persist!==false||n.cancelOnInterrupt!==false||!Number.isSafeInteger(n.revision)||n.revision!==st.revision||n.revision>(g.packModules.r20_55.revisions[q.owner]??-1)||Object.keys(n.data).sort().join(',')!=='aim,programId,reflected,routeAtDelivery'||n.data.programId!==r.program||n.data.aim!==r.aimX||n.data.reflected!==r.reflected||n.data.routeAtDelivery!==r.route)return false;
+ }
+ for(const ns of g.heroRules.namespaces)for(const r of ns.state?.jobs??[]){if(publicHandles.has(r.handle))return false;publicHandles.add(r.handle);const job=bound.find(j=>j.handle===r.handle);if(!job||ns.namespace!==(session.sealed.implementation(job.origin.heroId,job.origin.slot).namespace??('skill:'+job.origin.heroId+':'+job.origin.abilityId)))return false;}
+ if(publicHandles.size!==bound.length)return false;
+ for(const n of nativeRows)if(g.indices.some((id,actor)=>[0,1,2,3].some(slot=>usesPrivateRuleCast(engine,actor,slot)&&session.sealed.hero(id).abilities[slot].id===n.abilityId))&&!nativeIds.has(n.id))return false;
+ return true;
 }
