@@ -10,6 +10,7 @@ export function createPackDispatcher(packs){
   if(systems.has(key)&&systems.get(key)!==system||byObject.has(system)&&byObject.get(system)!==key)throw Error('Ambiguous shared system identity');
   if(typeof system.cast!=='function'||typeof system.activate!=='function')throw Error('Owned ability system requires cast and activate');
   if(pack.contract?.selectedAbilityIds&&JSON.stringify(pack.contract.selectedAbilityIds)!==JSON.stringify(h.abilities.map(a=>a.valveAbilityId)))throw Error('Selected four slots do not match contract');
+  if(pack.contract?.realEngineImplemented===false||pack.contract?.state==='disabled_reserved_capabilities'||pack.contract?.adapterStatus==='not_ported_capability_locked')throw Error('Missing public pack capability or unaccepted hero implementation');
   if(pack.contract?.requiresCapabilities?.some(name=>!PACK_CAPABILITIES.includes(name)))throw Error('Missing public pack capability');owners.set(h.id,{...pack,systemId:key});systems.set(key,system);byObject.set(system,key);
  }
  const activeCache=new WeakMap();
@@ -31,7 +32,8 @@ export function createPackDispatcher(packs){
   silenced(e,f){return active(e).some(system=>system.silenced?.(e,f)===true);},
   disarmed(e,f){return active(e).some(system=>system.disarmed?.(e,f)===true);},
   broken(e,f){return active(e).some(system=>system.broken?.(f)===true);},
+  dispelDescriptors(e,f){return active(e).flatMap(system=>system.dispelDescriptors?.(e,f)||[]);},
  };
- for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled','actionChanged','controlEnded'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
+ for(const hook of ['targeted','afterDamage','afterAttack','dispel','tick','endStep','interrupted','death','hpSettled','actionChanged','controlEnded','statusesDispelled'])dispatcher[hook]=(e,...args)=>notify(e,hook,...args);
  return Object.freeze(dispatcher);
 }
