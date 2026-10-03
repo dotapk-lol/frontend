@@ -131,11 +131,11 @@ export function castHeroRule(engine,i,slot,options={}){
 }
 export function ruleHostSnapshot(engine){
  const entry=bridgeEntry(engine);if(!entry.handles.size&&entry.nextHandle===1&&!entry.jobs.size&&entry.nextJob===1&&!entry.entities.size&&entry.nextEntity===1&&entry.generation===1&&!entry.auraClocks.size)return null;
- pruneSourceBirths(entry);pruneAreaBirths(entry);const snapshot={version:4,sourceBirths:[...entry.sourceBirths.values()].map(r=>structuredClone(r)),statusBirths:[...entry.statusBirths.values()].map(r=>structuredClone(r)),allocations:[...entry.allocations.values()].map(r=>({...r})),rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};if(entry.entities.size||entry.nextEntity!==1)Object.assign(snapshot,{version:5,areaBirths:[...entry.areaBirths.values()].map(r=>structuredClone(r)),nextEntity:entry.nextEntity,entities:[...entry.entities].map(([handle,r])=>({handle,nativeId:r.nativeId,origin:r.origin,spec:r.spec,stamp:r.stamp,clock:r.clock,aimX:r.aimX,record:r.canonicalN}))});if(entry.auraClocks.size)Object.assign(snapshot,{baseVersion:snapshot.version,version:6,auraClocks:[...entry.auraClocks.values()].map(snapshotAuraClock)});return snapshot;
+ pruneSourceBirths(entry);pruneAreaBirths(entry);const snapshot={version:4,sourceBirths:[...entry.sourceBirths.values()].map(r=>structuredClone(r)),statusBirths:[...entry.statusBirths.values()].map(r=>structuredClone(r)),allocations:[...entry.allocations.values()].map(r=>({...r})),rulesHash:entry.session.sealed.rulesHash,generation:entry.generation,nextHandle:entry.nextHandle,nextJob:entry.nextJob,statuses:[...entry.handles].map(([handle,row])=>({handle,origin:row.origin,spec:row.spec,stamp:row.stamp})),jobs:[...entry.jobs.values()].map(j=>structuredClone(j))};if(entry.entities.size||entry.nextEntity!==1)Object.assign(snapshot,{version:5,areaBirths:[...entry.areaBirths.values()].map(r=>structuredClone(r)),nextEntity:entry.nextEntity,entities:[...entry.entities].map(([handle,r])=>({handle,nativeId:r.nativeId,origin:r.origin,spec:r.spec,stamp:r.stamp,clock:r.clock,aimX:r.aimX,record:r.canonicalN}))});if(entry.auraClocks.size)Object.assign(snapshot,{baseVersion:snapshot.version,version:7,auraClocks:[...entry.auraClocks.values()].map(snapshotAuraClock)});return snapshot;
 }
 // Persist allocation history independently in the simulation clock, including empty queues.
 // This is cross-field integrity, not authentication of a coherently forged whole world.
-export function ruleHostEpochSnapshot(engine){const e=bridgeEntry(engine);if(e.generation===1&&e.nextHandle===1&&e.nextJob===1&&e.nextEntity===1&&!e.handles.size&&!e.jobs.size&&!e.entities.size&&!e.auraClocks.size)return null;const w={version:1,generation:e.generation,nextHandle:e.nextHandle,nextJob:e.nextJob,sourceId:e.sourceId};if(e.nextEntity!==1||e.entities.size)Object.assign(w,{version:2,nextEntity:e.nextEntity,entityId:e.entityId});if(e.auraClocks.size)Object.assign(w,{baseVersion:w.version,version:3,auraClocks:[...e.auraClocks.values()].map(snapshotAuraClock)});return w;}
+export function ruleHostEpochSnapshot(engine){const e=bridgeEntry(engine);if(e.generation===1&&e.nextHandle===1&&e.nextJob===1&&e.nextEntity===1&&!e.handles.size&&!e.jobs.size&&!e.entities.size&&!e.auraClocks.size)return null;const w={version:1,generation:e.generation,nextHandle:e.nextHandle,nextJob:e.nextJob,sourceId:e.sourceId};if(e.nextEntity!==1||e.entities.size)Object.assign(w,{version:2,nextEntity:e.nextEntity,entityId:e.entityId});if(e.auraClocks.size)Object.assign(w,{baseVersion:w.version,version:4,auraClocks:[...e.auraClocks.values()].map(snapshotAuraClock)});return w;}
 function publicAllocationHistory(session,g){
  const namespaces=new Set();for(const id of g.indices)for(let slot=0;slot<4;slot++)if(usesPrivateRuleCastForSnapshot(session,id,slot)){const impl=session.sealed.implementation(id,slot);namespaces.add(impl.namespace??('skill:'+id+':'+session.sealed.hero(id).abilities[slot].id));}
  return g.heroRules.namespaces.filter(r=>namespaces.has(r.namespace)).reduce((n,r)=>n+(Number.isSafeInteger(r.state?.next)?r.state.next-1:0),0);
@@ -403,7 +403,9 @@ export function validateRuleStaticPassives(engine,actor){
 
 // Native source aura clocks remain in the pack. Public rules receive only the
 // named due stage; these private spans witness enabled time across pauses/deaths.
-const passiveAuraMigrations=new Set(['36:2']),MAX_AURA_SPANS=512;
+// Checkpoint the closed prefix before a new segment; journal capacity must never
+// change aura eligibility. Prefix integrity is cross-field, not authentication.
+const passiveAuraMigrations=new Set(['36:2']),AURA_JOURNAL_WINDOW=64;
 const auraClose=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<1e-7;
 function snapshotAuraClock(row){return {...structuredClone(row),spans:row.spans.map(s=>JSON.stringify([s.active,s.dt,s.start,s.end,s.steps,s.firstFrame,s.lastFrame]))};}
 function restoreAuraSpans(values){return values.map(value=>{if(typeof value!=='string'||value.length>2048)throw Error('Invalid compact aura span');const a=JSON.parse(value);if(!Array.isArray(a)||a.length!==7||JSON.stringify(a)!==value)throw Error('Invalid compact aura span');const [active,dt,start,end,steps,firstFrame,lastFrame]=a;return {active,dt,start,end,steps,firstFrame,lastFrame};});}
@@ -417,7 +419,7 @@ export function initRulePassiveAuras(engine){
  const sealed=engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules;
  if(!engine.indices.some(id=>[0,1,2,3].some(slot=>passiveAuraMigrations.has(id+':'+slot)&&sealed.implementation(id,slot))))return;
  const entry=bridgeEntry(engine);entry.auraClocks=new Map();
- for(const o of auraOrigins(engine,entry.session)){const interval=engine.hero(o.actor).abilities[o.slot].recipe.aura.interval;entry.auraClocks.set(o.actor+':'+o.abilityId,{...o,generation:entry.generation,round:engine.round,interval,bornAt:0,phaseSteps:0,activeSteps:0,activeTime:0,pulses:0,lastPulseAt:0,lastPulseFrame:0,lastAt:0,lastFrame:0,eligible:false,spans:[]});}
+ for(const o of auraOrigins(engine,entry.session)){const interval=engine.hero(o.actor).abilities[o.slot].recipe.aura.interval;entry.auraClocks.set(o.actor+':'+o.abilityId,{...o,generation:entry.generation,round:engine.round,interval,bornAt:0,phaseSteps:0,activeSteps:0,activeTime:0,pulses:0,lastPulseAt:0,lastPulseFrame:0,lastAt:0,lastFrame:0,eligible:false,checkpoint:null,lastPulseProof:null,spans:[]});}
 }
 export function observeRulePassiveAura(engine,f,dt,alive){
  const entry=bridgeEntry(engine);if(engine.fighters[f.i]!==f)return;
@@ -425,7 +427,7 @@ export function observeRulePassiveAura(engine,f,dt,alive){
   if(row.lastFrame===engine.frame)return;
   if(!auraClose(engine.t-row.lastAt,dt)||engine.frame<=row.lastFrame)throw Error('Aura phase clock discontinuity');
   let eligible=alive&&engine.passivesEnabled(f)&&auraReady(engine,row)&&Number.isFinite(dt)&&dt>=0&&dt<=.05;
-  const last=row.spans.at(-1);if(eligible&&(!last?.active||last.dt!==dt)&&row.spans.length>=MAX_AURA_SPANS)eligible=false;
+  let last=row.spans.at(-1);if(row.spans.length===AURA_JOURNAL_WINDOW&&!(last.active===eligible&&(!eligible||last.dt===dt))){row.checkpoint={compactions:(row.checkpoint?.compactions??0)+1,phaseSteps:row.phaseSteps,activeSteps:row.activeSteps,activeTime:row.activeTime,pulses:row.pulses,lastPulseAt:row.lastPulseAt,lastPulseFrame:row.lastPulseFrame,lastAt:row.lastAt,lastFrame:row.lastFrame,eligible:row.eligible,lastSpan:structuredClone(last),lastPulseProof:structuredClone(row.lastPulseProof)};row.spans=[];last=undefined;}
   if(last?.active===eligible&&(!eligible||last.dt===dt)){last.end=engine.t;last.steps++;last.lastFrame=engine.frame;}else row.spans.push({active:eligible,dt:eligible?dt:null,start:row.lastAt,end:engine.t,steps:1,firstFrame:engine.frame,lastFrame:engine.frame});
   row.phaseSteps++;if(eligible){row.activeSteps++;row.activeTime+=dt;}row.eligible=eligible;row.lastAt=engine.t;row.lastFrame=engine.frame;
  }
@@ -437,28 +439,45 @@ export function dispatchRulePassiveAura(engine,f,abilityId){
  // A duplicate, stale or disabled native callback is handled without effects.
  if(engine.fighters[f.i]!==f||row.lastFrame!==engine.frame||!row.eligible||due===row.pulses)return true;
  if(due!==row.pulses+1||!auraClose(tick,row.activeTime-due*row.interval))throw Error('Invalid native aura due stage');
- row.pulses++;row.lastPulseAt=engine.t;row.lastPulseFrame=engine.frame;
+ row.pulses++;row.lastPulseAt=engine.t;row.lastPulseFrame=engine.frame;const span=row.spans.at(-1);row.lastPulseProof={activeBefore:row.activeTime-span.steps*span.dt,activeAfter:row.activeTime,span:structuredClone(span)};
  entry.session.invoke(row.heroId,row.slot,'onStage',host(engine,abilityId,row),{kind:'passive-pulse',owner:f.i,abilityId});return true;
 }
 function auraCoreView(g){
- if(g.heroHost?.version!==6)return g;
+ if(g.heroHost?.version!==7)return g;
  const {auraClocks,baseVersion,...h}=g.heroHost,{auraClocks:clockRows,baseVersion:clockVersion,...w}=g.packClock.heroEpoch;
  return {...g,heroHost:{...h,version:baseVersion},packClock:{...g.packClock,heroEpoch:{...w,version:clockVersion}}};
 }
+function validAuraPulseProof(proof,pulses,at,frame,activeTime,period){
+ if(pulses===0)return proof===null;
+ if(!proof||Object.keys(proof).sort().join(',')!=='activeAfter,activeBefore,span'||!Number.isFinite(proof.activeBefore)||proof.activeBefore< -1e-7)return false;
+ const s=proof.span;if(!validAuraSpan(s,0,0,at,frame,false)||!s.active||s.dt<=0)return false;
+ const after=proof.activeBefore+s.steps*s.dt;if(!Number.isFinite(proof.activeAfter)||!auraClose(after,proof.activeAfter))return false;
+ return after<=activeTime+1e-7&&Math.floor((after+1e-8)/period)===pulses&&auraClose(s.end,s.start+Math.ceil((pulses*period-proof.activeBefore-1e-8)/s.dt)*s.dt);
+}
+function validAuraSpan(s,at,frame,end,lastFrame,contiguous=true){
+ return !!s&&Object.keys(s).sort().join(',')==='active,dt,end,firstFrame,lastFrame,start,steps'&&typeof s.active==='boolean'&&Number.isFinite(s.start)&&s.start>=0&&(!contiguous||auraClose(s.start,at))&&Number.isFinite(s.end)&&s.end>=s.start&&s.end<=end+1e-7&&Number.isSafeInteger(s.steps)&&s.steps>=1&&Number.isSafeInteger(s.firstFrame)&&s.firstFrame>frame&&Number.isSafeInteger(s.lastFrame)&&s.lastFrame>=s.firstFrame&&s.lastFrame<=lastFrame&&s.lastFrame-s.firstFrame+1>=s.steps&&s.end-s.start<=s.steps*.05+1e-7&&(s.active?Number.isFinite(s.dt)&&s.dt>=0&&s.dt<=.05&&auraClose(s.end-s.start,s.steps*s.dt):s.dt===null);
+}
+function validAuraCheckpoint(p,row,g){
+ if(p===null)return true;
+ if(!p||Object.keys(p).sort().join(',')!=='activeSteps,activeTime,compactions,eligible,lastAt,lastFrame,lastPulseAt,lastPulseFrame,lastPulseProof,lastSpan,phaseSteps,pulses'||!['compactions','phaseSteps','activeSteps','pulses','lastFrame','lastPulseFrame'].every(k=>Number.isSafeInteger(p[k])&&p[k]>=0)||p.compactions<1||p.phaseSteps<p.compactions*AURA_JOURNAL_WINDOW||p.activeSteps>p.phaseSteps||p.lastFrame<p.phaseSteps||p.lastFrame>g.frame||!Number.isFinite(p.lastAt)||p.lastAt<0||p.lastAt>g.t||p.lastAt>p.phaseSteps*.05+1e-7||!Number.isFinite(p.activeTime)||p.activeTime<0||p.activeTime>p.lastAt+1e-7||p.activeTime>p.activeSteps*.05+1e-7||typeof p.eligible!=='boolean'||!validAuraSpan(p.lastSpan,0,0,p.lastAt,p.lastFrame,false)||!auraClose(p.lastSpan.end,p.lastAt)||p.lastSpan.lastFrame!==p.lastFrame||p.eligible!==p.lastSpan.active||p.lastSpan.steps>p.phaseSteps||p.lastSpan.active&&p.lastSpan.steps>p.activeSteps||p.pulses!==Math.floor((p.activeTime+1e-8)/row.interval)||!validAuraPulseProof(p.lastPulseProof,p.pulses,p.lastAt,p.lastFrame,p.activeTime,row.interval))return false;
+ return p.pulses===0?p.lastPulseAt===0&&p.lastPulseFrame===0:auraClose(p.lastPulseAt,p.lastPulseProof.span.end)&&p.lastPulseFrame===p.lastPulseProof.span.lastFrame;
+}
 function validAuraWitness(engine,g){try{
  const expected=auraOrigins(engine,binding(engine)),h=g.heroHost,w=g.packClock?.heroEpoch;
- if(!expected.length)return h?.version!==6&&w?.version!==3&&!h?.auraClocks&&!w?.auraClocks;
- if(!Number.isSafeInteger(g.frame)||g.frame<0||h?.version!==6||![4,5].includes(h.baseVersion)||w?.version!==3||w.baseVersion!==h.baseVersion-3||!Array.isArray(h.auraClocks)||h.auraClocks.length!==expected.length||JSON.stringify(h.auraClocks)!==JSON.stringify(w.auraClocks))return false;
+ if(!expected.length)return ![6,7].includes(h?.version)&&![3,4].includes(w?.version)&&!h?.auraClocks&&!w?.auraClocks;
+ if(!Number.isSafeInteger(g.frame)||g.frame<0||h?.version!==7||![4,5].includes(h.baseVersion)||w?.version!==4||w.baseVersion!==h.baseVersion-3||!Array.isArray(h.auraClocks)||h.auraClocks.length!==expected.length||JSON.stringify(h.auraClocks)!==JSON.stringify(w.auraClocks))return false;
  const seen=new Set();for(const row of h.auraClocks){
-  if(Object.keys(row).sort().join(',')!=='abilityId,activeSteps,activeTime,actor,bornAt,eligible,generation,heroId,interval,lastAt,lastFrame,lastPulseAt,lastPulseFrame,phaseSteps,pulses,round,slot,spans'||!expected.some(o=>o.actor===row.actor&&o.heroId===row.heroId&&o.slot===row.slot&&o.abilityId===row.abilityId)||seen.has(row.actor)||row.generation!==h.generation||row.round!==g.round||row.bornAt!==0||row.interval!==engine.hero(row.actor).abilities[row.slot].recipe.aura.interval||typeof row.eligible!=='boolean'||!Array.isArray(row.spans)||row.spans.length>MAX_AURA_SPANS+1||!['phaseSteps','activeSteps','pulses','lastFrame','lastPulseFrame'].every(k=>Number.isSafeInteger(row[k])&&row[k]>=0)||row.lastFrame>g.frame||!auraClose(row.lastAt,g.t))return false;seen.add(row.actor);
-  let end=0,frame=0,steps=0,active=0,activeTime=0,lastPulseAt=0,lastPulseFirst=0,lastPulseLast=0,previous;
-  const period=row.interval;
+  if(Object.keys(row).sort().join(',')!=='abilityId,activeSteps,activeTime,actor,bornAt,checkpoint,eligible,generation,heroId,interval,lastAt,lastFrame,lastPulseAt,lastPulseFrame,lastPulseProof,phaseSteps,pulses,round,slot,spans'||!expected.some(o=>o.actor===row.actor&&o.heroId===row.heroId&&o.slot===row.slot&&o.abilityId===row.abilityId)||seen.has(row.actor)||row.generation!==h.generation||row.round!==g.round||row.bornAt!==0||row.interval!==engine.hero(row.actor).abilities[row.slot].recipe.aura.interval||typeof row.eligible!=='boolean'||!Array.isArray(row.spans)||row.spans.length>AURA_JOURNAL_WINDOW||!['phaseSteps','activeSteps','pulses','lastFrame','lastPulseFrame'].every(k=>Number.isSafeInteger(row[k])&&row[k]>=0)||row.lastFrame>g.frame||!auraClose(row.lastAt,g.t)||!validAuraCheckpoint(row.checkpoint,row,g))return false;seen.add(row.actor);
+  const p=row.checkpoint;let end=p?.lastAt??0,frame=p?.lastFrame??0,steps=p?.phaseSteps??0,active=p?.activeSteps??0,activeTime=p?.activeTime??0,lastPulseAt=p?.lastPulseAt??0,lastPulseFrame=p?.lastPulseFrame??0,proof=p?.lastPulseProof??null,pulseSpan=null,previous;
+  if(p&&!row.spans.length)return false;const period=row.interval;
   for(const span of restoreAuraSpans(row.spans)){
-   if(Object.keys(span).sort().join(',')!=='active,dt,end,firstFrame,lastFrame,start,steps'||typeof span.active!=='boolean'||(previous?.active===span.active&&(!span.active||previous.dt===span.dt))||!auraClose(span.start,end)||!Number.isFinite(span.end)||span.end<span.start||span.end>g.t+1e-7||!Number.isSafeInteger(span.steps)||span.steps<1||!Number.isSafeInteger(span.firstFrame)||span.firstFrame<=frame||!Number.isSafeInteger(span.lastFrame)||span.lastFrame<span.firstFrame||span.lastFrame>g.frame||span.lastFrame-span.firstFrame+1<span.steps||span.end-span.start>span.steps*.05+1e-7)return false;
-   if(span.active){if(!Number.isFinite(span.dt)||span.dt<0||span.dt>.05||!auraClose(span.end-span.start,span.steps*span.dt))return false;const after=activeTime+span.steps*span.dt;if(Math.floor((after+1e-8)/period)>Math.floor((activeTime+1e-8)/period)){const boundary=Math.floor((after+1e-8)/period)*period-activeTime;lastPulseAt=span.start+Math.ceil((boundary-1e-8)/span.dt)*span.dt;lastPulseFirst=span.firstFrame;lastPulseLast=span.lastFrame;}active+=span.steps;activeTime=after;}else if(span.dt!==null)return false;
+   if(p&&!previous&&p.lastSpan.active===span.active&&(!span.active||p.lastSpan.dt===span.dt))return false;
+   if(!validAuraSpan(span,end,frame,g.t,g.frame)||(previous?.active===span.active&&(!span.active||previous.dt===span.dt)))return false;
+   if(span.active){const after=activeTime+span.steps*span.dt;if(Math.floor((after+1e-8)/period)>Math.floor((activeTime+1e-8)/period)){lastPulseAt=span.start+Math.ceil((Math.floor((after+1e-8)/period)*period-activeTime-1e-8)/span.dt)*span.dt;pulseSpan={activeBefore:activeTime,span};}active+=span.steps;activeTime=after;}
    end=span.end;frame=span.lastFrame;steps+=span.steps;previous=span;
   }
-  if(!auraClose(end,g.t)||steps!==row.phaseSteps||active!==row.activeSteps||frame!==row.lastFrame||row.eligible!==(previous?.active??false)||row.spans.length===MAX_AURA_SPANS+1&&restoreAuraSpans(row.spans).at(-1).active||!auraClose(row.activeTime,activeTime)||row.pulses!==Math.floor((activeTime+1e-8)/period)||!auraClose(row.lastPulseAt,lastPulseAt)||row.pulses===0&&row.lastPulseFrame!==0||row.pulses>0&&(row.lastPulseFrame<lastPulseFirst||row.lastPulseFrame>lastPulseLast))return false;
+  if(pulseSpan){const pr=row.lastPulseProof,span=pulseSpan.span;if(!pr||!auraClose(pr.activeBefore,pulseSpan.activeBefore)||!pr.span.active||pr.span.dt!==span.dt||!auraClose(pr.span.start,span.start)||pr.span.firstFrame!==span.firstFrame||pr.span.steps>span.steps||pr.span.lastFrame>span.lastFrame)return false;lastPulseFrame=pr.span.lastFrame;proof=pr;}
+  if(!auraClose(end,g.t)||steps!==row.phaseSteps||active!==row.activeSteps||frame!==row.lastFrame||row.eligible!==(previous?.active??false)||!auraClose(row.activeTime,activeTime)||row.pulses!==Math.floor((activeTime+1e-8)/period)||!auraClose(row.lastPulseAt,lastPulseAt)||row.lastPulseFrame!==lastPulseFrame||JSON.stringify(row.lastPulseProof)!==JSON.stringify(proof)||!validAuraPulseProof(row.lastPulseProof,row.pulses,g.t,g.frame,activeTime,period))return false;
   const native=g.fighters[row.actor]?.packModules?.r20_55?.data?.aura;if(!native||(active===0?Object.hasOwn(native,row.abilityId):!auraClose(native[row.abilityId],activeTime-row.pulses*period)))return false;
  }
  return true;
