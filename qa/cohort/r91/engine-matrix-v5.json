@@ -1,0 +1,5654 @@
+{
+  "label": "REAL_ENGINE_SCRIPTED_INPUT_WITH_INJECTED_POSITIONS_NOT_NATURAL_MATCH",
+  "abi": "duel-pack-2.1-status",
+  "commit": "bf5d6e924b02c04e35ec016ef27abff852f3a038",
+  "cases": 434,
+  "frames": 78120,
+  "replayedFrames": 52080,
+  "maxSnapshotBytes": 24793,
+  "passed": true,
+  "rows": [
+    {
+      "pair": [
+        94,
+        0
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24184,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24183,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        1
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4771,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4769,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        2
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4995,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4995,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        3
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8067,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7942,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        4
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4682,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4681,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        5
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4544,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4543,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        6
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5219,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5180,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        7
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3140,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3127,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        8
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4716,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4715,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        9
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3846,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3844,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        10
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4619,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4618,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        11
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5024,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5023,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        12
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6503,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6522,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        13
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3390,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3389,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        14
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6741,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6740,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        15
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5431,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5431,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        16
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3791,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3744,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        17
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4935,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4937,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        18
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5775,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5794,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        19
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10129,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 9428,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        25
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3958,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3958,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        31
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4407,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4409,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        45
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5135,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5135,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        100
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4747,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4746,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        94
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3240,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3240,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        99
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3699,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3699,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        104
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3324,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3324,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        106
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3607,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        117
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3941,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3960,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        121
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3249,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3249,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        124
+      ],
+      "subject": 94,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4136,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        94
+      ],
+      "subject": 94,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4135,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        0
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24426,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24424,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        1
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6656,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6655,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        2
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6847,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5108,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        3
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8278,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8144,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        4
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7512,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7511,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        5
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3227,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3226,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        6
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7463,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7463,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        7
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3695,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3679,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        8
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5593,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5593,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        9
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3917,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3916,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        10
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4740,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4740,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        11
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7509,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7508,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        12
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8030,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8556,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        13
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5743,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5739,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        14
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7407,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7407,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        15
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5968,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5972,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        16
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3825,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3821,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        17
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7763,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7763,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        18
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7569,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7569,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        19
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10343,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10343,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        25
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4407,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4407,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        31
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6742,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6742,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        45
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8561,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8560,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        100
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6618,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6618,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        94
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3699,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3699,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        99
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4149,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4149,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        104
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        106
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6088,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6087,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        117
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3999,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3999,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        121
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5472,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5472,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        124
+      ],
+      "subject": 99,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4281,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        99
+      ],
+      "subject": 99,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4280,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        0
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24319,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24319,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        1
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6025,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6028,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        2
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4945,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4945,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        3
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7216,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7289,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        4
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8523,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8522,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        5
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5743,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5743,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        6
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5523,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5503,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        7
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4370,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4369,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        8
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5087,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5086,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        9
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3640,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3639,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        10
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6797,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6795,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        11
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7726,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7725,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        12
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6443,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6356,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        13
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3866,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3865,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        14
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6909,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6908,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        15
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6420,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5904,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        16
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3842,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3837,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        17
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8085,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8072,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        18
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5985,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5984,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        19
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10297,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10295,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        25
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5449,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5449,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        31
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5290,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5290,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        45
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8870,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8870,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        100
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4839,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4839,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        94
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3324,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3324,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        99
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        104
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4162,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4162,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        106
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5387,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5386,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        117
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4451,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4438,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        121
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4595,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4595,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        124
+      ],
+      "subject": 104,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5134,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        104
+      ],
+      "subject": 104,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5133,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        0
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24482,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24483,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        1
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6191,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6090,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        2
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4757,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4758,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        3
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8155,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8020,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        4
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8288,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8289,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        5
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3089,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3044,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        6
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5381,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5383,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        7
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4141,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4126,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        8
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4270,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4272,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        9
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3890,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3890,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        10
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7226,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7227,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        11
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6536,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6537,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        12
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6458,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6459,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        13
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3921,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3919,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        14
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6329,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6329,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        15
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6397,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6398,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        16
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4132,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4129,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        17
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7588,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6801,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        18
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5647,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5649,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        19
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10886,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10886,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        25
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5626,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5627,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        31
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5258,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5259,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        45
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 9158,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 9159,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        100
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5421,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5422,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        94
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3607,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        99
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6087,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6088,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        104
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5386,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5387,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        106
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5683,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5683,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        117
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3933,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3934,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        121
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4117,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4118,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        124
+      ],
+      "subject": 106,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4669,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        106
+      ],
+      "subject": 106,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4669,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        0
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 22199,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 22202,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        1
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4909,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4907,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        2
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6842,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6855,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        3
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4925,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7272,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        4
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5123,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5122,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        5
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4839,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4838,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        6
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4814,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4775,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        7
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3424,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3424,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        8
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5032,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5031,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        9
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2904,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2904,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        10
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4934,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4933,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        11
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5336,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5335,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        12
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3636,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3649,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        13
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3519,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3499,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        14
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3410,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3410,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        15
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5755,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5755,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        16
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3551,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3548,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        17
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5248,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5252,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        18
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6930,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6943,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        19
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8101,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8251,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        25
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4271,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4271,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        31
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4728,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4730,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        45
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5346,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5346,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        100
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3769,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3769,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        94
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3960,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3941,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        99
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3999,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3999,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        104
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4438,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4451,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        106
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3934,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3933,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        117
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3382,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3382,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        121
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3875,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3875,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        124
+      ],
+      "subject": 117,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4452,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        117
+      ],
+      "subject": 117,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4451,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        0
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24793,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24791,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        1
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4964,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4964,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        2
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5463,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5463,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        3
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8032,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7901,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        4
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7754,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7753,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        5
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3279,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3193,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        6
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5119,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5080,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        7
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2697,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2697,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        8
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5545,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5544,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        9
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3785,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3784,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        10
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5773,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5772,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        11
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7965,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7964,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        12
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6812,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6812,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        13
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3729,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3728,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        14
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6854,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6853,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        15
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6037,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6034,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        16
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2677,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 2677,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        17
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8405,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 8264,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        18
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6224,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6225,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        19
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10505,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 10503,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        25
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3491,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3491,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        31
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4990,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4992,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        45
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4367,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4367,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        100
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5370,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5370,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        94
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3249,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3249,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        99
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5472,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5472,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        104
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4595,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4595,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        106
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4118,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4117,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        117
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3875,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3875,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        121
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3827,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3827,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        124
+      ],
+      "subject": 121,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4215,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        121
+      ],
+      "subject": 121,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4214,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        0
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24515,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        0,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 24514,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        1
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4122,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        1,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4123,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        2
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5549,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        2,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5217,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        3
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7446,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        3,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7447,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        4
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6740,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        4,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6740,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        5
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3452,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        5,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3454,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        6
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5637,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        6,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5638,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        7
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4097,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        7,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4083,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        8
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4179,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        8,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4180,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        9
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4396,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        9,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4396,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        10
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5627,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        10,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5628,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        11
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4107,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        11,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4108,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        12
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 7112,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        12,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6014,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        13
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4314,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        13,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4314,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        14
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3851,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        14,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 3852,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        15
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4235,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        15,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4236,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        16
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4213,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        16,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4216,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        17
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5860,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        17,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5861,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        18
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6472,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        18,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 6544,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        19
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5608,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        19,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5609,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        25
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4914,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        25,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4915,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        31
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5251,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        31,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5252,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        45
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 9529,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        45,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 9529,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        100
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5543,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        100,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5544,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        94
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4135,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        94,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4136,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        99
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4280,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        99,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4281,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        104
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5133,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        104,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5134,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        106
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4669,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        106,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4669,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        117
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4451,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        117,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4452,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        121
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4214,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        121,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 4215,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        124
+      ],
+      "subject": 124,
+      "side": 0,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5025,
+      "phase": "fight"
+    },
+    {
+      "pair": [
+        124,
+        124
+      ],
+      "subject": 124,
+      "side": 1,
+      "frames": 180,
+      "replayFrames": 120,
+      "matched": true,
+      "bytes": 5025,
+      "phase": "fight"
+    }
+  ]
+}

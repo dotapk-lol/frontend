@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "heroes": 20,
+  "coreSkills": 80,
+  "officialResponses": 40,
+  "decodedAssets": 140,
+  "transparentCharacterRenders": 20,
+  "overrideCooldownAndManaMatchAllRawRecords": true,
+  "allDownloadedAssetHashesMatch": true
+}

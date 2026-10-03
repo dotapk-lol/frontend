@@ -1,0 +1,1 @@
+export function adapter(sqlite){return {prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async run(){return {meta:sqlite.prepare(sql).run(...values)};}};}};}

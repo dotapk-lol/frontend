@@ -1,0 +1,3437 @@
+{
+  "records": [
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "portrait",
+      "file": "assets/first21/bloodseeker-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png",
+      "bytes": 73984,
+      "sha256": "3cc0b22a1f24219c4017703d78418f792a49a60e5d8c414971f1c495a52c4de5",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10236,
+        "sha256": "d0688e8088b42d057a52532052c44a9723cc8d20a3f7966ee32fbf95b52dfdfa",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "render",
+      "file": "assets/first21/bloodseeker-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/bloodseeker.png",
+      "bytes": 1327021,
+      "sha256": "c0d4ac81b74fbb96984a9674fffbd623daea8f77b04b93be9f168b0d327a44c1",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker-render.webp",
+        "width": 474,
+        "height": 480,
+        "bytes": 56298,
+        "sha256": "81772c8140b9f9d3293a44678ca437adff22ca9ae9a907c04ffa88ecacd9ff0e",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "ability",
+      "file": "assets/first21/bloodseeker_bloodrage.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/bloodseeker_bloodrage.png",
+      "bytes": 24394,
+      "sha256": "84eeb5ce019078145b592721d5078100fb090b85408db21c193a18ab9aeef95a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker_bloodrage.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker_bloodrage.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4484,
+        "sha256": "8cebbcb5c82dcbaa79122c2ec164808048677d003573cb78b29ca2f088f56c11",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "ability",
+      "file": "assets/first21/bloodseeker_blood_bath.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/bloodseeker_blood_bath.png",
+      "bytes": 25922,
+      "sha256": "e768d9b82bf6902f9337dd9b30aabb10a9824296a805b0534b3126fc1f39d387",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker_blood_bath.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker_blood_bath.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3196,
+        "sha256": "4e2a82d0b1eedfd9a09c707d5cc1c80d78a84555d18a2257d70a3387908f8235",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "ability",
+      "file": "assets/first21/bloodseeker_thirst.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/bloodseeker_thirst.png",
+      "bytes": 20426,
+      "sha256": "864dceabe5a1474591d6dfc95756ed327687a071f67c5d4730846e0ff751a635",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker_thirst.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker_thirst.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2676,
+        "sha256": "ad89de3ac4ef712818e039e0eab9e601d20821fc8f702b0930679460d54c4bdc",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 21,
+      "heroKey": "bloodseeker",
+      "kind": "ability",
+      "file": "assets/first21/bloodseeker_rupture.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/bloodseeker_rupture.png",
+      "bytes": 16271,
+      "sha256": "1ed4fa2304a4b1be9b166a91c520dc01a7abe898e3d2fa1565df6954aae5e084",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/bloodseeker_rupture.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/bloodseeker_rupture.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2638,
+        "sha256": "d39566fd547d53d362ea97051016062c299caa06173f9cc91464ef18f6ed1bc7",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "portrait",
+      "file": "assets/first21/vengefulspirit-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png",
+      "bytes": 84089,
+      "sha256": "495e903868656801ecdd115af2ef902bdfda51f8607371f251c3ac9c922d199a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 11822,
+        "sha256": "0bc5522f67f5fcf7eecdaae55c5e2168971596478212cd5e071e2ac40d7fa3d0",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "render",
+      "file": "assets/first21/vengefulspirit-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/vengefulspirit.png",
+      "bytes": 1394079,
+      "sha256": "799da102ccf5df90fe63e12d0d24fe2409e1b310ef72a241a4ceaa4d932b1151",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit-render.webp",
+        "width": 451,
+        "height": 480,
+        "bytes": 53514,
+        "sha256": "e02a8f43455063ea6f46eec8507643eda7b988bc2f0053eda95b8292d917a8b5",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "ability",
+      "file": "assets/first21/vengefulspirit_magic_missile.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/vengefulspirit_magic_missile.png",
+      "bytes": 21245,
+      "sha256": "b31c2d35340c5501f3a6559318eb33793951039d06d7a1b20d0ea551c9309647",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit_magic_missile.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit_magic_missile.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2266,
+        "sha256": "5c2e182861432051f075deaaa9ee42b3fa433001976bc2581e0aefa756948cbd",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "ability",
+      "file": "assets/first21/vengefulspirit_wave_of_terror.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/vengefulspirit_wave_of_terror.png",
+      "bytes": 28159,
+      "sha256": "5e2b22ca43bafaa3578d60080dad47821326d3659e2d2bda64b6f4526b965226",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit_wave_of_terror.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit_wave_of_terror.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3556,
+        "sha256": "e9d130637b89a53f42bde9042e6fb6bcbc549e22077481f8011bf357b4de9e2f",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "ability",
+      "file": "assets/first21/vengefulspirit_command_aura.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/vengefulspirit_command_aura.png",
+      "bytes": 28135,
+      "sha256": "21acaeb1b657f2b5df3240257a9d41500162fc9a1eb30e18fb67cea1ee8138d3",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit_command_aura.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit_command_aura.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4334,
+        "sha256": "cdaaff022a5ac215d25af454be014cc3e1adf89a71034f148b413d8f28c96082",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 28,
+      "heroKey": "vengefulspirit",
+      "kind": "ability",
+      "file": "assets/first21/vengefulspirit_nether_swap.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/vengefulspirit_nether_swap.png",
+      "bytes": 29295,
+      "sha256": "d1f45de828bf857ebb867bdc58f5eb9ac89f3a96eedf1d7b88c853c08573b964",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/vengefulspirit_nether_swap.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/vengefulspirit_nether_swap.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3592,
+        "sha256": "42bf2dac1be35265fce85c63ba636f2cad676c876faa45cde1da4359b538c9b7",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "portrait",
+      "file": "assets/first21/lich-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png",
+      "bytes": 73116,
+      "sha256": "5fafd024c9be71e001345ede119450d92f708e16abfcb6dafcb49ddd7622a688",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 9484,
+        "sha256": "26b4ebb88d4ad38207654ddbcf7c1a8a4539dc3cdced8efe225359d12339c2e8",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "render",
+      "file": "assets/first21/lich-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/lich.png",
+      "bytes": 1813631,
+      "sha256": "d1801ad40d4894acccd693541b7fe07b184ad07e41ca2e7ac8c7913a4471d3fe",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich-render.webp",
+        "width": 470,
+        "height": 480,
+        "bytes": 71938,
+        "sha256": "39f5f9afd801712cbe569eb88d0534739346582e2059ac632c1e35176598a1e5",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "ability",
+      "file": "assets/first21/lich_frost_nova.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/lich_frost_nova.png",
+      "bytes": 31010,
+      "sha256": "c2d967231752a26ffa1b14f689b0c69a1287faad5041c06d128693ea350f016c",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich_frost_nova.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich_frost_nova.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5222,
+        "sha256": "ef7ea0313c5562f944c43500ebf2afa2d1bc44d58c142edc6b81c45849f6e386",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "ability",
+      "file": "assets/first21/lich_frost_shield.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/lich_frost_shield.png",
+      "bytes": 52069,
+      "sha256": "85f36a7e92cf095b2bae95d9ad6e924bf1b750e8c505b64834b35b4c9cf77be3",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich_frost_shield.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich_frost_shield.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4872,
+        "sha256": "4384ff353dc47dd03158c3c593f7b9d12cbd84c6c3f050b960b1652891ff98e9",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "ability",
+      "file": "assets/first21/lich_sinister_gaze.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/lich_sinister_gaze.png",
+      "bytes": 52069,
+      "sha256": "19564b5f2199970dc07d082a7a3b637059dcfb8f50e50a37aa686871ac7aca38",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich_sinister_gaze.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich_sinister_gaze.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4340,
+        "sha256": "330b2bdeca8532888307ba56e9a35b220ab7fe39a54f9e60c5971909758dccf3",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 32,
+      "heroKey": "lich",
+      "kind": "ability",
+      "file": "assets/first21/lich_chain_frost.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/lich_chain_frost.png",
+      "bytes": 29276,
+      "sha256": "ef2f732f34cc35d023aa1fd386ac7708238fc5c438bb39ff1178da8edfab1923",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/lich_chain_frost.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/lich_chain_frost.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4102,
+        "sha256": "78ede3ff2ef858de3eca244a11fd7942c32f88e77b78bd59be40ddd4f93cf2c2",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "portrait",
+      "file": "assets/first21/necrolyte-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png",
+      "bytes": 71569,
+      "sha256": "11852e2d8a155bd728beb3e4675be3e9ff5594cd536b92106eab5247791538be",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 9504,
+        "sha256": "75b3630b325e474cf9872728b7f433168dbfec3a150b1182e721b9efff482d06",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "render",
+      "file": "assets/first21/necrolyte-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/necrolyte.png",
+      "bytes": 1627825,
+      "sha256": "77af04f1bb8b11ca8ce515261d1e6ddd2f6e32929a4c1c51a7c34d6d1ca449b4",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte-render.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 66224,
+        "sha256": "f1b07114fbd32afb47049efbad059b5b61e99c50cbae5023266281de901bd50c",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "ability",
+      "file": "assets/first21/necrolyte_death_pulse.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_death_pulse.png",
+      "bytes": 34329,
+      "sha256": "86b596d2e93edf34718473aab8e4a96fabd725eca8200ef7e1517ca90a145cd7",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte_death_pulse.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte_death_pulse.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5690,
+        "sha256": "889099fd7191e7731e6790f478016fce1c196fc9d55322f1219d6d00edff953f",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "ability",
+      "file": "assets/first21/necrolyte_ghost_shroud.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_ghost_shroud.png",
+      "bytes": 30803,
+      "sha256": "d888bdf762ad3ded87a8271285f92b30a28dafa53eae1c637de6ae1cd63b42bd",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte_ghost_shroud.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte_ghost_shroud.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4600,
+        "sha256": "0b12579b9c09209f19b6693ba4626dfa80357f56732761d29a372c04d2e837d8",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "ability",
+      "file": "assets/first21/necrolyte_heartstopper_aura.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_heartstopper_aura.png",
+      "bytes": 34428,
+      "sha256": "0c847bd88dff28d1e1b14dabaf409e0225118743f100542a212e02aae7cfdc0d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte_heartstopper_aura.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte_heartstopper_aura.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5974,
+        "sha256": "2acda6b73be1b495fb413681ffab4547e29e225af5a88d6ff132a3d2850551ab",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 36,
+      "heroKey": "necrolyte",
+      "kind": "ability",
+      "file": "assets/first21/necrolyte_reapers_scythe.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_reapers_scythe.png",
+      "bytes": 28256,
+      "sha256": "e3750d1814dda92689e3b5a4353005f519a046e8340b0df81638b99ac5a8951a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/necrolyte_reapers_scythe.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/necrolyte_reapers_scythe.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3360,
+        "sha256": "ee6482e5fd4c75dd753eb36ee6ab1c3272503024dd21137e499ca1df761254a0",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "portrait",
+      "file": "assets/first21/death_prophet-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png",
+      "bytes": 60871,
+      "sha256": "32298900b2c34664a9f79d94628915e1d292a7c2aa7161c388f25a9b8431f40d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 6636,
+        "sha256": "deba313f3ddc6f624bba0d0ad4591b7af1c53cda643b4dbcc0f28a1795cfb867",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "render",
+      "file": "assets/first21/death_prophet-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/death_prophet.png",
+      "bytes": 1092509,
+      "sha256": "4eadb2b4a439528107f84d98624514d5d229bdf521738938d7f62a3f1f37242c",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet-render.webp",
+        "width": 280,
+        "height": 480,
+        "bytes": 45778,
+        "sha256": "f128f7b69c7fc72f7b0d25e0db75a53eaab8341517453b6edadf69dba09557ab",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "ability",
+      "file": "assets/first21/death_prophet_carrion_swarm.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/death_prophet_carrion_swarm.png",
+      "bytes": 32756,
+      "sha256": "7b4cb6f908ed6409f24d505ae106545213f1184eadaf8504664fefa87ab9770d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet_carrion_swarm.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet_carrion_swarm.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5890,
+        "sha256": "c35b3775a651211bce1cd89196d14f9058c85c27e1b2a163f5b1415d6cec927b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "ability",
+      "file": "assets/first21/death_prophet_silence.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/death_prophet_silence.png",
+      "bytes": 33536,
+      "sha256": "fe4a2a010085698497e5abbc5aa1f30cb20736b322b7dc6097479c3ff3425757",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet_silence.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet_silence.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5674,
+        "sha256": "bf29b7ce06f0fd4eef0051864e39f1ecc32f16789275ede8d3d25decaaa49c75",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "ability",
+      "file": "assets/first21/death_prophet_spirit_siphon.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/death_prophet_spirit_siphon.png",
+      "bytes": 34019,
+      "sha256": "aba11792620558ab55b346698d9f025b9296d84389a9e6d77af0697b80085d7a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet_spirit_siphon.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet_spirit_siphon.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5292,
+        "sha256": "22f2a8472a047721a585c492eb0ed451f4d614b77b7801493e6511ddad39b2a9",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 42,
+      "heroKey": "death_prophet",
+      "kind": "ability",
+      "file": "assets/first21/death_prophet_exorcism.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/death_prophet_exorcism.png",
+      "bytes": 33073,
+      "sha256": "1de695acadf645eff0136107b499c74c9855577540c91e215ead41a258c303ac",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/death_prophet_exorcism.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/death_prophet_exorcism.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5702,
+        "sha256": "a3024ce7b30154ad70805e71622903ca03457a898695d5e42cd8d80c99954128",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "portrait",
+      "file": "assets/first21/dragon_knight-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png",
+      "bytes": 69702,
+      "sha256": "152b92cbb49c548941baa2643c5e9b27a9ea211a75630edf072cc2c8131f6f28",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10272,
+        "sha256": "caf6603397362e02d4f03e2aebf85af667c0e6d36c0f9f092db400efe8605516",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "render",
+      "file": "assets/first21/dragon_knight-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/dragon_knight.png",
+      "bytes": 1143505,
+      "sha256": "41fa12e0bb12eaa9c7aa542c2f1c54202a132d2cf59a38d1cc425d434735c462",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight-render.webp",
+        "width": 367,
+        "height": 480,
+        "bytes": 38092,
+        "sha256": "36397d4924422ab0b5c3542a04c48d7edac2b3f13f6e923b01c6038ddbfb7975",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "ability",
+      "file": "assets/first21/dragon_knight_breathe_fire.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dragon_knight_breathe_fire.png",
+      "bytes": 28345,
+      "sha256": "8c8c97831dcbcca929a1e15daddc0c340ab02f86e55e9e38705de9fb76499b52",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight_breathe_fire.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight_breathe_fire.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4168,
+        "sha256": "aa7c8ec61c79ee561731250f5e33963c4e06ec11c7e04335d4f1f524a8d09a2a",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "ability",
+      "file": "assets/first21/dragon_knight_dragon_tail.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dragon_knight_dragon_tail.png",
+      "bytes": 32941,
+      "sha256": "60dd5402efe132e2ecba0ac592c384035f41f42f92728b3e3ecc1d3baf67a064",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight_dragon_tail.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight_dragon_tail.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5800,
+        "sha256": "8c1f5212c42b23cb15b986dfd0f67acf3dcb92d6860cb7bdc6b14e4dcd69f754",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "ability",
+      "file": "assets/first21/dragon_knight_wyrms_wrath.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dragon_knight_wyrms_wrath.png",
+      "bytes": 32540,
+      "sha256": "513f9d0d2c7b8d49f9548774877d7e619509399524b7e14acbeec8e37e2c042b",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight_wyrms_wrath.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight_wyrms_wrath.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6216,
+        "sha256": "6d988397d73e148b54e1b0eede0c00e169f57b2a404f19cf13c0cdde459a3f86",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 47,
+      "heroKey": "dragon_knight",
+      "kind": "ability",
+      "file": "assets/first21/dragon_knight_elder_dragon_form.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dragon_knight_elder_dragon_form.png",
+      "bytes": 36365,
+      "sha256": "8816b404d96ccf15b35c7a7308d76b7ff08f128f9172d6f92b482c1efe4229e4",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dragon_knight_elder_dragon_form.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/dragon_knight_elder_dragon_form.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6334,
+        "sha256": "492ad428d3ec47d64c4720d3b0ef46826bb7bd415e0746927df4110404add1d8",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "portrait",
+      "file": "assets/first21/leshrac-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png",
+      "bytes": 68927,
+      "sha256": "3db4abaebd148d916279f8ad1d5af5340757e7408d79395a90a046de5fee3831",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 7526,
+        "sha256": "e6bc4bb3a8e5226da483b576d3aeeb019fffd20128d08d51260204cfe6ffc78c",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "render",
+      "file": "assets/first21/leshrac-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/leshrac.png",
+      "bytes": 1591414,
+      "sha256": "769cb3925d054498535b70f8615ef496397eba813d1a66e869a27b1ae9a0572e",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac-render.webp",
+        "width": 451,
+        "height": 480,
+        "bytes": 57052,
+        "sha256": "4fbcf203734c9011a8d6d61abf3bedaafd07e4af28328ff33ff87a084017b9a5",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "ability",
+      "file": "assets/first21/leshrac_split_earth.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/leshrac_split_earth.png",
+      "bytes": 29798,
+      "sha256": "3afd815d7f875567a697e854136bd35dc3b4f7cbfdbc274352bb4de4acb20c38",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac_split_earth.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac_split_earth.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4532,
+        "sha256": "5e259d4938be80328f7efeabede111e4c1cfc9a2db271cd4e72981bd1462f875",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "ability",
+      "file": "assets/first21/leshrac_diabolic_edict.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/leshrac_diabolic_edict.png",
+      "bytes": 26741,
+      "sha256": "0856b247096b163dfdd6ce77d1fc8c8ea8df14e701278588044b18452da4d4e0",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac_diabolic_edict.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac_diabolic_edict.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2770,
+        "sha256": "d3836c45ef22392d116b7c514b66a06520e650cf66ba8fa498e0553bb8994400",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "ability",
+      "file": "assets/first21/leshrac_lightning_storm.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/leshrac_lightning_storm.png",
+      "bytes": 28335,
+      "sha256": "31efbcc4ff62f10e1e1f244b675e362fa005a36f3b0f5fc31e23320562f823b7",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac_lightning_storm.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac_lightning_storm.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4078,
+        "sha256": "887d79568ed4c9569363efe55b87f4222fd3b86771db4d305a3cbc6f7607fa37",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 50,
+      "heroKey": "leshrac",
+      "kind": "ability",
+      "file": "assets/first21/leshrac_pulse_nova.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/leshrac_pulse_nova.png",
+      "bytes": 32988,
+      "sha256": "3c4aa0fe2e0e1493f5e7abc3f23e9407db5d0e95450b5fdfb253069c5f914c24",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/leshrac_pulse_nova.png",
+      "pixelEvidence": "release/first21-assets/official-assets-1.jpg",
+      "webAsset": {
+        "file": "assets/first21/leshrac_pulse_nova.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4950,
+        "sha256": "ad6708ebbe4175a6659486ca287836343266db1130ac1f04553fde86b2efa198",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "portrait",
+      "file": "assets/first21/omniknight-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png",
+      "bytes": 75856,
+      "sha256": "e86bf600ca3e75c7ad9be9cc1620e9610885e930b91b282886ede65ce1d048e2",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10154,
+        "sha256": "3fd3ec8768e7ca1054664cfe027ded69cc38cb97030379c79a55daafa4fe5672",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "render",
+      "file": "assets/first21/omniknight-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/omniknight.png",
+      "bytes": 1228386,
+      "sha256": "898470eb32d17c35f67a71980331a5f811bb157092721b34bfb614096a39aa01",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight-render.webp",
+        "width": 331,
+        "height": 480,
+        "bytes": 39758,
+        "sha256": "047fa289b883fa2fa5497305dab54e95413aaf9999acd214e516aca938a19394",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "ability",
+      "file": "assets/first21/omniknight_purification.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_purification.png",
+      "bytes": 22802,
+      "sha256": "3e282352149cddbd4dda1d7c8327ff951cc04b6660be6f3e388bc042ef2f62e8",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight_purification.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight_purification.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2194,
+        "sha256": "4a4936b88de62afba8e97e469dde2bff786dfc314a6bd0318aefeb16cf7ba0e5",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "ability",
+      "file": "assets/first21/omniknight_martyr.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_martyr.png",
+      "bytes": 29938,
+      "sha256": "d41520174e34ab411df2767383906945b9acde52d71fe25eabe4ec9f64e7afa9",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight_martyr.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight_martyr.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4506,
+        "sha256": "fd1976ae81e7d1aa85045f1e5bef9ee15c630debd03b63bbfba9f06d6b490da8",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "ability",
+      "file": "assets/first21/omniknight_hammer_of_purity.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_hammer_of_purity.png",
+      "bytes": 30363,
+      "sha256": "6898cf80730545fe49a44c22b274ad9cc7117cf49a25eb3b418c52384e1dd97f",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight_hammer_of_purity.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight_hammer_of_purity.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4194,
+        "sha256": "94ff2fc94eabb3283f61b8180c2eb6b381a287a452aea67d4e090ac1f9b919da",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 55,
+      "heroKey": "omniknight",
+      "kind": "ability",
+      "file": "assets/first21/omniknight_guardian_angel.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_guardian_angel.png",
+      "bytes": 26466,
+      "sha256": "13a29aad69ff81c99bc6b701fe777743cbf3556957d5e18807d291957fb47387",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/omniknight_guardian_angel.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/omniknight_guardian_angel.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3520,
+        "sha256": "60506eca3a2442b8e1382259e6413f635a026ba911ace051fff69cd1f1e66807",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "portrait",
+      "file": "assets/first21/huskar-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png",
+      "bytes": 68205,
+      "sha256": "63ac198d255bc6cf24d5dbe91eeac9d6cc9305d97e1f7ea7d57b00bd3a328d7a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 9778,
+        "sha256": "080d2c004f8c001a73eb6b1dc0e15d8926ccbb1481e25968dd8d0e1a7c474c96",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "render",
+      "file": "assets/first21/huskar-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/huskar.png",
+      "bytes": 1259040,
+      "sha256": "9766fc7ae89b0b01da22bb71121fa260b39b3f76ec31656ef4961403277f7819",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar-render.webp",
+        "width": 446,
+        "height": 480,
+        "bytes": 48198,
+        "sha256": "39b263476266f8432981d15fc062bc9949640b7f565e92881b806dbc8712473f",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "ability",
+      "file": "assets/first21/huskar_inner_fire.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/huskar_inner_fire.png",
+      "bytes": 52069,
+      "sha256": "9408fbae2ab6c4f5dc7e118b85003872217ce4d1f6bf2236f59d354bcc227929",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar_inner_fire.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar_inner_fire.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4558,
+        "sha256": "76ebc81229f66dbede963395356f34ec96b12e2f63ed823bdc1d458c8dea4244",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "ability",
+      "file": "assets/first21/huskar_burning_spear.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/huskar_burning_spear.png",
+      "bytes": 23662,
+      "sha256": "2f01bfdb5d35eb5d38a709d512f86e50833a283a0cf5698099d6f26f3b567542",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar_burning_spear.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar_burning_spear.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3206,
+        "sha256": "1a0261cd7670120f0db8788000e5f4232bde6060a86ef26308ca97235d23ba89",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "ability",
+      "file": "assets/first21/huskar_berserkers_blood.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/huskar_berserkers_blood.png",
+      "bytes": 33873,
+      "sha256": "f1b5f295191ca5570a0c0c5c1708a8c2be371a6e65547554522dd8a8e8b3de91",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar_berserkers_blood.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar_berserkers_blood.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5940,
+        "sha256": "1593f780c243e0cd47ad931f5cc6588c240ab1c5c3ce1bdde510b52528a46c30",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 57,
+      "heroKey": "huskar",
+      "kind": "ability",
+      "file": "assets/first21/huskar_life_break.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/huskar_life_break.png",
+      "bytes": 30432,
+      "sha256": "f4d5800cc1a8de9d90ead86ab788cae1a68612fa86b44035dd0d6cb807458b79",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/huskar_life_break.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/huskar_life_break.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4946,
+        "sha256": "9ed312208b87214bbc335c2a6293c9906bbbe5ea6128d398788b7aff00b6073c",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "portrait",
+      "file": "assets/first21/night_stalker-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png",
+      "bytes": 65703,
+      "sha256": "09cfe6b46970a42f7c1105cb465ec51b9131642101c501836e21c6f33b49d461",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 7774,
+        "sha256": "94719b28588790ac30f80196b2cf5c4b150f97acc7b0fcdd1152f945dc882b8d",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "render",
+      "file": "assets/first21/night_stalker-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/night_stalker.png",
+      "bytes": 1299426,
+      "sha256": "fa8ccc59c04e3118ea51f6952ea376a808430a559257225d48730fe718722670",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker-render.webp",
+        "width": 457,
+        "height": 480,
+        "bytes": 47732,
+        "sha256": "3ae8dd71aa0bd7af05cad8e922d146e8dadae4905cf4ac96358c115e59479874",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "ability",
+      "file": "assets/first21/night_stalker_void.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_void.png",
+      "bytes": 30026,
+      "sha256": "0abe50dd29ff6f9d359c77c017bbd63bc9f8b719ffe855263884dc2005b32627",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker_void.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker_void.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3970,
+        "sha256": "87492c3110dca4e188328de161d919d06af17e8b5f2e3d1a8340554e63904047",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "ability",
+      "file": "assets/first21/night_stalker_crippling_fear.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_crippling_fear.png",
+      "bytes": 24933,
+      "sha256": "0f5fb1b1b47d45f87c9a356c7d033f91cc3db494d0d8144948aea9f31f87068a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker_crippling_fear.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker_crippling_fear.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2636,
+        "sha256": "dba112169d1838e896448734715191f93be875214c9d210fff9cff2d85efd7e0",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "ability",
+      "file": "assets/first21/night_stalker_midnight_feast.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_midnight_feast.png",
+      "bytes": 25372,
+      "sha256": "230e2fe099ff86e43c47705c423e0bcd0151c3d178b54c3d22119544e18b608d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker_midnight_feast.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker_midnight_feast.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2706,
+        "sha256": "b43420fc6a925f6e4a76053c261e5e461d672d7b9f77f2089e935eba4b0b9264",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 58,
+      "heroKey": "night_stalker",
+      "kind": "ability",
+      "file": "assets/first21/night_stalker_darkness.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_darkness.png",
+      "bytes": 20873,
+      "sha256": "03a6f0b551d163db927f9bcc224c30ec9490958a73ffc932ebb1eb3e65cd5ff8",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/night_stalker_darkness.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/night_stalker_darkness.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2310,
+        "sha256": "44cb574e673a1b42bc587b4c580a2004136df38826cda1f679e1c07c7c8ca5a7",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "portrait",
+      "file": "assets/first21/jakiro-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png",
+      "bytes": 79414,
+      "sha256": "ac5932d6a4f56c1903415c1786ecde06c905e7e24817eefa70d286c885e4d8d3",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 13096,
+        "sha256": "6c8b905c9f21bb80b7d91e8e82c0bff860fc3be6cbdcc54d65cde7563d3fc79d",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "render",
+      "file": "assets/first21/jakiro-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/jakiro.png",
+      "bytes": 1675110,
+      "sha256": "303942571216ec40dbe927f3d6689f1f6af86977c4d6935818e47c3c1d64bb28",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro-render.webp",
+        "width": 480,
+        "height": 209,
+        "bytes": 27736,
+        "sha256": "aa3bc64fbc25ae7d76527bb7af814254cdafdb09a2f65717b089136acee14241",
+        "sourceSize": [
+          2880,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "ability",
+      "file": "assets/first21/jakiro_dual_breath.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/jakiro_dual_breath.png",
+      "bytes": 28602,
+      "sha256": "3204b66a878563da0e6ecae3dc5ab39d99497c6f383f58be9cd7441c9a7bd9f4",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro_dual_breath.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro_dual_breath.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5282,
+        "sha256": "8a6755e2a095c24d239732917f15a60d84c7f865e25878b55029e15c5e2ee209",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "ability",
+      "file": "assets/first21/jakiro_ice_path.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/jakiro_ice_path.png",
+      "bytes": 28366,
+      "sha256": "5f6cf39a55a7c4b04559a2b8aa1809e58097ddc12ed0bb7523ab80e07b661a4a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro_ice_path.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro_ice_path.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5156,
+        "sha256": "7dc54ffc2b58fbe66b497f0fcc19ca8646e4fb56eb01ae873417b338ff546ba4",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "ability",
+      "file": "assets/first21/jakiro_liquid_fire.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/jakiro_liquid_fire.png",
+      "bytes": 25666,
+      "sha256": "c5ce2123d75f9ac65064a0c95c1c8d43e72db6ff82bdcdd2440f9a55f4a7c5c2",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro_liquid_fire.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro_liquid_fire.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3750,
+        "sha256": "ae23bf02c755abaf0d2af22f7730fda56f88f128126c50a8848cf09fd3ca998e",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 62,
+      "heroKey": "jakiro",
+      "kind": "ability",
+      "file": "assets/first21/jakiro_macropyre.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/jakiro_macropyre.png",
+      "bytes": 30991,
+      "sha256": "b9fd77214e8342ef99bc369d5aa956d753e0ee9b29569c2fd6d5c1a9cba435c7",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/jakiro_macropyre.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/jakiro_macropyre.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6914,
+        "sha256": "79eb046719dc39b91fe34b2ffe1cdc014e69fc5c4d72a9b07bf537abfa9c7e93",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "portrait",
+      "file": "assets/first21/alchemist-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png",
+      "bytes": 82940,
+      "sha256": "b16ba3595c2fb9fa981224f233563a34645a0c83aae8c0dddd72bdeefa3287bc",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 12818,
+        "sha256": "ec30827f4b94af0ffe397c28e12c8eecf8277a0889b3ad771b4d653982714679",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "render",
+      "file": "assets/first21/alchemist-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/alchemist.png",
+      "bytes": 1362406,
+      "sha256": "d0bf99cebc0d707ce6f520091538d0e1671bbaa9031128f60db499c5631090a6",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist-render.webp",
+        "width": 365,
+        "height": 480,
+        "bytes": 40696,
+        "sha256": "2aa98bbd2a7bf085c6a5028e2880a4570ad7516b51ae06ea3aad33fd2d781ca4",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "ability",
+      "file": "assets/first21/alchemist_acid_spray.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png",
+      "bytes": 27440,
+      "sha256": "1399fb0eccfde84eedda1986b02678addcb3bb509298e0801964e5fdc2456110",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist_acid_spray.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist_acid_spray.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4392,
+        "sha256": "07ef6cb5a87c8d24885fce820529db332d00ab6aacc14ec8a3b024bcb196e15c",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "ability",
+      "file": "assets/first21/alchemist_unstable_concoction.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png",
+      "bytes": 33849,
+      "sha256": "a6f044f829b9d8632a43c62b0765bf74a4be84f507e1c8816030688f7b9e16d2",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist_unstable_concoction.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist_unstable_concoction.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5544,
+        "sha256": "905326aec60ce62fd21b0447ea867264ebdb24b419e96435e591a4b24242cbf5",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "ability",
+      "file": "assets/first21/alchemist_corrosive_weaponry.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_corrosive_weaponry.png",
+      "bytes": 1165014,
+      "sha256": "c15edd2eacb94bd88efa92663aefacf7b904c00f075b18e3b6ec19b07ef4a37c",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist_corrosive_weaponry.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist_corrosive_weaponry.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4878,
+        "sha256": "f8e20aeb0acca348b55b95087877fac5086af62c338c08418140e0a4ddd0eb09",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 71,
+      "heroKey": "alchemist",
+      "kind": "ability",
+      "file": "assets/first21/alchemist_chemical_rage.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png",
+      "bytes": 35368,
+      "sha256": "71278f3f58b32d2d9cf022e293cd47fef55d09afed49ffa6d5fb2dad0f920738",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/alchemist_chemical_rage.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/alchemist_chemical_rage.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6234,
+        "sha256": "5f691cc74eee0c62cc20a47ebb5d902bf757dc49f8edf79c0a7496806d37437d",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "portrait",
+      "file": "assets/first21/treant-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png",
+      "bytes": 78683,
+      "sha256": "ff7e4940cd749f34d39d0428ea7b69855630685d879ebf106b6041a7fddc05f1",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 12220,
+        "sha256": "f070e1c5ae75a5c07f68d9da4773f06960001e23224bf3513705914707e48d62",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "render",
+      "file": "assets/first21/treant-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/treant.png",
+      "bytes": 1591223,
+      "sha256": "034aa34e8eb611e171656c8c59e0ef861ec5c0aff087a28a8145ea2a03f47219",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant-render.webp",
+        "width": 414,
+        "height": 480,
+        "bytes": 61420,
+        "sha256": "c489b445267a7efe1639734e8dd9b99582b6595d6ab850ae5b62c204f6eab1c4",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "ability",
+      "file": "assets/first21/treant_natures_grasp.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_natures_grasp.png",
+      "bytes": 26845,
+      "sha256": "353e7ddee4f4be73ee165d399f2534751f1dd8276aaab4b6589bdc1042684f08",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant_natures_grasp.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant_natures_grasp.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4690,
+        "sha256": "866439830cadf0712b35a0c29438b453a7229378a7aff8ee73c598ef3d7b1556",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "ability",
+      "file": "assets/first21/treant_leech_seed.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_leech_seed.png",
+      "bytes": 27451,
+      "sha256": "0df8f5c97437d2c18f290579383c7f0e58fdba209b7db84f59d2c48eb4b38082",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant_leech_seed.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant_leech_seed.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4496,
+        "sha256": "9228a06c3e9d98728203c1b1c3e278339d1095398f19a12a27dc97e7efd7470d",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "ability",
+      "file": "assets/first21/treant_living_armor.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_living_armor.png",
+      "bytes": 30347,
+      "sha256": "e84f514beb3638790988521c7f22f636104ef1b0a0f935c7b566879c375193e1",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant_living_armor.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant_living_armor.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5750,
+        "sha256": "e9399a10f68afa0fe722203fd8f47f7706165d90121ea2388fd812c6c63009df",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 81,
+      "heroKey": "treant",
+      "kind": "ability",
+      "file": "assets/first21/treant_overgrowth.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_overgrowth.png",
+      "bytes": 36937,
+      "sha256": "38b3074d51ddb136b9486200447c3ab326e52c3721dfcebea2dbea292e350cff",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/treant_overgrowth.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/treant_overgrowth.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6542,
+        "sha256": "1f712fba73759d8ee80bbf9ac4a61392f1c7bc5407107787b0e3276198e7b1a1",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "portrait",
+      "file": "assets/first21/ogre_magi-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png",
+      "bytes": 64011,
+      "sha256": "b58b7b36fb47afb576a32754fc07ffd3e38e3630dde54f538c30d140bbfc5e5e",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 6990,
+        "sha256": "362e19768b07f04ccbfe31db53c89e66b8a54273517330938fb85bcaea8102b8",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "render",
+      "file": "assets/first21/ogre_magi-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/ogre_magi.png",
+      "bytes": 1819431,
+      "sha256": "15d2d3eecdccb92fcaae58416f4b70004e85256fe5288a4fc158d55ac4cce3da",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi-render.webp",
+        "width": 447,
+        "height": 480,
+        "bytes": 53620,
+        "sha256": "15fd2e7e016478abc732ff0c5ce7040970c057555040dc08f2a295803229d272",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "ability",
+      "file": "assets/first21/ogre_magi_fireblast.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_fireblast.png",
+      "bytes": 30486,
+      "sha256": "452ea9dbaf4f222a6dedee37c42ee4b69cc1920f30351bf48cead3c41073f875",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi_fireblast.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi_fireblast.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4692,
+        "sha256": "bb55c25bfd797ca72fb70c4d18c95f457807ed6104b6ac9cfa6f2dc6220235dd",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "ability",
+      "file": "assets/first21/ogre_magi_ignite.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_ignite.png",
+      "bytes": 30223,
+      "sha256": "c58827a3221875c798d8d611cbec1de9b6d8d8bc62fc4e1d59cd2c048577746b",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi_ignite.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi_ignite.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5948,
+        "sha256": "ae4d03e9ba0230825023cf692de72416a2b1a424cf815fb98dcec341a7f633c9",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "ability",
+      "file": "assets/first21/ogre_magi_bloodlust.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_bloodlust.png",
+      "bytes": 24039,
+      "sha256": "9c5ff2a7e55077ccbfdaaf1319b9f7544b78ccb6a25bb6912edbeafff6a1cd69",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi_bloodlust.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi_bloodlust.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2150,
+        "sha256": "5bff2852656df3eab1888761fb8ab01ace58c7ca55e719265e46ab1b3bf7fd5b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 82,
+      "heroKey": "ogre_magi",
+      "kind": "ability",
+      "file": "assets/first21/ogre_magi_multicast.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_multicast.png",
+      "bytes": 34121,
+      "sha256": "9455bb4874799b78bf97324feca40ffd997d3f190c6f159b4b0f24dca5d5e6f7",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ogre_magi_multicast.png",
+      "pixelEvidence": "release/first21-assets/official-assets-2.jpg",
+      "webAsset": {
+        "file": "assets/first21/ogre_magi_multicast.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4982,
+        "sha256": "641e0709b6f220eeaaff748539004ec3787063eff80487065ea90251d01ad4da",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "portrait",
+      "file": "assets/first21/centaur-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png",
+      "bytes": 65216,
+      "sha256": "f9c3217cf10c0d56fd9666c90e46aada91b11c058d2fa201286c2cc4e96de484",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 9014,
+        "sha256": "e73ce2c3a006121679ce6260f77a2856c45f173482aaf20799aa628d789aebaa",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "render",
+      "file": "assets/first21/centaur-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/centaur.png",
+      "bytes": 1474303,
+      "sha256": "08953a1d089c025ae0d68de26d900824ac9c36cf0fe3bdf5175467ce2e83d39e",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur-render.webp",
+        "width": 370,
+        "height": 480,
+        "bytes": 48954,
+        "sha256": "a583eaf9e396749df45eaa030874d35ed007635d2c14ada427346f3e77d89eae",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "ability",
+      "file": "assets/first21/centaur_hoof_stomp.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_hoof_stomp.png",
+      "bytes": 32712,
+      "sha256": "ef8d215f15effacf511009f7f1286b17328b6e01b6aff6ee122b9433fd2a3967",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur_hoof_stomp.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur_hoof_stomp.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5384,
+        "sha256": "6344fe9697b2c05dc59151a006bb62104cab9c63960cd32ba957c942a9728f4f",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "ability",
+      "file": "assets/first21/centaur_double_edge.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_double_edge.png",
+      "bytes": 33421,
+      "sha256": "24f72be4691f701a2934dbd944069418c27120c225733bb5a955d97525588ecf",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur_double_edge.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur_double_edge.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5778,
+        "sha256": "c9c391331e88765a6005759d1e2799467d896a52037f5834b19f3bfdef4d231b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "ability",
+      "file": "assets/first21/centaur_return.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_return.png",
+      "bytes": 30632,
+      "sha256": "e5391016907cd442984968c67cf9fe9064044d84b0f58ffa8fa349989a7353c5",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur_return.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur_return.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4532,
+        "sha256": "6020acf2a389c59e38c21d257d088662fa5df3c572d0ab5ea99a12f8455d147d",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 94,
+      "heroKey": "centaur",
+      "kind": "ability",
+      "file": "assets/first21/centaur_stampede.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_stampede.png",
+      "bytes": 29079,
+      "sha256": "cce018b1cbc004994a24e3d924e3fe19cc978ee604cc0ae0b86e56a64b62c16a",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/centaur_stampede.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/centaur_stampede.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5216,
+        "sha256": "e5c987f128b70cfa855d9ddf9c304e2bc81f7904c6b8bad2fa7de202fa6cf2fa",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "portrait",
+      "file": "assets/first21/skywrath_mage-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/skywrath_mage.png",
+      "bytes": 76673,
+      "sha256": "960fe5690d10301dd962c949bf9c0d912a13fa9fe72e0d8d4a38c4ce201cf1dd",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10886,
+        "sha256": "091b14b9ede554c55139723131cb18bab7083eab8ee62f161126e852a028c9a3",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "render",
+      "file": "assets/first21/skywrath_mage-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/skywrath_mage.png",
+      "bytes": 1027361,
+      "sha256": "579cc3806bfbb3902f506350d6641eaac3730bad54401bea44312e5a9aef7463",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage-render.webp",
+        "width": 476,
+        "height": 480,
+        "bytes": 73304,
+        "sha256": "7f9d4d76e970330eddf07683cc8859c7c6d30b856ef358162a5bd32491695017",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "ability",
+      "file": "assets/first21/skywrath_mage_arcane_bolt.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_arcane_bolt.png",
+      "bytes": 20251,
+      "sha256": "d937d398f5ae9b42dc01e4c18d352f672d6aeeb08938e6bffcb9b3c1aebefada",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage_arcane_bolt.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage_arcane_bolt.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 1926,
+        "sha256": "5ba6a7f2b2f5d1eca21ae9b52308673357d8013a44e3a6290e59133187a3870a",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "ability",
+      "file": "assets/first21/skywrath_mage_concussive_shot.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_concussive_shot.png",
+      "bytes": 24905,
+      "sha256": "bd2c0e23e967062007317795910d3c335872b48f2352b406234c66942b9a0876",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage_concussive_shot.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage_concussive_shot.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2394,
+        "sha256": "8a60c3c29b747299c443648bd9dcb0f14f480b75cf915835a1aa2f873c9ccdd0",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "ability",
+      "file": "assets/first21/skywrath_mage_ancient_seal.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_ancient_seal.png",
+      "bytes": 29571,
+      "sha256": "cfa21200a84cdd4114f46c1e350faa5f537fdb60fdcfc98330f847edc4e6fc22",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage_ancient_seal.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage_ancient_seal.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5266,
+        "sha256": "1eadb0ff8f419dfa6a81c3c54c28ac7bf43f10ccf8f1eef0eb12e0174726b48b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 99,
+      "heroKey": "skywrath_mage",
+      "kind": "ability",
+      "file": "assets/first21/skywrath_mage_mystic_flare.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/skywrath_mage_mystic_flare.png",
+      "bytes": 27563,
+      "sha256": "79424db255e6307dcb641854301361aed0596eb665df9e7a20aa8d0358f62b9e",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/skywrath_mage_mystic_flare.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/skywrath_mage_mystic_flare.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4048,
+        "sha256": "9f4ae36ebb66558a2b4701ca3a11a3170c71cc8d019f99609ce412d9da7929a6",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "portrait",
+      "file": "assets/first21/ember_spirit-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png",
+      "bytes": 56176,
+      "sha256": "f0d2a34608655f8a5c610e6a67e38748314d846f41d47e3a1ec34bc3ad6ea09d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 8986,
+        "sha256": "efbb91d2b04c08a17f9503fe5a155978475f41e99237ad363d092978fb5d9614",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "render",
+      "file": "assets/first21/ember_spirit-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/ember_spirit.png",
+      "bytes": 1467094,
+      "sha256": "6a55cada9040853fb48e42659b452f9a58ac5ba8b594a64a69e0c0186b66f9d0",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit-render.webp",
+        "width": 479,
+        "height": 480,
+        "bytes": 56124,
+        "sha256": "e8bc67436e3570e0681013967666b6375425a5f15205cb9f9df2e21a4585c7fe",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "ability",
+      "file": "assets/first21/ember_spirit_searing_chains.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ember_spirit_searing_chains.png",
+      "bytes": 28513,
+      "sha256": "68aab4146881af724c923ff0404b514688151a849e848da0224bcaf634cfea5b",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit_searing_chains.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit_searing_chains.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5634,
+        "sha256": "7aa62101150a08a403c282da8def716b132b6765c4b5b489e09362cc75fb716d",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "ability",
+      "file": "assets/first21/ember_spirit_sleight_of_fist.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ember_spirit_sleight_of_fist.png",
+      "bytes": 32342,
+      "sha256": "b22c4571444816972d0c2f2ba42cb875257d6692b7161ecefefec5e1824bf6ce",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit_sleight_of_fist.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit_sleight_of_fist.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5648,
+        "sha256": "0cedc069027f38167cf5634dc0c8837c64c2b4fbfe04c5655186bb76fa78213a",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "ability",
+      "file": "assets/first21/ember_spirit_flame_guard.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ember_spirit_flame_guard.png",
+      "bytes": 33779,
+      "sha256": "57b554463b3c20f386f75aea7fbbc4f77a525c960d1b4c985059bdf216aa0ee4",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit_flame_guard.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit_flame_guard.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 7174,
+        "sha256": "e35e1e1b9d7f23617dc71996d0101e3324ca1c3e2aedbac5025a3aee86fc3161",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 104,
+      "heroKey": "ember_spirit",
+      "kind": "ability",
+      "file": "assets/first21/ember_spirit_fire_remnant.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/ember_spirit_fire_remnant.png",
+      "bytes": 25292,
+      "sha256": "95ec1850a677db5aa65c00fc94fede56c64dffc228c7dd26f3e6d52c1f01c867",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/ember_spirit_fire_remnant.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/ember_spirit_fire_remnant.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5876,
+        "sha256": "bfd85dd0881940fec7fbd78cedec5ec5a3b890640dbe39425af787c4f984c2fb",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "portrait",
+      "file": "assets/first21/abyssal_underlord-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png",
+      "bytes": 80064,
+      "sha256": "167a0372ae5c431bf746b13d9e8e4234e25907f52072ebd58d357a3a77792b15",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 11372,
+        "sha256": "971a546293e031228a819018a06249a91f97c59701dc37461c4650efe7ab393b",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "render",
+      "file": "assets/first21/abyssal_underlord-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/abyssal_underlord.png",
+      "bytes": 1721769,
+      "sha256": "9185343cab5db00ccce9fe4deae27bf8cdbd04a770bbd7a6dab9916031d5609c",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord-render.webp",
+        "width": 419,
+        "height": 480,
+        "bytes": 52264,
+        "sha256": "832f9f8f8c9c466369783f8ec133727530d36c441398555b5c269c8fc4f0a417",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "ability",
+      "file": "assets/first21/abyssal_underlord_firestorm.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abyssal_underlord_firestorm.png",
+      "bytes": 30771,
+      "sha256": "dccd84aa873684fb43175cca0e2dd37f92abc56c3e1ace3a572536bc00cacbf3",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord_firestorm.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord_firestorm.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4014,
+        "sha256": "b95acb0b0992ca1ef416d8ad2148e50b0827d044b5760eb382e9887a8a19719b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "ability",
+      "file": "assets/first21/abyssal_underlord_pit_of_malice.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abyssal_underlord_pit_of_malice.png",
+      "bytes": 33130,
+      "sha256": "6d5b2237b847c7e8d3718a6f3137c27a39206cb86f26f8d689f7a6149b977459",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord_pit_of_malice.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord_pit_of_malice.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6648,
+        "sha256": "b75c0dd4c4de1be32220342fc3ab3f06441ef339c75931432d53520992815bb7",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "ability",
+      "file": "assets/first21/abyssal_underlord_atrophy_aura.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abyssal_underlord_atrophy_aura.png",
+      "bytes": 31983,
+      "sha256": "f8ac1581a4dead11df422870c965886774c0d97f6c31d8e3288f255f43b3a371",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord_atrophy_aura.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord_atrophy_aura.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5564,
+        "sha256": "59550f82bd01e80d193e476574137fb59c6e8f524afbe0e8791a9bb44a42c6f2",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 106,
+      "heroKey": "abyssal_underlord",
+      "kind": "ability",
+      "file": "assets/first21/abyssal_underlord_dark_portal.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/abyssal_underlord_dark_portal.png",
+      "bytes": 52069,
+      "sha256": "b6359db4225ca289450719ef6fc7e06fc096c80cd30d457af11c5d6b71e3f3ee",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/abyssal_underlord_dark_portal.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/abyssal_underlord_dark_portal.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6220,
+        "sha256": "f19152fb175ffc8ae80a4b6ae7c9c4e210bc6e4b15f53cc8497d90b08e4ab595",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "portrait",
+      "file": "assets/first21/void_spirit-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/void_spirit.png",
+      "bytes": 66944,
+      "sha256": "43cf7b1e5f4aa0d8b2e5bde747e927ef28b3d9b6c2e5df82d730237c6de0bd52",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10978,
+        "sha256": "8e4100e6be1a692b5010de89d35f68f3380fd5faf9bd17d1cdf82582ad8d7b8f",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "render",
+      "file": "assets/first21/void_spirit-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/void_spirit.png",
+      "bytes": 1207065,
+      "sha256": "5cfa9532ae70afb303c81b6c712a88db1fe914c867cf0175ac609dc9ddcb6049",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit-render.webp",
+        "width": 311,
+        "height": 480,
+        "bytes": 39772,
+        "sha256": "8660fe070629f6e953196f4fa2a4581dd64b7819680a24b9e1c0e75b12ee09ac",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "ability",
+      "file": "assets/first21/void_spirit_aether_remnant.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/void_spirit_aether_remnant.png",
+      "bytes": 39146,
+      "sha256": "40657456f566c31a9a7492a4e3654720a471535480c715d50917f33bd8e2726d",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit_aether_remnant.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit_aether_remnant.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6692,
+        "sha256": "edb0f0285d60147fad7f5337f24bcbbeb92c61bd8c7cade0e1f8371cfd58bc14",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "ability",
+      "file": "assets/first21/void_spirit_dissimilate.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/void_spirit_dissimilate.png",
+      "bytes": 38107,
+      "sha256": "bda92c7913f7562028fdfb0e18590c3763e537ca665fd29d42541e1c7593dc47",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit_dissimilate.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit_dissimilate.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6584,
+        "sha256": "834fb119e9370b41505e5b9adae98aa970bccb369b1cbab9c1fb745fac95f76a",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "ability",
+      "file": "assets/first21/void_spirit_resonant_pulse.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/void_spirit_resonant_pulse.png",
+      "bytes": 36786,
+      "sha256": "7a069e932c6846d9401e7a3fd6735ef37c100e377ae6c04ea8d775dce058e860",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit_resonant_pulse.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit_resonant_pulse.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6094,
+        "sha256": "dbd19ca13c8f1783decdf50923819d7c36071ad8d4b607e3c9764bd57cdccfb8",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 117,
+      "heroKey": "void_spirit",
+      "kind": "ability",
+      "file": "assets/first21/void_spirit_astral_step.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/void_spirit_astral_step.png",
+      "bytes": 29085,
+      "sha256": "81e077fe6e113b40011e520f7ff1bb7e7f2808c7bfba1e3f326e73cf00bad026",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/void_spirit_astral_step.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/void_spirit_astral_step.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4616,
+        "sha256": "b6f10cee394c3a4000dcd63df3ffa798a667e649ac1cfd2874cad06b34fdd316",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "portrait",
+      "file": "assets/first21/dawnbreaker-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png",
+      "bytes": 69855,
+      "sha256": "d7aefe3ffb966e40d5c1fe560dc8ec1cf272f74f53a3150d80c8e534edb06a02",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 11292,
+        "sha256": "7fa65b330fa551f702fec4783d7985d5a7d31214d108b9a1207db96f6a89ecd8",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "render",
+      "file": "assets/first21/dawnbreaker-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/dawnbreaker.png",
+      "bytes": 1213264,
+      "sha256": "6234ef4a55ffd0ad006e57796f7d507efeb4ceafddf457074e4ae1aef94c4ea8",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker-render.webp",
+        "width": 338,
+        "height": 480,
+        "bytes": 41822,
+        "sha256": "06ee128d4e282a30f150fa0a522c5ee2f596c697877239d9c78eac18b015e8db",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "ability",
+      "file": "assets/first21/dawnbreaker_fire_wreath.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dawnbreaker_fire_wreath.png",
+      "bytes": 30179,
+      "sha256": "8e4af04e9a216802d3a82c225518ce3f96376728bd48da19575dd34b2c236d8e",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker_fire_wreath.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker_fire_wreath.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5656,
+        "sha256": "1d6be3eb58ef438859f989ced03399560bbc6919a2379af2864e12eaeb9df9dc",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "ability",
+      "file": "assets/first21/dawnbreaker_celestial_hammer.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dawnbreaker_celestial_hammer.png",
+      "bytes": 29650,
+      "sha256": "336a1a7e3785229a98a2c1183e1e184ecf2f7bce9beddb18d1b1a471042ff375",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker_celestial_hammer.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker_celestial_hammer.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4642,
+        "sha256": "7ac46f848e4f62573d6ee17ad8c560db48536243c2955393320f2d93f69b8da9",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "ability",
+      "file": "assets/first21/dawnbreaker_luminosity.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dawnbreaker_luminosity.png",
+      "bytes": 34053,
+      "sha256": "f69c03e28177b35da85177c4e61c43d04b46f92f3cfd6d5b1df00c4d425e75c6",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker_luminosity.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker_luminosity.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 6212,
+        "sha256": "4a22ea8c4f19172e5d6baf7d844093da1a024b87255512c0d92d2db855e9b236",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 121,
+      "heroKey": "dawnbreaker",
+      "kind": "ability",
+      "file": "assets/first21/dawnbreaker_solar_guardian.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/dawnbreaker_solar_guardian.png",
+      "bytes": 28422,
+      "sha256": "8752f0168bbba4bf8fd5ad010e60ecfd8b8e5c37cdfae7c9939f02a4b3a6b1df",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/dawnbreaker_solar_guardian.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/dawnbreaker_solar_guardian.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4948,
+        "sha256": "d22676fdf3cc66fc6ec7006fbcd38ce508bdd2650852c0c7fa294b131ef10283",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "portrait",
+      "file": "assets/first21/muerta-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png",
+      "bytes": 69294,
+      "sha256": "b4d66833aec595c586d6a15eb25ba35d7aa441b4b717ab79ae17ae801dbdabea",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta-portrait.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 10958,
+        "sha256": "204e9251418b47bf96b97e4fd530b8914d37883e59f95fb53ac1fcfb76f44e80",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "render",
+      "file": "assets/first21/muerta-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/muerta.png",
+      "bytes": 971497,
+      "sha256": "538013896a3517208b34b0baba13a931c1b72fa326b219a40b44154a1dbed8da",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta-render.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta-render.webp",
+        "width": 271,
+        "height": 480,
+        "bytes": 42594,
+        "sha256": "b241ed18bf195f6c4fa761052e646ff114c36e3865b16de7ad930b327e904837",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "ability",
+      "file": "assets/first21/muerta_dead_shot.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png",
+      "bytes": 27230,
+      "sha256": "8365138e25bd40b4277b953a03fec44b5b3a975253bcae76bb64dfb3515b1d48",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta_dead_shot.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta_dead_shot.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3868,
+        "sha256": "db73e4cafdc358e71e3d65297c7f6b315835c2667e686c8b4bb44825c0451584",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "ability",
+      "file": "assets/first21/muerta_the_calling.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png",
+      "bytes": 29329,
+      "sha256": "936687a9c96184cca20ea4da98dd393fccbc5a3bfcc2fb157ca0c58305ea3d36",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta_the_calling.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta_the_calling.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4812,
+        "sha256": "3eaf7b7592ae973ce05c2ae66be3298f81963d19bb3010b782ad9315266b33a4",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "ability",
+      "file": "assets/first21/muerta_gunslinger.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png",
+      "bytes": 31257,
+      "sha256": "8d662a9bf615d94b980a2f34cf2a87d9fd87288228ae9e6e67e1c41eec8f8ab7",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta_gunslinger.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta_gunslinger.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4916,
+        "sha256": "8bcf265dc0cc234e84a0f40c61dd5bba9d4fed31c4206e63dfef2394f3e01854",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 124,
+      "heroKey": "muerta",
+      "kind": "ability",
+      "file": "assets/first21/muerta_pierce_the_veil.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png",
+      "bytes": 37508,
+      "sha256": "e0b0bc4191a9bf9e7ec8c33580b624afb4388a0270f1787ef521b3b3ba1495fd",
+      "downloadVerified": true,
+      "pixelsReviewed": true,
+      "downloadedPath": "incoming/first21-official-source/muerta_pierce_the_veil.png",
+      "pixelEvidence": "release/first21-assets/official-assets-3.jpg",
+      "webAsset": {
+        "file": "assets/first21/muerta_pierce_the_veil.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 8148,
+        "sha256": "5afeaea6305019b81f5a589a009b3d42ae858f91378fb7bc41810e9d0c4ed92e",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "portrait",
+      "file": "assets/first21/kunkka-portrait.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/kunkka.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka-portrait.png",
+      "pixelsReviewed": true,
+      "bytes": 65303,
+      "sha256": "0dbd3b33d2d425bf87f8a4639ebe752d4dbe862148451ef1170975c4f188e8fd",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka-portrait.webp",
+        "width": 256,
+        "height": 144,
+        "bytes": 7694,
+        "sha256": "290c2f34d36ac48e9af7a81709a3b25b615eae76898448039b07d8c5a5b794d3",
+        "sourceSize": [
+          256,
+          144
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "render",
+      "file": "assets/first21/kunkka-render.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/kunkka.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka-render.png",
+      "pixelsReviewed": true,
+      "bytes": 1422297,
+      "sha256": "20f344672227bfab0daaac6862ae8ee802d9f2308d955e0f9c04104a324ff109",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka-render.webp",
+        "width": 453,
+        "height": 480,
+        "bytes": 45572,
+        "sha256": "eea16f5469738fb55947fe21b9f43d691c703664e5d1e297acaf7fea938d6107",
+        "sourceSize": [
+          1440,
+          1440
+        ],
+        "operation": "alpha crop and fit 480px",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "ability",
+      "file": "assets/first21/kunkka_torrent.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/kunkka_torrent.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka_torrent.png",
+      "pixelsReviewed": true,
+      "bytes": 28251,
+      "sha256": "db2c37633c06093f35e3afbb918b6e1a0701d91b6ad065d26b43f0c413ec40de",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka_torrent.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4910,
+        "sha256": "09a08118ddfa94357a8e585fbf10428c5e360b151ec6850f14353176c35439a1",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "ability",
+      "file": "assets/first21/kunkka_tidebringer.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/kunkka_tidebringer.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka_tidebringer.png",
+      "pixelsReviewed": true,
+      "bytes": 27229,
+      "sha256": "a93995627df58ab4927520ae26dcdb8aff4a4037b8c70f2f3f2bf495649c4900",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka_tidebringer.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5286,
+        "sha256": "e384b351b371e448a8283d9de17f80cb3a286ee3d9b5ab8be64fe5505494ac6b",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "ability",
+      "file": "assets/first21/kunkka_x_marks_the_spot.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/kunkka_x_marks_the_spot.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka_x_marks_the_spot.png",
+      "pixelsReviewed": true,
+      "bytes": 28287,
+      "sha256": "cc5b801544fdf0dd68711b9c18b67770bfffbb1d25961dd4f344d23d0a66b0d2",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka_x_marks_the_spot.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4800,
+        "sha256": "b88ebff32b7b138c252bbb147742a04b57d44bd3f8085c2195fd0f4f3c0d8879",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    },
+    {
+      "heroId": 29,
+      "heroKey": "kunkka",
+      "kind": "ability",
+      "file": "assets/first21/kunkka_ghostship.png",
+      "url": "https://cdn.steamstatic.com/apps/dota2/images/dota_react/abilities/kunkka_ghostship.png",
+      "downloadedPath": "incoming/first21-official-source/kunkka_ghostship.png",
+      "pixelsReviewed": true,
+      "bytes": 25920,
+      "sha256": "596e73483576702fc5a80fe1f9c671e47d8402ec2ad951153502c4f89c60fdb8",
+      "downloadVerified": true,
+      "pixelEvidence": "release/first21-assets/official-assets-kunkka.jpg",
+      "webAsset": {
+        "file": "assets/first21/kunkka_ghostship.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3182,
+        "sha256": "fd36ec1f2a02e85da7c639767e7d994983f1de919bba4d98c8b4e1af301f1f96",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "operation": "fit UI resolution",
+        "encoding": "WebP quality90"
+      }
+    }
+  ],
+  "errors": []
+}

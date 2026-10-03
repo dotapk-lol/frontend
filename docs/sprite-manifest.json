@@ -1,0 +1,867 @@
+{
+  "version": 1,
+  "provenance": "AI-created original fan art generated using OpenAI built-in image_gen. Dota hero identities and names are Valve intellectual property. No Valve asset files were copied. This statement is provenance, not a license grant for underlying Dota intellectual property.",
+  "gridNote": "Each source sheet is visually 4 columns by 5 rows, but generated packing is not a uniform pixel grid. Use the per-frame rects.",
+  "sheets": [
+    {
+      "file": "heroes-01.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "alpha": true
+    },
+    {
+      "file": "heroes-02-v2.png",
+      "width": 1422,
+      "height": 1106,
+      "columns": 4,
+      "rows": 5,
+      "alpha": true
+    },
+    {
+      "file": "heroes-03-v2.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "alpha": true
+    },
+    {
+      "file": "heroes-04-v2.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "alpha": true
+    }
+  ],
+  "heroes": [
+    {
+      "name": "Juggernaut",
+      "slug": "juggernaut",
+      "sheet": "heroes-01.png",
+      "row": 0,
+      "frames": {
+        "idle": {
+          "x": 29,
+          "y": 108,
+          "w": 183,
+          "h": 180,
+          "pivotX": 106,
+          "pivotY": 177
+        },
+        "attack": {
+          "x": 308,
+          "y": 127,
+          "w": 282,
+          "h": 161,
+          "pivotX": 82,
+          "pivotY": 158
+        },
+        "guard": {
+          "x": 627,
+          "y": 79,
+          "w": 165,
+          "h": 209,
+          "pivotX": 93,
+          "pivotY": 206
+        },
+        "airborne": {
+          "x": 879,
+          "y": 60,
+          "w": 180,
+          "h": 213,
+          "pivotX": 116,
+          "pivotY": 210
+        }
+      },
+      "referenceHeight": 180
+    },
+    {
+      "name": "Crystal Maiden",
+      "slug": "crystal-maiden",
+      "sheet": "heroes-01.png",
+      "row": 1,
+      "frames": {
+        "idle": {
+          "x": 33,
+          "y": 355,
+          "w": 190,
+          "h": 216,
+          "pivotX": 107,
+          "pivotY": 213
+        },
+        "attack": {
+          "x": 292,
+          "y": 395,
+          "w": 296,
+          "h": 176,
+          "pivotX": 108,
+          "pivotY": 173
+        },
+        "guard": {
+          "x": 610,
+          "y": 384,
+          "w": 192,
+          "h": 187,
+          "pivotX": 110,
+          "pivotY": 184
+        },
+        "airborne": {
+          "x": 861,
+          "y": 375,
+          "w": 235,
+          "h": 183,
+          "pivotX": 119,
+          "pivotY": 180
+        }
+      },
+      "referenceHeight": 216
+    },
+    {
+      "name": "Pudge",
+      "slug": "pudge",
+      "sheet": "heroes-01.png",
+      "row": 2,
+      "frames": {
+        "idle": {
+          "x": 38,
+          "y": 627,
+          "w": 194,
+          "h": 218,
+          "pivotX": 92,
+          "pivotY": 215
+        },
+        "attack": {
+          "x": 298,
+          "y": 653,
+          "w": 320,
+          "h": 192,
+          "pivotX": 82,
+          "pivotY": 189
+        },
+        "guard": {
+          "x": 639,
+          "y": 650,
+          "w": 168,
+          "h": 195,
+          "pivotX": 96,
+          "pivotY": 192
+        },
+        "airborne": {
+          "x": 874,
+          "y": 598,
+          "w": 219,
+          "h": 231,
+          "pivotX": 116,
+          "pivotY": 228
+        }
+      },
+      "referenceHeight": 218
+    },
+    {
+      "name": "Axe",
+      "slug": "axe",
+      "sheet": "heroes-01.png",
+      "row": 3,
+      "frames": {
+        "idle": {
+          "x": 44,
+          "y": 939,
+          "w": 234,
+          "h": 193,
+          "pivotX": 91,
+          "pivotY": 190
+        },
+        "attack": {
+          "x": 301,
+          "y": 936,
+          "w": 286,
+          "h": 196,
+          "pivotX": 89,
+          "pivotY": 193
+        },
+        "guard": {
+          "x": 607,
+          "y": 973,
+          "w": 190,
+          "h": 159,
+          "pivotX": 123,
+          "pivotY": 156
+        },
+        "airborne": {
+          "x": 887,
+          "y": 874,
+          "w": 200,
+          "h": 248,
+          "pivotX": 103,
+          "pivotY": 245
+        }
+      },
+      "referenceHeight": 193
+    },
+    {
+      "name": "Sniper",
+      "slug": "sniper",
+      "sheet": "heroes-01.png",
+      "row": 4,
+      "frames": {
+        "idle": {
+          "x": 40,
+          "y": 1224,
+          "w": 218,
+          "h": 128,
+          "pivotX": 100,
+          "pivotY": 125
+        },
+        "attack": {
+          "x": 316,
+          "y": 1231,
+          "w": 269,
+          "h": 121,
+          "pivotX": 94,
+          "pivotY": 118
+        },
+        "guard": {
+          "x": 624,
+          "y": 1210,
+          "w": 178,
+          "h": 142,
+          "pivotX": 96,
+          "pivotY": 139
+        },
+        "airborne": {
+          "x": 890,
+          "y": 1197,
+          "w": 200,
+          "h": 133,
+          "pivotX": 90,
+          "pivotY": 130
+        }
+      },
+      "referenceHeight": 128
+    },
+    {
+      "name": "Anti-Mage",
+      "slug": "anti-mage",
+      "sheet": "heroes-02-v2.png",
+      "row": 0,
+      "frames": {
+        "idle": {
+          "x": 103,
+          "y": 100,
+          "w": 165,
+          "h": 139,
+          "pivotX": 87,
+          "pivotY": 136
+        },
+        "attack": {
+          "x": 451,
+          "y": 116,
+          "w": 207,
+          "h": 117,
+          "pivotX": 79,
+          "pivotY": 114
+        },
+        "guard": {
+          "x": 832,
+          "y": 98,
+          "w": 129,
+          "h": 137,
+          "pivotX": 78,
+          "pivotY": 134
+        },
+        "airborne": {
+          "x": 1177,
+          "y": 101,
+          "w": 151,
+          "h": 110,
+          "pivotX": 83,
+          "pivotY": 107
+        }
+      },
+      "referenceHeight": 139
+    },
+    {
+      "name": "Phantom Assassin",
+      "slug": "phantom-assassin",
+      "sheet": "heroes-02-v2.png",
+      "row": 1,
+      "frames": {
+        "idle": {
+          "x": 83,
+          "y": 296,
+          "w": 188,
+          "h": 154,
+          "pivotX": 107,
+          "pivotY": 151
+        },
+        "attack": {
+          "x": 428,
+          "y": 306,
+          "w": 244,
+          "h": 142,
+          "pivotX": 102,
+          "pivotY": 139
+        },
+        "guard": {
+          "x": 834,
+          "y": 297,
+          "w": 161,
+          "h": 151,
+          "pivotX": 61,
+          "pivotY": 148
+        },
+        "airborne": {
+          "x": 1170,
+          "y": 290,
+          "w": 163,
+          "h": 154,
+          "pivotX": 90,
+          "pivotY": 151
+        }
+      },
+      "referenceHeight": 154
+    },
+    {
+      "name": "Drow Ranger",
+      "slug": "drow-ranger",
+      "sheet": "heroes-02-v2.png",
+      "row": 2,
+      "frames": {
+        "idle": {
+          "x": 78,
+          "y": 509,
+          "w": 175,
+          "h": 154,
+          "pivotX": 107,
+          "pivotY": 151
+        },
+        "attack": {
+          "x": 421,
+          "y": 492,
+          "w": 240,
+          "h": 171,
+          "pivotX": 89,
+          "pivotY": 168
+        },
+        "guard": {
+          "x": 824,
+          "y": 518,
+          "w": 165,
+          "h": 144,
+          "pivotX": 91,
+          "pivotY": 141
+        },
+        "airborne": {
+          "x": 1148,
+          "y": 494,
+          "w": 203,
+          "h": 145,
+          "pivotX": 117,
+          "pivotY": 142
+        }
+      },
+      "referenceHeight": 154
+    },
+    {
+      "name": "Lina",
+      "slug": "lina",
+      "sheet": "heroes-02-v2.png",
+      "row": 3,
+      "frames": {
+        "idle": {
+          "x": 112,
+          "y": 710,
+          "w": 145,
+          "h": 152,
+          "pivotX": 68,
+          "pivotY": 149
+        },
+        "attack": {
+          "x": 425,
+          "y": 727,
+          "w": 289,
+          "h": 131,
+          "pivotX": 85,
+          "pivotY": 128
+        },
+        "guard": {
+          "x": 819,
+          "y": 704,
+          "w": 164,
+          "h": 155,
+          "pivotX": 91,
+          "pivotY": 152
+        },
+        "airborne": {
+          "x": 1151,
+          "y": 690,
+          "w": 182,
+          "h": 150,
+          "pivotX": 119,
+          "pivotY": 147
+        }
+      },
+      "referenceHeight": 152
+    },
+    {
+      "name": "Lion",
+      "slug": "lion",
+      "sheet": "heroes-02-v2.png",
+      "row": 4,
+      "frames": {
+        "idle": {
+          "x": 96,
+          "y": 875,
+          "w": 149,
+          "h": 172,
+          "pivotX": 79,
+          "pivotY": 169
+        },
+        "attack": {
+          "x": 418,
+          "y": 922,
+          "w": 273,
+          "h": 124,
+          "pivotX": 82,
+          "pivotY": 121
+        },
+        "guard": {
+          "x": 828,
+          "y": 897,
+          "w": 149,
+          "h": 150,
+          "pivotX": 72,
+          "pivotY": 147
+        },
+        "airborne": {
+          "x": 1177,
+          "y": 866,
+          "w": 172,
+          "h": 181,
+          "pivotX": 93,
+          "pivotY": 178
+        }
+      },
+      "referenceHeight": 172
+    },
+    {
+      "name": "Earthshaker",
+      "slug": "earthshaker",
+      "sheet": "heroes-03-v2.png",
+      "row": 0,
+      "frames": {
+        "idle": {
+          "x": 60,
+          "y": 112,
+          "w": 160,
+          "h": 203,
+          "pivotX": 85,
+          "pivotY": 200
+        },
+        "attack": {
+          "x": 317,
+          "y": 175,
+          "w": 266,
+          "h": 141,
+          "pivotX": 108,
+          "pivotY": 138
+        },
+        "guard": {
+          "x": 646,
+          "y": 143,
+          "w": 156,
+          "h": 169,
+          "pivotX": 79,
+          "pivotY": 166
+        },
+        "airborne": {
+          "x": 900,
+          "y": 57,
+          "w": 185,
+          "h": 239,
+          "pivotX": 100,
+          "pivotY": 236
+        }
+      },
+      "referenceHeight": 203
+    },
+    {
+      "name": "Mirana",
+      "slug": "mirana",
+      "sheet": "heroes-03-v2.png",
+      "row": 1,
+      "frames": {
+        "idle": {
+          "x": 45,
+          "y": 400,
+          "w": 190,
+          "h": 174,
+          "pivotX": 105,
+          "pivotY": 171
+        },
+        "attack": {
+          "x": 328,
+          "y": 394,
+          "w": 251,
+          "h": 180,
+          "pivotX": 102,
+          "pivotY": 177
+        },
+        "guard": {
+          "x": 621,
+          "y": 411,
+          "w": 195,
+          "h": 164,
+          "pivotX": 99,
+          "pivotY": 161
+        },
+        "airborne": {
+          "x": 897,
+          "y": 370,
+          "w": 184,
+          "h": 198,
+          "pivotX": 93,
+          "pivotY": 195
+        }
+      },
+      "referenceHeight": 174
+    },
+    {
+      "name": "Sven",
+      "slug": "sven",
+      "sheet": "heroes-03-v2.png",
+      "row": 2,
+      "frames": {
+        "idle": {
+          "x": 34,
+          "y": 656,
+          "w": 180,
+          "h": 195,
+          "pivotX": 101,
+          "pivotY": 192
+        },
+        "attack": {
+          "x": 307,
+          "y": 666,
+          "w": 279,
+          "h": 183,
+          "pivotX": 123,
+          "pivotY": 180
+        },
+        "guard": {
+          "x": 640,
+          "y": 656,
+          "w": 180,
+          "h": 195,
+          "pivotX": 95,
+          "pivotY": 192
+        },
+        "airborne": {
+          "x": 899,
+          "y": 618,
+          "w": 190,
+          "h": 224,
+          "pivotX": 111,
+          "pivotY": 221
+        }
+      },
+      "referenceHeight": 195
+    },
+    {
+      "name": "Zeus",
+      "slug": "zeus",
+      "sheet": "heroes-03-v2.png",
+      "row": 3,
+      "frames": {
+        "idle": {
+          "x": 61,
+          "y": 925,
+          "w": 162,
+          "h": 178,
+          "pivotX": 79,
+          "pivotY": 175
+        },
+        "attack": {
+          "x": 315,
+          "y": 941,
+          "w": 280,
+          "h": 162,
+          "pivotX": 95,
+          "pivotY": 159
+        },
+        "guard": {
+          "x": 647,
+          "y": 941,
+          "w": 159,
+          "h": 162,
+          "pivotX": 88,
+          "pivotY": 159
+        },
+        "airborne": {
+          "x": 914,
+          "y": 886,
+          "w": 176,
+          "h": 217,
+          "pivotX": 96,
+          "pivotY": 214
+        }
+      },
+      "referenceHeight": 178
+    },
+    {
+      "name": "Windranger",
+      "slug": "windranger",
+      "sheet": "heroes-03-v2.png",
+      "row": 4,
+      "frames": {
+        "idle": {
+          "x": 41,
+          "y": 1176,
+          "w": 160,
+          "h": 171,
+          "pivotX": 99,
+          "pivotY": 168
+        },
+        "attack": {
+          "x": 305,
+          "y": 1166,
+          "w": 277,
+          "h": 181,
+          "pivotX": 135,
+          "pivotY": 178
+        },
+        "guard": {
+          "x": 648,
+          "y": 1182,
+          "w": 167,
+          "h": 166,
+          "pivotX": 87,
+          "pivotY": 163
+        },
+        "airborne": {
+          "x": 892,
+          "y": 1159,
+          "w": 184,
+          "h": 185,
+          "pivotX": 103,
+          "pivotY": 182
+        }
+      },
+      "referenceHeight": 171
+    },
+    {
+      "name": "Shadow Fiend",
+      "slug": "shadow-fiend",
+      "sheet": "heroes-04-v2.png",
+      "row": 0,
+      "frames": {
+        "idle": {
+          "x": 54,
+          "y": 81,
+          "w": 179,
+          "h": 189,
+          "pivotX": 91,
+          "pivotY": 186
+        },
+        "attack": {
+          "x": 310,
+          "y": 88,
+          "w": 269,
+          "h": 183,
+          "pivotX": 90,
+          "pivotY": 180
+        },
+        "guard": {
+          "x": 623,
+          "y": 101,
+          "w": 150,
+          "h": 169,
+          "pivotX": 97,
+          "pivotY": 166
+        },
+        "airborne": {
+          "x": 877,
+          "y": 74,
+          "w": 205,
+          "h": 196,
+          "pivotX": 113,
+          "pivotY": 193
+        }
+      },
+      "referenceHeight": 189
+    },
+    {
+      "name": "Storm Spirit",
+      "slug": "storm-spirit",
+      "sheet": "heroes-04-v2.png",
+      "row": 1,
+      "frames": {
+        "idle": {
+          "x": 48,
+          "y": 353,
+          "w": 177,
+          "h": 180,
+          "pivotX": 92,
+          "pivotY": 177
+        },
+        "attack": {
+          "x": 320,
+          "y": 361,
+          "w": 280,
+          "h": 172,
+          "pivotX": 80,
+          "pivotY": 169
+        },
+        "guard": {
+          "x": 618,
+          "y": 365,
+          "w": 180,
+          "h": 168,
+          "pivotX": 97,
+          "pivotY": 165
+        },
+        "airborne": {
+          "x": 864,
+          "y": 347,
+          "w": 206,
+          "h": 184,
+          "pivotX": 126,
+          "pivotY": 181
+        }
+      },
+      "referenceHeight": 180
+    },
+    {
+      "name": "Queen of Pain",
+      "slug": "queen-of-pain",
+      "sheet": "heroes-04-v2.png",
+      "row": 2,
+      "frames": {
+        "idle": {
+          "x": 43,
+          "y": 601,
+          "w": 185,
+          "h": 207,
+          "pivotX": 102,
+          "pivotY": 204
+        },
+        "attack": {
+          "x": 277,
+          "y": 601,
+          "w": 311,
+          "h": 206,
+          "pivotX": 113,
+          "pivotY": 203
+        },
+        "guard": {
+          "x": 608,
+          "y": 627,
+          "w": 211,
+          "h": 180,
+          "pivotX": 122,
+          "pivotY": 177
+        },
+        "airborne": {
+          "x": 864,
+          "y": 593,
+          "w": 217,
+          "h": 212,
+          "pivotX": 146,
+          "pivotY": 209
+        }
+      },
+      "referenceHeight": 207
+    },
+    {
+      "name": "Witch Doctor",
+      "slug": "witch-doctor",
+      "sheet": "heroes-04-v2.png",
+      "row": 3,
+      "frames": {
+        "idle": {
+          "x": 56,
+          "y": 848,
+          "w": 163,
+          "h": 212,
+          "pivotX": 89,
+          "pivotY": 209
+        },
+        "attack": {
+          "x": 309,
+          "y": 894,
+          "w": 270,
+          "h": 167,
+          "pivotX": 91,
+          "pivotY": 164
+        },
+        "guard": {
+          "x": 638,
+          "y": 873,
+          "w": 173,
+          "h": 187,
+          "pivotX": 82,
+          "pivotY": 184
+        },
+        "airborne": {
+          "x": 896,
+          "y": 833,
+          "w": 188,
+          "h": 227,
+          "pivotX": 99,
+          "pivotY": 224
+        }
+      },
+      "referenceHeight": 212
+    },
+    {
+      "name": "Tidehunter",
+      "slug": "tidehunter",
+      "sheet": "heroes-04-v2.png",
+      "row": 4,
+      "frames": {
+        "idle": {
+          "x": 46,
+          "y": 1134,
+          "w": 196,
+          "h": 204,
+          "pivotX": 94,
+          "pivotY": 201
+        },
+        "attack": {
+          "x": 305,
+          "y": 1132,
+          "w": 291,
+          "h": 202,
+          "pivotX": 105,
+          "pivotY": 199
+        },
+        "guard": {
+          "x": 613,
+          "y": 1172,
+          "w": 193,
+          "h": 162,
+          "pivotX": 102,
+          "pivotY": 159
+        },
+        "airborne": {
+          "x": 853,
+          "y": 1094,
+          "w": 242,
+          "h": 246,
+          "pivotX": 132,
+          "pivotY": 243
+        }
+      },
+      "referenceHeight": 204
+    }
+  ],
+  "arena": {
+    "file": "arena-temple.png",
+    "width": 1672,
+    "height": 941,
+    "floorTopRatio": 0.713
+  }
+}

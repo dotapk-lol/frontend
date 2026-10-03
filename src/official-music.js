@@ -1,0 +1,20 @@
+// User-selected local MP3 copied unchanged. This is Reborn D+B Remix, not the original Reborn.
+// One built-in track throughout menu and battle; provenance in assets/music/reborn-source.json.
+const REBORN_SOURCE='assets/music/reborn-dnb-remix.mp3';
+export const OFFICIAL_ALBUM={title:'Dota 2 Reborn D+B Remix',artist:'Valve Studio Orchestra',album:'The Dota 2 Remixes EP',src:REBORN_SOURCE,scenes:{menu:REBORN_SOURCE,battle:REBORN_SOURCE}};
+export class OfficialAlbumPlayer {
+ constructor({document:doc=globalThis.document,audioFactory=()=>new Audio(),track=OFFICIAL_ALBUM,onchange=()=>{}}={}){Object.assign(this,{document:doc,audioFactory,track,onchange});this.audio=null;this.enabled=false;this.volume=.35;this.hidden=!!doc?.hidden;this.pageAway=false;this.activated=false;this.intent=false;this.generation=0;this.state='disabled';this.error='';}
+ setScene(scene){const src=this.track.scenes?.[scene];if(!src||src===this.track.src)return;const resume=this.intent&&this.allowed();++this.generation;this.audio?.pause();this.track={...this.track,src,title:this.track.sceneTitles?.[scene]||this.track.title};if(this.audio){this.audio.src=src;this.audio.load();}if(resume)this.play();else this.emit();}
+ emit(){this.onchange();}
+ configure(enabled,volume=this.volume){this.enabled=!!enabled;this.setVolume(volume,false);if(!this.enabled)this.stop('disabled');else if(!this.track.src){this.state='missing';this.emit();}else if(this.activated)this.play();else{this.state='ready';this.emit();}}
+ ensure(){if(this.audio||!this.track.src)return;const a=this.audioFactory();this.audio=a;a.preload='metadata';a.loop=true;a.src=this.track.src;a.volume=this.volume;a.addEventListener('playing',()=>{if(!this.allowed()||!this.intent){a.pause();return;}this.state='playing';this.error='';this.emit();});a.addEventListener('waiting',()=>{if(this.intent){this.state='buffering';this.emit();}});a.addEventListener('error',()=>{this.intent=false;this.state='error';this.error='音乐加载失败，请检查网络后重试。';this.emit();});}
+ allowed(){return this.enabled&&!this.hidden&&!this.pageAway;}
+ unlock(){if(this.activated)return;this.activated=true;if(this.enabled)this.play();}
+ async play(){this.activated=true;if(!this.track.src){this.state=this.enabled?'missing':'disabled';this.emit();return false;}if(!this.allowed())return false;this.ensure();const token=++this.generation;this.intent=true;this.state='starting';this.error='';this.emit();try{await this.audio.play();if(token!==this.generation){if(!this.intent)this.audio.pause();return false;}if(!this.allowed()){this.stop('paused');return false;}this.state='playing';this.emit();return true;}catch(e){if(token!==this.generation)return false;this.intent=false;this.state=e?.name==='NotAllowedError'?'blocked':'error';this.error=this.state==='blocked'?'点播放以开启音乐。':'音乐播放失败，请重试。';this.emit();return false;}}
+ stop(state='stopped'){++this.generation;this.intent=false;this.audio?.pause();this.state=state;this.error='';this.emit();}
+ setVolume(v,emit=true){if(Number.isFinite(v))this.volume=Math.max(0,Math.min(1,v));if(this.audio)this.audio.volume=this.volume;if(emit)this.emit();}
+ lifecycle(patch){if(typeof patch.hidden==='boolean')this.hidden=patch.hidden;if(typeof patch.pageAway==='boolean')this.pageAway=patch.pageAway;if((this.hidden||this.pageAway)&&this.intent)this.stop('paused');}
+ retry(){this.error='';this.audio?.load();return this.play();}
+ destroy(){this.stop('disabled');if(this.audio){this.audio.removeAttribute('src');this.audio.load();this.audio=null;}}
+ status(){const a=this.audio;return {provider:'audio-file',name:this.track.title,artist:this.track.artist,available:!!this.track.src,enabled:this.enabled,state:this.state,error:this.error,playing:!!a&&!a.paused&&this.allowed()&&this.intent,currentTime:a?.currentTime||0,duration:Number.isFinite(a?.duration)?a.duration:0,volume:this.volume,loop:true};}
+}

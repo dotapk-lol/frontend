@@ -1,0 +1,20 @@
+{
+  "name": "dotapk-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "pretest": "node scripts/vendor-heros.mjs && node scripts/render-audio.mjs"
+  },
+  "dependencies": {
+    "@dotapk/heros": "file:vendor/dotapk-heros-0.1.0-contract.3.tgz"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "wrangler": "4.136.1"
+  }
+}

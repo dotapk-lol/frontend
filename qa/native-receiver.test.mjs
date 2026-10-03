@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {MatchRecord} from '../src/match-api.js';
+test('result polling timer retains its native global receiver',()=>{const original=globalThis.setTimeout;const calls=[];globalThis.setTimeout=function(){assert.equal(this,globalThis);calls.push('setTimeout');return 7;};try{const r=new MatchRecord({mode:'pvp',transport:'p2p',heroes:[0,1],storage:null});r.status='pending';r.watch();assert.deepEqual(calls,['setTimeout']);}finally{globalThis.setTimeout=original;}});

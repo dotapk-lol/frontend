@@ -1,0 +1,15 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>DOTA DUEL 媒体对照验收</title><style>body{font:16px system-ui;background:#101923;color:#eee;margin:24px}button,input,audio{margin:10px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#203041;padding:16px}section{display:grid;grid-template-columns:1fr 1fr;gap:18px}</style>
+<h1>本机音频对照</h1><p>用同一个本地文件比较普通HTML音频控件与当前LocalMusic。只读媒体诊断；不上传。时钟进展不等于实际听感。</p>
+<input id="file" type="file" accept="audio/*,.wav,.mp3,.ogg"><button id="clear">释放两端</button>
+<section><div><h2>浏览器原生控件</h2><audio id="native" controls loop preload="auto"></audio><br><button id="play-native">原生播放</button><pre id="native-status"></pre></div><div><h2>当前游戏播放器模块</h2><button id="play-managed">游戏模块播放 / 重试</button><button id="pause-managed">暂停游戏模块</button><pre id="managed-status"></pre></div></section>
+<script type="module">
+import {LocalMusic} from '../src/music.js';
+const native=document.querySelector('#native'),logs=[];let url=null,name='',result='none',fileMeta=null,revoked=0;const managed=new LocalMusic({storage:{getItem(){return null;},setItem(){}}});
+for(const type of ['loadstart','loadedmetadata','loadeddata','canplay','play','playing','pause','waiting','stalled','error','emptied'])native.addEventListener(type,()=>{logs.push({type,time:native.currentTime,readyState:native.readyState,networkState:native.networkState,at:performance.now()});if(logs.length>40)logs.shift();});
+function clearNative(){native.pause();native.removeAttribute('src');native.load();if(url){URL.revokeObjectURL(url);revoked++;url=null;}name='';fileMeta=null;result='none';}
+document.querySelector('#file').onchange=e=>{const f=e.target.files[0];if(!f)return;clearNative();name=f.name;fileMeta={size:f.size,type:f.type};url=URL.createObjectURL(f);native.src=url;native.load();logs.length=0;managed.loadFile(f);};
+document.querySelector('#play-native').onclick=async()=>{result='pending';try{await native.play();result='resolved';}catch(e){result=e.name+': '+e.message;}};
+document.querySelector('#play-managed').onclick=()=>{managed.configure({musicEnabled:true});managed.retry();};document.querySelector('#pause-managed').onclick=()=>managed.configure({musicEnabled:false});document.querySelector('#clear').onclick=()=>{clearNative();managed.clear();};
+document.addEventListener('visibilitychange',()=>managed.lifecycle({hidden:document.hidden}));window.addEventListener('pagehide',()=>{managed.lifecycle({pageAway:true});native.pause();});window.addEventListener('pageshow',()=>managed.lifecycle({pageAway:false}));
+setInterval(()=>{document.querySelector('#native-status').textContent=JSON.stringify({name,file:fileMeta,time:native.currentTime,duration:Number.isFinite(native.duration)?native.duration:null,paused:native.paused,readyState:native.readyState,networkState:native.networkState,error:native.error?{code:native.error.code,message:native.error.message}:null,volume:native.volume,playResult:result,revoked,events:logs},null,2);document.querySelector('#managed-status').textContent=JSON.stringify(managed.status(),null,2);},250);
+</script></html>

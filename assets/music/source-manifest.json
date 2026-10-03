@@ -1,0 +1,24 @@
+{
+  "title": "The International 2014 music pack",
+  "composer": "Chance Thomas",
+  "sourceGuide": "https://help.steampowered.com/en/faqs/view/1D61-78DF-01D7-603B",
+  "download": "https://cdn.steamstatic.com/apps/dota2/audio/workshop_music_pack/music_pack_ti4.zip",
+  "archiveSha256": "7c81917370557f965d45388a80a37981dc287c398ab0d9bfee2a603e9fe45069",
+  "sourceContents": "33 MP3 files; no additional README or LICENSE in ZIP",
+  "use": "Included in this non-commercial Dota fan work; Valve game content under Steam Subscriber Agreement §2.D and any applicable content-specific terms. Not public domain, Creative Commons or an unlimited commercial license.",
+  "terms": "https://store.steampowered.com/subscriber_agreement/#2",
+  "tracks": [
+    {
+      "file": "assets/music/ui_main_01.mp3",
+      "scene": "menu",
+      "bytes": 1802034,
+      "sha256": "07d3470caa46008acb9353584f084d28d5f1b068374e20b6cc665c6f5039cc2c"
+    },
+    {
+      "file": "assets/music/battle_01.mp3",
+      "scene": "battle",
+      "bytes": 928499,
+      "sha256": "4ae9ab8ac9faf3bfd6de18556ec9ed504dd8ec8b42f1138ee3bd6e8c938f8bff"
+    }
+  ]
+}
