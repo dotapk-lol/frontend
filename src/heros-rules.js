@@ -4,9 +4,9 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// public-typed-input/package/index.js
-var package_exports = {};
-__export(package_exports, {
+// node_modules/@dotapk/heros/index.js
+var heros_exports = {};
+__export(heros_exports, {
   BATTLE_ABI: () => BATTLE_ABI,
   CAPABILITIES: () => CAPABILITIES,
   EMPTY_STATE_SCHEMA: () => EMPTY_STATE_SCHEMA,
@@ -18,11 +18,11 @@ __export(package_exports, {
   heroes: () => heroes
 });
 
-// public-typed-input/package/content/heroes.json
+// node_modules/@dotapk/heros/content/heroes.json
 var heroes_default = [
   {
     id: "juggernaut",
-    name: "\u5251\u5723",
+    name: "剑圣",
     en: "JUGGERNAUT",
     hp: 1200,
     mana: 200,
@@ -41,7 +41,7 @@ var heroes_default = [
       {
         id: "juggernaut_blade_fury",
         slot: "S1",
-        name: "\u5251\u5203\u98CE\u66B4",
+        name: "剑刃风暴",
         en: "Blade Fury",
         official: {
           semantic: {
@@ -91,7 +91,7 @@ var heroes_default = [
       {
         id: "juggernaut_healing_ward",
         slot: "S2",
-        name: "\u6CBB\u7597\u5B88\u536B",
+        name: "治疗守卫",
         en: "Healing Ward",
         official: {
           semantic: {
@@ -142,7 +142,7 @@ var heroes_default = [
       {
         id: "juggernaut_blade_dance",
         slot: "S3",
-        name: "\u5251\u821E",
+        name: "剑舞",
         en: "Blade Dance",
         official: {
           semantic: {
@@ -191,7 +191,7 @@ var heroes_default = [
       {
         id: "juggernaut_omnislash",
         slot: "R",
-        name: "\u65E0\u654C\u65A9",
+        name: "无敌斩",
         en: "Omnislash",
         official: {
           semantic: {
@@ -253,7 +253,7 @@ var heroes_default = [
   },
   {
     id: "crystal_maiden",
-    name: "\u6C34\u6676\u5BA4\u5973",
+    name: "水晶室女",
     en: "CRYSTAL MAIDEN",
     hp: 1050,
     mana: 200,
@@ -272,7 +272,7 @@ var heroes_default = [
       {
         id: "crystal_maiden_nova",
         slot: "S1",
-        name: "\u51B0\u971C\u65B0\u661F",
+        name: "冰霜新星",
         en: "Crystal Nova",
         official: {
           semantic: {
@@ -319,7 +319,7 @@ var heroes_default = [
       {
         id: "crystal_maiden_frostbite",
         slot: "S2",
-        name: "\u51B0\u5C01\u7981\u5236",
+        name: "冰封禁制",
         en: "Frostbite",
         official: {
           semantic: {
@@ -365,7 +365,7 @@ var heroes_default = [
       {
         id: "crystal_maiden_aura",
         slot: "S3",
-        name: "\u5965\u672F\u5149\u73AF",
+        name: "奥术光环",
         en: "Arcane Aura",
         official: {
           semantic: {
@@ -416,7 +416,7 @@ var heroes_default = [
       {
         id: "crystal_maiden_freezing_field",
         slot: "R",
-        name: "\u6781\u5BD2\u9886\u57DF",
+        name: "极寒领域",
         en: "Freezing Field",
         official: {
           semantic: {
@@ -476,7 +476,7 @@ var heroes_default = [
   },
   {
     id: "pudge",
-    name: "\u5E15\u5409",
+    name: "帕吉",
     en: "PUDGE",
     hp: 1400,
     mana: 200,
@@ -495,7 +495,7 @@ var heroes_default = [
       {
         id: "pudge_hook",
         slot: "S1",
-        name: "\u8089\u94A9",
+        name: "肉钩",
         en: "Meat Hook",
         official: {
           semantic: {
@@ -544,7 +544,7 @@ var heroes_default = [
       {
         id: "pudge_rot",
         slot: "S2",
-        name: "\u8150\u70C2",
+        name: "腐烂",
         en: "Rot",
         official: {
           semantic: {
@@ -592,7 +592,7 @@ var heroes_default = [
       {
         id: "pudge_meat_shield",
         slot: "S3",
-        name: "\u8089\u76FE",
+        name: "肉盾",
         en: "Meat Shield",
         official: {
           semantic: {
@@ -639,7 +639,7 @@ var heroes_default = [
       {
         id: "pudge_dismember",
         slot: "R",
-        name: "\u80A2\u89E3",
+        name: "肢解",
         en: "Dismember",
         official: {
           semantic: {
@@ -692,7 +692,7 @@ var heroes_default = [
   },
   {
     id: "axe",
-    name: "\u65A7\u738B",
+    name: "斧王",
     en: "AXE",
     hp: 1350,
     mana: 200,
@@ -711,7 +711,7 @@ var heroes_default = [
       {
         id: "axe_call",
         slot: "S1",
-        name: "\u72C2\u6218\u58EB\u4E4B\u543C",
+        name: "狂战士之吼",
         en: "Berserker's Call",
         official: {
           semantic: {
@@ -757,7 +757,7 @@ var heroes_default = [
       {
         id: "axe_hunger",
         slot: "S2",
-        name: "\u6218\u6597\u9965\u6E34",
+        name: "战斗饥渴",
         en: "Battle Hunger",
         official: {
           semantic: {
@@ -803,7 +803,7 @@ var heroes_default = [
       {
         id: "axe_helix",
         slot: "S3",
-        name: "\u53CD\u51FB\u87BA\u65CB",
+        name: "反击螺旋",
         en: "Counter Helix",
         official: {
           semantic: {
@@ -850,7 +850,7 @@ var heroes_default = [
       {
         id: "axe_culling",
         slot: "R",
-        name: "\u6DD8\u6C70\u4E4B\u5203",
+        name: "淘汰之刃",
         en: "Culling Blade",
         official: {
           semantic: {
@@ -900,7 +900,7 @@ var heroes_default = [
   },
   {
     id: "sniper",
-    name: "\u72D9\u51FB\u624B",
+    name: "狙击手",
     en: "SNIPER",
     hp: 1e3,
     mana: 200,
@@ -919,7 +919,7 @@ var heroes_default = [
       {
         id: "sniper_shrapnel",
         slot: "S1",
-        name: "\u69B4\u9730\u5F39",
+        name: "榴霰弹",
         en: "Shrapnel",
         official: {
           semantic: {
@@ -967,7 +967,7 @@ var heroes_default = [
       {
         id: "sniper_headshot",
         slot: "S2",
-        name: "\u7206\u5934",
+        name: "爆头",
         en: "Headshot",
         official: {
           semantic: {
@@ -1017,7 +1017,7 @@ var heroes_default = [
       {
         id: "sniper_take_aim",
         slot: "S3",
-        name: "\u7784\u51C6",
+        name: "瞄准",
         en: "Take Aim",
         official: {
           semantic: {
@@ -1071,7 +1071,7 @@ var heroes_default = [
       {
         id: "sniper_assassinate",
         slot: "R",
-        name: "\u6697\u6740",
+        name: "暗杀",
         en: "Assassinate",
         official: {
           semantic: {
@@ -1119,7 +1119,7 @@ var heroes_default = [
   },
   {
     id: "anti_mage",
-    name: "\u654C\u6CD5\u5E08",
+    name: "敌法师",
     en: "ANTI-MAGE",
     hp: 1120,
     mana: 200,
@@ -1138,7 +1138,7 @@ var heroes_default = [
       {
         id: "anti_mage_mana_break",
         slot: "S1",
-        name: "\u6CD5\u529B\u635F\u6BC1",
+        name: "法力损毁",
         en: "Mana Break",
         official: {
           semantic: {
@@ -1190,7 +1190,7 @@ var heroes_default = [
       {
         id: "anti_mage_blink",
         slot: "S2",
-        name: "\u95EA\u70C1",
+        name: "闪烁",
         en: "Blink",
         official: {
           semantic: {
@@ -1235,7 +1235,7 @@ var heroes_default = [
       {
         id: "anti_mage_counterspell",
         slot: "S3",
-        name: "\u6CD5\u672F\u53CD\u5236",
+        name: "法术反制",
         en: "Counterspell",
         official: {
           semantic: {
@@ -1280,7 +1280,7 @@ var heroes_default = [
       {
         id: "anti_mage_mana_void",
         slot: "R",
-        name: "\u6CD5\u529B\u865A\u7A7A",
+        name: "法力虚空",
         en: "Mana Void",
         official: {
           semantic: {
@@ -1328,7 +1328,7 @@ var heroes_default = [
   },
   {
     id: "phantom_assassin",
-    name: "\u5E7B\u5F71\u523A\u5BA2",
+    name: "幻影刺客",
     en: "PHANTOM ASSASSIN",
     hp: 1080,
     mana: 200,
@@ -1347,7 +1347,7 @@ var heroes_default = [
       {
         id: "phantom_assassin_dagger",
         slot: "S1",
-        name: "\u7A92\u788D\u77ED\u5315",
+        name: "窒碍短匕",
         en: "Stifling Dagger",
         official: {
           semantic: {
@@ -1396,7 +1396,7 @@ var heroes_default = [
       {
         id: "phantom_assassin_strike",
         slot: "S2",
-        name: "\u5E7B\u5F71\u7A81\u88AD",
+        name: "幻影突袭",
         en: "Phantom Strike",
         official: {
           semantic: {
@@ -1443,7 +1443,7 @@ var heroes_default = [
       {
         id: "phantom_assassin_immaterial",
         slot: "S3",
-        name: "\u98D8\u5FFD\u4E0D\u5B9A",
+        name: "飘忽不定",
         en: "Immaterial",
         official: {
           semantic: {
@@ -1491,7 +1491,7 @@ var heroes_default = [
       {
         id: "phantom_assassin_coup",
         slot: "R",
-        name: "\u6069\u8D50\u89E3\u8131",
+        name: "恩赐解脱",
         en: "Coup de Grace",
         official: {
           semantic: {
@@ -1545,7 +1545,7 @@ var heroes_default = [
   },
   {
     id: "drow_ranger",
-    name: "\u5353\u5C14\u6E38\u4FA0",
+    name: "卓尔游侠",
     en: "DROW RANGER",
     hp: 1040,
     mana: 200,
@@ -1564,7 +1564,7 @@ var heroes_default = [
       {
         id: "drow_ranger_frost",
         slot: "S1",
-        name: "\u971C\u51BB\u4E4B\u7BAD",
+        name: "霜冻之箭",
         en: "Frost Arrows",
         official: {
           semantic: {
@@ -1614,7 +1614,7 @@ var heroes_default = [
       {
         id: "drow_ranger_gust",
         slot: "S2",
-        name: "\u72C2\u98CE",
+        name: "狂风",
         en: "Gust",
         official: {
           semantic: {
@@ -1666,7 +1666,7 @@ var heroes_default = [
       {
         id: "drow_ranger_multishot",
         slot: "S3",
-        name: "\u6570\u7BAD\u9F50\u53D1",
+        name: "数箭齐发",
         en: "Multishot",
         official: {
           semantic: {
@@ -1719,7 +1719,7 @@ var heroes_default = [
       {
         id: "drow_ranger_marksmanship",
         slot: "R",
-        name: "\u5C04\u624B\u5929\u8D4B",
+        name: "射手天赋",
         en: "Marksmanship",
         official: {
           semantic: {
@@ -1770,7 +1770,7 @@ var heroes_default = [
   },
   {
     id: "lina",
-    name: "\u8389\u5A1C",
+    name: "莉娜",
     en: "LINA",
     hp: 1040,
     mana: 200,
@@ -1789,7 +1789,7 @@ var heroes_default = [
       {
         id: "lina_slave",
         slot: "S1",
-        name: "\u9F99\u7834\u65A9",
+        name: "龙破斩",
         en: "Dragon Slave",
         official: {
           semantic: {
@@ -1838,7 +1838,7 @@ var heroes_default = [
       {
         id: "lina_array",
         slot: "S2",
-        name: "\u5149\u51FB\u9635",
+        name: "光击阵",
         en: "Light Strike Array",
         official: {
           semantic: {
@@ -1885,7 +1885,7 @@ var heroes_default = [
       {
         id: "lina_fiery",
         slot: "S3",
-        name: "\u70BD\u9B42",
+        name: "炽魂",
         en: "Fiery Soul",
         official: {
           semantic: {
@@ -1936,7 +1936,7 @@ var heroes_default = [
       {
         id: "lina_laguna",
         slot: "R",
-        name: "\u795E\u706D\u65A9",
+        name: "神灭斩",
         en: "Laguna Blade",
         official: {
           semantic: {
@@ -1982,7 +1982,7 @@ var heroes_default = [
   },
   {
     id: "lion",
-    name: "\u83B1\u6069",
+    name: "莱恩",
     en: "LION",
     hp: 1050,
     mana: 200,
@@ -2001,7 +2001,7 @@ var heroes_default = [
       {
         id: "lion_spike",
         slot: "S1",
-        name: "\u88C2\u5730\u5C16\u523A",
+        name: "裂地尖刺",
         en: "Earth Spike",
         official: {
           semantic: {
@@ -2050,7 +2050,7 @@ var heroes_default = [
       {
         id: "lion_hex",
         slot: "S2",
-        name: "\u5996\u672F",
+        name: "妖术",
         en: "Hex",
         official: {
           semantic: {
@@ -2095,7 +2095,7 @@ var heroes_default = [
       {
         id: "lion_drain",
         slot: "S3",
-        name: "\u6CD5\u529B\u5438\u53D6",
+        name: "法力吸取",
         en: "Mana Drain",
         official: {
           semantic: {
@@ -2150,7 +2150,7 @@ var heroes_default = [
       {
         id: "lion_finger",
         slot: "R",
-        name: "\u6B7B\u4EA1\u4E4B\u6307",
+        name: "死亡之指",
         en: "Finger of Death",
         official: {
           semantic: {
@@ -2204,7 +2204,7 @@ var heroes_default = [
   },
   {
     id: "earthshaker",
-    name: "\u64BC\u5730\u8005",
+    name: "撼地者",
     en: "EARTHSHAKER",
     hp: 1320,
     mana: 200,
@@ -2223,7 +2223,7 @@ var heroes_default = [
       {
         id: "earthshaker_fissure",
         slot: "S1",
-        name: "\u6C9F\u58D1",
+        name: "沟壑",
         en: "Fissure",
         official: {
           semantic: {
@@ -2270,7 +2270,7 @@ var heroes_default = [
       {
         id: "earthshaker_totem",
         slot: "S2",
-        name: "\u5F3A\u5316\u56FE\u817E",
+        name: "强化图腾",
         en: "Enchant Totem",
         official: {
           semantic: {
@@ -2317,7 +2317,7 @@ var heroes_default = [
       {
         id: "earthshaker_aftershock",
         slot: "S3",
-        name: "\u4F59\u9707",
+        name: "余震",
         en: "Aftershock",
         official: {
           semantic: {}
@@ -2358,7 +2358,7 @@ var heroes_default = [
       {
         id: "earthshaker_echo",
         slot: "R",
-        name: "\u56DE\u97F3\u51FB",
+        name: "回音击",
         en: "Echo Slam",
         official: {
           semantic: {
@@ -2406,7 +2406,7 @@ var heroes_default = [
   },
   {
     id: "mirana",
-    name: "\u7C73\u62C9\u5A1C",
+    name: "米拉娜",
     en: "MIRANA",
     hp: 1100,
     mana: 200,
@@ -2425,7 +2425,7 @@ var heroes_default = [
       {
         id: "mirana_starstorm",
         slot: "S1",
-        name: "\u7FA4\u661F\u98CE\u66B4",
+        name: "群星风暴",
         en: "Starstorm",
         official: {
           semantic: {
@@ -2480,7 +2480,7 @@ var heroes_default = [
       {
         id: "mirana_arrow",
         slot: "S2",
-        name: "\u6708\u795E\u4E4B\u7BAD",
+        name: "月神之箭",
         en: "Sacred Arrow",
         official: {
           semantic: {
@@ -2537,7 +2537,7 @@ var heroes_default = [
       {
         id: "mirana_leap",
         slot: "S3",
-        name: "\u8DF3\u8DC3",
+        name: "跳跃",
         en: "Leap",
         official: {
           semantic: {
@@ -2591,7 +2591,7 @@ var heroes_default = [
       {
         id: "mirana_moonlight",
         slot: "R",
-        name: "\u6708\u4E4B\u6697\u9762",
+        name: "月之暗面",
         en: "Moonlight Shadow",
         official: {
           semantic: {
@@ -2643,7 +2643,7 @@ var heroes_default = [
   },
   {
     id: "sven",
-    name: "\u65AF\u6E29",
+    name: "斯温",
     en: "SVEN",
     hp: 1300,
     mana: 200,
@@ -2662,7 +2662,7 @@ var heroes_default = [
       {
         id: "sven_hammer",
         slot: "S1",
-        name: "\u98CE\u66B4\u4E4B\u62F3",
+        name: "风暴之拳",
         en: "Storm Hammer",
         official: {
           semantic: {
@@ -2709,7 +2709,7 @@ var heroes_default = [
       {
         id: "sven_cleave",
         slot: "S2",
-        name: "\u5DE8\u529B\u6325\u821E",
+        name: "巨力挥舞",
         en: "Great Cleave",
         official: {
           semantic: {}
@@ -2750,7 +2750,7 @@ var heroes_default = [
       {
         id: "sven_warcry",
         slot: "S3",
-        name: "\u6218\u543C",
+        name: "战吼",
         en: "Warcry",
         official: {
           semantic: {
@@ -2799,7 +2799,7 @@ var heroes_default = [
       {
         id: "sven_strength",
         slot: "R",
-        name: "\u795E\u4E4B\u529B\u91CF",
+        name: "神之力量",
         en: "God's Strength",
         official: {
           semantic: {
@@ -2848,7 +2848,7 @@ var heroes_default = [
   },
   {
     id: "zeus",
-    name: "\u5B99\u65AF",
+    name: "宙斯",
     en: "ZEUS",
     hp: 1e3,
     mana: 200,
@@ -2867,7 +2867,7 @@ var heroes_default = [
       {
         id: "zeus_arc",
         slot: "S1",
-        name: "\u5F27\u5F62\u95EA\u7535",
+        name: "弧形闪电",
         en: "Arc Lightning",
         official: {
           semantic: {
@@ -2914,7 +2914,7 @@ var heroes_default = [
       {
         id: "zeus_bolt",
         slot: "S2",
-        name: "\u96F7\u51FB",
+        name: "雷击",
         en: "Lightning Bolt",
         official: {
           semantic: {
@@ -2959,7 +2959,7 @@ var heroes_default = [
       {
         id: "zeus_jump",
         slot: "S3",
-        name: "\u795E\u5723\u4E00\u8DF3",
+        name: "神圣一跳",
         en: "Heavenly Jump",
         official: {
           semantic: {
@@ -3013,7 +3013,7 @@ var heroes_default = [
       {
         id: "zeus_wrath",
         slot: "R",
-        name: "\u96F7\u795E\u4E4B\u6012",
+        name: "雷神之怒",
         en: "Thundergod's Wrath",
         official: {
           semantic: {}
@@ -3055,7 +3055,7 @@ var heroes_default = [
   },
   {
     id: "windranger",
-    name: "\u98CE\u884C\u8005",
+    name: "风行者",
     en: "WINDRANGER",
     hp: 1080,
     mana: 200,
@@ -3074,7 +3074,7 @@ var heroes_default = [
       {
         id: "windranger_shackle",
         slot: "S1",
-        name: "\u675F\u7F1A\u51FB",
+        name: "束缚击",
         en: "Shackleshot",
         official: {
           semantic: {
@@ -3125,7 +3125,7 @@ var heroes_default = [
       {
         id: "windranger_powershot",
         slot: "S2",
-        name: "\u5F3A\u529B\u51FB",
+        name: "强力击",
         en: "Powershot",
         official: {
           semantic: {
@@ -3176,7 +3176,7 @@ var heroes_default = [
       {
         id: "windranger_windrun",
         slot: "S3",
-        name: "\u98CE\u884C",
+        name: "风行",
         en: "Windrun",
         official: {
           semantic: {
@@ -3225,7 +3225,7 @@ var heroes_default = [
       {
         id: "windranger_focus",
         slot: "R",
-        name: "\u96C6\u4E2D\u706B\u529B",
+        name: "集中火力",
         en: "Focus Fire",
         official: {
           semantic: {
@@ -3276,7 +3276,7 @@ var heroes_default = [
   },
   {
     id: "shadow_fiend",
-    name: "\u5F71\u9B54",
+    name: "影魔",
     en: "SHADOW FIEND",
     hp: 1100,
     mana: 200,
@@ -3295,7 +3295,7 @@ var heroes_default = [
       {
         id: "shadow_fiend_raze",
         slot: "S1",
-        name: "\u6BC1\u706D\u9634\u5F71",
+        name: "毁灭阴影",
         en: "Shadowraze",
         official: {
           semantic: {
@@ -3354,7 +3354,7 @@ var heroes_default = [
       {
         id: "shadow_fiend_feast",
         slot: "S2",
-        name: "\u7075\u9B42\u76DB\u5BB4",
+        name: "灵魂盛宴",
         en: "Feast of Souls",
         official: {
           semantic: {
@@ -3410,7 +3410,7 @@ var heroes_default = [
       {
         id: "shadow_fiend_presence",
         slot: "S3",
-        name: "\u9B54\u738B\u964D\u4E34",
+        name: "魔王降临",
         en: "Presence of the Dark Lord",
         official: {
           semantic: {
@@ -3455,7 +3455,7 @@ var heroes_default = [
       {
         id: "shadow_fiend_requiem",
         slot: "R",
-        name: "\u9B42\u4E4B\u633D\u6B4C",
+        name: "魂之挽歌",
         en: "Requiem of Souls",
         official: {
           semantic: {
@@ -3511,7 +3511,7 @@ var heroes_default = [
   },
   {
     id: "storm_spirit",
-    name: "\u98CE\u66B4\u4E4B\u7075",
+    name: "风暴之灵",
     en: "STORM SPIRIT",
     hp: 1080,
     mana: 200,
@@ -3530,7 +3530,7 @@ var heroes_default = [
       {
         id: "storm_spirit_remnant",
         slot: "S1",
-        name: "\u6B8B\u5F71",
+        name: "残影",
         en: "Static Remnant",
         official: {
           semantic: {
@@ -3582,7 +3582,7 @@ var heroes_default = [
       {
         id: "storm_spirit_vortex",
         slot: "S2",
-        name: "\u7535\u5B50\u6DA1\u6D41",
+        name: "电子涡流",
         en: "Electric Vortex",
         official: {
           semantic: {
@@ -3634,7 +3634,7 @@ var heroes_default = [
       {
         id: "storm_spirit_overload",
         slot: "S3",
-        name: "\u8D85\u8D1F\u8377",
+        name: "超负荷",
         en: "Overload",
         official: {
           semantic: {
@@ -3682,7 +3682,7 @@ var heroes_default = [
       {
         id: "storm_spirit_ball",
         slot: "R",
-        name: "\u7403\u72B6\u95EA\u7535",
+        name: "球状闪电",
         en: "Ball Lightning",
         official: {
           semantic: {
@@ -3737,7 +3737,7 @@ var heroes_default = [
   },
   {
     id: "queen_of_pain",
-    name: "\u75DB\u82E6\u5973\u738B",
+    name: "痛苦女王",
     en: "QUEEN OF PAIN",
     hp: 1080,
     mana: 200,
@@ -3756,7 +3756,7 @@ var heroes_default = [
       {
         id: "queen_of_pain_shadow_strike",
         slot: "S1",
-        name: "\u6697\u5F71\u7A81\u88AD",
+        name: "暗影突袭",
         en: "Shadow Strike",
         official: {
           semantic: {
@@ -3820,7 +3820,7 @@ var heroes_default = [
       {
         id: "queen_of_pain_blink",
         slot: "S2",
-        name: "\u95EA\u70C1",
+        name: "闪烁",
         en: "Blink",
         official: {
           semantic: {
@@ -3865,7 +3865,7 @@ var heroes_default = [
       {
         id: "queen_of_pain_scream",
         slot: "S3",
-        name: "\u75DB\u82E6\u5C16\u53EB",
+        name: "痛苦尖叫",
         en: "Scream Of Pain",
         official: {
           semantic: {
@@ -3913,7 +3913,7 @@ var heroes_default = [
       {
         id: "queen_of_pain_sonic",
         slot: "R",
-        name: "\u8D85\u58F0\u51B2\u51FB\u6CE2",
+        name: "超声冲击波",
         en: "Sonic Wave",
         official: {
           semantic: {
@@ -3966,7 +3966,7 @@ var heroes_default = [
   },
   {
     id: "witch_doctor",
-    name: "\u5DEB\u533B",
+    name: "巫医",
     en: "WITCH DOCTOR",
     hp: 1120,
     mana: 200,
@@ -3985,7 +3985,7 @@ var heroes_default = [
       {
         id: "witch_doctor_cask",
         slot: "S1",
-        name: "\u9EBB\u75F9\u836F\u5242",
+        name: "麻痹药剂",
         en: "Paralyzing Cask",
         official: {
           semantic: {
@@ -4038,7 +4038,7 @@ var heroes_default = [
       {
         id: "witch_doctor_restoration",
         slot: "S2",
-        name: "\u5DEB\u6BD2\u7597\u6CD5",
+        name: "巫毒疗法",
         en: "Voodoo Restoration",
         official: {
           semantic: {
@@ -4089,7 +4089,7 @@ var heroes_default = [
       {
         id: "witch_doctor_maledict",
         slot: "S3",
-        name: "\u5DEB\u86CA\u5492\u672F",
+        name: "巫蛊咒术",
         en: "Maledict",
         official: {
           semantic: {
@@ -4140,7 +4140,7 @@ var heroes_default = [
       {
         id: "witch_doctor_death_ward",
         slot: "R",
-        name: "\u6B7B\u4EA1\u5B88\u536B",
+        name: "死亡守卫",
         en: "Death Ward",
         official: {
           semantic: {
@@ -4187,7 +4187,7 @@ var heroes_default = [
   },
   {
     id: "tidehunter",
-    name: "\u6F6E\u6C50\u730E\u4EBA",
+    name: "潮汐猎人",
     en: "TIDEHUNTER",
     hp: 1420,
     mana: 200,
@@ -4206,7 +4206,7 @@ var heroes_default = [
       {
         id: "tidehunter_gush",
         slot: "S1",
-        name: "\u5DE8\u6D6A",
+        name: "巨浪",
         en: "Gush",
         official: {
           semantic: {
@@ -4257,7 +4257,7 @@ var heroes_default = [
       {
         id: "tidehunter_shell",
         slot: "S2",
-        name: "\u6D77\u5996\u5916\u58F3",
+        name: "海妖外壳",
         en: "Kraken Shell",
         official: {
           semantic: {
@@ -4318,7 +4318,7 @@ var heroes_default = [
       {
         id: "tidehunter_anchor",
         slot: "S3",
-        name: "\u951A\u51FB",
+        name: "锚击",
         en: "Anchor Smash",
         official: {
           semantic: {
@@ -4365,7 +4365,7 @@ var heroes_default = [
       {
         id: "tidehunter_ravage",
         slot: "R",
-        name: "\u6BC1\u706D",
+        name: "毁灭",
         en: "Ravage",
         official: {
           semantic: {
@@ -4416,7 +4416,7 @@ var heroes_default = [
     id: "valve_15",
     registryNumericId: 25,
     valveHeroId: 15,
-    name: "\u96F7\u6CFD",
+    name: "雷泽",
     en: "RAZOR",
     packKey: "core4",
     hp: 1150,
@@ -4433,7 +4433,7 @@ var heroes_default = [
         id: "razor_plasma_field",
         valveAbilityId: 5082,
         slot: "S1",
-        name: "\u7B49\u79BB\u5B50\u573A",
+        name: "等离子场",
         en: "Plasma Field",
         official: {
           semantic: {
@@ -4482,7 +4482,7 @@ var heroes_default = [
         id: "razor_static_link",
         valveAbilityId: 5083,
         slot: "S2",
-        name: "\u9759\u7535\u8FDE\u63A5",
+        name: "静电连接",
         en: "Static Link",
         official: {
           semantic: {
@@ -4535,7 +4535,7 @@ var heroes_default = [
         id: "razor_storm_surge",
         valveAbilityId: 1224,
         slot: "S3",
-        name: "\u98CE\u66B4\u6D8C\u52A8",
+        name: "风暴涌动",
         en: "Storm Surge",
         official: {
           semantic: {
@@ -4586,7 +4586,7 @@ var heroes_default = [
         id: "razor_eye_of_the_storm",
         valveAbilityId: 5085,
         slot: "S4",
-        name: "\u98CE\u66B4\u4E4B\u773C",
+        name: "风暴之眼",
         en: "Eye of the Storm",
         official: {
           semantic: {
@@ -4633,7 +4633,7 @@ var heroes_default = [
     id: "valve_28",
     registryNumericId: 31,
     valveHeroId: 28,
-    name: "\u65AF\u62C9\u8FBE",
+    name: "斯拉达",
     en: "SLARDAR",
     packKey: "core4",
     hp: 1400,
@@ -4650,7 +4650,7 @@ var heroes_default = [
         id: "slardar_sprint",
         valveAbilityId: 5114,
         slot: "S1",
-        name: "\u5B88\u536B\u51B2\u523A",
+        name: "守卫冲刺",
         en: "Guardian Sprint",
         official: {
           semantic: {
@@ -4693,7 +4693,7 @@ var heroes_default = [
         id: "slardar_slithereen_crush",
         valveAbilityId: 5115,
         slot: "S2",
-        name: "\u9C7C\u4EBA\u788E\u51FB",
+        name: "鱼人碎击",
         en: "Slithereen Crush",
         official: {
           semantic: {
@@ -4750,7 +4750,7 @@ var heroes_default = [
         id: "slardar_bash",
         valveAbilityId: 5116,
         slot: "S3",
-        name: "\u6DF1\u6D77\u91CD\u51FB",
+        name: "深海重击",
         en: "Bash of the Deep",
         official: {
           semantic: {
@@ -4787,7 +4787,7 @@ var heroes_default = [
         id: "slardar_amplify_damage",
         valveAbilityId: 5117,
         slot: "S4",
-        name: "\u4FB5\u8680\u96FE\u972D",
+        name: "侵蚀雾霭",
         en: "Corrosive Haze",
         official: {
           semantic: {
@@ -4840,7 +4840,7 @@ var heroes_default = [
     id: "valve_47",
     registryNumericId: 45,
     valveHeroId: 47,
-    name: "\u51A5\u754C\u4E9A\u9F99",
+    name: "冥界亚龙",
     en: "VIPER",
     packKey: "core4",
     hp: 1150,
@@ -4857,7 +4857,7 @@ var heroes_default = [
         id: "viper_poison_attack",
         valveAbilityId: 5218,
         slot: "S1",
-        name: "\u6BD2\u6027\u653B\u51FB",
+        name: "毒性攻击",
         en: "Poison Attack",
         official: {
           semantic: {
@@ -4908,7 +4908,7 @@ var heroes_default = [
         id: "viper_nethertoxin",
         valveAbilityId: 5219,
         slot: "S2",
-        name: "\u5E7D\u51A5\u5267\u6BD2",
+        name: "幽冥剧毒",
         en: "Nethertoxin",
         official: {
           semantic: {
@@ -4961,7 +4961,7 @@ var heroes_default = [
         id: "viper_corrosive_skin",
         valveAbilityId: 5220,
         slot: "S3",
-        name: "\u8150\u8680\u76AE\u80A4",
+        name: "腐蚀皮肤",
         en: "Corrosive Skin",
         official: {
           semantic: {
@@ -5010,7 +5010,7 @@ var heroes_default = [
         id: "viper_viper_strike",
         valveAbilityId: 5221,
         slot: "S4",
-        name: "\u876E\u86C7\u7A81\u88AD",
+        name: "蝮蛇突袭",
         en: "Viper Strike",
         official: {
           semantic: {
@@ -5067,7 +5067,7 @@ var heroes_default = [
     id: "valve_102",
     registryNumericId: 100,
     valveHeroId: 102,
-    name: "\u4E9A\u5DF4\u987F",
+    name: "亚巴顿",
     en: "ABADDON",
     packKey: "core4",
     hp: 1350,
@@ -5084,7 +5084,7 @@ var heroes_default = [
         id: "abaddon_death_coil",
         valveAbilityId: 5585,
         slot: "S1",
-        name: "\u8FF7\u96FE\u7F20\u7ED5",
+        name: "迷雾缠绕",
         en: "Mist Coil",
         official: {
           semantic: {
@@ -5131,7 +5131,7 @@ var heroes_default = [
         id: "abaddon_aphotic_shield",
         valveAbilityId: 5586,
         slot: "S2",
-        name: "\u65E0\u5149\u4E4B\u76FE",
+        name: "无光之盾",
         en: "Aphotic Shield",
         official: {
           semantic: {
@@ -5180,7 +5180,7 @@ var heroes_default = [
         id: "abaddon_frostmourne",
         valveAbilityId: 5587,
         slot: "S3",
-        name: "\u9B54\u972D\u8BC5\u5492",
+        name: "魔霭诅咒",
         en: "Curse of Avernus",
         official: {
           semantic: {
@@ -5227,7 +5227,7 @@ var heroes_default = [
         id: "abaddon_borrowed_time",
         valveAbilityId: 5588,
         slot: "S4",
-        name: "\u56DE\u5149\u8FD4\u7167",
+        name: "回光返照",
         en: "Borrowed Time",
         official: {
           semantic: {
@@ -5271,7 +5271,7 @@ var heroes_default = [
     registryNumericId: 21,
     valveHeroId: 4,
     key: "bloodseeker",
-    name: "\u8840\u9B54",
+    name: "血魔",
     en: "Bloodseeker",
     packKey: "r20_55",
     hp: 1658,
@@ -5293,7 +5293,7 @@ var heroes_default = [
         id: "bloodseeker_bloodrage",
         valveAbilityId: 5015,
         slot: "S1",
-        name: "\u8840\u6012",
+        name: "血怒",
         en: "Bloodrage",
         engineStatus: "implemented",
         official: {
@@ -5361,7 +5361,7 @@ var heroes_default = [
         id: "bloodseeker_blood_bath",
         valveAbilityId: 5016,
         slot: "S2",
-        name: "\u8840\u796D",
+        name: "血祭",
         en: "Blood Rite",
         engineStatus: "implemented",
         official: {
@@ -5434,7 +5434,7 @@ var heroes_default = [
         id: "bloodseeker_thirst",
         valveAbilityId: 5017,
         slot: "S3",
-        name: "\u7126\u6E34",
+        name: "焦渴",
         en: "Thirst",
         engineStatus: "implemented",
         official: {
@@ -5481,7 +5481,7 @@ var heroes_default = [
         id: "bloodseeker_rupture",
         valveAbilityId: 5018,
         slot: "S4",
-        name: "\u5272\u88C2",
+        name: "割裂",
         en: "Rupture",
         engineStatus: "implemented",
         official: {
@@ -5560,7 +5560,7 @@ var heroes_default = [
     registryNumericId: 28,
     valveHeroId: 20,
     key: "vengefulspirit",
-    name: "\u590D\u4EC7\u4E4B\u9B42",
+    name: "复仇之魂",
     en: "Vengeful Spirit",
     packKey: "r20_55",
     hp: 1532,
@@ -5582,7 +5582,7 @@ var heroes_default = [
         id: "vengefulspirit_magic_missile",
         valveAbilityId: 5122,
         slot: "S1",
-        name: "\u9B54\u6CD5\u7BAD",
+        name: "魔法箭",
         en: "Magic Missile",
         engineStatus: "implemented",
         official: {
@@ -5649,7 +5649,7 @@ var heroes_default = [
         id: "vengefulspirit_wave_of_terror",
         valveAbilityId: 5124,
         slot: "S2",
-        name: "\u6050\u6016\u6CE2\u52A8",
+        name: "恐怖波动",
         en: "Wave of Terror",
         engineStatus: "implemented",
         official: {
@@ -5723,7 +5723,7 @@ var heroes_default = [
         id: "vengefulspirit_command_aura",
         valveAbilityId: 5123,
         slot: "S3",
-        name: "\u590D\u4EC7\u5149\u73AF",
+        name: "复仇光环",
         en: "Vengeance Aura",
         engineStatus: "implemented",
         official: {
@@ -5792,7 +5792,7 @@ var heroes_default = [
         id: "vengefulspirit_nether_swap",
         valveAbilityId: 5125,
         slot: "S4",
-        name: "\u79FB\u5F62\u6362\u4F4D",
+        name: "移形换位",
         en: "Nether Swap",
         engineStatus: "implemented",
         official: {
@@ -5856,7 +5856,7 @@ var heroes_default = [
     registryNumericId: 29,
     valveHeroId: 23,
     key: "kunkka",
-    name: "\u6606\u5361",
+    name: "昆卡",
     en: "Kunkka",
     packKey: "r20_55",
     hp: 1994,
@@ -5878,7 +5878,7 @@ var heroes_default = [
         id: "kunkka_torrent",
         valveAbilityId: 5031,
         slot: "S1",
-        name: "\u6D2A\u6D41",
+        name: "洪流",
         en: "Torrent",
         engineStatus: "implemented",
         official: {
@@ -5964,7 +5964,7 @@ var heroes_default = [
         id: "kunkka_tidebringer",
         valveAbilityId: 5032,
         slot: "S2",
-        name: "\u6F6E\u6C50\u4F7F\u8005",
+        name: "潮汐使者",
         en: "Tidebringer",
         engineStatus: "implemented",
         official: {
@@ -6024,7 +6024,7 @@ var heroes_default = [
         id: "kunkka_x_marks_the_spot",
         valveAbilityId: 5033,
         slot: "S3",
-        name: "X\u6807\u8BB0",
+        name: "X标记",
         en: "X Marks the Spot",
         engineStatus: "implemented",
         official: {
@@ -6081,7 +6081,7 @@ var heroes_default = [
         id: "kunkka_ghostship",
         valveAbilityId: 5035,
         slot: "S4",
-        name: "\u5E7D\u7075\u8239",
+        name: "幽灵船",
         en: "Ghostship",
         engineStatus: "implemented",
         official: {
@@ -6207,7 +6207,7 @@ var heroes_default = [
     registryNumericId: 32,
     valveHeroId: 31,
     key: "lich",
-    name: "\u5DEB\u5996",
+    name: "巫妖",
     en: "Lich",
     packKey: "r20_55",
     hp: 1345,
@@ -6229,7 +6229,7 @@ var heroes_default = [
         id: "lich_frost_nova",
         valveAbilityId: 5134,
         slot: "S1",
-        name: "\u5BD2\u971C\u7206\u53D1",
+        name: "寒霜爆发",
         en: "Frost Blast",
         engineStatus: "implemented",
         official: {
@@ -6299,7 +6299,7 @@ var heroes_default = [
         id: "lich_frost_shield",
         valveAbilityId: 5136,
         slot: "S2",
-        name: "\u51B0\u971C\u9B54\u76FE",
+        name: "冰霜魔盾",
         en: "Frost Shield",
         engineStatus: "implemented",
         official: {
@@ -6394,7 +6394,7 @@ var heroes_default = [
         id: "lich_sinister_gaze",
         valveAbilityId: 7325,
         slot: "S3",
-        name: "\u9634\u90AA\u51DD\u89C6",
+        name: "阴邪凝视",
         en: "Sinister Gaze",
         engineStatus: "implemented",
         official: {
@@ -6484,7 +6484,7 @@ var heroes_default = [
         id: "lich_chain_frost",
         valveAbilityId: 5137,
         slot: "S4",
-        name: "\u8FDE\u73AF\u971C\u51BB",
+        name: "连环霜冻",
         en: "Chain Frost",
         engineStatus: "implemented",
         official: {
@@ -6563,7 +6563,7 @@ var heroes_default = [
     registryNumericId: 36,
     valveHeroId: 36,
     key: "necrolyte",
-    name: "\u761F\u75AB\u6CD5\u5E08",
+    name: "瘟疫法师",
     en: "Necrophos",
     packKey: "r20_55",
     hp: 1376,
@@ -6585,7 +6585,7 @@ var heroes_default = [
         id: "necrolyte_death_pulse",
         valveAbilityId: 5158,
         slot: "S1",
-        name: "\u6B7B\u4EA1\u8109\u51B2",
+        name: "死亡脉冲",
         en: "Death Pulse",
         engineStatus: "implemented",
         official: {
@@ -6640,7 +6640,7 @@ var heroes_default = [
         id: "necrolyte_ghost_shroud",
         valveAbilityId: 1270,
         slot: "S2",
-        name: "\u5E7D\u9B42\u62A4\u7F69",
+        name: "幽魂护罩",
         en: "Ghost Shroud",
         engineStatus: "implemented",
         official: {
@@ -6714,7 +6714,7 @@ var heroes_default = [
         id: "necrolyte_heartstopper_aura",
         valveAbilityId: 5159,
         slot: "S3",
-        name: "\u7AED\u5FC3\u5149\u73AF",
+        name: "竭心光环",
         en: "Heartstopper Aura",
         engineStatus: "implemented",
         official: {
@@ -6777,7 +6777,7 @@ var heroes_default = [
         id: "necrolyte_reapers_scythe",
         valveAbilityId: 5161,
         slot: "S4",
-        name: "\u6B7B\u795E\u9570\u5200",
+        name: "死神镰刀",
         en: "Reaper's Scythe",
         engineStatus: "implemented",
         official: {
@@ -6856,7 +6856,7 @@ var heroes_default = [
     registryNumericId: 42,
     valveHeroId: 43,
     key: "death_prophet",
-    name: "\u6B7B\u4EA1\u5148\u77E5",
+    name: "死亡先知",
     en: "Death Prophet",
     packKey: "r20_55",
     hp: 1667,
@@ -6878,7 +6878,7 @@ var heroes_default = [
         id: "death_prophet_carrion_swarm",
         valveAbilityId: 5090,
         slot: "S1",
-        name: "\u5730\u7A74\u866B\u7FA4",
+        name: "地穴虫群",
         en: "Crypt Swarm",
         engineStatus: "implemented",
         official: {
@@ -6933,7 +6933,7 @@ var heroes_default = [
         id: "death_prophet_silence",
         valveAbilityId: 5091,
         slot: "S2",
-        name: "\u6C89\u9ED8\u9B54\u6CD5",
+        name: "沉默魔法",
         en: "Silence",
         engineStatus: "implemented",
         official: {
@@ -6989,7 +6989,7 @@ var heroes_default = [
         id: "death_prophet_spirit_siphon",
         valveAbilityId: 5685,
         slot: "S3",
-        name: "\u5438\u9B42\u5DEB\u672F",
+        name: "吸魂巫术",
         en: "Spirit Siphon",
         engineStatus: "implemented",
         official: {
@@ -7051,7 +7051,7 @@ var heroes_default = [
         id: "death_prophet_exorcism",
         valveAbilityId: 5093,
         slot: "S4",
-        name: "\u9A71\u4F7F\u6076\u7075",
+        name: "驱使恶灵",
         en: "Exorcism",
         engineStatus: "implemented",
         official: {
@@ -7125,7 +7125,7 @@ var heroes_default = [
     registryNumericId: 47,
     valveHeroId: 49,
     key: "dragon_knight",
-    name: "\u9F99\u9A91\u58EB",
+    name: "龙骑士",
     en: "Dragon Knight",
     packKey: "r20_55",
     hp: 1779,
@@ -7147,7 +7147,7 @@ var heroes_default = [
         id: "dragon_knight_breathe_fire",
         valveAbilityId: 5226,
         slot: "S1",
-        name: "\u706B\u7130\u6C14\u606F",
+        name: "火焰气息",
         en: "Breathe Fire",
         engineStatus: "implemented",
         official: {
@@ -7218,7 +7218,7 @@ var heroes_default = [
         id: "dragon_knight_dragon_tail",
         valveAbilityId: 5227,
         slot: "S2",
-        name: "\u795E\u9F99\u6446\u5C3E",
+        name: "神龙摆尾",
         en: "Dragon Tail",
         engineStatus: "implemented",
         official: {
@@ -7279,7 +7279,7 @@ var heroes_default = [
         id: "dragon_knight_wyrms_wrath",
         valveAbilityId: 1752,
         slot: "S3",
-        name: "\u98DE\u9F99\u4E4B\u6012",
+        name: "飞龙之怒",
         en: "Wyrm's Wrath",
         engineStatus: "implemented",
         official: {
@@ -7324,7 +7324,7 @@ var heroes_default = [
         id: "dragon_knight_elder_dragon_form",
         valveAbilityId: 5229,
         slot: "S4",
-        name: "\u53E4\u9F99\u5F62\u6001",
+        name: "古龙形态",
         en: "Elder Dragon Form",
         engineStatus: "implemented",
         official: {
@@ -7402,7 +7402,7 @@ var heroes_default = [
     registryNumericId: 50,
     valveHeroId: 52,
     key: "leshrac",
-    name: "\u62C9\u5E2D\u514B",
+    name: "拉席克",
     en: "Leshrac",
     packKey: "r20_55",
     hp: 1495,
@@ -7424,7 +7424,7 @@ var heroes_default = [
         id: "leshrac_split_earth",
         valveAbilityId: 5241,
         slot: "S1",
-        name: "\u6495\u88C2\u5927\u5730",
+        name: "撕裂大地",
         en: "Split Earth",
         engineStatus: "implemented",
         official: {
@@ -7503,7 +7503,7 @@ var heroes_default = [
         id: "leshrac_diabolic_edict",
         valveAbilityId: 5242,
         slot: "S2",
-        name: "\u6076\u9B54\u6555\u4EE4",
+        name: "恶魔敕令",
         en: "Diabolic Edict",
         engineStatus: "implemented",
         official: {
@@ -7573,7 +7573,7 @@ var heroes_default = [
         id: "leshrac_lightning_storm",
         valveAbilityId: 5243,
         slot: "S3",
-        name: "\u95EA\u7535\u98CE\u66B4",
+        name: "闪电风暴",
         en: "Lightning Storm",
         engineStatus: "implemented",
         official: {
@@ -7642,7 +7642,7 @@ var heroes_default = [
         id: "leshrac_pulse_nova",
         valveAbilityId: 5244,
         slot: "S4",
-        name: "\u8109\u51B2\u65B0\u661F",
+        name: "脉冲新星",
         en: "Pulse Nova",
         engineStatus: "implemented",
         official: {
@@ -7713,7 +7713,7 @@ var heroes_default = [
     registryNumericId: 55,
     valveHeroId: 57,
     key: "omniknight",
-    name: "\u5168\u80FD\u9A91\u58EB",
+    name: "全能骑士",
     en: "Omniknight",
     packKey: "r20_55",
     hp: 1763,
@@ -7735,7 +7735,7 @@ var heroes_default = [
         id: "omniknight_purification",
         valveAbilityId: 5263,
         slot: "S1",
-        name: "\u6D17\u793C",
+        name: "洗礼",
         en: "Purification",
         engineStatus: "implemented",
         official: {
@@ -7795,7 +7795,7 @@ var heroes_default = [
         id: "omniknight_martyr",
         valveAbilityId: 895,
         slot: "S2",
-        name: "\u9A71\u9010",
+        name: "驱逐",
         en: "Repel",
         engineStatus: "implemented",
         official: {
@@ -7866,7 +7866,7 @@ var heroes_default = [
         id: "omniknight_hammer_of_purity",
         valveAbilityId: 656,
         slot: "S3",
-        name: "\u7EAF\u6D01\u4E4B\u9524",
+        name: "纯洁之锤",
         en: "Hammer of Purity",
         engineStatus: "implemented",
         official: {
@@ -8008,7 +8008,7 @@ var heroes_default = [
         id: "omniknight_guardian_angel",
         valveAbilityId: 5266,
         slot: "S4",
-        name: "\u5B88\u62A4\u5929\u4F7F",
+        name: "守护天使",
         en: "Guardian Angel",
         engineStatus: "implemented",
         official: {
@@ -8072,7 +8072,7 @@ var heroes_default = [
     registryNumericId: 57,
     valveHeroId: 59,
     key: "huskar",
-    name: "\u54C8\u65AF\u5361",
+    name: "哈斯卡",
     en: "Huskar",
     packKey: "c56_90",
     hp: 670,
@@ -8095,7 +8095,7 @@ var heroes_default = [
         id: "huskar_inner_fire",
         valveAbilityId: 7300,
         slot: "S1",
-        name: "\u5FC3\u708E",
+        name: "心炎",
         en: "Inner Fire",
         official: {
           params: {
@@ -8145,7 +8145,7 @@ var heroes_default = [
         id: "huskar_burning_spear",
         valveAbilityId: 5272,
         slot: "S2",
-        name: "\u6CB8\u8840\u4E4B\u77DB",
+        name: "沸血之矛",
         en: "Burning Spear",
         official: {
           params: {
@@ -8183,7 +8183,7 @@ var heroes_default = [
         id: "huskar_berserkers_blood",
         valveAbilityId: 5273,
         slot: "S3",
-        name: "\u72C2\u6218\u58EB\u4E4B\u8840",
+        name: "狂战士之血",
         en: "Berserker's Blood",
         official: {
           params: {
@@ -8229,7 +8229,7 @@ var heroes_default = [
         id: "huskar_life_break",
         valveAbilityId: 5274,
         slot: "R",
-        name: "\u727A\u7272",
+        name: "牺牲",
         en: "Life Break",
         official: {
           params: {
@@ -8290,7 +8290,7 @@ var heroes_default = [
     registryNumericId: 58,
     valveHeroId: 60,
     key: "night",
-    name: "\u6697\u591C\u9B54\u738B",
+    name: "暗夜魔王",
     en: "Night Stalker",
     packKey: "c56_90",
     hp: 624,
@@ -8313,7 +8313,7 @@ var heroes_default = [
         id: "night_stalker_void",
         valveAbilityId: 5275,
         slot: "S1",
-        name: "\u865A\u7A7A",
+        name: "虚空",
         en: "Void",
         official: {
           params: {
@@ -8371,7 +8371,7 @@ var heroes_default = [
         id: "night_stalker_crippling_fear",
         valveAbilityId: 5276,
         slot: "S2",
-        name: "\u4F24\u6B8B\u6050\u60E7",
+        name: "伤残恐惧",
         en: "Crippling Fear",
         official: {
           params: {
@@ -8415,7 +8415,7 @@ var heroes_default = [
         id: "night_stalker_midnight_feast",
         valveAbilityId: 1753,
         slot: "S3",
-        name: "\u5348\u591C\u76DB\u5BB4",
+        name: "午夜盛宴",
         en: "Midnight Feast",
         official: {
           params: {
@@ -8453,7 +8453,7 @@ var heroes_default = [
         id: "night_stalker_darkness",
         valveAbilityId: 5278,
         slot: "R",
-        name: "\u9ED1\u6697\u98DE\u5347",
+        name: "黑暗飞升",
         en: "Dark Ascension",
         official: {
           params: {
@@ -8494,7 +8494,7 @@ var heroes_default = [
     registryNumericId: 62,
     valveHeroId: 64,
     key: "jakiro",
-    name: "\u6770\u5947\u6D1B",
+    name: "杰奇洛",
     en: "Jakiro",
     packKey: "c56_90",
     hp: 587,
@@ -8517,7 +8517,7 @@ var heroes_default = [
         id: "jakiro_dual_breath",
         valveAbilityId: 5297,
         slot: "S1",
-        name: "\u51B0\u706B\u4EA4\u52A0",
+        name: "冰火交加",
         en: "Dual Breath",
         official: {
           params: {
@@ -8571,7 +8571,7 @@ var heroes_default = [
         id: "jakiro_ice_path",
         valveAbilityId: 5298,
         slot: "S2",
-        name: "\u51B0\u5C01\u8DEF\u5F84",
+        name: "冰封路径",
         en: "Ice Path",
         official: {
           params: {
@@ -8617,7 +8617,7 @@ var heroes_default = [
         id: "jakiro_liquid_fire",
         valveAbilityId: 5299,
         slot: "S3",
-        name: "\u6DB2\u6001\u706B",
+        name: "液态火",
         en: "Liquid Fire",
         official: {
           params: {
@@ -8665,7 +8665,7 @@ var heroes_default = [
         id: "jakiro_macropyre",
         valveAbilityId: 5300,
         slot: "R",
-        name: "\u70C8\u7130\u711A\u8EAB",
+        name: "烈焰焚身",
         en: "Macropyre",
         official: {
           params: {
@@ -8726,7 +8726,7 @@ var heroes_default = [
     registryNumericId: 71,
     valveHeroId: 73,
     key: "alchemist",
-    name: "\u70BC\u91D1\u672F\u58EB",
+    name: "炼金术士",
     en: "Alchemist",
     packKey: "c56_90",
     hp: 584,
@@ -8749,7 +8749,7 @@ var heroes_default = [
         id: "alchemist_acid_spray",
         valveAbilityId: 5365,
         slot: "S1",
-        name: "\u9178\u6027\u55B7\u96FE",
+        name: "酸性喷雾",
         en: "Acid Spray",
         official: {
           params: {
@@ -8795,7 +8795,7 @@ var heroes_default = [
         id: "alchemist_unstable_concoction",
         valveAbilityId: 5366,
         slot: "S2",
-        name: "\u4E0D\u7A33\u5B9A\u5316\u5408\u7269",
+        name: "不稳定化合物",
         en: "Unstable Concoction",
         official: {
           params: {
@@ -8843,7 +8843,7 @@ var heroes_default = [
         id: "alchemist_corrosive_weaponry",
         valveAbilityId: 1116,
         slot: "S3",
-        name: "\u8150\u8680\u5175\u68B0",
+        name: "腐蚀兵械",
         en: "Corrosive Weaponry",
         official: {
           params: {
@@ -8883,7 +8883,7 @@ var heroes_default = [
         id: "alchemist_chemical_rage",
         valveAbilityId: 5369,
         slot: "R",
-        name: "\u5316\u5B66\u72C2\u66B4",
+        name: "化学狂暴",
         en: "Chemical Rage",
         official: {
           params: {
@@ -8928,7 +8928,7 @@ var heroes_default = [
     registryNumericId: 81,
     valveHeroId: 83,
     key: "treant",
-    name: "\u6811\u7CBE\u536B\u58EB",
+    name: "树精卫士",
     en: "Treant Protector",
     packKey: "c56_90",
     hp: 693,
@@ -8951,7 +8951,7 @@ var heroes_default = [
         id: "treant_natures_grasp",
         valveAbilityId: 338,
         slot: "S1",
-        name: "\u81EA\u7136\u5377\u63E1",
+        name: "自然卷握",
         en: "Nature's Grasp",
         official: {
           params: {
@@ -9005,7 +9005,7 @@ var heroes_default = [
         id: "treant_leech_seed",
         valveAbilityId: 5435,
         slot: "S2",
-        name: "\u5BC4\u751F\u79CD\u5B50",
+        name: "寄生种子",
         en: "Leech Seed",
         official: {
           params: {
@@ -9055,7 +9055,7 @@ var heroes_default = [
         id: "treant_living_armor",
         valveAbilityId: 5436,
         slot: "S3",
-        name: "\u6D3B\u4F53\u62A4\u7532",
+        name: "活体护甲",
         en: "Living Armor",
         official: {
           params: {
@@ -9101,7 +9101,7 @@ var heroes_default = [
         id: "treant_overgrowth",
         valveAbilityId: 5437,
         slot: "R",
-        name: "\u75AF\u72C2\u751F\u957F",
+        name: "疯狂生长",
         en: "Overgrowth",
         official: {
           params: {
@@ -9154,7 +9154,7 @@ var heroes_default = [
     registryNumericId: 82,
     valveHeroId: 84,
     key: "ogre",
-    name: "\u98DF\u4EBA\u9B54\u9B54\u6CD5\u5E08",
+    name: "食人魔魔法师",
     en: "Ogre Magi",
     packKey: "c56_90",
     hp: 781,
@@ -9177,7 +9177,7 @@ var heroes_default = [
         id: "ogre_magi_fireblast",
         valveAbilityId: 5438,
         slot: "S1",
-        name: "\u706B\u7130\u7206\u8F70",
+        name: "火焰爆轰",
         en: "Fireblast",
         official: {
           params: {
@@ -9221,7 +9221,7 @@ var heroes_default = [
         id: "ogre_magi_ignite",
         valveAbilityId: 5439,
         slot: "S2",
-        name: "\u5F15\u71C3",
+        name: "引燃",
         en: "Ignite",
         official: {
           params: {
@@ -9269,7 +9269,7 @@ var heroes_default = [
         id: "ogre_magi_bloodlust",
         valveAbilityId: 5440,
         slot: "S3",
-        name: "\u55DC\u8840\u672F",
+        name: "嗜血术",
         en: "Bloodlust",
         official: {
           params: {
@@ -9317,7 +9317,7 @@ var heroes_default = [
         id: "ogre_magi_multicast",
         valveAbilityId: 5441,
         slot: "R",
-        name: "\u591A\u91CD\u65BD\u6CD5",
+        name: "多重施法",
         en: "Multicast",
         official: {
           params: {
@@ -9358,7 +9358,7 @@ var heroes_default = [
     registryNumericId: 94,
     valveHeroId: 96,
     key: "centaur",
-    name: "\u534A\u4EBA\u9A6C\u6218\u884C\u8005",
+    name: "半人马战行者",
     en: "Centaur Warrunner",
     packKey: "r91",
     hp: 1200,
@@ -9381,7 +9381,7 @@ var heroes_default = [
         id: "centaur_hoof_stomp",
         valveAbilityId: 5514,
         slot: "S1",
-        name: "\u9A6C\u8E44\u8DF5\u8E0F",
+        name: "马蹄践踏",
         en: "Hoof Stomp",
         official: {
           params: {
@@ -9424,7 +9424,7 @@ var heroes_default = [
         id: "centaur_double_edge",
         valveAbilityId: 5515,
         slot: "S2",
-        name: "\u53CC\u5203\u5251",
+        name: "双刃剑",
         en: "Double Edge",
         official: {
           params: {
@@ -9477,7 +9477,7 @@ var heroes_default = [
         id: "centaur_return",
         valveAbilityId: 5516,
         slot: "S3",
-        name: "\u53CD\u4F24",
+        name: "反伤",
         en: "Retaliate",
         official: {
           params: {
@@ -9514,7 +9514,7 @@ var heroes_default = [
         id: "centaur_stampede",
         valveAbilityId: 5517,
         slot: "S4",
-        name: "\u5954\u88AD\u51B2\u649E",
+        name: "奔袭冲撞",
         en: "Stampede",
         official: {
           params: {
@@ -9564,7 +9564,7 @@ var heroes_default = [
     registryNumericId: 99,
     valveHeroId: 101,
     key: "skywrath_mage",
-    name: "\u5929\u6012\u6CD5\u5E08",
+    name: "天怒法师",
     en: "Skywrath Mage",
     packKey: "r91",
     hp: 1200,
@@ -9587,7 +9587,7 @@ var heroes_default = [
         id: "skywrath_mage_arcane_bolt",
         valveAbilityId: 5581,
         slot: "S1",
-        name: "\u5965\u6CD5\u9E70\u96BC",
+        name: "奥法鹰隼",
         en: "Arcane Bolt",
         official: {
           params: {
@@ -9640,7 +9640,7 @@ var heroes_default = [
         id: "skywrath_mage_concussive_shot",
         valveAbilityId: 5582,
         slot: "S2",
-        name: "\u9707\u8361\u5149\u5F39",
+        name: "震荡光弹",
         en: "Concussive Shot",
         official: {
           params: {
@@ -9695,7 +9695,7 @@ var heroes_default = [
         id: "skywrath_mage_ancient_seal",
         valveAbilityId: 5583,
         slot: "S3",
-        name: "\u4E0A\u53E4\u5C01\u5370",
+        name: "上古封印",
         en: "Ancient Seal",
         official: {
           params: {
@@ -9740,7 +9740,7 @@ var heroes_default = [
         id: "skywrath_mage_mystic_flare",
         valveAbilityId: 5584,
         slot: "S4",
-        name: "\u795E\u79D8\u4E4B\u8000",
+        name: "神秘之耀",
         en: "Mystic Flare",
         official: {
           params: {
@@ -9792,7 +9792,7 @@ var heroes_default = [
     registryNumericId: 104,
     valveHeroId: 106,
     key: "ember_spirit",
-    name: "\u7070\u70EC\u4E4B\u7075",
+    name: "灰烬之灵",
     en: "Ember Spirit",
     packKey: "r91",
     hp: 1200,
@@ -9815,7 +9815,7 @@ var heroes_default = [
         id: "ember_spirit_searing_chains",
         valveAbilityId: 5603,
         slot: "S1",
-        name: "\u708E\u9633\u7D22",
+        name: "炎阳索",
         en: "Searing Chains",
         official: {
           params: {
@@ -9862,7 +9862,7 @@ var heroes_default = [
         id: "ember_spirit_sleight_of_fist",
         valveAbilityId: 5604,
         slot: "S2",
-        name: "\u65E0\u5F71\u62F3",
+        name: "无影拳",
         en: "Sleight of Fist",
         official: {
           params: {
@@ -9907,7 +9907,7 @@ var heroes_default = [
         id: "ember_spirit_flame_guard",
         valveAbilityId: 5605,
         slot: "S3",
-        name: "\u70C8\u706B\u7F69",
+        name: "烈火罩",
         en: "Flame Guard",
         official: {
           params: {
@@ -9960,7 +9960,7 @@ var heroes_default = [
         id: "ember_spirit_fire_remnant",
         valveAbilityId: 5606,
         slot: "S4",
-        name: "\u6B8B\u7130",
+        name: "残焰",
         en: "Fire Remnant",
         official: {
           params: {
@@ -10020,7 +10020,7 @@ var heroes_default = [
     registryNumericId: 106,
     valveHeroId: 108,
     key: "abyssal_underlord",
-    name: "\u5B7D\u4E3B",
+    name: "孽主",
     en: "Underlord",
     packKey: "r91",
     hp: 1200,
@@ -10043,7 +10043,7 @@ var heroes_default = [
         id: "abyssal_underlord_firestorm",
         valveAbilityId: 5613,
         slot: "S1",
-        name: "\u706B\u7130\u98CE\u66B4",
+        name: "火焰风暴",
         en: "Firestorm",
         official: {
           params: {
@@ -10104,7 +10104,7 @@ var heroes_default = [
         id: "abyssal_underlord_pit_of_malice",
         valveAbilityId: 5614,
         slot: "S2",
-        name: "\u6028\u5FF5\u6DF1\u6E0A",
+        name: "怨念深渊",
         en: "Pit of Malice",
         official: {
           params: {
@@ -10153,7 +10153,7 @@ var heroes_default = [
         id: "abyssal_underlord_atrophy_aura",
         valveAbilityId: 5615,
         slot: "S3",
-        name: "\u8870\u9000\u5149\u73AF",
+        name: "衰退光环",
         en: "Atrophy Aura",
         official: {
           params: {
@@ -10194,7 +10194,7 @@ var heroes_default = [
         id: "abyssal_underlord_dark_portal",
         valveAbilityId: 865,
         slot: "S4",
-        name: "\u6076\u9B54\u4E4B\u6249",
+        name: "恶魔之扉",
         en: "Fiend's Gate",
         official: {
           params: {
@@ -10248,7 +10248,7 @@ var heroes_default = [
     registryNumericId: 117,
     valveHeroId: 126,
     key: "void_spirit",
-    name: "\u865A\u65E0\u4E4B\u7075",
+    name: "虚无之灵",
     en: "Void Spirit",
     packKey: "r91",
     hp: 1200,
@@ -10271,7 +10271,7 @@ var heroes_default = [
         id: "void_spirit_aether_remnant",
         valveAbilityId: 7701,
         slot: "S1",
-        name: "\u6B8B\u9634",
+        name: "残阴",
         en: "Aether Remnant",
         official: {
           params: {
@@ -10344,7 +10344,7 @@ var heroes_default = [
         id: "void_spirit_dissimilate",
         valveAbilityId: 6470,
         slot: "S2",
-        name: "\u5F02\u5316",
+        name: "异化",
         en: "Dissimilate",
         official: {
           params: {
@@ -10395,7 +10395,7 @@ var heroes_default = [
         id: "void_spirit_resonant_pulse",
         valveAbilityId: 7710,
         slot: "S3",
-        name: "\u5171\u9E23\u8109\u51B2",
+        name: "共鸣脉冲",
         en: "Resonant Pulse",
         official: {
           params: {
@@ -10450,7 +10450,7 @@ var heroes_default = [
         id: "void_spirit_astral_step",
         valveAbilityId: 7705,
         slot: "S4",
-        name: "\u592A\u865A\u4E4B\u5F84",
+        name: "太虚之径",
         en: "Astral Step",
         official: {
           params: {
@@ -10504,7 +10504,7 @@ var heroes_default = [
     registryNumericId: 121,
     valveHeroId: 135,
     key: "dawnbreaker",
-    name: "\u7834\u6653\u8FB0\u661F",
+    name: "破晓辰星",
     en: "Dawnbreaker",
     packKey: "r91",
     hp: 1200,
@@ -10527,7 +10527,7 @@ var heroes_default = [
         id: "dawnbreaker_fire_wreath",
         valveAbilityId: 7902,
         slot: "S1",
-        name: "\u661F\u7834\u5929\u60CA",
+        name: "星破天惊",
         en: "Starbreaker",
         official: {
           params: {
@@ -10596,7 +10596,7 @@ var heroes_default = [
         id: "dawnbreaker_celestial_hammer",
         valveAbilityId: 7914,
         slot: "S2",
-        name: "\u4E0A\u754C\u91CD\u9524",
+        name: "上界重锤",
         en: "Celestial Hammer",
         official: {
           params: {
@@ -10659,7 +10659,7 @@ var heroes_default = [
         id: "dawnbreaker_luminosity",
         valveAbilityId: 7918,
         slot: "S3",
-        name: "\u71A0\u71A0\u751F\u8F89",
+        name: "熠熠生辉",
         en: "Luminosity",
         official: {
           params: {
@@ -10704,7 +10704,7 @@ var heroes_default = [
         id: "dawnbreaker_solar_guardian",
         valveAbilityId: 7906,
         slot: "S4",
-        name: "\u5929\u5149\u73B0\u4E16",
+        name: "天光现世",
         en: "Solar Guardian",
         official: {
           params: {
@@ -10774,7 +10774,7 @@ var heroes_default = [
     registryNumericId: 124,
     valveHeroId: 138,
     key: "muerta",
-    name: "\u743C\u82F1\u78A7\u7075",
+    name: "琼英碧灵",
     en: "Muerta",
     packKey: "r91",
     hp: 1200,
@@ -10797,7 +10797,7 @@ var heroes_default = [
         id: "muerta_dead_shot",
         valveAbilityId: 5751,
         slot: "S1",
-        name: "\u5F39\u65E0\u865A\u53D1",
+        name: "弹无虚发",
         en: "Dead Shot",
         official: {
           params: {
@@ -10858,7 +10858,7 @@ var heroes_default = [
         id: "muerta_the_calling",
         valveAbilityId: 5752,
         slot: "S2",
-        name: "\u5524\u9B42",
+        name: "唤魂",
         en: "The Calling",
         official: {
           params: {
@@ -10919,7 +10919,7 @@ var heroes_default = [
         id: "muerta_gunslinger",
         valveAbilityId: 5753,
         slot: "S3",
-        name: "\u795E\u67AA\u5728\u624B",
+        name: "神枪在手",
         en: "Gunslinger",
         official: {
           params: {
@@ -10954,7 +10954,7 @@ var heroes_default = [
         id: "muerta_pierce_the_veil",
         valveAbilityId: 5754,
         slot: "S4",
-        name: "\u8D8A\u754C",
+        name: "越界",
         en: "Pierce the Veil",
         official: {
           params: {
@@ -10997,7 +10997,7 @@ var heroes_default = [
   }
 ];
 
-// public-typed-input/package/content/index.js
+// node_modules/@dotapk/heros/content/index.js
 function freezeTree(v) {
   if (v && typeof v === "object" && !Object.isFrozen(v)) {
     Object.values(v).forEach(freezeTree);
@@ -11007,21 +11007,27 @@ function freezeTree(v) {
 }
 var heroes = freezeTree(heroes_default);
 
-// public-typed-input/package/rules/fingerprint.js
+// node_modules/@dotapk/heros/rules/fingerprint.js
 var sourceManifest = {
+  "candidates/index.js": "2a917bfa7d2ad8b64641049e4d85e03e2eada2cb6ee668c1a2b02008528694f9",
+  "catalog.js": "bcb429798b2701c7a5fcb92949a0b56df549231fff3779f8fa80dd34edb05594",
   "content/heroes.json": "b837cb0c5c601092c7ce1b0d2fda6a90bcde8b6d797149cbac9cc9cf3d381b7d",
   "content/index.js": "e552bf8888a58f1c171e430e36a4767157eaf43d717cd7b3195d3a8643cf85e1",
+  "content/slot-status.json": "71b2f49e344ba89a80223c393f72caaf83dfb4aad5c3ff819cb33ca3aacbd006",
   "contract/code-identity.js": "b211e83f16c3aa84e79b1d5e2fdb36c33a4e55a329e45f357496f8402340d3f8",
   "contract/definition-schema.js": "c03e8f8df8cd88a8b23c86cc35c7a4a8fef55ce5c7695fbf88a9322cacb6feac",
-  "contract/registry.js": "7932ddc7a22404e19b10368ab9a51718d16c5506aacee918e4a7efd3b1455043",
+  "contract/registry.js": "0383013a4e6370cddc9609784375548e9efe0777c4e6c667af23a2100c49bb42",
   "contract/resource-schema.js": "7a433024a1bafff529b0ce560d82ac88f42f9f7125409eb5a391f555fa93cfd7",
-  "contract/schedule-schema.js": "9634ff7cfadef21a177a2cf2682f16895f5e8aa4be8f7d620baac9668337cb12",
-  "contract/session.js": "efd7a62645103b4cdb797db134feb24b8d115bbc906ddf49ad7f9740cc291abc",
+  "contract/rule-declarations.js": "56b84e8923c189d2cd8644387ee9971e5c30538fa196899b67e1dcae0c9fa685",
+  "contract/schedule-schema.js": "7bd5805e0610c24cb0dcb241587e7ff82dfce2e248a2324523a5d7e3b513fdd6",
+  "contract/session.js": "b7daebec87f2f1c2ce617d7661fbcb7b03c483095230231591d432c6ef28cf23",
   "contract/state-schema.js": "ccea5b69726eb88ed568348b5707b987583cc0d92ce7d9a7ee7c5672266e8cfe",
-  "contract/types.ts": "9e32b20c1f4f1e2b65ea118528a6d10b25972b60020753dd531a73ef6007a32c",
+  "contract/types.ts": "746396cc78e6b713f0deec23547bc9596499dee511b18b76c536d039dfcad378",
   "contract/value.js": "c0da66bad54e30c952287ff6c5ae00b6d551b6ec69ddb6b2fb63c4a0b8186646",
+  "examples/blink-range.js": "e1031dc2d8b854b3a9c06dca05f20faa0b71681ce3317edcaa0f8ba836df28f0",
+  "examples/demo.mjs": "3051e9b682638fe5d9c54b25277a2317256c53338cb88c6d54e169417c97a2c6",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
-  "package.json": "10866a359098264739eb357f5b98fad22f85b08343799225b96b3cabfe558dba",
+  "package.json": "d487a1b2cee7de8e9170f66476a7ef4c3553663287aa7292839ce16ad112f6c4",
   "rules/a/extensions/canonical.js": "27589aeae0f4cf0037fea07f0ea9bb7c95977ecb756342396d4bba1de4b519a1",
   "rules/a/extensions/common.mjs": "15b26f87007922ba78f1f6d5b9eb483c6a6de52f5069c592ee81726de9afcc98",
   "rules/a/extensions/dragon.mjs": "e8ef50d566fdd3e4fa3c9bfac07a73571bd216f6ea0a2a1b6108f193fb0e760f",
@@ -11036,12 +11042,42 @@ var sourceManifest = {
   "rules/a/model.js": "d65104d7c0a2003776bb049564e9ecaced61fba9830fad9e8188855f4979c89e",
   "rules/a/parameters.js": "4c65441736d3fda976116d668ed9b65bc6e74866a7be081f9004613545b564eb",
   "rules/a/register.js": "f9c96a4c7b52dbfe30c3f05eb308758ce8b54a581468d118e57961e00ae6928b",
-  "rules/a/runtime.js": "ca6715b0b1809689b4a00483e3d317f36c27a2390c907af991178db92848a347",
-  "rules/a/state.js": "0432c4a9166eed02789c7968516898dfbf1a1404c9fa1cf2bd3ba811c3d9a4e8",
+  "rules/a/runtime.js": "3df2bf5dd66ccf49d2b44b90ba41daaa173af1b9422ad3e826f19341e76d95c6",
+  "rules/a/state.js": "ebf1a20331d5e782056a87c677eadd039c1d90de6536145970e549de40e02b2a",
+  "rules/b/model.js": "0ed3171e5dafcf4086a499235c1721cbfc181e9d58c4a63c85c9b97abfeec6b0",
+  "rules/b/programs.js": "77e06b81e9bbaf55fa23ff5e5037bcdf3a464f6462a3e4a6382f738894c4a7fa",
+  "rules/b/register.js": "bd9371e55ecde22a3bde3204385c365aebc8d523451e971ec137b50dbf8833e3",
+  "rules/b/state.js": "49074b61c31de3f53cff65f15cb3d8f718aa1829d778a61b75e65c0df8b9063a",
+  "rules/c/centaur.js": "ffdba3d9ec95aac29feccd12b8f6a9669b4eaa7bb0aed2b232d271d97989dd59",
+  "rules/c/common.js": "e7f3fb5062d9baae2845a436f50110f1af03444a4ff7af9e9b1f9ddd8977817b",
+  "rules/c/extra.js": "2104086d50be5fb5ef6961f6bab3b5830a18102fcab00a38fb7511ffee29df9a",
+  "rules/c/index.js": "c95d3b23a5e0f990ad2e54cb8660b60f014216ec5504031ee3669dff4faa3e96",
+  "rules/c/skywrath.js": "2ddda6123ed394307d5b0bb48d02e359a435f7a2fde76ff842fecfbb74b9d238",
+  "rules/c/state.js": "676c4196da86f1051b9de6d9d83daa27c7a4cb9fe7f87a58f7b3747afe095f83",
+  "rules/core4/abaddon.js": "1cc8cfbf1d256afd4a6282eaa19211c87929b95a9c15280a65755e07381b2d29",
   "rules/core4/bash.js": "5e1a9793cf9cf92d2d70f4abc5aa576f93bfe36bca17fe82d66c51f41ee61727",
+  "rules/core4/common.js": "b0506570b6cffddd544ecb7f64ec88dca2e6e27937b830f7a1869820d1eaca68",
+  "rules/core4/index.js": "14a0220da0981ddcf252a2ae4677e2d232d73f9711c1615ebeb93312ef21c50e",
+  "rules/core4/innates.js": "50810bf1849de73e2422d03e8bcb2e72c9fa2e5651fb52eff71ea6f9117db83c",
+  "rules/core4/razor.js": "5cbc6f4daeb32eca61ee254eae114ae2d2fdb4afda5ae466349b7a7b74c2eb15",
+  "rules/core4/slardar.js": "5942afe1692da81d08ab59cba7791bc420a033067dd0505cba5ce19dd9729848",
+  "rules/core4/viper.js": "121df7a35ef965ca0cc9a6b53c55fd98a0b1435cbf206d1d0c0c9944fa5166b3",
+  "rules/legacy-0-9/all-owned.js": "0218573e07f97ab99353310a8e1bc3fb561921d22e9fd62667c384b08d6b1440",
   "rules/legacy-0-9/direct-hit.js": "90d39d5bac7005850ca40d4f4e62111bdd097fde332068ad92d5aa53536bc26a",
   "rules/legacy-0-9/index.js": "ee2486a426f96f0fbec2c0914ae63a6aa5364376b208e9f1e03e5eda0ebbf682",
+  "rules/legacy-0-9/next/active-skills.js": "0d829e5bf750bcd2b8d5cbf6b2093fe830dd049e25442578a6bc2c87f931880b",
+  "rules/legacy-0-9/next/common.js": "b44c3cb2f28675cabf130b6ed0e4e84f1441a2621deb7c13194efd8d5299f3b3",
+  "rules/legacy-0-9/next/index.js": "a2a939961d69d390c51a5df4b4c7c18d100f0d9187130453b3806be3d136c869",
+  "rules/legacy-0-9/next/status-skills.js": "f2fd1e270413b73d32ab52e3612f3b11433b907b20f93510f2967ea5f749d3c1",
+  "rules/legacy-0-9/next/verify.mjs": "e7c936ab4c8315f7fb80c75532bd122f7e91d901b4a700133b4185921eaa6229",
   "rules/legacy-0-9/projections.js": "4df57ebcf060556577d65bf7e580a9db81aed1c0becd34f4d88c2bdc4a83744b",
+  "rules/legacy-0-9/remaining-channels.js": "8b4237f98939e2a21e217c23b1839d6361bdeefeb3203498887a911b2983c1e6",
+  "rules/legacy-0-9/remaining-common.js": "65623a05ed05f70c317dbabf604377a47a08de4275af7420c21365ffdbdb4fa1",
+  "rules/legacy-0-9/remaining-effects.js": "39e240ccc5cbce65498bb197cc1fb576059d65eab36ffc49b06ad43216708f8b",
+  "rules/legacy-0-9/remaining-passives.js": "840f2594ad2eb43f65b96941a48b40c9465325303b76b22edecfa8f506aacfff",
+  "rules/legacy-0-9/remaining-projectiles.js": "6e2781b7c8eddf0909a4e7a29e008bd8ec3be13f70462f2df46a2beb118c7e1f",
+  "rules/legacy-0-9/remaining.js": "ea407b268e8ed384ae3071ece209494669a5f4236a1b6857bf13f835920b4f8a",
+  "rules/legacy-0-9/verify-all.mjs": "dc3c480e1db5b354a594a879c8315b73b87f2853b66a3438f2dc3ae420146527",
   "rules/legacy-0-9/verify.mjs": "2a6d75297adb9d804d5178caa29a37b43cc5a6e7c089e8edd0a292a8fb63a554",
   "rules/legacy-10-19/index.js": "5b060da397b4c74c11096633ef9bfd89b22eb78d992ef7da7f3a172e0e7a533e",
   "rules/legacy-10-19/proposed-abilities.js": "750e76f456d58afe9b99be56b217d464aa3979bf4f1bbb7fdf773227f93c44e2",
@@ -11053,21 +11089,35 @@ var sourceManifest = {
   "rules/legacy-10-19/remaining-projectiles.js": "8f25c1e7e98f5fcf6f096f1c6371c692aeb05189efc009c90c43bde543f6b56d",
   "rules/legacy-10-19/remaining.js": "8da0d8515c5ab20a76e8f9f924cb328f685253241ad0255485e24c9b19fe3c77",
   "rules/legacy-three.js": "d201c401e3a9ff3d1427d16f1be304410fe60f91c911c1212bc38db5f1a3bc63",
-  "scripts/a-run-tests.mjs": "a5f70297eb644bcf00b01c7c0301f8caee6630b013f962d2d2fadbd837967122",
+  "scripts/a-run-tests.mjs": "e8f0fb2a8443bc1c9c7ea9c8027548fc5f12bb6b4dd334d5eb74306009419bbb",
+  "scripts/c/fingerprint.mjs": "dc775f4baa042b3af5ebbb5dbda5608e315b4a7910871129309f9f0c964ac0b8",
+  "scripts/c/run-tests.mjs": "a409bb5298948b82a29289b51ae9f6836cef07f8deed808623cd9ce4cbb447e9",
   "scripts/fingerprint.mjs": "3c621367e4349d7704fb7b4234067c132504fc2e1bd66e6fa3024181e59bc94e",
   "scripts/legacy-10-19/run-proposed-tests.mjs": "ed7a58728104128865795d5c7d3d536db7b76b7307451d8673a007eb50b9e6ba",
   "scripts/legacy-10-19/run-remaining-tests.mjs": "42ba29f56a69165f1d861d66b35aae429ba87d0a9dbb90b173fd09ada1653bfb",
   "scripts/legacy-10-19/run-tests.mjs": "fdff01465e72761bd493987effb989b80ca96b487f147d009c63bb164a38bd17",
-  "scripts/run-tests.mjs": "a1ad5cbc3d7799f18eac02f1587d01d7d7960571ae3516f6a6483382db180c79",
+  "scripts/run-tests.mjs": "785bb3162ad22b6e0d7fcb3233d35f23a3b8a7b64c0877eed1a4251c900cd6fc",
+  "scripts/test-suites.mjs": "b4f6679bbd5501d5e608199525f17a74ad09421e39090f9159ff9f32330f133b",
   "test/a-host.mjs": "2c11d171ed76f426341cc4204c6fc18ee52b024b0ff9e78a9718511dfc6c825d",
   "test/a-probes.mjs": "d4aeec8429f97a06102473a18e7169bba4e885dcc202c33b296a669401a97ca1",
-  "test/a-rules.test.mjs": "8a7c58da8150fd42e05ed0eb79b4e5c1807acec6aa4dc37155ac81559a37b398",
+  "test/a-rules.test.mjs": "5c3a8d1626854785d1b62abb9651c0a92f53bc109638d42ec1765c491b29f908",
   "test/a-six-handlers.test.mjs": "e7adfe6c15c4534f61c85371bb633d0c3618a636510459e25ee3a91bf0e7a1b6",
-  "test/a-v2-contract.test.mjs": "78983490d1988a81d667a472f3069177b91e2b58dc7b7a64a909dd6500a05190",
+  "test/a-v2-contract.test.mjs": "4a95b1d0780026189712652c9b07c106ef841a3b082be9de241b4086df75255f",
   "test/a-v3-resources.test.mjs": "f93a000f394a19521bee4137bd857667d92cf639c462cf05ce019631a582549e",
-  "test/a-v4-schedule.test.mjs": "de36f27f9bd4b64647a63a80a0953ec0741aed4384ac52cc5a105c57b0ab390e",
+  "test/a-v4-schedule.test.mjs": "960b9c571e739b80cd4ae0d8a0863af44c764700a7b5c97a27cee40eedba3a6d",
+  "test/b24-host.mjs": "0349d5db7d9f4865dd11143d0af0dc898e3a980cafcbbd6713a992f017a58ec1",
+  "test/b24.test.mjs": "915831b07e1776c8392f145de9f453b83e7fb097527ffc46182b68793b9183a1",
+  "test/batch10-contract-run.mjs": "60373b560e4afe917830bc0cf65cfbe2028060fbcf4a59b1e0781a1790738885",
+  "test/batch10-contract.test.mjs": "193a1054800fd131fa11d9d452f6579fe81dd1b6e017a0a2cac16f2f56ddfb81",
+  "test/c/boundaries.test.mjs": "35683a2150fb9939cc08336992aaa234b59665174fdcea4c5a1d3c592a9358a1",
+  "test/c/effect-diff.test.mjs": "c0a00577e8948a87be1c207fcb813532a4ba7a61bada8dee98ab4776f79bdb3f",
+  "test/c/host.mjs": "00d4bce42868f135e9c49a978ae891cec45e97d5878c4e4711731f24341df617",
+  "test/c/sample.mjs": "4f3395984e1a60924d471e8ceb22a894c4b369aee165656eb202b537c377d0ee",
+  "test/c/skills.test.mjs": "63aab7fd11aa3c90b5e6706a0ffb8deb936b1e8cecac4f0751d69501e7898d17",
   "test/contract.test.mjs": "bdbc5ea6f315e4af29c132e5976e3651c101d9d1773a8123c43e586ab6b316fa",
-  "test/core4-bash.test.mjs": "2c24fa0c8597cb6de8fec0b395321c25c3def2963c628ef7460de17cf18a2146",
+  "test/core4/fixture.mjs": "230027deb5a2fc458fa6908d322d466f42b48d27c8ba981cb043f3a25e9c5bc5",
+  "test/core4/rules.test.mjs": "e1dcc38482f46ba146f0ce86d265e5d75e98b5396fa6753e78c3a86a76d32b89",
+  "test/core4/run.mjs": "ad44316129f153c5030b03c7cf82362afa10b1d9436ee4e7ea2888fd017bfe3a",
   "test/host.mjs": "d0830ad499231f57c640840de56864acfae0fabf75463732acda4f93149d9be0",
   "test/legacy-0-9.test.mjs": "3fedbba99b6d3a656cd92b65786c10e5f6bab0e867eb2e4ffcda014278f105c2",
   "test/legacy-10-19/proposed-host.mjs": "95b037dcae8ac89ef770c8c4e7be317efcb2242f600908d0d4e39605c7413422",
@@ -11075,13 +11125,18 @@ var sourceManifest = {
   "test/legacy-10-19/remaining-host.mjs": "304067267004e51d5b298dd112525cd1c5961a859965f6de09969f54d4d793b3",
   "test/legacy-10-19/remaining.test.mjs": "b7bdb9df8a29cadc4e6519792642d40601f4953a42c9d8d77739bede05d324cc",
   "test/legacy-10-19/slices.test.mjs": "e13f02d75a07b716bc19cb3caaa6a97d6e13d80b4dd776f5f0b1972206455b8a",
+  "test/legacy-next-recorder.mjs": "fbcaab0ba36552ae0bb72e036557ea524c090c7ba240bd85043790c74c942003",
+  "test/legacy-next.test.mjs": "3549a8e874613b88cca94495ee077515b82ad701ad20007d32abd637b365d1f3",
   "test/legacy-projections.test.mjs": "8f57c5ce74c2d748ee2bc9f384d8e8c7ce777c9f7b3e51120a21bdf0b8f1190b",
+  "test/legacy-remaining-recorder.mjs": "31ce703f722634cabea53d509ed5d3ffeb7c91bfacfa0a5cefaca58f4e577b00",
+  "test/legacy-remaining.test.mjs": "82db5755efa24cb677d16e00f0486ecc0db8269e2f52f756593a40694a493375",
   "test/probes.mjs": "a374c25f89cbf253190b409572e5ec5e2a2495bcbc73746cac7c39def6b26a20",
-  "test/schedule-schema-run.mjs": "628905259b5fd5b58af102d2b91616cefd1c931a951ed5f4ce6bd0822706dd60",
-  "test/schedule-schema.test.mjs": "5467f1b797e8105c1f8699748377f1e6fb82128db28bf6197dfe932e3b172131"
+  "test/schedule-schema-run.mjs": "440eb9b2a846d7da8aff28f7d7c031890200f54fccbcea2cd36f8ad5b7436463",
+  "test/schedule-schema.test.mjs": "ae2ee197c2ee1eca45e5a117c02dcea7475b17dfb48be461406f60f6dddfc4a0",
+  "test/unified.test.mjs": "f3d3ed8b6e29f3ffb97157f32db03ccd733d45ddd229fa40a102f50254efb5e9"
 };
 
-// public-typed-input/package/contract/value.js
+// node_modules/@dotapk/heros/contract/value.js
 function freeze(value) {
   if (value && typeof value === "object") {
     Object.values(value).forEach(freeze);
@@ -11148,20 +11203,20 @@ function sha256(text) {
   return h2.map((x) => x.toString(16).padStart(8, "0")).join("");
 }
 
-// public-typed-input/package/contract/code-identity.js
+// node_modules/@dotapk/heros/contract/code-identity.js
 function codeIdentity(sourceFiles2) {
   if (!Array.isArray(sourceFiles2) || !sourceFiles2.length || new Set(sourceFiles2).size !== sourceFiles2.length || sourceFiles2.some((path) => typeof path !== "string" || !Object.hasOwn(sourceManifest, path))) throw Error("Unknown reviewed implementation source");
   const files = [...sourceFiles2].sort(), inputs = files.map((path) => ({ path, sha256: sourceManifest[path] }));
   return freeze({ sourceFiles: files, codeHash: sha256(canonical(inputs)) });
 }
 function assertCodeIdentity(value) {
-  const identity = codeIdentity(value.sourceFiles);
-  if (value.codeHash !== identity.codeHash) throw Error("Missing or mismatched implementation digest");
-  return identity;
+  const identity2 = codeIdentity(value.sourceFiles);
+  if (value.codeHash !== identity2.codeHash) throw Error("Missing or mismatched implementation digest");
+  return identity2;
 }
 var coreCodeIdentity = () => codeIdentity(Object.keys(sourceManifest).filter((path) => path.startsWith("contract/") || path === "index.js"));
 
-// public-typed-input/package/contract/state-schema.js
+// node_modules/@dotapk/heros/contract/state-schema.js
 var owned = /* @__PURE__ */ new WeakSet();
 var types = /* @__PURE__ */ new Set(["null", "boolean", "number", "integer", "string", "array", "object"]);
 function inspect(schema, depth = 0) {
@@ -11213,8 +11268,8 @@ function defineStateSchema({ id, version = "1.0.0", schema, refinement = null, p
     refinementIdentity = freeze({ id: refinement.id, ...code });
     refine = refinement.validate;
   }
-  const identity = { id, version, schema: declaration, parameters: config, refinement: refinementIdentity }, schemaHash = sha256(canonical(identity));
-  const result2 = Object.freeze({ ...identity, schemaHash, validate: (value) => {
+  const identity2 = { id, version, schema: declaration, parameters: config, refinement: refinementIdentity }, schemaHash = sha256(canonical(identity2));
+  const result2 = Object.freeze({ ...identity2, schemaHash, validate: (value) => {
     try {
       const copy = json(value);
       return accepts(declaration, copy) && (!refine || refine(copy, config) === true);
@@ -11228,7 +11283,7 @@ function defineStateSchema({ id, version = "1.0.0", schema, refinement = null, p
 var isStateSchema = (value) => owned.has(value);
 var EMPTY_STATE_SCHEMA = defineStateSchema({ id: "heros/empty-state", schema: { type: "null" } });
 
-// public-typed-input/package/rules/legacy-three.js
+// node_modules/@dotapk/heros/rules/legacy-three.js
 function near(ctx, cast, m) {
   const f = ctx.actor(cast.owner), t = ctx.actor(cast.target);
   return Math.abs(t.x - f.x) <= (m.range_wu || m.radius_wu) + 22 && (m.height !== "ground" || t.y < 45);
@@ -11271,7 +11326,7 @@ var legacyThreeFactories = Object.freeze([
   } }
 ]);
 
-// public-typed-input/package/contract/definition-schema.js
+// node_modules/@dotapk/heros/contract/definition-schema.js
 var templates = new Map(heroes.flatMap((h2) => h2.abilities.map((a) => [a.id, a.mvp])));
 var NONNEG = /^(damage|damage_cap|dot_damage|execute_damage|mana|cooldown_s|duration_s|range_wu|radius_wu|startup_frames|recovery_frames|active_frames|ticks|tick_interval_s|stun_s|stun_cap_s|root_s|silence_s|slow_pct|slow_duration_s|charges|charge_restore_s|charge_max_s|mana_burn|mana_burn_pct|mana_damage_ratio|projectile_speed_wu_s|missing_mana_multiplier|critChance|critMultiplier|evasion|hitstun_s|buff_duration_s|stack_damage|stack_duration_s|max_stacks|burst_cap|burstInterval|lost_hp_multiplier|travelDuration|tracking_break_wu|arming_s|internal_cooldown_s|wall_height_wu|wall_bind_distance_wu|wall_bind_stun_s|distance_damage_per_100|damageOverTime|mana_per_second|heal_total|self_damage_per_tick|mana_drain_per_tick|wave_speed_wu_s|walkSpeed|explosionMin|explosionMax|explosionRadius)$/;
 function numbers(value, path = []) {
@@ -11321,7 +11376,7 @@ function validateRecipe(a, resources) {
   return true;
 }
 
-// public-typed-input/package/contract/resource-schema.js
+// node_modules/@dotapk/heros/contract/resource-schema.js
 function buildResourceSchema(definitions) {
   const maxMpByHero = {};
   for (const h2 of definitions) {
@@ -11335,7 +11390,7 @@ function validManaFact(resources, fact) {
   return !!fact && Number.isFinite(fact.maxMp) && fact.maxMp > 0 && fact.maxMp <= (resources.maxMpByHero[fact.heroId] ?? -1) && Number.isFinite(fact.mp) && fact.mp >= 0 && fact.mp <= fact.maxMp;
 }
 
-// public-typed-input/package/contract/schedule-schema.js
+// node_modules/@dotapk/heros/contract/schedule-schema.js
 var exact = (v, keys) => v && Object.getPrototypeOf(v) === Object.prototype && Object.keys(v).length === keys.length && keys.every((k) => Object.hasOwn(v, k));
 var actor = (v) => v === 0 || v === 1;
 var ref = (v) => typeof v === "string" && /^[-a-zA-Z0-9_:/.]{1,160}$/.test(v);
@@ -11370,6 +11425,7 @@ function validateScheduledBindings(value, handlers) {
 }
 function validateScheduleRequest(spec, manifest) {
   if (!spec || !["target", "binding", "delivery"].some((k) => Object.hasOwn(spec, k))) return true;
+  if (Object.hasOwn(spec, "target") && actor(spec.target) && !["binding", "delivery"].some((k) => Object.hasOwn(spec, k))) return true;
   if (!["target", "binding", "delivery"].every((k) => Object.hasOwn(spec, k)) || !actor(spec.owner) || spec.target !== null && !actor(spec.target) || !Number.isFinite(spec.delay) || spec.delay < 0 || spec.delay > 3600) throw Error("Incomplete typed schedule metadata");
   const kind = bindingKind(spec.binding);
   if (!phases[kind].includes(spec.delivery) || ["status", "entity-link", "channel"].includes(kind) && spec.target === null) throw Error("Invalid typed schedule target or phase");
@@ -11377,7 +11433,68 @@ function validateScheduleRequest(spec, manifest) {
   return true;
 }
 
-// public-typed-input/package/contract/registry.js
+// node_modules/@dotapk/heros/contract/rule-declarations.js
+var actor2 = (id) => id === 0 || id === 1;
+var exact2 = (v, keys) => !!v && Object.getPrototypeOf(v) === Object.prototype && Object.keys(v).sort().join(",") === keys.slice().sort().join(",");
+var bounded = (n2) => Number.isFinite(n2) && n2 >= 0 && n2 <= 3600;
+var identity = (s) => typeof s === "string" && /^[A-Za-z0-9][A-Za-z0-9_:/.\-]{0,159}$/.test(s);
+function validateCastFactRequirements(value, implementation) {
+  if (value === void 0) return null;
+  if (!Array.isArray(value) || value.length !== 1 || value[0] !== "effectiveCastRange" || typeof implementation.planCast !== "function") throw Error("Invalid declared cast fact requirements");
+  return Object.freeze([...value]);
+}
+function validateDeclaredCastFacts(implementation, slot, hook, facts) {
+  const declared = implementation.requiredCastFacts?.includes("effectiveCastRange");
+  if (Object.hasOwn(facts, "effectiveCastRange") && (!declared || hook !== "planCast")) throw Error("Undeclared or misplaced effective cast range fact");
+  if (!declared || hook !== "planCast") return;
+  if (!Object.hasOwn(facts, "effectiveCastRange") || !Number.isFinite(facts.effectiveCastRange) || facts.effectiveCastRange < 0 || facts.effectiveCastRange > 1e7) throw Error("Missing or invalid effective cast range fact");
+  if (!actor2(facts.owner) || !actor2(facts.target) || facts.slot !== slot || typeof facts.abilityId !== "string") throw Error("Mismatched effective cast range fact identity");
+}
+var declarationKeys = ["id", "key", "recipient", "duration", "interval", "programId", "schedule", "polarity", "dispel", "pierces", "values"];
+function validateStatusDeclarations(value, implementation, scheduledBindings) {
+  if (value === void 0) return null;
+  if (!Array.isArray(value) || !value.length || value.length > 128 || !implementation.requires.includes("status")) throw Error("Invalid declared status identity table");
+  const table = json(value), ids = /* @__PURE__ */ new Set(), domains = /* @__PURE__ */ new Set();
+  for (const d of table) {
+    if (!exact2(d, declarationKeys) || !identity(d.id) || !identity(d.key) || !["self", "enemy"].includes(d.recipient) || !bounded(d.duration) || !bounded(d.interval) || !["positive", "negative"].includes(d.polarity) || !["basic", "strong", "none"].includes(d.dispel) || typeof d.pierces !== "boolean" || !d.values || Object.getPrototypeOf(d.values) !== Object.prototype || Object.keys(d.values).length > 64) throw Error("Invalid status declaration");
+    const domain = d.key + ":" + d.recipient;
+    if (ids.has(d.id) || domains.has(domain)) throw Error("Ambiguous status declaration identity or recipient domain");
+    ids.add(d.id);
+    domains.add(domain);
+    if (d.programId === null) {
+      if (d.interval !== 0 || d.schedule !== null) throw Error("Unscheduled status cannot declare a pulse");
+    } else {
+      const s = d.schedule;
+      if (!identity(d.programId) || d.interval <= 0 || !exact2(s, ["handler", "binding", "delivery"]) || typeof s.handler !== "string" || !/^[-\w]{1,64}$/.test(s.handler) || s.binding !== "status" || !["actor.status-pre-advance", "actor.status-advance"].includes(s.delivery) || !Object.hasOwn(implementation.scheduledHandlers ?? {}, s.handler) || !implementation.requires.includes("schedule") || !scheduledBindings?.[s.handler]?.some((pair) => pair.binding === "status" && pair.delivery === s.delivery)) throw Error("Invalid status program/binding declaration");
+    }
+  }
+  return freeze(table);
+}
+function selectedDeclaration(spec, implementation) {
+  if (!spec || Object.getPrototypeOf(spec) !== Object.prototype || !identity(spec.statusDeclarationId)) throw Error("Missing status declaration identity");
+  const d = implementation.statusDeclarations?.find((d2) => d2.id === spec.statusDeclarationId);
+  if (!d) throw Error("Unknown status declaration identity");
+  if (!actor2(spec.owner) || !actor2(spec.target) || spec.target !== (d.recipient === "self" ? spec.owner : 1 - spec.owner)) throw Error("Mismatched status recipient domain");
+  return d;
+}
+function validateDeclaredStatusRequest(name, spec, implementation) {
+  const hasId = !!spec && typeof spec === "object" && Object.hasOwn(spec, "statusDeclarationId");
+  if (hasId && !["status.apply", "schedule"].includes(name)) throw Error("Misplaced status declaration identity");
+  if (!implementation.statusDeclarations) {
+    if (hasId) throw Error("Undeclared status identity request");
+    return;
+  }
+  if (name === "status.apply") {
+    const d = selectedDeclaration(spec, implementation);
+    if (!exact2(spec, ["owner", "target", "abilityId", "key", "duration", "polarity", "dispel", "pierces", "values", "statusDeclarationId"]) || spec.key !== d.key || spec.duration !== d.duration || spec.polarity !== d.polarity || spec.dispel !== d.dispel || spec.pierces !== d.pierces || canonical(spec.values) !== canonical(d.values)) throw Error("Mismatched declared status source parameters");
+  } else if (name === "schedule" && (spec?.binding?.kind === "status" || hasId || implementation.statusDeclarations.some((d) => d.schedule?.handler === spec?.handler))) {
+    const d = selectedDeclaration(spec, implementation);
+    const keys = ["abilityId", "owner", "target", "handler", "delay", "data", "binding", "delivery", "statusDeclarationId"];
+    if (!exact2(spec, Object.hasOwn(spec, "token") ? [...keys, "token"] : keys) || !d.schedule || spec.binding?.kind !== "status" || spec.handler !== d.schedule.handler || spec.delivery !== d.schedule.delivery || spec.delay !== d.interval) throw Error("Mismatched declared status pulse program or cadence");
+  }
+}
+
+// node_modules/@dotapk/heros/contract/registry.js
 var BATTLE_ABI = "heros-effects-2";
 var CAPABILITIES = Object.freeze(["damage", "heal", "mana", "transfer-mana", "self-damage", "protect", "status", "control", "target-route", "motion-request", "projectile-request", "legacy-effect", "schedule", "action-token", "deferred-hp", "cue"]);
 var HOOKS = Object.freeze(["planCast", "onCastCommitted", "activate", "onContact", "onInterrupt", "onDeath", "projectAttack", "projectDamage", "projectHealing", "projectInterval", "onAttack", "onDamage", "onTargeted", "onStage"]);
@@ -11397,9 +11514,9 @@ function validateDefinition(hero, resources) {
 }
 function validateImplementation(raw, executionParameters2) {
   if (!raw || typeof raw.behaviorId !== "string" || !raw.behaviorId || !semver(raw.revision) || !Array.isArray(raw.requires) || new Set(raw.requires).size !== raw.requires.length || raw.requires.some((c) => !CAPABILITIES.includes(c)) || !isStateSchema(raw.stateSchema)) throw Error("Invalid behavior metadata/capabilities/canonical schema");
-  const identity = assertCodeIdentity(raw);
+  const identity2 = assertCodeIdentity(raw);
   if (raw.namespace !== void 0 && (typeof raw.namespace !== "string" || !/^heros\/[a-z0-9/_-]{1,96}$/.test(raw.namespace))) throw Error("Invalid owned rule namespace");
-  const allowed = /* @__PURE__ */ new Set(["behaviorId", "revision", "requires", "stateSchema", "scheduledHandlers", "scheduledBindings", "namespace", "codeHash", "sourceFiles", ...HOOKS]);
+  const allowed = /* @__PURE__ */ new Set(["behaviorId", "revision", "requires", "stateSchema", "scheduledHandlers", "scheduledBindings", "requiredCastFacts", "statusDeclarations", "namespace", "codeHash", "sourceFiles", ...HOOKS]);
   for (const k of Object.keys(raw)) {
     if (!allowed.has(k)) throw Error("Unknown behavior field: " + k);
     if (HOOKS.includes(k) && typeof raw[k] !== "function") throw Error("Invalid behavior hook");
@@ -11408,19 +11525,20 @@ function validateImplementation(raw, executionParameters2) {
   if (raw.scheduledHandlers !== void 0 && (!raw.scheduledHandlers || Object.getPrototypeOf(raw.scheduledHandlers) !== Object.prototype || Object.entries(raw.scheduledHandlers).some(([k, v]) => !/^[-\w]{1,64}$/.test(k) || typeof v !== "function"))) throw Error("Invalid scheduled handlers");
   const scheduledBindings = validateScheduledBindings(raw.scheduledBindings, raw.scheduledHandlers);
   if (scheduledBindings && !raw.requires.includes("schedule")) throw Error("Scheduled binding requires schedule capability");
-  return Object.freeze({ ...raw, scheduledBindings, ...identity, executionParameters: executionParameters2, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
+  const requiredCastFacts = validateCastFactRequirements(raw.requiredCastFacts, raw), statusDeclarations = validateStatusDeclarations(raw.statusDeclarations, raw, scheduledBindings);
+  return Object.freeze({ ...raw, ...requiredCastFacts ? { requiredCastFacts } : {}, ...statusDeclarations ? { statusDeclarations } : {}, scheduledBindings, ...identity2, executionParameters: executionParameters2, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
 }
 var key = (heroId, slot) => heroId + ":" + slot;
 function behaviorManifest(impl) {
-  return { behaviorId: impl.behaviorId, revision: impl.revision, requires: impl.requires, namespace: impl.namespace ?? null, codeHash: impl.codeHash, sourceFiles: impl.sourceFiles, executionParameters: impl.executionParameters, stateSchema: { id: impl.stateSchema.id, version: impl.stateSchema.version, schemaHash: impl.stateSchema.schemaHash, schema: impl.stateSchema.schema, parameters: impl.stateSchema.parameters, refinement: impl.stateSchema.refinement }, hooks: HOOKS.filter((k) => impl[k]), scheduledHandlers: Object.keys(impl.scheduledHandlers).sort(), scheduledBindings: impl.scheduledBindings };
+  return { behaviorId: impl.behaviorId, revision: impl.revision, requires: impl.requires, namespace: impl.namespace ?? null, codeHash: impl.codeHash, sourceFiles: impl.sourceFiles, executionParameters: impl.executionParameters, stateSchema: { id: impl.stateSchema.id, version: impl.stateSchema.version, schemaHash: impl.stateSchema.schemaHash, schema: impl.stateSchema.schema, parameters: impl.stateSchema.parameters, refinement: impl.stateSchema.refinement }, hooks: HOOKS.filter((k) => impl[k]), ...impl.requiredCastFacts ? { requiredCastFacts: impl.requiredCastFacts } : {}, ...impl.statusDeclarations ? { statusDeclarations: impl.statusDeclarations } : {}, scheduledHandlers: Object.keys(impl.scheduledHandlers).sort(), scheduledBindings: impl.scheduledBindings };
 }
 function createHeroRegistry(initial2 = heroes, { defaults = true } = {}) {
   if (!Array.isArray(initial2) || initial2.length !== heroes.length) throw Error("Expected frozen 46 roster");
   const initialResources = buildResourceSchema(initial2);
-  const identity = new Map(heroes.map((h2) => [h2.registryNumericId, h2])), rows = /* @__PURE__ */ new Map();
+  const identity2 = new Map(heroes.map((h2) => [h2.registryNumericId, h2])), rows = /* @__PURE__ */ new Map();
   let locked = false, cached, definitionCache, compiledCache;
   function checkIdentity(h2) {
-    const expected = identity.get(h2.registryNumericId);
+    const expected = identity2.get(h2.registryNumericId);
     if (!expected || expected.id !== h2.id || expected.valveHeroId !== h2.valveHeroId || h2.abilities.some((a, i) => a.id !== expected.abilities[i].id)) throw Error("Out-of-scope hero/ability identity");
   }
   for (const source of initial2) {
@@ -11492,7 +11610,7 @@ function createHeroRegistry(initial2 = heroes, { defaults = true } = {}) {
   return api;
 }
 
-// public-typed-input/package/contract/session.js
+// node_modules/@dotapk/heros/contract/session.js
 var actorId = (id) => {
   if (id !== 0 && id !== 1) throw Error("Invalid actor");
   return id;
@@ -11537,6 +11655,7 @@ function createRuleSession(sealed) {
       if (typeof fn !== "function") throw Error("Missing declared port: " + name);
       const request = args.map((x) => json(x));
       if (name === "schedule") validateScheduleRequest(request[0], impl.scheduledBindings);
+      validateDeclaredStatusRequest(name, request[0], impl);
       if (request[0] && typeof request[0] === "object" && !Array.isArray(request[0])) {
         const spec = request[0];
         if ("abilityId" in spec && spec.abilityId !== ability.id) throw Error("Cross-namespace ability request");
@@ -11563,6 +11682,7 @@ function createRuleSession(sealed) {
     const selected2 = select(heroId, slot);
     if (!selected2 || typeof selected2.impl[hook] !== "function") return Object.freeze({ handled: false });
     const facts = freeze(json(event));
+    validateDeclaredCastFacts(selected2.impl, slot, hook, facts);
     if ("abilityId" in facts && facts.abilityId !== selected2.ability.id) throw Error("Mismatched ability event");
     if ("owner" in facts) {
       const owner = actorFact(host, facts.owner, sealed.resources);
@@ -11610,14 +11730,14 @@ function createRuleSession(sealed) {
   }, has: (heroId, slot, hook = "activate") => typeof select(heroId, slot)?.impl[hook] === "function" });
 }
 
-// public-typed-input/package/rules/a/parameters.js
+// node_modules/@dotapk/heros/rules/a/parameters.js
 var A_PARAMETERS = Object.freeze({ adaptation: "author-a-v8", unitScale: 0.55, statusToggleSeconds: 3600, routedDeliveryRange: 1200 });
 function executionParameters(parameters2) {
   if (!parameters2 || Object.keys(parameters2).sort().join(",") !== Object.keys(A_PARAMETERS).sort().join(",") || parameters2.adaptation !== "author-a-v8" || parameters2.unitScale !== 0.55 || parameters2.statusToggleSeconds !== 3600 || parameters2.routedDeliveryRange !== 1200) throw Error("A_INVALID_EXECUTION_PARAMETERS");
   return parameters2;
 }
 
-// public-typed-input/package/rules/a/model.js
+// node_modules/@dotapk/heros/rules/a/model.js
 var caches = /* @__PURE__ */ new WeakMap();
 var clamp = (n2, a, b) => Math.max(a, Math.min(b, n2));
 function validateExpression(expr, definition) {
@@ -11714,7 +11834,7 @@ function coefficient(expr, ctx, c, definition, lookup) {
   throw Error("A_UNKNOWN_EXPRESSION");
 }
 
-// public-typed-input/package/rules/a/gaps.js
+// node_modules/@dotapk/heros/rules/a/gaps.js
 var HOST_REQUESTS = Object.freeze({
   "vengefulspirit_nether_swap": "A-PORT-01: atomic two-actor swap plus target interruption",
   "kunkka_x_marks_the_spot": "A-STAGE-02: effective status expiry before removal and bounded return motion",
@@ -11732,16 +11852,16 @@ var HostPortRequired = class extends Error {
   }
 };
 
-// public-typed-input/package/rules/a/state.js
+// node_modules/@dotapk/heros/rules/a/state.js
 var maximum = Number.MAX_SAFE_INTEGER;
 var integer = { type: "integer", minimum: 1, maximum };
 var time = { type: "number", minimum: 0, maximum: 1e12 };
-var actor2 = { enum: [0, 1] };
+var actor3 = { enum: [0, 1] };
 var boolean = { type: "boolean" };
 var handle = { type: "string", minLength: 1, maxLength: 160 };
 var closed = (properties) => ({ type: "object", additionalProperties: false, required: Object.keys(properties), properties });
 var array = (items) => ({ type: "array", maxItems: 128, items });
-var base = { n: integer, owner: actor2, target: actor2, reflected: boolean };
+var base = { n: integer, owner: actor3, target: actor3, reflected: boolean };
 var union = (schemas) => schemas.length ? { anyOf: schemas } : { type: "null" };
 function refineOwnState(state, parameters2) {
   if (state === null) return true;
@@ -11753,20 +11873,32 @@ function refineOwnState(state, parameters2) {
   for (const row of state.records) if (!parameters2.statusSchemas.some((v) => row.key === v.key && row.polarity === v.polarity && row.program === v.program && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7)) return false;
   for (const row of state.areas) if (!parameters2.areaSchemas.some((v) => row.kind === v.kind && row.program === v.program && row.interval === v.interval && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7)) return false;
   for (const row of state.jobs) if (row.route !== (parameters2.abilityId === "vengefulspirit_magic_missile" && !row.reflected)) return false;
+  if (parameters2.statusDeclarations) {
+    const handles = /* @__PURE__ */ new Set();
+    for (const row of state.records) {
+      const d = parameters2.statusDeclarations.find((x) => x.id === row.statusDeclarationId);
+      if (!d || row.key !== d.key || row.program !== d.programId || row.interval !== d.interval || row.polarity !== d.polarity || row.pierces !== d.pierces || row.target !== (d.recipient === "self" ? row.owner : 1 - row.owner) || Math.abs(row.expires - row.startedAt - d.duration) > 1e-7 || handles.has(row.handle)) return false;
+      handles.add(row.handle);
+    }
+  }
+  for (const row of state.records) {
+    const domain = parameters2.programTargets?.find((x) => x.programId === row.program);
+    if (domain && (domain.statusRecipient !== "self" || domain.effectRecipient !== "enemy" || row.target !== row.owner || row.key !== domain.key || row.polarity !== "positive" || row.values.pulseToggle !== true)) return false;
+  }
   return true;
 }
-function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayPrograms) {
+function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayPrograms, statusDeclarations = null, programTargets = []) {
   lookup.schemas ??= /* @__PURE__ */ new Map();
   if (lookup.schemas.has(abilityId)) return lookup.schemas.get(abilityId);
-  const records = statusSchemas.map((v) => closed({ ...base, handle, key: { const: v.key }, startedAt: time, expires: time, program: { const: v.program }, interval: { const: v.interval }, values: { const: v.values }, remaining: { type: "number", minimum: 0, maximum: Number(v.values.shield || 0) }, polarity: { const: v.polarity }, pierces: { const: v.pierces } }));
+  const records = statusSchemas.map((v) => closed({ ...base, handle, key: { const: v.key }, startedAt: time, expires: time, program: { const: v.program }, interval: { const: v.interval }, values: { const: v.values }, remaining: { type: "number", minimum: 0, maximum: Number(v.values.shield || 0) }, polarity: { const: v.polarity }, pierces: { const: v.pierces }, ...statusDeclarations ? { statusDeclarationId: { const: v.statusDeclarationId } } : {} }));
   const areas = areaSchemas.map((v) => closed({ ...base, handle, startedAt: time, expires: time, interval: { const: v.interval }, radius: { const: v.radius }, follow: { const: v.follow }, aimX: { type: "number", minimum: 0, maximum: 1200 }, program: { const: v.program }, kind: { const: v.kind } }));
   const jobs = [...delayPrograms].map((program) => closed({ ...base, handle, program: { const: program }, aimX: { type: "number", minimum: 0, maximum: 1200 }, route: boolean }));
-  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: "2.1.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms] }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
+  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: statusDeclarations || programTargets.length ? "2.2.0" : "2.1.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms], ...statusDeclarations ? { statusDeclarations } : {}, ...programTargets.length ? { programTargets } : {} }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
   lookup.schemas.set(abilityId, schema);
   return schema;
 }
 
-// public-typed-input/package/rules/a/extensions/common.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/common.mjs
 var actorId2 = (x) => {
   if (x !== 0 && x !== 1) throw Error("Invalid actor");
   return x;
@@ -11808,7 +11940,7 @@ function parameters(definition, names) {
   }
   return structuredClone(p);
 }
-function actor3(f) {
+function actor4(f) {
   actorId2(f?.id);
   scalar(f.x);
   scalar(f.hp);
@@ -11820,7 +11952,7 @@ function actor3(f) {
 }
 function begin(event) {
   handle2(event.castId);
-  const owner = actor3(event.owner), target = actor3(event.target);
+  const owner = actor4(event.owner), target = actor4(event.target);
   if (typeof event.accepted !== "boolean" || typeof event.reflected !== "boolean") throw Error("Missing routed cast facts");
   return { castId: event.castId, owner: owner.id, target: target.id, reflected: event.reflected };
 }
@@ -11836,7 +11968,7 @@ function status(id, s, key2, duration, values, { to = s.target, positive = false
 function belongs(state, id) {
   return state === null || state?.abilityId === id && typeof state.castId === "string" && state.castId.length > 0 && state.castId.length <= 128 && [0, 1].includes(state.owner) && [0, 1].includes(state.target) && typeof state.reflected === "boolean" && ["waiting", "active", "closed"].includes(state.phase);
 }
-function exact2(x, keys) {
+function exact3(x, keys) {
   return !!x && Object.keys(x).sort().join(",") === keys.slice().sort().join(",");
 }
 function machine(id, p, validator, handlers) {
@@ -11848,10 +11980,10 @@ function machine(id, p, validator, handlers) {
   }]))) });
 }
 
-// public-typed-input/package/rules/a/extensions/swap.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/swap.mjs
 function createSwap(definition) {
   const id = definition.id, p = parameters(definition, ["damage", "damage_reduction_duration"]);
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "remaining", "lastCommit"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.remaining) && s.remaining >= 0 && s.remaining <= p.damage && Number.isSafeInteger(s.lastCommit) && s.lastCommit >= 0;
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "remaining", "lastCommit"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.remaining) && s.remaining >= 0 && s.remaining <= p.damage && Number.isSafeInteger(s.lastCommit) && s.lastCommit >= 0;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11877,7 +12009,7 @@ function createSwap(definition) {
       return result(s);
     },
     projectPostMitigation(s, e) {
-      if (!live(s, e) || s.phase !== "active" || !e.effective || actor3(e.target).id !== s.owner) return result(s);
+      if (!live(s, e) || s.phase !== "active" || !e.effective || actor4(e.target).id !== s.owner) return result(s);
       const debit = Math.min(nonnegative(e.amount), s.remaining);
       return result(s, [{ kind: "damage-projection", abilityId: id, amount: e.amount - debit, shieldDebit: debit, statusHandle: s.statusHandle }]);
     },
@@ -11908,10 +12040,10 @@ function createSwap(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/mark.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/mark.mjs
 function createMark(definition) {
   const id = definition.id, p = parameters(definition, ["duration"]);
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "returnX"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.returnX) && s.returnX >= 45 && s.returnX <= 1155;
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "returnX"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.returnX) && s.returnX >= 45 && s.returnX <= 1155;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11930,7 +12062,7 @@ function createMark(definition) {
     },
     statusExpiring(s, e) {
       if (!live(s, e) || e.handle !== s.statusHandle) return result(s);
-      const target = actor3(e.target);
+      const target = actor4(e.target);
       if (target.id !== s.target) throw Error("Mark target mismatch");
       const commands = e.effective && target.alive && !target.invulnerable ? [{ kind: "forced-return", abilityId: id, castId: s.castId, actor: s.target, destinationX: s.returnX, rootPolicy: "v8-forced-motion", collisionPolicy: "v8-move" }] : [];
       s.phase = "closed";
@@ -11952,10 +12084,10 @@ function createMark(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/rupture.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/rupture.mjs
 function createRupture(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "hp_pct", "movement_damage_pct", "damage_cap_amount"]);
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "lastX", "lastObservation"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.lastX) && s.lastX >= 0 && s.lastX <= 1200 && Number.isSafeInteger(s.lastObservation) && s.lastObservation >= 0;
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "lastX", "lastObservation"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.lastX) && s.lastX >= 0 && s.lastX <= 1200 && Number.isSafeInteger(s.lastObservation) && s.lastObservation >= 0;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11976,7 +12108,7 @@ function createRupture(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.statusHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastObservation) return result(s);
-      const target = actor3(e.target);
+      const target = actor4(e.target);
       if (target.id !== s.target) throw Error("Rupture target mismatch");
       const distance = Math.abs(target.x - s.lastX) / 0.55;
       s.lastX = target.x;
@@ -11999,10 +12131,10 @@ function createRupture(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/gaze.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/gaze.mjs
 function createGaze(definition) {
   const id = definition.id, p = parameters(definition, ["channel_duration", "mana_drain"]);
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "channelHandle", "lastPulse"]) && (s.channelHandle === null || typeof s.channelHandle === "string") && Number.isSafeInteger(s.lastPulse) && s.lastPulse >= 0 && s.lastPulse <= Math.floor(p.channel_duration / 0.25 + 1e-8);
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "channelHandle", "lastPulse"]) && (s.channelHandle === null || typeof s.channelHandle === "string") && Number.isSafeInteger(s.lastPulse) && s.lastPulse >= 0 && s.lastPulse <= Math.floor(p.channel_duration / 0.25 + 1e-8);
   const end = (s, reason) => {
     const handle3 = s.channelHandle;
     s.phase = "closed";
@@ -12029,7 +12161,7 @@ function createGaze(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.channelHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastPulse) return result(s);
-      const owner = actor3(e.owner), target = actor3(e.target);
+      const owner = actor4(e.owner), target = actor4(e.target);
       if (owner.id !== s.owner || target.id !== s.target) throw Error("Gaze actor mismatch");
       if (e.channelAliveBeforePulse === false) return end(s, "expired");
       if (!owner.alive || !e.tokenValid) return end(s, e.reason || "interrupted");
@@ -12054,11 +12186,11 @@ function createGaze(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/exorcism.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/exorcism.mjs
 function createExorcism(definition) {
   const id = definition.id, p = parameters(definition, ["AbilityDuration", "spirits", "ghost_spawn_rate", "spirit_speed", "give_up_distance", "average_damage", "heal_percent"]);
   if (!Number.isSafeInteger(p.spirits) || p.spirits > 64 || p.ghost_spawn_rate <= 0) throw Error("Invalid spirit profile");
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "swarmHandle", "lastContact", "actual", "pending"]) && (s.swarmHandle === null || typeof s.swarmHandle === "string") && Number.isSafeInteger(s.lastContact) && s.lastContact >= 0 && Number.isFinite(s.actual) && s.actual >= 0 && s.actual <= 1e6 && Array.isArray(s.pending) && s.pending.length <= 64 && s.pending.every((n2) => Number.isSafeInteger(n2) && n2 >= 1 && n2 <= s.lastContact) && new Set(s.pending).size === s.pending.length;
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "swarmHandle", "lastContact", "actual", "pending"]) && (s.swarmHandle === null || typeof s.swarmHandle === "string") && Number.isSafeInteger(s.lastContact) && s.lastContact >= 0 && Number.isFinite(s.actual) && s.actual >= 0 && s.actual <= 1e6 && Array.isArray(s.pending) && s.pending.length <= 64 && s.pending.every((n2) => Number.isSafeInteger(n2) && n2 >= 1 && n2 <= s.lastContact) && new Set(s.pending).size === s.pending.length;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -12081,7 +12213,7 @@ function createExorcism(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.swarmHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastContact) return result(s);
-      const owner = actor3(e.owner), target = actor3(e.target);
+      const owner = actor4(e.owner), target = actor4(e.target);
       if (owner.id !== s.owner || target.id !== s.target) throw Error("Spirit actor mismatch");
       s.lastContact = e.ordinal;
       if (!owner.alive || !target.alive) return result(s);
@@ -12101,7 +12233,7 @@ function createExorcism(definition) {
     expired(s, e) {
       if (!live(s, e) || e.handle !== s.swarmHandle) return result(s);
       if (s.pending.length) throw Error("Expiry must follow contact receipt commits");
-      const owner = actor3(e.owner);
+      const owner = actor4(e.owner);
       if (owner.id !== s.owner) throw Error("Spirit owner mismatch");
       const actual = s.actual;
       s.phase = "closed";
@@ -12121,10 +12253,10 @@ function createExorcism(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/dragon.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/dragon.mjs
 function createDragon(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "bonus_attack_range", "bonus_ability_cast_range", "bonus_movement_speed", "corrosive_duration", "corrosive_damage_per_second", "frost_duration", "frost_bonus_movement_speed", "frost_bonus_attack_speed"]);
-  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "formHandle", "profileHandle", "lastAttack", "corrosion"]) && (s.formHandle === null || typeof s.formHandle === "string") && (s.profileHandle === null || typeof s.profileHandle === "string") && Number.isSafeInteger(s.lastAttack) && s.lastAttack >= 0 && Array.isArray(s.corrosion) && s.corrosion.length <= 2 && s.corrosion.every((x) => exact2(x, ["target", "handle", "ordinal"]) && [0, 1].includes(x.target) && typeof x.handle === "string" && Number.isSafeInteger(x.ordinal) && x.ordinal >= 0 && x.ordinal <= Math.floor(p.corrosive_duration + 1e-8)) && new Set(s.corrosion.map((x) => x.target)).size === s.corrosion.length;
+  const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "formHandle", "profileHandle", "lastAttack", "corrosion"]) && (s.formHandle === null || typeof s.formHandle === "string") && (s.profileHandle === null || typeof s.profileHandle === "string") && Number.isSafeInteger(s.lastAttack) && s.lastAttack >= 0 && Array.isArray(s.corrosion) && s.corrosion.length <= 2 && s.corrosion.every((x) => exact3(x, ["target", "handle", "ordinal"]) && [0, 1].includes(x.target) && typeof x.handle === "string" && Number.isSafeInteger(x.ordinal) && x.ordinal >= 0 && x.ordinal <= Math.floor(p.corrosive_duration + 1e-8)) && new Set(s.corrosion.map((x) => x.target)).size === s.corrosion.length;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -12157,7 +12289,7 @@ function createDragon(definition) {
     },
     landedAttack(s, e) {
       if (!s || !s.formHandle || !e.formPresent || !e.landed || e.secondary) return result(s);
-      const owner = actor3(e.owner), target = actor3(e.target);
+      const owner = actor4(e.owner), target = actor4(e.target);
       if (owner.id !== s.owner) throw Error("Dragon owner mismatch");
       if (!owner.alive || !owner.passivesEnabled || !target.alive || target.invulnerable) return result(s);
       ordinal(e.ordinal);
@@ -12185,7 +12317,7 @@ function createDragon(definition) {
       if (e.ordinal <= record.ordinal) return result(s);
       if (e.ordinal > Math.floor(p.corrosive_duration + 1e-8)) throw Error("Corrosion pulse beyond source lifetime");
       record.ordinal = e.ordinal;
-      const owner = actor3(e.owner), target = actor3(e.target);
+      const owner = actor4(e.owner), target = actor4(e.target);
       if (owner.id !== s.owner || target.id !== record.target) throw Error("Corrosion actor mismatch");
       return result(s, target.alive && !target.invulnerable && !target.debuffImmune && e.effective ? [damage(id, { ...s, target: record.target }, p.corrosive_damage_per_second, "magical")] : []);
     },
@@ -12220,7 +12352,7 @@ function createDragon(definition) {
   });
 }
 
-// public-typed-input/package/rules/a/extensions/index.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/index.mjs
 var constructors = Object.freeze({ vengefulspirit_nether_swap: createSwap, kunkka_x_marks_the_spot: createMark, bloodseeker_rupture: createRupture, lich_sinister_gaze: createGaze, death_prophet_exorcism: createExorcism, dragon_knight_elder_dragon_form: createDragon });
 function createExtensionDraft(definition) {
   const create = constructors[definition.id];
@@ -12229,12 +12361,12 @@ function createExtensionDraft(definition) {
 }
 var EXTENSION_ABILITIES = Object.freeze(Object.keys(constructors));
 
-// public-typed-input/package/rules/a/extensions/canonical.js
+// node_modules/@dotapk/heros/rules/a/extensions/canonical.js
 var EXTENSION_SOURCE_FILES = Object.freeze(["rules/a/extensions/canonical.js", "rules/a/extensions/common.mjs", "rules/a/extensions/index.mjs", "rules/a/extensions/swap.mjs", "rules/a/extensions/mark.mjs", "rules/a/extensions/rupture.mjs", "rules/a/extensions/gaze.mjs", "rules/a/extensions/exorcism.mjs", "rules/a/extensions/dragon.mjs"]);
 var closed2 = (p) => ({ type: "object", additionalProperties: false, required: Object.keys(p), properties: p });
 var h = { anyOf: [{ type: "null" }, { type: "string", minLength: 1, maxLength: 128 }] };
 var n = { type: "integer", minimum: 0, maximum: Number.MAX_SAFE_INTEGER };
-var actor4 = { enum: [0, 1] };
+var actor5 = { enum: [0, 1] };
 var groups = /* @__PURE__ */ new WeakMap();
 function refineExtension(state, parameters2) {
   return createExtensionDraft(parameters2.definition).validateState(state);
@@ -12248,14 +12380,14 @@ function canonicalExtension(config) {
   }
   if (group.has(config.definition.id)) return group.get(config.definition.id);
   const definition = config.definition, rule = createExtensionDraft(definition), p = definition.mvp.params;
-  const base2 = { abilityId: { const: definition.id }, castId: { type: "string", minLength: 1, maxLength: 128 }, owner: actor4, target: actor4, reflected: { type: "boolean" }, phase: { enum: ["waiting", "active", "closed"] } };
+  const base2 = { abilityId: { const: definition.id }, castId: { type: "string", minLength: 1, maxLength: 128 }, owner: actor5, target: actor5, reflected: { type: "boolean" }, phase: { enum: ["waiting", "active", "closed"] } };
   const tail = {
     vengefulspirit_nether_swap: { statusHandle: h, remaining: { type: "number", minimum: 0, maximum: p.damage }, lastCommit: n },
     kunkka_x_marks_the_spot: { statusHandle: h, returnX: { type: "number", minimum: 45, maximum: 1155 } },
     bloodseeker_rupture: { statusHandle: h, lastX: { type: "number", minimum: 0, maximum: 1200 }, lastObservation: n },
     lich_sinister_gaze: { channelHandle: h, lastPulse: { type: "integer", minimum: 0, maximum: Math.floor(p.channel_duration / 0.25 + 1e-8) } },
     death_prophet_exorcism: { swarmHandle: h, lastContact: n, actual: { type: "number", minimum: 0, maximum: 1e6 }, pending: { type: "array", maxItems: 64, items: { type: "integer", minimum: 1, maximum: Number.MAX_SAFE_INTEGER } } },
-    dragon_knight_elder_dragon_form: { formHandle: h, profileHandle: h, lastAttack: n, corrosion: { type: "array", maxItems: 2, items: closed2({ target: actor4, handle: { type: "string", minLength: 1, maxLength: 128 }, ordinal: { type: "integer", minimum: 0, maximum: Math.floor(p.corrosive_duration + 1e-8) } }) } }
+    dragon_knight_elder_dragon_form: { formHandle: h, profileHandle: h, lastAttack: n, corrosion: { type: "array", maxItems: 2, items: closed2({ target: actor5, handle: { type: "string", minLength: 1, maxLength: 128 }, ordinal: { type: "integer", minimum: 0, maximum: Math.floor(p.corrosive_duration + 1e-8) } }) } }
   }[definition.id];
   const stateSchema = defineStateSchema({ id: "heros/a/extension/" + definition.id, version: "2.0.0", schema: { anyOf: [{ type: "null" }, closed2({ ...base2, ...tail })] }, parameters: { definition }, refinement: { id: "heros/a/extension/source-constraints", ...codeIdentity(EXTENSION_SOURCE_FILES), validate: refineExtension } });
   const entry = Object.freeze({ rule, stateSchema, ...codeIdentity(EXTENSION_SOURCE_FILES) });
@@ -12263,7 +12395,7 @@ function canonicalExtension(config) {
   return entry;
 }
 
-// public-typed-input/package/rules/a/runtime.js
+// node_modules/@dotapk/heros/rules/a/runtime.js
 var A_SOURCE_FILES = Object.freeze(["rules/a/register.js", "rules/a/runtime.js", "rules/a/model.js", "rules/a/gaps.js", "rules/a/state.js", "rules/a/parameters.js", ...EXTENSION_SOURCE_FILES]);
 var negativeKeys = /* @__PURE__ */ new Set(["disarm", "magicVulnerable", "moveSlow"]);
 var controls = ["stun", "root", "hex", "fear", "taunt"];
@@ -12321,6 +12453,11 @@ function createRule(config) {
   const programs = new Map([...lookup.programs].filter(([key2]) => key2.startsWith(id + ":")));
   const paths = new Map([...programs].map(([key2, value]) => [value, key2]));
   const root = id + ":recipe.ops";
+  const usesEffectiveRange = id === "dragon_knight_breathe_fire" || id === "dragon_knight_dragon_tail";
+  const declaresStatuses = id === "omniknight_hammer_of_purity", declarationIds = /* @__PURE__ */ new WeakMap();
+  if (declaresStatuses) r.ops.forEach((op, index) => {
+    if (op.op === "status") declarationIds.set(op, id + ":recipe.ops." + index);
+  });
   const resolve = (x, ctx, c) => coefficient(x, ctx, c, a, lookup);
   const vv = (v, ctx, c) => Object.fromEntries(Object.entries(v || {}).map(([k, x]) => [k, typeof x === "boolean" ? x : resolve(x, ctx, c)]));
   const read = (ctx) => structuredClone(ctx.state.read() ?? initial());
@@ -12338,7 +12475,7 @@ function createRule(config) {
     if (["status", "toggle"].includes(node.op)) {
       const v = vv(node.values, noFacts, {}), mixed = v.physicalImmune && Object.keys(v).some((k) => negativeKeys.has(k));
       const parts = mixed ? [{ key: (node.key || id) + "_positive", polarity: "positive", values: Object.fromEntries(Object.entries(v).filter(([k]) => !negativeKeys.has(k))) }, { key: (node.key || id) + "_hostile", polarity: "negative", values: Object.fromEntries(Object.entries(v).filter(([k]) => negativeKeys.has(k))) }] : [{ key: node.key || id, polarity: node.op === "toggle" || node.to === "self" ? "positive" : "negative", values: v }];
-      for (const part of parts) statusSchemas.push({ ...part, pierces: !!node.pierces, duration: node.op === "toggle" ? settings.statusToggleSeconds : resolve(node.duration, noFacts, {}), interval: node.tick ? resolve(node.tick.interval, noFacts, {}) : 0, program: node.tick ? paths.get(node.tick.ops) : null });
+      for (const part of parts) statusSchemas.push({ ...part, pierces: !!node.pierces, duration: node.op === "toggle" ? settings.statusToggleSeconds : resolve(node.duration, noFacts, {}), interval: node.tick ? resolve(node.tick.interval, noFacts, {}) : 0, program: node.tick ? paths.get(node.tick.ops) : null, ...declaresStatuses ? { statusDeclarationId: declarationIds.get(node), recipient: node.to === "self" ? "self" : "enemy", dispel: node.dispel || "basic" } : {} });
     }
     if (node.op === "delay") delayPrograms.add(paths.get(node.ops));
     if (node.op === "area") areaSchemas.push({ kind: "area", duration: resolve(node.duration, noFacts, {}), interval: resolve(node.interval, noFacts, {}), radius: resolve(node.radius, noFacts, {}) * settings.unitScale, follow: !!node.follow, program: paths.get(node.ops) });
@@ -12346,7 +12483,13 @@ function createRule(config) {
   }
   schema(r);
   if (HOST_REQUESTS[id] && id !== "death_prophet_spirit_siphon") canonicalExtension(config);
-  const stateSchema = ownStateSchema(lookup, id, statusSchemas, areaSchemas, delayPrograms);
+  const statusDeclarations = declaresStatuses ? statusSchemas.map((x) => ({ id: x.statusDeclarationId, key: x.key, recipient: x.recipient, duration: x.duration, interval: x.interval, programId: x.program, schedule: x.program ? { handler: "statusPulse", binding: "status", delivery: "actor.status-advance" } : null, polarity: x.polarity, dispel: x.dispel, pierces: x.pierces, values: x.values })) : null;
+  const programTargets = statusSchemas.filter((x) => programs.get(x.program)?.some((op) => op.op === "upkeepPulse")).map((x) => {
+    if (x.polarity !== "positive" || x.values.pulseToggle !== true) throw Error("A_UPKEEP_STATUS_DOMAIN");
+    return { programId: x.program, key: x.key, statusRecipient: "self", effectRecipient: "enemy" };
+  });
+  for (const [programId, ops] of programs) if (ops.some((op) => op.op === "upkeepPulse") && !programTargets.some((x) => x.programId === programId)) throw Error("A_UPKEEP_PROGRAM_DOMAIN");
+  const stateSchema = ownStateSchema(lookup, id, statusSchemas, areaSchemas, delayPrograms, statusDeclarations, programTargets);
   function exists(ctx, x) {
     return ctx.actor(x.target).alive && x.expires >= ctx.now - 1e-8 && ctx.status.query(x.target, x.key).some((s) => s.abilityId === id && s.owner === x.owner);
   }
@@ -12365,14 +12508,17 @@ function createRule(config) {
     const parts = mixed ? [{ key: (op.key || id) + "_positive", polarity: "positive", values: Object.fromEntries(Object.entries(v).filter(([k]) => !negativeKeys.has(k))) }, { key: (op.key || id) + "_hostile", polarity: "negative", values: Object.fromEntries(Object.entries(v).filter(([k]) => negativeKeys.has(k))) }] : [{ key: op.key || id, polarity: target === c.owner ? "positive" : "negative", values: v }];
     for (const part of parts) {
       if (part.polarity === "negative" && (f.invulnerable || f.debuffImmune && !op.pierces)) continue;
-      const handle3 = ctx.status.apply({ owner: c.owner, target, abilityId: id, key: part.key, duration, polarity: part.polarity, dispel: op.dispel || "basic", pierces: !!op.pierces, values: part.values });
+      const statusDeclarationId = declaresStatuses ? declarationIds.get(op) : null;
+      if (declaresStatuses && !statusDeclarationId) throw Error("A_STATUS_DECLARATION_SOURCE");
+      const identity2 = declaresStatuses ? { statusDeclarationId } : {};
+      const handle3 = ctx.status.apply({ owner: c.owner, target, abilityId: id, key: part.key, duration, polarity: part.polarity, dispel: op.dispel || "basic", pierces: !!op.pierces, values: part.values, ...identity2 });
       if (!handle3) continue;
       const s = read(ctx);
       for (const old of s.records.filter((x) => x.target === target && x.key === part.key)) cancelRecord(ctx, s, old);
-      const row = { n: s.next++, owner: c.owner, target, reflected: !!c.reflected, handle: handle3, key: part.key, polarity: part.polarity, pierces: !!op.pierces, startedAt: ctx.now, expires: ctx.now + duration, program: op.tick ? paths.get(op.tick.ops) : null, interval: op.tick ? resolve(op.tick.interval, ctx, c) : 0, values: part.values, remaining: Number(part.values.shield || 0) };
+      const row = { n: s.next++, owner: c.owner, target, reflected: !!c.reflected, handle: handle3, key: part.key, polarity: part.polarity, pierces: !!op.pierces, startedAt: ctx.now, expires: ctx.now + duration, program: op.tick ? paths.get(op.tick.ops) : null, interval: op.tick ? resolve(op.tick.interval, ctx, c) : 0, values: part.values, remaining: Number(part.values.shield || 0), ...identity2 };
       s.records.push(row);
       write(ctx, s);
-      if (row.program) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "statusPulse", delay: row.interval, data: { record: row.n }, binding: { kind: "status", ref: row.handle }, delivery: "actor.status-advance" });
+      if (row.program) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "statusPulse", delay: row.interval, data: { record: row.n }, binding: { kind: "status", ref: row.handle }, delivery: "actor.status-advance", ...identity2 });
     }
     if (parts.some((part) => part.polarity === "positive") || !f.invulnerable && (!f.debuffImmune || op.pierces)) {
       for (const type of controls) if (v[type]) ctx.control.apply({ owner: c.owner, target, abilityId: id, key: id, type, duration, pierces: !!op.pierces, dispel: op.dispel || "basic" });
@@ -12429,14 +12575,16 @@ function createRule(config) {
           break;
         }
         case "upkeepPulse": {
-          const cost = resolve(op.cost, ctx, c);
+          const domain = programTargets.find((x) => x.programId === program);
+          if (!domain || domain.statusRecipient !== "self" || domain.effectRecipient !== "enemy" || c.target !== c.owner) throw Error("A_UPKEEP_PROGRAM_DOMAIN");
+          const pulse = { ...c, target: 1 - c.owner, aimX: ctx.actor(1 - c.owner).x }, cost = resolve(op.cost, ctx, pulse);
           if (ctx.actor(c.owner).mp < cost) {
             const s = read(ctx);
             s.records.filter((x) => x.owner === c.owner && x.key === id).forEach((x) => cancelRecord(ctx, s, x));
             write(ctx, s);
           } else {
             ctx.mana({ actor: c.owner, abilityId: id, delta: -cost });
-            if (ctx.target.distance(c.owner, c.target) <= resolve(op.radius, ctx, c) * settings.unitScale) execute(ctx, c, paths.get(op.ops));
+            if (ctx.target.distance(c.owner, pulse.target) <= resolve(op.radius, ctx, pulse) * settings.unitScale) execute(ctx, pulse, paths.get(op.ops));
           }
           break;
         }
@@ -12492,7 +12640,7 @@ function createRule(config) {
       }
       if (effective(ctx, row)) execute(ctx, { ...row, aimX: ctx.actor(row.target).x }, row.program);
       const next = read(ctx).records.find((x) => x.n === row.n);
-      if (next && ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: next.owner, target: next.target, handler: "statusPulse", delay: next.interval, data: { record: next.n }, binding: { kind: "status", ref: next.handle }, delivery: "actor.status-advance" });
+      if (next && ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: next.owner, target: next.target, handler: "statusPulse", delay: next.interval, data: { record: next.n }, binding: { kind: "status", ref: next.handle }, delivery: "actor.status-advance", ...declaresStatuses ? { statusDeclarationId: next.statusDeclarationId } : {} });
     },
     areaPulse(ctx, data) {
       const s = read(ctx), row = s.areas.find((x) => x.n === data.area);
@@ -12514,19 +12662,21 @@ function createRule(config) {
       }
     }
   };
-  function liveRows(ctx, actor5) {
-    return read(ctx).records.filter((x) => x.target === actor5 && effective(ctx, x));
+  function liveRows(ctx, actor6) {
+    return read(ctx).records.filter((x) => x.target === actor6 && effective(ctx, x));
   }
-  function sum(ctx, actor5, key2) {
-    return liveRows(ctx, actor5).reduce((n2, x) => n2 + Number(x.values[key2] || 0), 0);
+  function sum(ctx, actor6, key2) {
+    return liveRows(ctx, actor6).reduce((n2, x) => n2 + Number(x.values[key2] || 0), 0);
   }
   return {
     behaviorId: "heros/a/v8/" + id,
-    revision: "2.1.0",
+    revision: usesEffectiveRange || declaresStatuses || programTargets.length ? "2.2.0" : "2.1.0",
     ...codeIdentity(A_SOURCE_FILES),
     requires: capabilities(a),
     namespace: "heros/a/" + id,
     stateSchema,
+    ...usesEffectiveRange ? { requiredCastFacts: ["effectiveCastRange"] } : {},
+    ...declaresStatuses ? { statusDeclarations } : {},
     ...capabilities(a).includes("schedule") ? { scheduledBindings: {
       ...statusSchemas.some((x) => x.program) ? { statusPulse: [{ binding: "status", delivery: "actor.status-advance" }] } : {},
       ...delayPrograms.size ? { delayedProgram: [{ binding: "source-job", delivery: "pack.job-due" }] } : {},
@@ -12540,7 +12690,7 @@ function createRule(config) {
       if (!reason && facts.cooldownRemaining > 1e-8) reason = "cooldown";
       if (!reason && facts.manaAvailable < m.mana) reason = "mana";
       if (!reason && m.charges && facts.chargesAvailable <= 0) reason = "charges";
-      if (!reason && r.target === "enemy" && (!target.alive || target.invulnerable || ctx.target.distance(facts.owner, facts.target) > m.range_wu + 22)) reason = "target";
+      if (!reason && r.target === "enemy" && (!target.alive || target.invulnerable || ctx.target.distance(facts.owner, facts.target) > (usesEffectiveRange ? facts.effectiveCastRange : m.range_wu) + 22)) reason = "target";
       if (!reason && !Number.isFinite(facts.aimX)) reason = "aim";
       if (!reason && r.target === "point" && (facts.aimX < 45 || facts.aimX > 1155 || Math.abs(facts.aimX - owner.x) > m.range_wu + 22)) reason = "aim";
       return { ...base2, accepted: !reason, ...reason ? { reason } : {} };
@@ -12644,7 +12794,7 @@ function createRule(config) {
   };
 }
 
-// public-typed-input/package/rules/a/register.js
+// node_modules/@dotapk/heros/rules/a/register.js
 var A_HERO_IDS = Object.freeze([21, 28, 29, 32, 36, 42, 47, 50, 55]);
 function registerA(registry) {
   for (const id of A_HERO_IDS) for (let slot = 0; slot < 4; slot++)
@@ -12652,59 +12802,7 @@ function registerA(registry) {
   return registry;
 }
 
-// public-typed-input/package/test/probes.mjs
-function probeFactory(kind, { amount = 35, namespace, limit = 100, schema, api = package_exports } = {}) {
-  return { abiVersion: api.BATTLE_ABI, parameters: { amount, limit }, create({ definition, parameters: parameters2 }) {
-    const stateSchema = schema ?? (kind === "state" ? countSchema(api, parameters2.limit) : api.EMPTY_STATE_SCHEMA);
-    const requires = kind === "damage" ? ["damage"] : kind === "heal" ? ["heal"] : [];
-    const activate = kind === "damage" ? (ctx, c) => ctx.damage({ source: c.owner, target: c.target, abilityId: definition.id, amount: parameters2.amount, type: "pure" }) : kind === "heal" ? (ctx, c) => ctx.heal({ source: c.owner, target: c.owner, abilityId: definition.id, amount: parameters2.amount }) : kind === "state" ? (ctx) => ctx.state.write({ count: (ctx.state.read()?.count ?? 0) + 1 }) : kind === "shared" ? (ctx) => ctx.state.write((ctx.state.read() ?? 0) + 1) : kind === "facts" ? (ctx, c) => {
-      for (const key2 of ["engine", "fighters", "input", "cast", "move", "damage"]) if (ctx[key2] !== void 0) throw Error("Unexpected host access " + key2);
-      try {
-        ctx.actor(c.target).hp = 0;
-        throw Error("Actor was writable");
-      } catch (error) {
-        if (!(error instanceof TypeError)) throw error;
-      }
-    } : () => {
-    };
-    return { behaviorId: "probe/" + kind, revision: "2.0.0", ...api.codeIdentity(["test/probes.mjs"]), ...namespace ? { namespace } : {}, requires, stateSchema, activate };
-  } };
-}
-function countSchema(api = package_exports, limit = 100) {
-  return api.defineStateSchema({ id: "test/count", schema: { anyOf: [{ type: "null" }, { type: "object", additionalProperties: false, required: ["count"], properties: { count: { type: "integer", minimum: 0, maximum: limit } } }] } });
-}
-
-// public-typed-input/package/rules/core4/bash.js
-function createBash({ definition, hero }) {
-  const p = definition.mvp.params, threshold = p.attack_count + 1;
-  if (!Number.isSafeInteger(threshold) || threshold < 1 || threshold > 64 || ![p.bonus_damage, p.duration].every((n2) => Number.isFinite(n2) && n2 >= 0) || p.bonus_damage > 1e7 || p.duration > 60) throw Error("Invalid Core4 Bash coefficients");
-  const schema = defineStateSchema({ id: "heros/core4/slardar-bash", schema: { anyOf: [{ type: "null" }, { type: "object", properties: { counts: { type: "object", properties: { "0": { type: "integer", minimum: 0, maximum: threshold - 1 }, "1": { type: "integer", minimum: 0, maximum: threshold - 1 } }, required: [], additionalProperties: false } }, required: ["counts"], additionalProperties: false }] } });
-  return {
-    behaviorId: "core4/slardar-bash",
-    revision: "1.0.0",
-    ...codeIdentity(["rules/core4/bash.js"]),
-    requires: ["damage", "control", "cue"],
-    stateSchema: schema,
-    onAttack(ctx, event) {
-      const f = ctx.actor(event.actor);
-      if (f.heroId !== hero.registryNumericId || !event.landed) return;
-      const counts = { ...ctx.state.read()?.counts ?? {} }, prior = counts[event.actor] ?? event.priorCount ?? 0;
-      if (!Number.isSafeInteger(prior) || prior < 0 || prior >= threshold) throw Error("Invalid private Bash counter fact");
-      const next = f.passivesEnabled ? prior + 1 : prior, proc = f.passivesEnabled && next >= threshold;
-      counts[event.actor] = proc ? 0 : next;
-      ctx.state.write({ counts });
-      if (proc) {
-        ctx.damage({ source: event.actor, target: event.target, abilityId: definition.id, amount: p.bonus_damage, type: "physical", blockable: false, dot: true, passive: true });
-        ctx.control.apply({ owner: event.actor, target: event.target, abilityId: definition.id, key: definition.id, type: "stun", duration: p.duration, pierces: true, dispel: "strong" });
-        ctx.cue({ kind: "passive", abilityId: definition.id, actor: event.actor, target: event.target });
-      }
-      return { bashCount: counts[event.actor] };
-    }
-  };
-}
-var core4Factories = Object.freeze([{ heroId: 31, slot: 2, create: createBash }]);
-
-// public-typed-input/package/rules/legacy-0-9/direct-hit.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/direct-hit.js
 var sourceFiles = ["rules/legacy-0-9/direct-hit.js"];
 var selected = /* @__PURE__ */ new Map([[3, "axe_culling"], [8, "lina_laguna"]]);
 function directHitFactory(parameters2 = { damageMultiplier: 1, bodyPadding: 22 }) {
@@ -12743,7 +12841,7 @@ function registerLegacyDirectHits(registry, parameters2) {
   return registry;
 }
 
-// public-typed-input/package/rules/legacy-0-9/projections.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/projections.js
 var slots = [[0, 2, "juggernaut_blade_dance"], [1, 2, "crystal_maiden_aura"], [4, 1, "sniper_headshot"], [6, 2, "phantom_assassin_immaterial"], [7, 3, "drow_ranger_marksmanship"]];
 function number(value, name, max = 1e7) {
   if (!Number.isFinite(value) || value < 0 || value > max) throw Error("Invalid projection " + name);
@@ -12818,15 +12916,15 @@ function registerLegacyPassiveProjections(registry) {
   return registry;
 }
 
-// public-typed-input/package/rules/legacy-0-9/index.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/index.js
 function registerLegacy0To9(registry) {
   return registerLegacyPassiveProjections(registerLegacyDirectHits(registry));
 }
 
-// public-typed-input/package/rules/legacy-10-19/index.js
+// node_modules/@dotapk/heros/rules/legacy-10-19/index.js
 var IMPLEMENTED_SLOTS = Object.freeze([[13, 0], [13, 1], [13, 3], [17, 1]].map(Object.freeze));
 var SOURCES = ["rules/legacy-10-19/index.js"];
-function bounded(value, name, max = 1e7) {
+function bounded2(value, name, max = 1e7) {
   if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > max) throw Error("Invalid legacy coefficient: " + name);
   return value;
 }
@@ -12836,10 +12934,10 @@ function legacyFactory(heroId, slot, { damageMultiplier = 1 } = {}) {
     const { heroId: heroId2, slot: slot2 } = parameters2;
     if (hero.registryNumericId !== heroId2 || hero.abilities[slot2].id !== definition.id) throw Error("Wrong legacy identity");
     if (Object.keys(parameters2).sort().join(",") !== "damageMultiplier,heroId,slot") throw Error("Unknown legacy execution parameter");
-    const scale = bounded(parameters2.damageMultiplier, "damageMultiplier");
+    const scale = bounded2(parameters2.damageMultiplier, "damageMultiplier");
     const m = definition.mvp;
-    bounded(m.range_wu, "range_wu", heroId2 === 17 ? 8845 : 1e7);
-    bounded(m.radius_wu, "radius_wu");
+    bounded2(m.range_wu, "range_wu", heroId2 === 17 ? 8845 : 1e7);
+    bounded2(m.radius_wu, "radius_wu");
     const common = {
       behaviorId: "legacy-10-19/" + definition.id,
       revision: "1.0.0",
@@ -12854,10 +12952,10 @@ function legacyFactory(heroId, slot, { damageMultiplier = 1 } = {}) {
         ctx.protect({ actor: cast.owner, abilityId: definition.id, kind: "invulnerability", duration: 4 / 60 });
       } };
     }
-    bounded(m.damage, "damage");
-    bounded(m.damage * scale, "scaled damage");
-    bounded(m.stun_s, "stun_s", 60);
-    bounded(m.hitstun_s, "hitstun_s", 60);
+    bounded2(m.damage, "damage");
+    bounded2(m.damage * scale, "scaled damage");
+    bounded2(m.stun_s, "stun_s", 60);
+    bounded2(m.hitstun_s, "hitstun_s", 60);
     if (!["physical", "magical", "pure"].includes(m.damage_type)) throw Error("Invalid legacy damage type");
     return { ...common, requires: slot2 === 1 ? ["damage"] : ["damage", "target-route", "cue"], activate(ctx, cast) {
       const f = ctx.actor(cast.owner), t = ctx.actor(cast.target);
@@ -12880,6 +12978,58 @@ function legacyFactory(heroId, slot, { damageMultiplier = 1 } = {}) {
 function registerLegacy10To19(registry, parameters2 = {}) {
   for (const [heroId, slot] of IMPLEMENTED_SLOTS) registry.registerFactory(heroId, slot, legacyFactory(heroId, slot, parameters2));
   return registry;
+}
+
+// node_modules/@dotapk/heros/rules/core4/bash.js
+function createBash({ definition, hero }) {
+  const p = definition.mvp.params, threshold = p.attack_count + 1;
+  if (!Number.isSafeInteger(threshold) || threshold < 1 || threshold > 64 || ![p.bonus_damage, p.duration].every((n2) => Number.isFinite(n2) && n2 >= 0) || p.bonus_damage > 1e7 || p.duration > 60) throw Error("Invalid Core4 Bash coefficients");
+  const schema = defineStateSchema({ id: "heros/core4/slardar-bash", schema: { anyOf: [{ type: "null" }, { type: "object", properties: { counts: { type: "object", properties: { "0": { type: "integer", minimum: 0, maximum: threshold - 1 }, "1": { type: "integer", minimum: 0, maximum: threshold - 1 } }, required: [], additionalProperties: false } }, required: ["counts"], additionalProperties: false }] } });
+  return {
+    behaviorId: "core4/slardar-bash",
+    revision: "1.0.0",
+    ...codeIdentity(["rules/core4/bash.js"]),
+    requires: ["damage", "control", "cue"],
+    stateSchema: schema,
+    onAttack(ctx, event) {
+      const f = ctx.actor(event.actor);
+      if (f.heroId !== hero.registryNumericId || !event.landed) return;
+      const counts = { ...ctx.state.read()?.counts ?? {} }, prior = counts[event.actor] ?? event.priorCount ?? 0;
+      if (!Number.isSafeInteger(prior) || prior < 0 || prior >= threshold) throw Error("Invalid private Bash counter fact");
+      const next = f.passivesEnabled ? prior + 1 : prior, proc = f.passivesEnabled && next >= threshold;
+      counts[event.actor] = proc ? 0 : next;
+      ctx.state.write({ counts });
+      if (proc) {
+        ctx.damage({ source: event.actor, target: event.target, abilityId: definition.id, amount: p.bonus_damage, type: "physical", blockable: false, dot: true, passive: true });
+        ctx.control.apply({ owner: event.actor, target: event.target, abilityId: definition.id, key: definition.id, type: "stun", duration: p.duration, pierces: true, dispel: "strong" });
+        ctx.cue({ kind: "passive", abilityId: definition.id, actor: event.actor, target: event.target });
+      }
+      return { bashCount: counts[event.actor] };
+    }
+  };
+}
+var core4Factories = Object.freeze([{ heroId: 31, slot: 2, create: createBash }]);
+
+// node_modules/@dotapk/heros/test/probes.mjs
+function probeFactory(kind, { amount = 35, namespace, limit = 100, schema, api = heros_exports } = {}) {
+  return { abiVersion: api.BATTLE_ABI, parameters: { amount, limit }, create({ definition, parameters: parameters2 }) {
+    const stateSchema = schema ?? (kind === "state" ? countSchema(api, parameters2.limit) : api.EMPTY_STATE_SCHEMA);
+    const requires = kind === "damage" ? ["damage"] : kind === "heal" ? ["heal"] : [];
+    const activate = kind === "damage" ? (ctx, c) => ctx.damage({ source: c.owner, target: c.target, abilityId: definition.id, amount: parameters2.amount, type: "pure" }) : kind === "heal" ? (ctx, c) => ctx.heal({ source: c.owner, target: c.owner, abilityId: definition.id, amount: parameters2.amount }) : kind === "state" ? (ctx) => ctx.state.write({ count: (ctx.state.read()?.count ?? 0) + 1 }) : kind === "shared" ? (ctx) => ctx.state.write((ctx.state.read() ?? 0) + 1) : kind === "facts" ? (ctx, c) => {
+      for (const key2 of ["engine", "fighters", "input", "cast", "move", "damage"]) if (ctx[key2] !== void 0) throw Error("Unexpected host access " + key2);
+      try {
+        ctx.actor(c.target).hp = 0;
+        throw Error("Actor was writable");
+      } catch (error) {
+        if (!(error instanceof TypeError)) throw error;
+      }
+    } : () => {
+    };
+    return { behaviorId: "probe/" + kind, revision: "2.0.0", ...api.codeIdentity(["test/probes.mjs"]), ...namespace ? { namespace } : {}, requires, stateSchema, activate };
+  } };
+}
+function countSchema(api = heros_exports, limit = 100) {
+  return api.defineStateSchema({ id: "test/count", schema: { anyOf: [{ type: "null" }, { type: "object", additionalProperties: false, required: ["count"], properties: { count: { type: "integer", minimum: 0, maximum: limit } } }] } });
 }
 export {
   BATTLE_ABI,

@@ -1,2 +1,14 @@
 import {build} from 'esbuild';
-await build({entryPoints:['node_modules/@dotapk/heros/index.js'],bundle:true,format:'esm',platform:'browser',target:'es2022',outfile:'src/heros-rules.js',legalComments:'none',charset:'utf8'});
+import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';import{fileURLToPath}from'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.4-a-joint.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/joint-source-manifest.json'),'utf8'));
+if(hash(tar)!=='9010a9ea872f8ac51c4c1ee660db88fe496c04887013a26baa4b632510bc1181')throw Error('Wrong frozen joint public tarball');
+for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Installed public source differs: '+file);
+const result=await build({absWorkingDir:root,stdin:{contents:`export * from './index.js';
+export {registerA} from './rules/a/register.js';
+export {registerLegacy0To9,directHitFactory,passiveProjectionFactory} from './rules/legacy-0-9/index.js';
+export {registerLegacy10To19,legacyFactory} from './rules/legacy-10-19/index.js';
+export {createBash} from './rules/core4/bash.js';
+export {probeFactory} from './test/probes.mjs';`,resolveDir:pkg,sourcefile:'private-consumer-entry.mjs',loader:'js'},bundle:true,format:'esm',platform:'browser',target:'es2022',outfile:'src/heros-rules.js',write:false,legalComments:'none',charset:'utf8'});
+for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Source changed during build: '+file);
+fs.writeFileSync(path.join(root,'src/heros-rules.js'),result.outputFiles[0].contents);
+console.log('Verified 131 frozen public files; built private consumer bundle.');
