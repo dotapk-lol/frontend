@@ -11,7 +11,7 @@
     "pretest": "node scripts/vendor-heros.mjs && node scripts/render-audio.mjs"
   },
   "dependencies": {
-    "@dotapk/heros": "file:vendor/dotapk-heros-0.1.0-review.4-a-joint.1.tgz"
+    "@dotapk/heros": "file:vendor/dotapk-heros-0.1.0-review.4-a-area-clock.1.tgz"
   },
   "devDependencies": {
     "esbuild": "0.28.1",

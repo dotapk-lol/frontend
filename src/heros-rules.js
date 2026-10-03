@@ -11027,7 +11027,7 @@ var sourceManifest = {
   "examples/blink-range.js": "e1031dc2d8b854b3a9c06dca05f20faa0b71681ce3317edcaa0f8ba836df28f0",
   "examples/demo.mjs": "3051e9b682638fe5d9c54b25277a2317256c53338cb88c6d54e169417c97a2c6",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
-  "package.json": "d487a1b2cee7de8e9170f66476a7ef4c3553663287aa7292839ce16ad112f6c4",
+  "package.json": "f443737c2fa6720493354f04e02872bc3bed99a4cde7e17f30b1f55422af0259",
   "rules/a/extensions/canonical.js": "27589aeae0f4cf0037fea07f0ea9bb7c95977ecb756342396d4bba1de4b519a1",
   "rules/a/extensions/common.mjs": "15b26f87007922ba78f1f6d5b9eb483c6a6de52f5069c592ee81726de9afcc98",
   "rules/a/extensions/dragon.mjs": "e8ef50d566fdd3e4fa3c9bfac07a73571bd216f6ea0a2a1b6108f193fb0e760f",
@@ -11042,8 +11042,8 @@ var sourceManifest = {
   "rules/a/model.js": "d65104d7c0a2003776bb049564e9ecaced61fba9830fad9e8188855f4979c89e",
   "rules/a/parameters.js": "4c65441736d3fda976116d668ed9b65bc6e74866a7be081f9004613545b564eb",
   "rules/a/register.js": "f9c96a4c7b52dbfe30c3f05eb308758ce8b54a581468d118e57961e00ae6928b",
-  "rules/a/runtime.js": "3df2bf5dd66ccf49d2b44b90ba41daaa173af1b9422ad3e826f19341e76d95c6",
-  "rules/a/state.js": "ebf1a20331d5e782056a87c677eadd039c1d90de6536145970e549de40e02b2a",
+  "rules/a/runtime.js": "20f27eaf17e9763d43bb877c81fc100c81b546aefcdc77d996e20ea11b3f00a9",
+  "rules/a/state.js": "0a5fec0b7ded0ce1976020d58fa956598dc0f242a8d44e8850741446a77b8228",
   "rules/b/model.js": "0ed3171e5dafcf4086a499235c1721cbfc181e9d58c4a63c85c9b97abfeec6b0",
   "rules/b/programs.js": "77e06b81e9bbaf55fa23ff5e5037bcdf3a464f6462a3e4a6382f738894c4a7fa",
   "rules/b/register.js": "bd9371e55ecde22a3bde3204385c365aebc8d523451e971ec137b50dbf8833e3",
@@ -11089,7 +11089,7 @@ var sourceManifest = {
   "rules/legacy-10-19/remaining-projectiles.js": "8f25c1e7e98f5fcf6f096f1c6371c692aeb05189efc009c90c43bde543f6b56d",
   "rules/legacy-10-19/remaining.js": "8da0d8515c5ab20a76e8f9f924cb328f685253241ad0255485e24c9b19fe3c77",
   "rules/legacy-three.js": "d201c401e3a9ff3d1427d16f1be304410fe60f91c911c1212bc38db5f1a3bc63",
-  "scripts/a-run-tests.mjs": "e8f0fb2a8443bc1c9c7ea9c8027548fc5f12bb6b4dd334d5eb74306009419bbb",
+  "scripts/a-run-tests.mjs": "355d27c4255826d678c8c2171147ba7c3bf3673c9e39c1ab4949457d39816d93",
   "scripts/c/fingerprint.mjs": "dc775f4baa042b3af5ebbb5dbda5608e315b4a7910871129309f9f0c964ac0b8",
   "scripts/c/run-tests.mjs": "a409bb5298948b82a29289b51ae9f6836cef07f8deed808623cd9ce4cbb447e9",
   "scripts/fingerprint.mjs": "3c621367e4349d7704fb7b4234067c132504fc2e1bd66e6fa3024181e59bc94e",
@@ -11097,18 +11097,18 @@ var sourceManifest = {
   "scripts/legacy-10-19/run-remaining-tests.mjs": "42ba29f56a69165f1d861d66b35aae429ba87d0a9dbb90b173fd09ada1653bfb",
   "scripts/legacy-10-19/run-tests.mjs": "fdff01465e72761bd493987effb989b80ca96b487f147d009c63bb164a38bd17",
   "scripts/run-tests.mjs": "785bb3162ad22b6e0d7fcb3233d35f23a3b8a7b64c0877eed1a4251c900cd6fc",
-  "scripts/test-suites.mjs": "b4f6679bbd5501d5e608199525f17a74ad09421e39090f9159ff9f32330f133b",
-  "test/a-host.mjs": "2c11d171ed76f426341cc4204c6fc18ee52b024b0ff9e78a9718511dfc6c825d",
+  "scripts/test-suites.mjs": "cf34d2d3ac40c8d976606aeede3d2c561c7dbcf051ba79acead378b7a731d785",
+  "test/a-host.mjs": "e3cc198962c8111b44e7064b0ba34d5e0262c958afb96343a5533e0dde49cc2a",
   "test/a-probes.mjs": "d4aeec8429f97a06102473a18e7169bba4e885dcc202c33b296a669401a97ca1",
-  "test/a-rules.test.mjs": "5c3a8d1626854785d1b62abb9651c0a92f53bc109638d42ec1765c491b29f908",
+  "test/a-rules.test.mjs": "152bc8d3d9083d832ed340f78efbbffa88edc27986e5d26ef57a5faca1e9a96e",
   "test/a-six-handlers.test.mjs": "e7adfe6c15c4534f61c85371bb633d0c3618a636510459e25ee3a91bf0e7a1b6",
-  "test/a-v2-contract.test.mjs": "4a95b1d0780026189712652c9b07c106ef841a3b082be9de241b4086df75255f",
+  "test/a-v2-contract.test.mjs": "9ea0264ebbf353a940ce78f26aa443f4a44fad11aa597d1343b464e6d9c09d11",
   "test/a-v3-resources.test.mjs": "f93a000f394a19521bee4137bd857667d92cf639c462cf05ce019631a582549e",
-  "test/a-v4-schedule.test.mjs": "960b9c571e739b80cd4ae0d8a0863af44c764700a7b5c97a27cee40eedba3a6d",
+  "test/a-v4-schedule.test.mjs": "5b560bb0fa226bb0b497c77086cc17edf17020a4f74513ec9331d00f52b42d9b",
   "test/b24-host.mjs": "0349d5db7d9f4865dd11143d0af0dc898e3a980cafcbbd6713a992f017a58ec1",
   "test/b24.test.mjs": "915831b07e1776c8392f145de9f453b83e7fb097527ffc46182b68793b9183a1",
   "test/batch10-contract-run.mjs": "60373b560e4afe917830bc0cf65cfbe2028060fbcf4a59b1e0781a1790738885",
-  "test/batch10-contract.test.mjs": "193a1054800fd131fa11d9d452f6579fe81dd1b6e017a0a2cac16f2f56ddfb81",
+  "test/batch10-contract.test.mjs": "8d605b3ed266d9a6aeafa2746235c46a12682aeef70878621b74a5b7576325fa",
   "test/c/boundaries.test.mjs": "35683a2150fb9939cc08336992aaa234b59665174fdcea4c5a1d3c592a9358a1",
   "test/c/effect-diff.test.mjs": "c0a00577e8948a87be1c207fcb813532a4ba7a61bada8dee98ab4776f79bdb3f",
   "test/c/host.mjs": "00d4bce42868f135e9c49a978ae891cec45e97d5878c4e4711731f24341df617",
@@ -11871,7 +11871,7 @@ function refineOwnState(state, parameters2) {
     used.add(row.n);
   }
   for (const row of state.records) if (!parameters2.statusSchemas.some((v) => row.key === v.key && row.polarity === v.polarity && row.program === v.program && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7)) return false;
-  for (const row of state.areas) if (!parameters2.areaSchemas.some((v) => row.kind === v.kind && row.program === v.program && row.interval === v.interval && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7)) return false;
+  for (const row of state.areas) if (!parameters2.areaSchemas.some((v) => row.kind === v.kind && row.program === v.program && row.interval === v.interval && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7 && row.pulses * row.interval <= v.duration + 1e-8)) return false;
   for (const row of state.jobs) if (row.route !== (parameters2.abilityId === "vengefulspirit_magic_missile" && !row.reflected)) return false;
   if (parameters2.statusDeclarations) {
     const handles = /* @__PURE__ */ new Set();
@@ -11887,13 +11887,13 @@ function refineOwnState(state, parameters2) {
   }
   return true;
 }
-function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayPrograms, statusDeclarations = null, programTargets = []) {
+function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayPrograms, statusDeclarations = null, programTargets = [], areaDeliveryClock = null) {
   lookup.schemas ??= /* @__PURE__ */ new Map();
   if (lookup.schemas.has(abilityId)) return lookup.schemas.get(abilityId);
   const records = statusSchemas.map((v) => closed({ ...base, handle, key: { const: v.key }, startedAt: time, expires: time, program: { const: v.program }, interval: { const: v.interval }, values: { const: v.values }, remaining: { type: "number", minimum: 0, maximum: Number(v.values.shield || 0) }, polarity: { const: v.polarity }, pierces: { const: v.pierces }, ...statusDeclarations ? { statusDeclarationId: { const: v.statusDeclarationId } } : {} }));
-  const areas = areaSchemas.map((v) => closed({ ...base, handle, startedAt: time, expires: time, interval: { const: v.interval }, radius: { const: v.radius }, follow: { const: v.follow }, aimX: { type: "number", minimum: 0, maximum: 1200 }, program: { const: v.program }, kind: { const: v.kind } }));
+  const areas = areaSchemas.map((v) => closed({ ...base, handle, startedAt: time, expires: time, interval: { const: v.interval }, radius: { const: v.radius }, follow: { const: v.follow }, aimX: { type: "number", minimum: 0, maximum: 1200 }, program: { const: v.program }, kind: { const: v.kind }, pulses: { type: "integer", minimum: 0, maximum } }));
   const jobs = [...delayPrograms].map((program) => closed({ ...base, handle, program: { const: program }, aimX: { type: "number", minimum: 0, maximum: 1200 }, route: boolean }));
-  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: statusDeclarations || programTargets.length ? "2.2.0" : "2.1.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms], ...statusDeclarations ? { statusDeclarations } : {}, ...programTargets.length ? { programTargets } : {} }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
+  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: areaDeliveryClock ? "2.3.0" : statusDeclarations || programTargets.length ? "2.2.0" : "2.1.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms], ...statusDeclarations ? { statusDeclarations } : {}, ...programTargets.length ? { programTargets } : {}, ...areaDeliveryClock ? { areaDeliveryClock } : {} }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
   lookup.schemas.set(abilityId, schema);
   return schema;
 }
@@ -12489,7 +12489,8 @@ function createRule(config) {
     return { programId: x.program, key: x.key, statusRecipient: "self", effectRecipient: "enemy" };
   });
   for (const [programId, ops] of programs) if (ops.some((op) => op.op === "upkeepPulse") && !programTargets.some((x) => x.programId === programId)) throw Error("A_UPKEEP_PROGRAM_DOMAIN");
-  const stateSchema = ownStateSchema(lookup, id, statusSchemas, areaSchemas, delayPrograms, statusDeclarations, programTargets);
+  const areaDeliveryClock = areaSchemas.length ? { version: 1, handler: "areaPulse", binding: "entity-area", delivery: "pack.entity", callbackAt: "authenticated-nominal", nativeExpired: "leased-native", resourceAt: "ctx.now", ordinal: "state.areas.pulses" } : null;
+  const stateSchema = ownStateSchema(lookup, id, statusSchemas, areaSchemas, delayPrograms, statusDeclarations, programTargets, areaDeliveryClock);
   function exists(ctx, x) {
     return ctx.actor(x.target).alive && x.expires >= ctx.now - 1e-8 && ctx.status.query(x.target, x.key).some((s) => s.abilityId === id && s.owner === x.owner);
   }
@@ -12607,7 +12608,7 @@ function createRule(config) {
     if (fields.kind === "siphon") throw new HostPortRequired(id);
     const handle3 = ctx.legacyEffect.spawn({ abilityId: id, owner: c.owner, castId: c.castId, kind: "area", x: fields.follow ? ctx.actor(c.owner).x : c.aimX, radius: fields.radius, duration: fields.duration, data: { target: c.target, interval: fields.interval, follow: fields.follow } });
     if (typeof handle3 !== "string" || !/^[-a-zA-Z0-9_:/.]{1,160}$/.test(handle3)) throw Error("A-ENTITY-14: native area admission requires an accepted opaque handle");
-    const s = read(ctx), row = { n: s.next++, owner: c.owner, target: c.target, reflected: !!c.reflected, handle: handle3, startedAt: ctx.now, expires: ctx.now + fields.duration, interval: fields.interval, radius: fields.radius, follow: fields.follow, aimX: c.aimX, program: fields.program, kind: fields.kind };
+    const s = read(ctx), row = { n: s.next++, owner: c.owner, target: c.target, reflected: !!c.reflected, handle: handle3, startedAt: ctx.now, expires: ctx.now + fields.duration, interval: fields.interval, radius: fields.radius, follow: fields.follow, aimX: c.aimX, program: fields.program, kind: fields.kind, pulses: 0 };
     s.areas.push(row);
     write(ctx, s);
     ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: fields.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
@@ -12643,18 +12644,23 @@ function createRule(config) {
       if (next && ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: next.owner, target: next.target, handler: "statusPulse", delay: next.interval, data: { record: next.n }, binding: { kind: "status", ref: next.handle }, delivery: "actor.status-advance", ...declaresStatuses ? { statusDeclarationId: next.statusDeclarationId } : {} });
     },
     areaPulse(ctx, data) {
+      if (!data || !Number.isSafeInteger(data.area) || data.area < 1) throw Error("A-AREA-CLOCK-01: canonical area locator required");
       const s = read(ctx), row = s.areas.find((x) => x.n === data.area);
       if (!row) return;
+      const expectedAt = row.startedAt + (row.pulses + 1) * row.interval;
+      if (!Number.isFinite(data.callbackAt) || data.callbackAt < 0 || data.callbackAt > ctx.now + 1e-8 || Math.abs(data.callbackAt - expectedAt) > 1e-8 || data.callbackAt > row.expires + 1e-8 || typeof data.nativeExpired !== "boolean" || typeof data.handle !== "string" || data.handle.length < 1 || data.handle.length > 160 || data.nativeExpired && ctx.now < row.expires - 1e-8) throw Error("A-AREA-CLOCK-01: authenticated nominal callback/native lifetime facts required");
       const owner = ctx.actor(row.owner), target = ctx.actor(row.target);
-      if (!owner.alive || ctx.now > row.expires + 1e-8) {
-        ctx.legacyEffect.end(row.handle, owner.alive ? "expired" : "owner-dead");
+      if (!owner.alive) {
+        ctx.legacyEffect.end(row.handle, "owner-dead");
         s.areas = s.areas.filter((x) => x.n !== row.n);
         write(ctx, s);
         return;
       }
+      row.pulses++;
+      write(ctx, s);
       if (Math.abs(target.x - (row.follow ? owner.x : row.aimX)) <= row.radius) execute(ctx, { ...row, aimX: row.follow ? owner.x : row.aimX }, row.program);
-      if (ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: row.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
-      else {
+      if (data.callbackAt + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: row.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
+      else if (data.nativeExpired) {
         ctx.legacyEffect.end(row.handle, "expired");
         const after = read(ctx);
         after.areas = after.areas.filter((x) => x.n !== row.n);
@@ -12670,7 +12676,7 @@ function createRule(config) {
   }
   return {
     behaviorId: "heros/a/v8/" + id,
-    revision: usesEffectiveRange || declaresStatuses || programTargets.length ? "2.2.0" : "2.1.0",
+    revision: areaDeliveryClock ? "2.3.0" : usesEffectiveRange || declaresStatuses || programTargets.length ? "2.2.0" : "2.1.0",
     ...codeIdentity(A_SOURCE_FILES),
     requires: capabilities(a),
     namespace: "heros/a/" + id,

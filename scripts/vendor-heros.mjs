@@ -1,7 +1,7 @@
 import {build} from 'esbuild';
 import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';import{fileURLToPath}from'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.4-a-joint.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/joint-source-manifest.json'),'utf8'));
-if(hash(tar)!=='9010a9ea872f8ac51c4c1ee660db88fe496c04887013a26baa4b632510bc1181')throw Error('Wrong frozen joint public tarball');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.4-a-area-clock.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/area-clock-source-manifest.json'),'utf8'));
+if(hash(tar)!=='ab7f2cc3382ecb17207784280b0354a6e3084dcd475ed90b6ff8edee075db7be')throw Error('Wrong frozen integrated area-clock public tarball');
 for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Installed public source differs: '+file);
 const result=await build({absWorkingDir:root,stdin:{contents:`export * from './index.js';
 export {registerA} from './rules/a/register.js';
