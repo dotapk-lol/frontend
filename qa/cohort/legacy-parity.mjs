@@ -1,0 +1,7 @@
+// Full snapshot parity against an explicitly supplied immutable baseline checkout.
+import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';
+import {Engine} from '../../src/engine.js';import {runtimeHeroes} from '../../src/runtime-heroes.js';
+const root=path.resolve(process.argv[2]||'../frontend-death-collision'),commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();assert.equal(commit,'62abfe665f10f8f7589890949714b174dae2db9d');
+const {Engine:Old}=await import(pathToFileURL(path.join(root,'src/engine.js'))),{heroes}=await import(pathToFileURL(path.join(root,'src/data.js')));let frames=0;
+for(let a=0;a<20;a++)for(let b=0;b<20;b++){const e=new Engine(runtimeHeroes,[a,b],{seed:73}).start(),old=new Old(heroes,[a,b],{seed:73}).start();for(let n=0;n<300;n++){for(let i=0;i<2;i++){const input=n%40===0?{['s'+Math.floor(n/40)%4]:true}:n%40<15?{attack:true,[i?'left':'right']:true}:{};e.setInput(i,input);old.setInput(i,input);}e.step();old.step();assert.deepEqual(e.snapshot(),old.snapshot(),`pair ${a}/${b}, frame ${n}`);frames++;}}
+const report={baseline:commit,pairs:400,frames,differences:0,comparison:'full Engine.snapshot() deep equality',browserAcceptance:false};fs.mkdirSync('release/pack-abi-v2.3',{recursive:true});fs.writeFileSync('release/pack-abi-v2.3/legacy-parity.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

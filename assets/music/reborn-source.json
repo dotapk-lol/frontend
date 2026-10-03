@@ -17,5 +17,13 @@
     "menu",
     "battle"
   ],
-  "notOriginalReborn": true
+  "notOriginalReborn": true,
+  "offlineDerivative": {
+    "file": "assets/music/reborn-dnb-remix-offline.mp3",
+    "bytes": 5365455,
+    "sha256": "3702ca7b1abb24c6ba06650aba220473e9eeb2df948adfe8535c6f6089dca2fb",
+    "bitrate": 192000,
+    "purpose": "Keep expanded-roster single-file export below Library 32MiB limit; hosted playback uses original320kbps file",
+    "sourceSha256": "e19fc6ebc70965227f7e1f4bb30e69367033fdc97f6c9ca09ea53470643eae85"
+  }
 }

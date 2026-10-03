@@ -1,0 +1,5 @@
+import fs from 'node:fs';import{fixture,advance}from './fixture.mjs';import{services}from '../../../src/hero-packs/c56_90/system.js';
+const press=(e,i,s)=>{e.setInput(i,{['s'+s]:true});e.step();e.setInput(i,{});};const out=[];
+for(const side of[0,1])for(const id of[82,58]){const {e,f,t}=fixture(id,side,5);press(e,t.i,2);advance(e,.1);const before=[f.hp,t.hp];press(e,f.i,0);advance(e,.55);out.push({issue:'EP-02',hero:id,side,before,after:[f.hp,t.hp],counterRemains:!!e.buff(t,'counter'),reflectionCount:e.logs.filter(x=>x.type==='spell_reflected').length});}
+for(const side of[0,1]){const {e,f,t}=fixture(71,side,58);t.x=f.x+(side?-80:80);press(e,t.i,3);advance(e,.6);e.setInput(f.i,{attack:true});advance(e,.6);e.setInput(f.i,{});const s=services.status(e,t,'alchemist_corrosive_weaponry'),base=e.hero(t.i).attack,before=f.hp;e.setInput(t.i,{attack:true});advance(e,.35);e.setInput(t.i,{});out.push({issue:'EP-03',side,base,stacks:s.values.stacks,bonus:150,actualDebit:before-f.hp,expected:base*(1-s.values.attackReduction)+150});}
+if(process.argv[2])fs.writeFileSync(process.argv[2],JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out,null,2));

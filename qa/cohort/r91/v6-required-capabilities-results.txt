@@ -1,0 +1,126 @@
+✖ REQUIRED forced-orders: Duel timed mutual attacks and expiry restoration (2.136792ms)
+✖ REQUIRED swept-motion: Skewer short stun invalidates collision/damage token (0.289625ms)
+✖ REQUIRED attackable-units: Phoenix egg receives10 landed hero attacks, exactly one owner death (0.172625ms)
+✖ REQUIRED cross-system-positive-dispel: remove a legacy enemy buff without removing negative Seal (0.123542ms)
+✖ REQUIRED damage-block-bypass: Quill must deal85, not65, through flat20 block (1.943916ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.982333
+
+✖ failing tests:
+
+test at qa/cohort/r91/required-capabilities.probe.mjs:7:1
+✖ REQUIRED forced-orders: Duel timed mutual attacks and expiry restoration (2.136792ms)
+  AssertionError [ERR_ASSERTION]: no public forced-order authority in frozen ABI
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/didi/Documents/Codex/2026-10-02/task-9/abi-v6/engine-fixture/qa/cohort/r91/required-capabilities.probe.mjs:7:109)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa/cohort/r91/required-capabilities.probe.mjs:8:1
+✖ REQUIRED swept-motion: Skewer short stun invalidates collision/damage token (0.289625ms)
+  AssertionError [ERR_ASSERTION]: e.move is endpoint clamping, not swept motion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/didi/Documents/Codex/2026-10-02/task-9/abi-v6/engine-fixture/qa/cohort/r91/required-capabilities.probe.mjs:8:112)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa/cohort/r91/required-capabilities.probe.mjs:9:1
+✖ REQUIRED attackable-units: Phoenix egg receives10 landed hero attacks, exactly one owner death (0.172625ms)
+  AssertionError [ERR_ASSERTION]: effect-only spawn cannot create an attackable egg
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/didi/Documents/Codex/2026-10-02/task-9/abi-v6/engine-fixture/qa/cohort/r91/required-capabilities.probe.mjs:9:131)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa/cohort/r91/required-capabilities.probe.mjs:10:1
+✖ REQUIRED cross-system-positive-dispel: remove a legacy enemy buff without removing negative Seal (0.123542ms)
+  AssertionError [ERR_ASSERTION]: ABI2.1 api.dispel is namespace-local; no global public polarity dispatcher for foreign/legacy buffs
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/didi/Documents/Codex/2026-10-02/task-9/abi-v6/engine-fixture/qa/cohort/r91/required-capabilities.probe.mjs:10:133)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa/cohort/r91/required-capabilities.probe.mjs:11:1
+✖ REQUIRED damage-block-bypass: Quill must deal85, not65, through flat20 block (1.943916ms)
+  AssertionError [ERR_ASSERTION]: gated diagnostic demonstrates existing flat-block semantic mismatch
+  
+  65 !== 85
+  
+      at TestContext.<anonymous> (file:///Users/didi/Documents/Codex/2026-10-02/task-9/abi-v6/engine-fixture/qa/cohort/r91/required-capabilities.probe.mjs:11:468)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 65,
+    expected: 85,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
