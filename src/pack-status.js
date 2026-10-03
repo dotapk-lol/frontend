@@ -1,4 +1,5 @@
 import {legacyBuffPolicy,LEGACY_STATUS_POLICY,LEGACY_TIMER_POLICY,LEGACY_DOT_POLICY,INVULNERABLE_DISPEL_ABILITIES} from './legacy-status-policy.js';
+import {PackControl} from './pack-control.js';
 const actor=(e,f)=>{if(!f||![0,1].includes(f.i)||e.fighters[f.i]!==f)throw Error('Invalid status actor');};
 const tierOK=(record,tier)=>record==='basic'||tier==='strong'&&record==='strong';
 const keyOK=s=>typeof s==='string'&&/^[a-z][a-z0-9_-]{0,127}$/.test(s)&&!['constructor','prototype','__proto__'].includes(s);
@@ -28,7 +29,7 @@ export const PackStatus={
  dispel(e,f,options){
   actor(e,f);policyOK(options);const {tier='basic',hostile=true,source,abilityId,allowInvulnerable=false}=options;
   if(f.hp<=0||f.invuln>0&&!allowInvulnerable)return [];
-  const polarity=hostile?'negative':'positive',plan=[],after=[];
+  const polarity=hostile?'negative':'positive',plan=[],after=[],controlIds=[];
   const add=(namespace,key,remove,id,onRemoved)=>{plan.push({ref:ref(namespace,key,polarity,f,id),remove});if(onRemoved)after.push(onRemoved);};
   // Namespace order is deterministic; removal commits before callbacks/procs.
   for(const namespace of Object.keys(f.packModules||{}).sort()){
@@ -44,11 +45,11 @@ export const PackStatus={
   if(hostile){
    for(const [key,dispel]of Object.entries(LEGACY_TIMER_POLICY))if(f[key]>0&&tierOK(dispel,tier))add('legacy_timer',key,()=>{f[key]=0;if(key==='slow')f.slowPct=0;});
    for(const d of [...f.dots])if(tierOK(d.m.dispelTier??LEGACY_DOT_POLICY[d.id],tier))add('legacy_dot',d.id,()=>{f.dots=f.dots.filter(v=>v!==d);});
-   for(const c of [...e.packCore?.controls||[]])if(c.target===f.i&&tierOK(c.dispel,tier))add('pack_control',c.key,()=>{},c.id,()=>e.releaseControlSource(c.id,'dispelled'));
+   for(const c of [...e.packCore?.controls||[]])if(c.target===f.i&&tierOK(c.dispel,tier)){controlIds.push(c.id);add('pack_control',c.key,()=>{},c.id);}
   }else for(const r of [...e.packCore?.statusResistance||[]])if(r.target===f.i&&tierOK(r.dispel,tier))add('pack_status_resistance',r.key,()=>{e.packCore.statusResistance=e.packCore.statusResistance.filter(v=>v!==r);},r.id);
   // Core4/custom data must declare polarity explicitly in trusted runtime hooks.
   for(const d of e.packCombat.dispelDescriptors(e,f)||[]){if(!d||!['positive','negative'].includes(d.polarity)||!['basic','strong','none'].includes(d.dispel)||typeof d.namespace!=='string'||typeof d.key!=='string'||typeof d.remove!=='function')throw Error('Invalid system dispel adapter');if(d.polarity===polarity&&tierOK(d.dispel,tier))add(d.namespace,d.key,d.remove,d.id,d.afterRemove);}
-  if(plan.length)e.enableHPLifecycle();for(const p of plan)p.remove();for(const callback of after)callback();
+  if(plan.length)e.enableHPLifecycle();for(const p of plan)p.remove();const controls=PackControl.detach(e,controlIds,'dispelled');for(const c of controls)PackControl.announce(e,c);for(const callback of after)callback();
   const removed=plan.map(p=>p.ref);e.log('dispel_polarity',f.i,{tier,polarity,source,skill:abilityId,removed});e.packCombat.statusesDispelled(e,f,{tier,polarity,source,abilityId,removed});return removed;
  },
 };

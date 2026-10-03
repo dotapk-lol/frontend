@@ -14,7 +14,7 @@ export const LEGACY_STATUS_POLICY=Object.freeze({
  fiery:positive('none'),overload:positive('basic'),leapSpeed:positive('basic'),
  // Arena-only reward/form/proc markers; they are not an official purge promise.
  counterReward:positive('none'),lionForm:positive('none'),deadlyFocus:positive('none'),helix_cd:positive('none'),
- vulnerable:negative('basic'),weak:negative('basic'),raze:negative('basic'),
+ vulnerable:negative('basic'),weak:negative('basic'),raze:negative('basic'),sniper_take_aim_negative:negative('basic'),
 });
 export function legacyBuffPolicy(e,f,b){
  let key=b.key;

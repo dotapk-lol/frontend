@@ -63,7 +63,7 @@ export const CohortCombat={
  },
  attackInterval(e,f,t,base){if(!e.packState)return base;const curse=coreStatus(t,'curse');let bonus=curse?.owner===f.i&&coreEffective(e,t,curse)?40:0,slow=0;for(const s of f.pack.statuses){if(!coreEffective(e,f,s)||s.values.delay&&s.elapsed<s.values.delay)continue;slow=Math.max(slow,s.key==='viper_strike'?180*s.life/(s.duration||6):s.values.attackSlow||0);}if(f.pack.toxinExposure>0&&!e.property(f,'debuffImmune'))slow=Math.max(slow,60);return base*100/Math.max(20,100+bonus-slow);},
  afterAttack(e,f,t,event,landed){if(!e.packState||!landed)return;
-  if(event.m?.corePoison&&coreAlive(t)&&!e.property(t,'debuffImmune')){if(t.pack.poison.length>=6)t.pack.poison.sort((a,b)=>a.life-b.life).shift();const life=e.admitStatusDuration(t,{duration:4});if(life>1e-8)t.pack.poison.push({owner:f.i,life,tick:0,id:++e.seq});e.log('poison_stack',f.i,{target:t.i,stacks:t.pack.poison.length});}
+  if(event.m?.corePoison&&coreAlive(t)&&!e.property(t,'debuffImmune')){const life=e.admitStatusDuration(t,{duration:4});if(life>1e-8){if(t.pack.poison.length>=6)t.pack.poison.sort((a,b)=>a.life-b.life).shift();t.pack.poison.push({owner:f.i,life,tick:0,id:++e.seq});e.log('poison_stack',f.i,{target:t.i,stacks:t.pack.poison.length});}}
   if(coreBroken(f))return;
   if(coreHero(e,f,47)&&coreAlive(t))coreDamage(e,f.i,t,(1-t.hp/t.maxHp)*100*.25,'physical','viper_predator',{passive:true});
   if(coreHero(e,f,102))coreDebuff(e,t,'curse',f.i,2,{dps:45,moveSlow:.25,attackBonus:40},'basic');
