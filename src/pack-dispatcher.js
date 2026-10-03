@@ -1,4 +1,5 @@
 import {arenaArmorFactor,PACK_CAPABILITIES} from './pack-services.js';
+import {PackSlow} from './pack-slow.js';
 // Integrator adapter: Engine routes active registered systems through this dispatcher.
 // Preserve the core4 hook ABI while enforcing ownership, deterministic ordering and no fallback.
 export function createPackDispatcher(packs){
@@ -25,9 +26,9 @@ export function createPackDispatcher(packs){
   cast(e,f,slot,options={}){const system=owned(e,f);if(!system){if(e.hero(f.i).packKey)throw Error('Unregistered owned cast');return undefined;}const result=system.cast(e,f,slot,options);if(typeof result!=='boolean')throw Error('Owned cast must explicitly accept or reject; fallback is forbidden');return result;},
   activate(e,f,cast){const system=owned(e,f);if(!system){if(e.hero(f.i).packKey)throw Error('Unregistered owned effect');return false;}if(system.activate(e,f,cast)!==true)throw Error('Owned effect is not implemented; fallback is forbidden');return true;},
   attack(e,f,t,damage,m){for(const system of active(e)){if(!system.attack)continue;damage=system.attack(e,f,t,damage,m);if(!Number.isFinite(damage))throw Error('Invalid numeric result from attack');}return damage;},
-  attackInterval(e,f,t,base){const n=scalar(e,'attackInterval',[f,t],base);if(n<=0)throw Error('Invalid attack interval');return n;},
+  attackInterval(e,f,t,base){const n=PackSlow.withValues(e,f,()=>scalar(e,'attackInterval',[f,t],base));if(n<=0)throw Error('Invalid attack interval');return n;},
   healing(e,f,amount){return scalar(e,'healing',[f],amount);},
-  moveMultiplier(e,f){let n=1;for(const system of active(e)){if(!system.moveMultiplier)continue;const value=system.moveMultiplier(e,f);if(!Number.isFinite(value)||value<0)throw Error('Invalid movement multiplier');n*=value;}if(!Number.isFinite(n))throw Error('Movement multiplier overflow');return n;},
+  moveMultiplier(e,f){return PackSlow.withValues(e,f,()=>{let n=1;for(const system of active(e)){if(!system.moveMultiplier)continue;const value=system.moveMultiplier(e,f);if(!Number.isFinite(value)||value<0)throw Error('Invalid movement multiplier');n*=value;}if(!Number.isFinite(n))throw Error('Movement multiplier overflow');return n;});},
   movingAttack(e,f){return active(e).some(system=>system.movingAttack?.(e,f)===true);},
   silenced(e,f){return active(e).some(system=>system.silenced?.(e,f)===true);},
   disarmed(e,f){return active(e).some(system=>system.disarmed?.(e,f)===true);},

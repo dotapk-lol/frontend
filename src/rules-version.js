@@ -1,2 +1,2 @@
 // Generated from the accepted arena data; distinct from full official semantics.
-export const RULESET_HASH="b26b68473bf0389bb38c9fb06464e1e8698c1550cb9e215049b585437c47ff42";
+export const RULESET_HASH="9de1576beb1a52cbe0c882011778c82068e3922c7795fe8d41251dc48f7b8eb0";

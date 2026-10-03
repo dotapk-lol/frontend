@@ -1,7 +1,8 @@
 // Public preparation API for independent authors; no hero-specific mechanics or generic damage fallback.
 export const PACK_ABI_VERSION='duel-pack-2.4-targeting';
 export const PACK_STATUS_ABI_VERSION='duel-status-1';
-export const PACK_CAPABILITIES=Object.freeze(['fighter-state','fighter-damage','fighter-control','fighter-heal','negative-status','typed-status','effective-status-values','effect-entities','scheduled-effects','attack-hooks','damage-hooks','input-interruption','local-snapshot','deferred-hp','death-events','source-controls','action-cancellation','cross-pack-status-query','targeted-spell-routing','positive-buff-purge','cross-system-positive-dispel','invulnerable-target-dispel','status-resistance','control-duration-projection']);
+export const PACK_SLOW_ABI_VERSION='duel-slow-1';
+export const PACK_CAPABILITIES=Object.freeze(['fighter-state','fighter-damage','fighter-control','fighter-heal','negative-status','typed-status','effective-status-values','effect-entities','scheduled-effects','attack-hooks','damage-hooks','input-interruption','local-snapshot','deferred-hp','death-events','source-controls','action-cancellation','cross-pack-status-query','targeted-spell-routing','positive-buff-purge','cross-system-positive-dispel','invulnerable-target-dispel','status-resistance','control-duration-projection','global-slow-resistance','slow-strength-projection']);
 const packKey=value=>{if(typeof value!=='string'||!/^[a-z][a-z0-9_-]{0,63}$/.test(value)||['constructor','prototype','__proto__'].includes(value))throw Error('Invalid pack state key');return value;};
 const packNumber=(value,label)=>{if(!Number.isFinite(value))throw Error('Non-finite '+label);return value;};
 const packPlayer=value=>{if(value!==0&&value!==1)throw Error('Invalid actor reference');return value;};
@@ -34,7 +35,7 @@ export function createPackServices(namespace,{maxStatuses=64,maxEntities=64,maxJ
   applyPositiveStatus(e,f,options){if(options.hostile===true||options.polarity&&options.polarity!=='positive')throw Error('Invalid positive status entry');return apply(e,f,{...options,hostile:false,polarity:'positive'});},
   applyMixedStatus(e,f,{key,owner,duration,positive,negative,pierces=false,allowInvulnerable=false}){packKey(key);if(!positive||!negative)throw Error('Both mixed-status components are required');const common={owner,duration,polarity:'mixed',group:key,allowInvulnerable};const parts=[prepare(e,f,{...positive,...common,key:key+'_positive',hostile:false,pierces:false}),prepare(e,f,{...negative,...common,key:key+'_hostile',hostile:true,pierces})];const live=parts.filter(Boolean);const state=read(f);const added=live.filter(part=>!getStatus(e,f,part.key)).length;if((state?.statuses.length||0)+added>maxStatuses)throw Error('Pack status capacity exceeded');return {positive:parts[0]?commit(e,f,parts[0]):null,negative:parts[1]?commit(e,f,parts[1]):null};},
   effective(e,f,key){return packStatusEffective(e,f,getStatus(e,f,key));},
-  value(e,f,key,{mode='max',fallback=0}={}){checkFighter(e,f);packNumber(fallback,'status fallback');if(!['sum','max','min','product'].includes(mode)||typeof key!=='string'||['__proto__','constructor','prototype'].includes(key))throw Error('Invalid status value query');let result=fallback;for(const s of read(f)?.statuses||[]){if(!packStatusEffective(e,f,s)||!Object.hasOwn(s.values,key))continue;const value=packNumber(s.values[key],'status value');result=mode==='sum'?result+value:mode==='product'?result*value:mode==='min'?Math.min(result,value):Math.max(result,value);}return packNumber(result,'status aggregate');},
+  value(e,f,key,{mode='max',fallback=0}={}){checkFighter(e,f);packNumber(fallback,'status fallback');if(!['sum','max','min','product'].includes(mode)||typeof key!=='string'||['__proto__','constructor','prototype'].includes(key))throw Error('Invalid status value query');let result=fallback;for(const s of read(f)?.statuses||[]){if(!packStatusEffective(e,f,s)||!Object.hasOwn(s.values,key))continue;const value=packNumber(PackSlow.value(e,f,s,key),'status value');result=mode==='sum'?result+value:mode==='product'?result*value:mode==='min'?Math.min(result,value):Math.max(result,value);}return packNumber(result,'status aggregate');},
   hasValue(e,f,key){checkFighter(e,f);return (read(f)?.statuses||[]).some(s=>packStatusEffective(e,f,s)&&(s.values[key]===true||Number.isFinite(s.values[key])&&s.values[key]>0));},
   removeStatus(e,f,key){checkFighter(e,f);packKey(key);const state=read(f);if(!state)return false;const before=state.statuses.length;state.statuses=state.statuses.filter(s=>s.key!==key);return state.statuses.length!==before;},
   advanceStatuses(e,f,dt,onTick=()=>{}){checkFighter(e,f);packNumber(dt,'dt');if(dt<0||dt>.05)throw Error('Expected fixed simulation dt <= .05');const state=read(f);if(!state)return;const current=s=>e.fighters[f.i]===f&&f.hp>0&&read(f)===state&&state.statuses.includes(s);for(const s of [...state.statuses]){if(!current(s)||s.life<=1e-8)continue;const live=Math.min(dt,Math.max(0,s.life));s.life=Math.max(0,s.life-live);s.elapsed+=live;s.tick+=live;let ticks=0;while(s.interval>0&&s.tick>=s.interval-1e-8){if(!current(s))break;if(!Number.isFinite(s.interval)||s.interval<.001||++ticks>51)throw Error('Invalid periodic status mutation');s.tick-=s.interval;onTick(s,packStatusAllowed(e,f,s));}}if(read(f)===state)state.statuses=state.statuses.filter(s=>s.life>1e-8);},
@@ -61,7 +62,13 @@ export function createPackServices(namespace,{maxStatuses=64,maxEntities=64,maxJ
   releaseStatusResistance(e,id){return e.releaseStatusResistance(id);},
   statusResistance(e,f){checkFighter(e,f);return e.statusResistance(f);},
   admitStatusDuration(e,f,options){checkFighter(e,f);return e.admitStatusDuration(f,options);},
+  registerSlowResistance(e,f,options){checkFighter(e,f);if(!allowedAbilities.has(options?.abilityId))throw Error('Unknown slow resistance ability');return e.registerSlowResistance(f,options);},
+  releaseSlowResistance(e,id){return e.releaseSlowResistance(id);},
+  slowResistance(e,f){checkFighter(e,f);return e.slowResistance(f);},
+  projectSlowMagnitude(e,f,options){checkFighter(e,f);return e.projectSlowMagnitude(f,options);},
+  slowValue(e,f,status,key){checkFighter(e,f);return PackSlow.value(e,f,status,key);},
   statusDurationMatches(status,rawDuration){return packStatusDurationMatches(status,rawDuration);},
  });
 }
 import {PackStatus} from './pack-status.js';
+import {PackSlow} from './pack-slow.js';
