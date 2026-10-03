@@ -81,3 +81,9 @@ for(const side of [0,1]){
  });
  test(`P${side+1} denied mixed refresh does not extend its saved negative clock; admitted refresh replaces it`,()=>{const e=arena(),f=e.fighters[side];e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.3},2);const id=provider(e,f,{resistance:1});e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.9},4);frames(e,15);e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.8},4);near(e.buff(f,'sniper_take_aim_negative').life,1.75);e.releaseStatusResistance(id);e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.6},3);assert(!e.buff(f,'sniper_take_aim_negative'));near(e.property(f,'self_slow'),.6);});
 }
+
+for(const side of [0,1])test(`P${side+1} saved negative Take Aim fragments reject positive payloads, duplicates and mixed clocks atomically`,()=>{
+ const e=arena(),f=e.fighters[side];e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.3},2);provider(e,f,{resistance:1});e.addBuff(f,'sniper_take_aim',{headshotGuaranteed:true,self_slow:.9},3);const good=e.snapshot(),fragment=good.fighters[side].buffs.findIndex(b=>b.key==='sniper_take_aim_negative');assert(fragment>=0);assert.doesNotThrow(()=>arena().restoreSimulation(good));
+ for(const patch of [{m:{self_slow:.3,headshotGuaranteed:true}},{m:{headshotGuaranteed:true}},{m:{self_slow:-.3}},{m:{self_slow:1.3}},{negativeLife:1},{statusPolarity:'negative'}]){const bad=structuredClone(good);Object.assign(bad.fighters[side].buffs[fragment],patch);assert.throws(()=>e.restoreSimulation(bad));assert.deepEqual(e.snapshot(),good);}
+ for(const mutate of [g=>g.fighters[side].buffs.push({...g.fighters[side].buffs[fragment]}),g=>g.fighters[side].buffs.find(b=>b.key==='sniper_take_aim').m.self_slow=.6]){const bad=structuredClone(good);mutate(bad);assert.throws(()=>e.restoreSimulation(bad));assert.deepEqual(e.snapshot(),good);}
+});

@@ -1,1 +1,1 @@
-export const NET_VERSION='duel-3ee2297f44ec64e7937b';
+export const NET_VERSION='duel-d689138d1f0fbb43987a';
