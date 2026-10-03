@@ -258,7 +258,7 @@ function statusScheduleAdmission(engine,origin){
  const session=binding(engine),impl=session.sealed.implementation(origin.heroId,origin.slot),a=session.sealed.hero(origin.heroId).abilities[origin.slot];
  if(!scheduledBindingsAdmission(impl)||!impl.scheduledBindings?.statusPulse?.some(p=>p.binding==='status'&&p.delivery==='actor.status-advance'))return false;
  let unsupported=false;const scan=node=>{if(!node||typeof node!=='object')return;if(['delay','area','toggle','special','mark','rupture','pullStep'].includes(node.op)||node.aura)unsupported=true;Object.values(node).forEach(scan);};scan(a.recipe);
- try{const periodic=statusVariants(engine,origin).filter(v=>v.interval>0);return !unsupported&&periodic.length>0&&periodic.every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
+ try{const variants=statusVariants(engine,origin),periodic=variants.filter(v=>v.interval>0),keys=variants.map(v=>v.key);return !unsupported&&new Set(keys).size===keys.length&&periodic.length>0&&periodic.every(v=>v.interval>=1/60&&Math.abs(v.interval*60-Math.round(v.interval*60))<1e-8);}catch{return false;}
 }
 
 
