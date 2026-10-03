@@ -137,7 +137,19 @@ export function validRuleHostSnapshot(engine,g){
  }
  // Both public references and native referents must match; handles are never trusted by string alone.
  for(const n of nativeRefs)if(!saved.statuses.some(row=>row.spec.target===n.target&&row.spec.key===n.status.key&&row.spec.owner===n.status.owner))return false;
- const refs=g.heroRules.namespaces.flatMap(row=>row.state?.records??[]);for(const r of refs){const row=saved.statuses.find(x=>x.handle===r.handle);if(!row||row.spec.owner!==r.owner||row.spec.target!==r.target||row.spec.key!==r.key||row.spec.duration!==r.expires-r.startedAt&&Math.abs(row.spec.duration-(r.expires-r.startedAt))>1e-8||!same(row.spec.values,r.values))return false;}for(const row of saved.statuses)if(!refs.some(r=>r.handle===row.handle))return false;return true;
+ const byHandle=new Map(saved.statuses.map(row=>[row.handle,row])),publicHandles=new Set(),nativeIdentities=new Set();
+ const close=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<=1e-7;
+ for(const ns of g.heroRules.namespaces)for(const r of ns.state?.records??[]){
+  if(publicHandles.has(r.handle))return false;publicHandles.add(r.handle);
+  const row=byHandle.get(r.handle);if(!row)return false;
+  const o=row.origin,s=row.spec,impl=session.sealed.implementation(o.heroId,o.slot),namespace=impl.namespace??('skill:'+o.heroId+':'+o.abilityId);
+  if(ns.namespace!==namespace||r.owner!==s.owner||r.target!==s.target||r.key!==s.key||r.reflected!==(s.owner!==o.actor)||r.polarity!==s.polarity||r.pierces!==s.pierces||r.program!==null||r.interval!==0||r.remaining!==Number(s.values.shield??0)||!same(r.values,s.values))return false;
+  const native=g.fighters[s.target].packModules.r20_55.statuses.find(n=>n.key===s.key&&n.owner===s.owner&&n.abilityId===s.abilityId),nativeKey=s.target+':'+s.key+':'+s.owner+':'+s.abilityId;
+  if(!native||nativeIdentities.has(nativeKey))return false;nativeIdentities.add(nativeKey);
+  if(!close(r.expires-r.startedAt,s.duration)||!close(g.t-r.startedAt,native.elapsed)||!close(r.expires-g.t,native.life)||!close(native.elapsed+native.life,native.duration)||native.reflected!==r.reflected)return false;
+ }
+ if(publicHandles.size!==saved.statuses.length||nativeIdentities.size!==nativeRefs.length)return false;
+ return true;
  }catch{return false;}
 }
 export function restoreRuleHostSnapshot(engine,value){const entry=bridgeEntry(engine);entry.handles=new Map();entry.nextHandle=value?.nextHandle??1;for(const row of value?.statuses??[]){const record=engine.fighters[row.spec.target].packModules.r20_55.statuses.find(s=>s.key===row.spec.key&&s.abilityId===row.spec.abilityId&&s.owner===row.spec.owner);entry.handles.set(row.handle,{origin:row.origin,spec:row.spec,record});}}
