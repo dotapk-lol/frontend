@@ -17,7 +17,7 @@ export function createRemoteSnapshotValidator(pool,{roster=ACTIVE_ROSTER,heroRul
   const key=g.indices.join('/');let e=cache.get(key);if(!e){e=new Engine(pool,g.indices,{simulationRoster:roster,heroRuleRegistry});if(cache.size>=4)cache.delete(cache.keys().next().value);cache.set(key,e);}
   if(!validRulesSnapshot(e,g.heroRules,g.fighters)||!validHeroRuleResources(e,g.fighters)||!validRuleHostSnapshot(e,g))return false;
   const names=Object.keys(e.packModules||{});if(g.fighters.some(f=>Object.keys(f.packModules||{}).some(n=>!names.includes(n)))||!!g.packState!==!!e.packState)return false;
-  if(e.packModules||g.packModules||g.packCore){e.restoreSimulation(g);}else if(g.packClock||g.packModules!==undefined&&g.packModules!==null)return false;
+  if(e.packModules||g.packModules||g.packCore||g.packClock){e.restoreSimulation(g);}else if(g.packModules!==undefined&&g.packModules!==null)return false;
   return true;
  }catch{return false;}};
 }

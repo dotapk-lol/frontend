@@ -14,7 +14,11 @@ const bridgeEntry=engine=>{binding(engine);return sessions.get(engine);};
 const activeMigrations=new Set(['28:1','32:0','32:3','36:0','42:0','50:2','55:0','55:3']);
 export function usesPrivateRuleCast(engine,actor,slot){return activeMigrations.has(engine.indices[actor]+':'+slot)&&binding(engine).has(engine.indices[actor],slot);}
 const overlay=(a,b)=>b&&typeof b==='object'&&!Array.isArray(b)?Object.fromEntries(Object.entries({...a,...b}).map(([k,v])=>[k,k in b?overlay(a?.[k],v):v])):b;
-export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId];if(!session.sealed.implementation(heroId,slot)||engine.hero(actorId).packKey&&!usesPrivateRuleCast(engine,actorId,slot)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
+const legacyActiveMigrations=new Set(['5:1','5:3','9:1','3:3','8:3','13:0','13:1','13:3','17:1']);
+const legacyPassiveMigrations=new Set(['0:2','1:2','4:1','6:2','7:3']);
+function selectedActivation(engine,actor,slot){const key=engine.indices[actor]+':'+slot;return usesPrivateRuleCast(engine,actor,slot)||legacyActiveMigrations.has(key);}
+export function moduleAbility(engine,actorId,slot,original){const session=binding(engine),heroId=engine.indices[actorId],key=heroId+':'+slot;if(!session.sealed.implementation(heroId,slot)||!selectedActivation(engine,actorId,slot)&&!legacyPassiveMigrations.has(key)&&!(heroId===31&&slot===2&&session.has(heroId,slot,'onAttack')))return original;return {...original,mvp:overlay(original.mvp,session.sealed.hero(heroId).abilities[slot].mvp)};}
+
 const bounded=(v,min,max)=>{if(!Number.isFinite(v)||v<min||v>max)throw Error('Invalid effect amount/duration');return v;};
 function host(engine,abilityId,origin){
  const aProfile=origin&&engine.hero(origin.actor).packKey==='r20_55';
@@ -47,8 +51,13 @@ function host(engine,abilityId,origin){
 }
 export function activateHeroRule(engine,f,cast){
  const session=binding(engine),heroId=engine.indices[f.i],abilityId=engine.ability(f.i,cast.slot).id;
- if(!session.has(heroId,cast.slot)||engine.hero(f.i).packKey&&!usesPrivateRuleCast(engine,f.i,cast.slot))return {handled:false};
+ if(!session.has(heroId,cast.slot)||!selectedActivation(engine,f.i,cast.slot))return {handled:false};
  const result=session.invoke(heroId,cast.slot,'activate',host(engine,abilityId,{actor:f.i,heroId,slot:cast.slot,abilityId}),{owner:f.i,target:1-f.i,abilityId,slot:cast.slot,castId:String(cast.id),direction:cast.dir??f.dir,aimX:cast.aim,heldSeconds:cast.charge??0,reflected:!!cast.reflected});
+ if(result.value?.presentation){
+  const p=result.value.presentation,m=engine.ability(f.i,cast.slot).mvp;
+  if(heroId!==13||cast.slot!==1||Object.keys(p).sort().join(',')!=='aimX,kind,lifeSeconds,radius'||p.kind!=='ground-pillar'||p.aimX!==cast.aim||p.radius!==m.radius_wu||p.lifeSeconds!==.6)throw Error('Invalid ground presentation');
+  engine.fx('pillar',p.aimX,0,engine.hero(f.i).color,{size:p.radius,life:p.lifeSeconds,maxLife:p.lifeSeconds});
+ }
  return {handled:result.handled,reflected:result.value?.reflected===true};
 }
 export function rulesSnapshot(engine){return binding(engine).snapshot();}
@@ -56,7 +65,14 @@ export function restoreRulesSnapshot(engine,value){binding(engine).restore(value
 export function validRulesSnapshot(engine,value,fighters){const session=binding(engine);if(!session.validateSnapshot(value))return false;if(fighters)for(const f of fighters){const heroId=engine.indices[f.i];if(heroId===31&&session.has(heroId,2,'onAttack')){const ns='skill:31:'+session.sealed.hero(heroId).abilities[2].id,state=value.namespaces.find(row=>row.namespace===ns)?.state;if((state?.counts?.[f.i]??0)!==f.pack?.bashCount)return false;}}return true;}
 
 export function validHeroRuleResources(engine,fighters){const resources=binding(engine).sealed.resources;if(!Array.isArray(fighters)||fighters.length!==2)return false;return fighters.every((f,i)=>f?.i===i&&Number.isFinite(f.maxMp)&&f.maxMp>0&&f.maxMp<=(resources.maxMpByHero[engine.indices[i]]??engine.hero(i).combatMana??engine.hero(i).mana??1200)&&Number.isFinite(f.mp)&&f.mp>=0&&f.mp<=f.maxMp);}
-export function validateHeroRuleFacts(engine,actorId,slot){const session=binding(engine),heroId=engine.indices[actorId];if(!session.has(heroId,slot,'activate')&&!session.has(heroId,slot,'planCast'))return true;if(engine.hero(actorId).packKey&&!usesPrivateRuleCast(engine,actorId,slot))return true;return session.validateFacts(host(engine,session.sealed.hero(heroId).abilities[slot].id));}
+export function validateHeroRuleFacts(engine,actorId,slot){
+ const session=binding(engine),heroId=engine.indices[actorId];
+ if(!selectedActivation(engine,actorId,slot)||!session.has(heroId,slot,'activate')&&!session.has(heroId,slot,'planCast'))return true;
+ const supported=new Set(['damage','heal','control','target-route','motion-request','protect','cue',...(usesPrivateRuleCast(engine,actorId,slot)?['status']:[])]);
+ if(session.sealed.implementation(heroId,slot).requires.some(cap=>!supported.has(cap)))return false;
+ return session.validateFacts(host(engine,session.sealed.hero(heroId).abilities[slot].id));
+}
+
 
 // Detached definitions compile a closed status vocabulary. No private hero operation is called here.
 function statusVariants(engine,origin){
@@ -135,4 +151,18 @@ export function validRulePackSnapshot(engine,g){
  if(!validRuleHostSnapshot(engine,g)||!aStatusStore.validateSnapshot(g))return false;
  const view={...g,fighters:g.fighters.map(f=>({...f,packModules:{...f.packModules,r20_55:{...f.packModules.r20_55,statuses:f.packModules.r20_55.statuses.filter(s=>!g.heroHost.statuses.some(row=>row.spec.target===f.i&&row.spec.key===s.key&&row.spec.owner===s.owner&&row.spec.abilityId===s.abilityId))}}}))};
  return engine.packCombat.validateSnapshot(engine,view);
+}
+
+// Finite named projection stages. No opaque status objects or generic property setters.
+const legacyProjectionStages=new Set(['0:2:projectAttack','1:2:projectInterval','4:1:projectAttack','6:2:projectDamage','7:3:projectAttack']);
+export function projectLegacyPassive(engine,heroId,slot,hook,event,fallback){
+ const session=binding(engine),key=heroId+':'+slot+':'+hook;
+ if(!legacyProjectionStages.has(key)||!session.has(heroId,slot,hook))return fallback();
+ const actor=event.owner,abilityId=session.sealed.hero(heroId).abilities[slot].id;
+ if(engine.indices[actor]!==heroId)throw Error('Invalid projection owner');
+ const result=session.invoke(heroId,slot,hook,host(engine,abilityId,{actor,heroId,slot,abilityId}),event).value;
+ const shapes={projectInterval:['manaPerSecond'],projectDamage:['evaded'],projectAttack:heroId===4?['proc','damageBonus','knockbackBonus','slowPercentage','slowSeconds']:['damage']};
+ if(!result||Object.keys(result).sort().join(',')!==shapes[hook].sort().join(','))throw Error('Invalid finite projection return');
+ for(const [field,value]of Object.entries(result))if(['evaded','proc'].includes(field)){if(typeof value!=='boolean')throw Error('Invalid projection flag');}else bounded(value,0,field==='slowPercentage'?100:field==='slowSeconds'?60:1e7);
+ return result;
 }
