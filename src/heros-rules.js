@@ -4,7 +4,7 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// public-batch3-input/package/index.js
+// public-typed-input/package/index.js
 var package_exports = {};
 __export(package_exports, {
   BATTLE_ABI: () => BATTLE_ABI,
@@ -18,7 +18,7 @@ __export(package_exports, {
   heroes: () => heroes
 });
 
-// public-batch3-input/package/content/heroes.json
+// public-typed-input/package/content/heroes.json
 var heroes_default = [
   {
     id: "juggernaut",
@@ -10997,7 +10997,7 @@ var heroes_default = [
   }
 ];
 
-// public-batch3-input/package/content/index.js
+// public-typed-input/package/content/index.js
 function freezeTree(v) {
   if (v && typeof v === "object" && !Object.isFrozen(v)) {
     Object.values(v).forEach(freezeTree);
@@ -11007,17 +11007,18 @@ function freezeTree(v) {
 }
 var heroes = freezeTree(heroes_default);
 
-// public-batch3-input/package/rules/fingerprint.js
+// public-typed-input/package/rules/fingerprint.js
 var sourceManifest = {
   "content/heroes.json": "b837cb0c5c601092c7ce1b0d2fda6a90bcde8b6d797149cbac9cc9cf3d381b7d",
   "content/index.js": "e552bf8888a58f1c171e430e36a4767157eaf43d717cd7b3195d3a8643cf85e1",
   "contract/code-identity.js": "b211e83f16c3aa84e79b1d5e2fdb36c33a4e55a329e45f357496f8402340d3f8",
   "contract/definition-schema.js": "c03e8f8df8cd88a8b23c86cc35c7a4a8fef55ce5c7695fbf88a9322cacb6feac",
-  "contract/registry.js": "be2e3be63c04afc77941a2e851ecbf286a5f183e3e1fe4aedb8082b6e5a7fe13",
+  "contract/registry.js": "7932ddc7a22404e19b10368ab9a51718d16c5506aacee918e4a7efd3b1455043",
   "contract/resource-schema.js": "7a433024a1bafff529b0ce560d82ac88f42f9f7125409eb5a391f555fa93cfd7",
-  "contract/session.js": "8aaf8e329676ce2cd87fbe9a13366f00807cdfd97704564830611c0b8cd2ec8f",
+  "contract/schedule-schema.js": "9634ff7cfadef21a177a2cf2682f16895f5e8aa4be8f7d620baac9668337cb12",
+  "contract/session.js": "efd7a62645103b4cdb797db134feb24b8d115bbc906ddf49ad7f9740cc291abc",
   "contract/state-schema.js": "ccea5b69726eb88ed568348b5707b987583cc0d92ce7d9a7ee7c5672266e8cfe",
-  "contract/types.ts": "30908ca6dde7bb3ab6feed25c8d742287431c6467fb3e993c519b296cab55034",
+  "contract/types.ts": "9e32b20c1f4f1e2b65ea118528a6d10b25972b60020753dd531a73ef6007a32c",
   "contract/value.js": "c0da66bad54e30c952287ff6c5ae00b6d551b6ec69ddb6b2fb63c4a0b8186646",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
   "package.json": "10866a359098264739eb357f5b98fad22f85b08343799225b96b3cabfe558dba",
@@ -11031,12 +11032,12 @@ var sourceManifest = {
   "rules/a/extensions/proposal.js": "6c61451417d8c4e120b6100cb7739b32404a6691575cf66ad8f13e1c07e25e55",
   "rules/a/extensions/rupture.mjs": "2518786b7a23081b185c7e1bd3cbefb5b960ec1cf18c58396a51c37e516ce74e",
   "rules/a/extensions/swap.mjs": "5a5ebee6be5941fa30d612985b6c4cd06bc932fe7e0e2ac0e0abbc1f7cf962e2",
-  "rules/a/gaps.js": "c76e3452478ad0108c8676ee15fd2adcf51e19539b2f69bcd5a8d4553cc47b9f",
+  "rules/a/gaps.js": "d7695ba2e5acb873c3e7417254ff2dd3afad39f5c53ed0fffd29ea839eacd366",
   "rules/a/model.js": "d65104d7c0a2003776bb049564e9ecaced61fba9830fad9e8188855f4979c89e",
   "rules/a/parameters.js": "4c65441736d3fda976116d668ed9b65bc6e74866a7be081f9004613545b564eb",
   "rules/a/register.js": "f9c96a4c7b52dbfe30c3f05eb308758ce8b54a581468d118e57961e00ae6928b",
-  "rules/a/runtime.js": "d1630a380dc023617240a2cef21eb236b3581ef67c8e82a90f92b86479022f73",
-  "rules/a/state.js": "ad8c6b609d71184efbc2c31165adcb27fb287e88e27a29eaa831718fecd03cc4",
+  "rules/a/runtime.js": "ca6715b0b1809689b4a00483e3d317f36c27a2390c907af991178db92848a347",
+  "rules/a/state.js": "0432c4a9166eed02789c7968516898dfbf1a1404c9fa1cf2bd3ba811c3d9a4e8",
   "rules/core4/bash.js": "5e1a9793cf9cf92d2d70f4abc5aa576f93bfe36bca17fe82d66c51f41ee61727",
   "rules/legacy-0-9/direct-hit.js": "90d39d5bac7005850ca40d4f4e62111bdd097fde332068ad92d5aa53536bc26a",
   "rules/legacy-0-9/index.js": "ee2486a426f96f0fbec2c0914ae63a6aa5364376b208e9f1e03e5eda0ebbf682",
@@ -11052,18 +11053,19 @@ var sourceManifest = {
   "rules/legacy-10-19/remaining-projectiles.js": "8f25c1e7e98f5fcf6f096f1c6371c692aeb05189efc009c90c43bde543f6b56d",
   "rules/legacy-10-19/remaining.js": "8da0d8515c5ab20a76e8f9f924cb328f685253241ad0255485e24c9b19fe3c77",
   "rules/legacy-three.js": "d201c401e3a9ff3d1427d16f1be304410fe60f91c911c1212bc38db5f1a3bc63",
-  "scripts/a-run-tests.mjs": "3652b9b83c3415e44d3c667f860d646a2382128c28e6c16ad5308bddc576a49f",
+  "scripts/a-run-tests.mjs": "a5f70297eb644bcf00b01c7c0301f8caee6630b013f962d2d2fadbd837967122",
   "scripts/fingerprint.mjs": "3c621367e4349d7704fb7b4234067c132504fc2e1bd66e6fa3024181e59bc94e",
   "scripts/legacy-10-19/run-proposed-tests.mjs": "ed7a58728104128865795d5c7d3d536db7b76b7307451d8673a007eb50b9e6ba",
   "scripts/legacy-10-19/run-remaining-tests.mjs": "42ba29f56a69165f1d861d66b35aae429ba87d0a9dbb90b173fd09ada1653bfb",
   "scripts/legacy-10-19/run-tests.mjs": "fdff01465e72761bd493987effb989b80ca96b487f147d009c63bb164a38bd17",
   "scripts/run-tests.mjs": "a1ad5cbc3d7799f18eac02f1587d01d7d7960571ae3516f6a6483382db180c79",
-  "test/a-host.mjs": "cfdda9d22bddaff1832ea6a1f3da7e69910c7df98227106158e7ba0606c4acc0",
+  "test/a-host.mjs": "2c11d171ed76f426341cc4204c6fc18ee52b024b0ff9e78a9718511dfc6c825d",
   "test/a-probes.mjs": "d4aeec8429f97a06102473a18e7169bba4e885dcc202c33b296a669401a97ca1",
-  "test/a-rules.test.mjs": "d81983dee78853d27b30dffb9bf3e34ffcd84c2b5b776b88a3b30bcc737e997f",
+  "test/a-rules.test.mjs": "8a7c58da8150fd42e05ed0eb79b4e5c1807acec6aa4dc37155ac81559a37b398",
   "test/a-six-handlers.test.mjs": "e7adfe6c15c4534f61c85371bb633d0c3618a636510459e25ee3a91bf0e7a1b6",
-  "test/a-v2-contract.test.mjs": "21f5b14ebd8fb183469cd9de5f144d9cd0b9c7ab66154ece143eb06056334cf3",
+  "test/a-v2-contract.test.mjs": "78983490d1988a81d667a472f3069177b91e2b58dc7b7a64a909dd6500a05190",
   "test/a-v3-resources.test.mjs": "f93a000f394a19521bee4137bd857667d92cf639c462cf05ce019631a582549e",
+  "test/a-v4-schedule.test.mjs": "de36f27f9bd4b64647a63a80a0953ec0741aed4384ac52cc5a105c57b0ab390e",
   "test/contract.test.mjs": "bdbc5ea6f315e4af29c132e5976e3651c101d9d1773a8123c43e586ab6b316fa",
   "test/core4-bash.test.mjs": "2c24fa0c8597cb6de8fec0b395321c25c3def2963c628ef7460de17cf18a2146",
   "test/host.mjs": "d0830ad499231f57c640840de56864acfae0fabf75463732acda4f93149d9be0",
@@ -11074,10 +11076,12 @@ var sourceManifest = {
   "test/legacy-10-19/remaining.test.mjs": "b7bdb9df8a29cadc4e6519792642d40601f4953a42c9d8d77739bede05d324cc",
   "test/legacy-10-19/slices.test.mjs": "e13f02d75a07b716bc19cb3caaa6a97d6e13d80b4dd776f5f0b1972206455b8a",
   "test/legacy-projections.test.mjs": "8f57c5ce74c2d748ee2bc9f384d8e8c7ce777c9f7b3e51120a21bdf0b8f1190b",
-  "test/probes.mjs": "a374c25f89cbf253190b409572e5ec5e2a2495bcbc73746cac7c39def6b26a20"
+  "test/probes.mjs": "a374c25f89cbf253190b409572e5ec5e2a2495bcbc73746cac7c39def6b26a20",
+  "test/schedule-schema-run.mjs": "628905259b5fd5b58af102d2b91616cefd1c931a951ed5f4ce6bd0822706dd60",
+  "test/schedule-schema.test.mjs": "5467f1b797e8105c1f8699748377f1e6fb82128db28bf6197dfe932e3b172131"
 };
 
-// public-batch3-input/package/contract/value.js
+// public-typed-input/package/contract/value.js
 function freeze(value) {
   if (value && typeof value === "object") {
     Object.values(value).forEach(freeze);
@@ -11144,7 +11148,7 @@ function sha256(text) {
   return h2.map((x) => x.toString(16).padStart(8, "0")).join("");
 }
 
-// public-batch3-input/package/contract/code-identity.js
+// public-typed-input/package/contract/code-identity.js
 function codeIdentity(sourceFiles2) {
   if (!Array.isArray(sourceFiles2) || !sourceFiles2.length || new Set(sourceFiles2).size !== sourceFiles2.length || sourceFiles2.some((path) => typeof path !== "string" || !Object.hasOwn(sourceManifest, path))) throw Error("Unknown reviewed implementation source");
   const files = [...sourceFiles2].sort(), inputs = files.map((path) => ({ path, sha256: sourceManifest[path] }));
@@ -11157,7 +11161,7 @@ function assertCodeIdentity(value) {
 }
 var coreCodeIdentity = () => codeIdentity(Object.keys(sourceManifest).filter((path) => path.startsWith("contract/") || path === "index.js"));
 
-// public-batch3-input/package/contract/state-schema.js
+// public-typed-input/package/contract/state-schema.js
 var owned = /* @__PURE__ */ new WeakSet();
 var types = /* @__PURE__ */ new Set(["null", "boolean", "number", "integer", "string", "array", "object"]);
 function inspect(schema, depth = 0) {
@@ -11224,7 +11228,7 @@ function defineStateSchema({ id, version = "1.0.0", schema, refinement = null, p
 var isStateSchema = (value) => owned.has(value);
 var EMPTY_STATE_SCHEMA = defineStateSchema({ id: "heros/empty-state", schema: { type: "null" } });
 
-// public-batch3-input/package/rules/legacy-three.js
+// public-typed-input/package/rules/legacy-three.js
 function near(ctx, cast, m) {
   const f = ctx.actor(cast.owner), t = ctx.actor(cast.target);
   return Math.abs(t.x - f.x) <= (m.range_wu || m.radius_wu) + 22 && (m.height !== "ground" || t.y < 45);
@@ -11267,7 +11271,7 @@ var legacyThreeFactories = Object.freeze([
   } }
 ]);
 
-// public-batch3-input/package/contract/definition-schema.js
+// public-typed-input/package/contract/definition-schema.js
 var templates = new Map(heroes.flatMap((h2) => h2.abilities.map((a) => [a.id, a.mvp])));
 var NONNEG = /^(damage|damage_cap|dot_damage|execute_damage|mana|cooldown_s|duration_s|range_wu|radius_wu|startup_frames|recovery_frames|active_frames|ticks|tick_interval_s|stun_s|stun_cap_s|root_s|silence_s|slow_pct|slow_duration_s|charges|charge_restore_s|charge_max_s|mana_burn|mana_burn_pct|mana_damage_ratio|projectile_speed_wu_s|missing_mana_multiplier|critChance|critMultiplier|evasion|hitstun_s|buff_duration_s|stack_damage|stack_duration_s|max_stacks|burst_cap|burstInterval|lost_hp_multiplier|travelDuration|tracking_break_wu|arming_s|internal_cooldown_s|wall_height_wu|wall_bind_distance_wu|wall_bind_stun_s|distance_damage_per_100|damageOverTime|mana_per_second|heal_total|self_damage_per_tick|mana_drain_per_tick|wave_speed_wu_s|walkSpeed|explosionMin|explosionMax|explosionRadius)$/;
 function numbers(value, path = []) {
@@ -11317,7 +11321,7 @@ function validateRecipe(a, resources) {
   return true;
 }
 
-// public-batch3-input/package/contract/resource-schema.js
+// public-typed-input/package/contract/resource-schema.js
 function buildResourceSchema(definitions) {
   const maxMpByHero = {};
   for (const h2 of definitions) {
@@ -11331,7 +11335,49 @@ function validManaFact(resources, fact) {
   return !!fact && Number.isFinite(fact.maxMp) && fact.maxMp > 0 && fact.maxMp <= (resources.maxMpByHero[fact.heroId] ?? -1) && Number.isFinite(fact.mp) && fact.mp >= 0 && fact.mp <= fact.maxMp;
 }
 
-// public-batch3-input/package/contract/registry.js
+// public-typed-input/package/contract/schedule-schema.js
+var exact = (v, keys) => v && Object.getPrototypeOf(v) === Object.prototype && Object.keys(v).length === keys.length && keys.every((k) => Object.hasOwn(v, k));
+var actor = (v) => v === 0 || v === 1;
+var ref = (v) => typeof v === "string" && /^[-a-zA-Z0-9_:/.]{1,160}$/.test(v);
+var phases = Object.freeze({ "source-job": ["pack.job-due"], status: ["actor.status-pre-advance", "actor.status-advance"], "entity-area": ["pack.entity"], "entity-link": ["pack.entity"], channel: ["pack.entity"], swarm: ["actor.swarm"], passive: ["actor.passive"] });
+function bindingKind(binding) {
+  if (!binding || !Object.hasOwn(phases, binding.kind) && binding.kind !== "entity") throw Error("Unknown schedule binding");
+  if (binding.kind === "source-job" || binding.kind === "passive") {
+    if (!exact(binding, ["kind"])) throw Error("Invalid unreferenced binding");
+    return binding.kind;
+  }
+  if (binding.kind === "entity") {
+    if (!exact(binding, ["kind", "mode", "ref"]) || !["area", "link"].includes(binding.mode) || !ref(binding.ref)) throw Error("Invalid entity binding");
+    return "entity-" + binding.mode;
+  }
+  if (!exact(binding, ["kind", "ref"]) || !ref(binding.ref)) throw Error("Invalid accepted host reference");
+  return binding.kind;
+}
+function validateScheduledBindings(value, handlers) {
+  if (value === void 0) return null;
+  if (!value || Object.getPrototypeOf(value) !== Object.prototype || Object.keys(value).length > 64) throw Error("Invalid scheduled binding manifest");
+  for (const [name, pairs] of Object.entries(value)) {
+    if (!Object.hasOwn(handlers ?? {}, name) || !Array.isArray(pairs) || !pairs.length || pairs.length > 8) throw Error("Undeclared scheduled handler binding");
+    const seen = /* @__PURE__ */ new Set();
+    for (const pair of pairs) {
+      if (!exact(pair, ["binding", "delivery"]) || !Object.hasOwn(phases, pair.binding) || !phases[pair.binding].includes(pair.delivery)) throw Error("Invalid binding/delivery pair");
+      const key2 = pair.binding + ":" + pair.delivery;
+      if (seen.has(key2)) throw Error("Duplicate binding/delivery pair");
+      seen.add(key2);
+    }
+  }
+  return freeze(json(value));
+}
+function validateScheduleRequest(spec, manifest) {
+  if (!spec || !["target", "binding", "delivery"].some((k) => Object.hasOwn(spec, k))) return true;
+  if (!["target", "binding", "delivery"].every((k) => Object.hasOwn(spec, k)) || !actor(spec.owner) || spec.target !== null && !actor(spec.target) || !Number.isFinite(spec.delay) || spec.delay < 0 || spec.delay > 3600) throw Error("Incomplete typed schedule metadata");
+  const kind = bindingKind(spec.binding);
+  if (!phases[kind].includes(spec.delivery) || ["status", "entity-link", "channel"].includes(kind) && spec.target === null) throw Error("Invalid typed schedule target or phase");
+  if (!manifest?.[spec.handler]?.some((pair) => pair.binding === kind && pair.delivery === spec.delivery)) throw Error("Handler did not declare this binding/delivery");
+  return true;
+}
+
+// public-typed-input/package/contract/registry.js
 var BATTLE_ABI = "heros-effects-2";
 var CAPABILITIES = Object.freeze(["damage", "heal", "mana", "transfer-mana", "self-damage", "protect", "status", "control", "target-route", "motion-request", "projectile-request", "legacy-effect", "schedule", "action-token", "deferred-hp", "cue"]);
 var HOOKS = Object.freeze(["planCast", "onCastCommitted", "activate", "onContact", "onInterrupt", "onDeath", "projectAttack", "projectDamage", "projectHealing", "projectInterval", "onAttack", "onDamage", "onTargeted", "onStage"]);
@@ -11353,18 +11399,20 @@ function validateImplementation(raw, executionParameters2) {
   if (!raw || typeof raw.behaviorId !== "string" || !raw.behaviorId || !semver(raw.revision) || !Array.isArray(raw.requires) || new Set(raw.requires).size !== raw.requires.length || raw.requires.some((c) => !CAPABILITIES.includes(c)) || !isStateSchema(raw.stateSchema)) throw Error("Invalid behavior metadata/capabilities/canonical schema");
   const identity = assertCodeIdentity(raw);
   if (raw.namespace !== void 0 && (typeof raw.namespace !== "string" || !/^heros\/[a-z0-9/_-]{1,96}$/.test(raw.namespace))) throw Error("Invalid owned rule namespace");
-  const allowed = /* @__PURE__ */ new Set(["behaviorId", "revision", "requires", "stateSchema", "scheduledHandlers", "namespace", "codeHash", "sourceFiles", ...HOOKS]);
+  const allowed = /* @__PURE__ */ new Set(["behaviorId", "revision", "requires", "stateSchema", "scheduledHandlers", "scheduledBindings", "namespace", "codeHash", "sourceFiles", ...HOOKS]);
   for (const k of Object.keys(raw)) {
     if (!allowed.has(k)) throw Error("Unknown behavior field: " + k);
     if (HOOKS.includes(k) && typeof raw[k] !== "function") throw Error("Invalid behavior hook");
   }
   if (!HOOKS.some((k) => typeof raw[k] === "function")) throw Error("Empty implementation");
   if (raw.scheduledHandlers !== void 0 && (!raw.scheduledHandlers || Object.getPrototypeOf(raw.scheduledHandlers) !== Object.prototype || Object.entries(raw.scheduledHandlers).some(([k, v]) => !/^[-\w]{1,64}$/.test(k) || typeof v !== "function"))) throw Error("Invalid scheduled handlers");
-  return Object.freeze({ ...raw, ...identity, executionParameters: executionParameters2, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
+  const scheduledBindings = validateScheduledBindings(raw.scheduledBindings, raw.scheduledHandlers);
+  if (scheduledBindings && !raw.requires.includes("schedule")) throw Error("Scheduled binding requires schedule capability");
+  return Object.freeze({ ...raw, scheduledBindings, ...identity, executionParameters: executionParameters2, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
 }
 var key = (heroId, slot) => heroId + ":" + slot;
 function behaviorManifest(impl) {
-  return { behaviorId: impl.behaviorId, revision: impl.revision, requires: impl.requires, namespace: impl.namespace ?? null, codeHash: impl.codeHash, sourceFiles: impl.sourceFiles, executionParameters: impl.executionParameters, stateSchema: { id: impl.stateSchema.id, version: impl.stateSchema.version, schemaHash: impl.stateSchema.schemaHash, schema: impl.stateSchema.schema, parameters: impl.stateSchema.parameters, refinement: impl.stateSchema.refinement }, hooks: HOOKS.filter((k) => impl[k]), scheduledHandlers: Object.keys(impl.scheduledHandlers).sort() };
+  return { behaviorId: impl.behaviorId, revision: impl.revision, requires: impl.requires, namespace: impl.namespace ?? null, codeHash: impl.codeHash, sourceFiles: impl.sourceFiles, executionParameters: impl.executionParameters, stateSchema: { id: impl.stateSchema.id, version: impl.stateSchema.version, schemaHash: impl.stateSchema.schemaHash, schema: impl.stateSchema.schema, parameters: impl.stateSchema.parameters, refinement: impl.stateSchema.refinement }, hooks: HOOKS.filter((k) => impl[k]), scheduledHandlers: Object.keys(impl.scheduledHandlers).sort(), scheduledBindings: impl.scheduledBindings };
 }
 function createHeroRegistry(initial2 = heroes, { defaults = true } = {}) {
   if (!Array.isArray(initial2) || initial2.length !== heroes.length) throw Error("Expected frozen 46 roster");
@@ -11444,7 +11492,7 @@ function createHeroRegistry(initial2 = heroes, { defaults = true } = {}) {
   return api;
 }
 
-// public-batch3-input/package/contract/session.js
+// public-typed-input/package/contract/session.js
 var actorId = (id) => {
   if (id !== 0 && id !== 1) throw Error("Invalid actor");
   return id;
@@ -11488,10 +11536,11 @@ function createRuleSession(sealed) {
       const [group, method] = name.split("."), fn = method ? host.ports[group]?.[method] : host.ports[group];
       if (typeof fn !== "function") throw Error("Missing declared port: " + name);
       const request = args.map((x) => json(x));
+      if (name === "schedule") validateScheduleRequest(request[0], impl.scheduledBindings);
       if (request[0] && typeof request[0] === "object" && !Array.isArray(request[0])) {
         const spec = request[0];
         if ("abilityId" in spec && spec.abilityId !== ability.id) throw Error("Cross-namespace ability request");
-        for (const k of ["owner", "target", "source", "actor"]) if (k in spec) actorId(spec[k]);
+        for (const k of ["owner", "target", "source", "actor"]) if (k in spec && !(name === "schedule" && k === "target" && spec[k] === null)) actorId(spec[k]);
       }
       const value = fn(...request);
       return value === void 0 ? void 0 : freeze(json(value));
@@ -11561,14 +11610,14 @@ function createRuleSession(sealed) {
   }, has: (heroId, slot, hook = "activate") => typeof select(heroId, slot)?.impl[hook] === "function" });
 }
 
-// public-batch3-input/package/rules/a/parameters.js
+// public-typed-input/package/rules/a/parameters.js
 var A_PARAMETERS = Object.freeze({ adaptation: "author-a-v8", unitScale: 0.55, statusToggleSeconds: 3600, routedDeliveryRange: 1200 });
 function executionParameters(parameters2) {
   if (!parameters2 || Object.keys(parameters2).sort().join(",") !== Object.keys(A_PARAMETERS).sort().join(",") || parameters2.adaptation !== "author-a-v8" || parameters2.unitScale !== 0.55 || parameters2.statusToggleSeconds !== 3600 || parameters2.routedDeliveryRange !== 1200) throw Error("A_INVALID_EXECUTION_PARAMETERS");
   return parameters2;
 }
 
-// public-batch3-input/package/rules/a/model.js
+// public-typed-input/package/rules/a/model.js
 var caches = /* @__PURE__ */ new WeakMap();
 var clamp = (n2, a, b) => Math.max(a, Math.min(b, n2));
 function validateExpression(expr, definition) {
@@ -11665,13 +11714,14 @@ function coefficient(expr, ctx, c, definition, lookup) {
   throw Error("A_UNKNOWN_EXPRESSION");
 }
 
-// public-batch3-input/package/rules/a/gaps.js
+// public-typed-input/package/rules/a/gaps.js
 var HOST_REQUESTS = Object.freeze({
   "vengefulspirit_nether_swap": "A-PORT-01: atomic two-actor swap plus target interruption",
   "kunkka_x_marks_the_spot": "A-STAGE-02: effective status expiry before removal and bounded return motion",
   "bloodseeker_rupture": "A-STAGE-03: pre-status-advance movement observation",
   "lich_sinister_gaze": "A-PORT-04: channel action lock and bounded pull policy",
   "death_prophet_exorcism": "A-PORT-05: host-owned returning spirit contact/expiry lifecycle",
+  "death_prophet_spirit_siphon": "A-PORT-14: accepted native spirit-link handle and per-step leash/death lifecycle",
   "dragon_knight_elder_dragon_form": "A-PORT-06: temporary attack and ability range profile"
 });
 var HostPortRequired = class extends Error {
@@ -11682,16 +11732,16 @@ var HostPortRequired = class extends Error {
   }
 };
 
-// public-batch3-input/package/rules/a/state.js
+// public-typed-input/package/rules/a/state.js
 var maximum = Number.MAX_SAFE_INTEGER;
 var integer = { type: "integer", minimum: 1, maximum };
 var time = { type: "number", minimum: 0, maximum: 1e12 };
-var actor = { enum: [0, 1] };
+var actor2 = { enum: [0, 1] };
 var boolean = { type: "boolean" };
-var handle = { type: "string", minLength: 1, maxLength: 128 };
+var handle = { type: "string", minLength: 1, maxLength: 160 };
 var closed = (properties) => ({ type: "object", additionalProperties: false, required: Object.keys(properties), properties });
 var array = (items) => ({ type: "array", maxItems: 128, items });
-var base = { n: integer, owner: actor, target: actor, reflected: boolean };
+var base = { n: integer, owner: actor2, target: actor2, reflected: boolean };
 var union = (schemas) => schemas.length ? { anyOf: schemas } : { type: "null" };
 function refineOwnState(state, parameters2) {
   if (state === null) return true;
@@ -11709,14 +11759,14 @@ function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayProg
   lookup.schemas ??= /* @__PURE__ */ new Map();
   if (lookup.schemas.has(abilityId)) return lookup.schemas.get(abilityId);
   const records = statusSchemas.map((v) => closed({ ...base, handle, key: { const: v.key }, startedAt: time, expires: time, program: { const: v.program }, interval: { const: v.interval }, values: { const: v.values }, remaining: { type: "number", minimum: 0, maximum: Number(v.values.shield || 0) }, polarity: { const: v.polarity }, pierces: { const: v.pierces } }));
-  const areas = areaSchemas.map((v) => closed({ ...base, startedAt: time, expires: time, interval: { const: v.interval }, radius: { const: v.radius }, follow: { const: v.follow }, aimX: { type: "number", minimum: 0, maximum: 1200 }, program: { const: v.program }, kind: { const: v.kind } }));
+  const areas = areaSchemas.map((v) => closed({ ...base, handle, startedAt: time, expires: time, interval: { const: v.interval }, radius: { const: v.radius }, follow: { const: v.follow }, aimX: { type: "number", minimum: 0, maximum: 1200 }, program: { const: v.program }, kind: { const: v.kind } }));
   const jobs = [...delayPrograms].map((program) => closed({ ...base, handle, program: { const: program }, aimX: { type: "number", minimum: 0, maximum: 1200 }, route: boolean }));
-  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: "2.0.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms] }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
+  const schema = defineStateSchema({ id: "heros/a/" + abilityId, version: "2.1.0", schema: { anyOf: [{ type: "null" }, closed({ next: integer, records: array(union(records)), jobs: array(union(jobs)), areas: array(union(areas)) })] }, parameters: { abilityId, statusSchemas, areaSchemas, delayPrograms: [...delayPrograms] }, refinement: { id: "heros/a/record-source-consistency", ...codeIdentity(["rules/a/state.js"]), validate: refineOwnState } });
   lookup.schemas.set(abilityId, schema);
   return schema;
 }
 
-// public-batch3-input/package/rules/a/extensions/common.mjs
+// public-typed-input/package/rules/a/extensions/common.mjs
 var actorId2 = (x) => {
   if (x !== 0 && x !== 1) throw Error("Invalid actor");
   return x;
@@ -11758,7 +11808,7 @@ function parameters(definition, names) {
   }
   return structuredClone(p);
 }
-function actor2(f) {
+function actor3(f) {
   actorId2(f?.id);
   scalar(f.x);
   scalar(f.hp);
@@ -11770,7 +11820,7 @@ function actor2(f) {
 }
 function begin(event) {
   handle2(event.castId);
-  const owner = actor2(event.owner), target = actor2(event.target);
+  const owner = actor3(event.owner), target = actor3(event.target);
   if (typeof event.accepted !== "boolean" || typeof event.reflected !== "boolean") throw Error("Missing routed cast facts");
   return { castId: event.castId, owner: owner.id, target: target.id, reflected: event.reflected };
 }
@@ -11786,7 +11836,7 @@ function status(id, s, key2, duration, values, { to = s.target, positive = false
 function belongs(state, id) {
   return state === null || state?.abilityId === id && typeof state.castId === "string" && state.castId.length > 0 && state.castId.length <= 128 && [0, 1].includes(state.owner) && [0, 1].includes(state.target) && typeof state.reflected === "boolean" && ["waiting", "active", "closed"].includes(state.phase);
 }
-function exact(x, keys) {
+function exact2(x, keys) {
   return !!x && Object.keys(x).sort().join(",") === keys.slice().sort().join(",");
 }
 function machine(id, p, validator, handlers) {
@@ -11798,10 +11848,10 @@ function machine(id, p, validator, handlers) {
   }]))) });
 }
 
-// public-batch3-input/package/rules/a/extensions/swap.mjs
+// public-typed-input/package/rules/a/extensions/swap.mjs
 function createSwap(definition) {
   const id = definition.id, p = parameters(definition, ["damage", "damage_reduction_duration"]);
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "remaining", "lastCommit"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.remaining) && s.remaining >= 0 && s.remaining <= p.damage && Number.isSafeInteger(s.lastCommit) && s.lastCommit >= 0;
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "remaining", "lastCommit"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.remaining) && s.remaining >= 0 && s.remaining <= p.damage && Number.isSafeInteger(s.lastCommit) && s.lastCommit >= 0;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11827,7 +11877,7 @@ function createSwap(definition) {
       return result(s);
     },
     projectPostMitigation(s, e) {
-      if (!live(s, e) || s.phase !== "active" || !e.effective || actor2(e.target).id !== s.owner) return result(s);
+      if (!live(s, e) || s.phase !== "active" || !e.effective || actor3(e.target).id !== s.owner) return result(s);
       const debit = Math.min(nonnegative(e.amount), s.remaining);
       return result(s, [{ kind: "damage-projection", abilityId: id, amount: e.amount - debit, shieldDebit: debit, statusHandle: s.statusHandle }]);
     },
@@ -11858,10 +11908,10 @@ function createSwap(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/mark.mjs
+// public-typed-input/package/rules/a/extensions/mark.mjs
 function createMark(definition) {
   const id = definition.id, p = parameters(definition, ["duration"]);
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "returnX"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.returnX) && s.returnX >= 45 && s.returnX <= 1155;
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "returnX"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.returnX) && s.returnX >= 45 && s.returnX <= 1155;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11880,7 +11930,7 @@ function createMark(definition) {
     },
     statusExpiring(s, e) {
       if (!live(s, e) || e.handle !== s.statusHandle) return result(s);
-      const target = actor2(e.target);
+      const target = actor3(e.target);
       if (target.id !== s.target) throw Error("Mark target mismatch");
       const commands = e.effective && target.alive && !target.invulnerable ? [{ kind: "forced-return", abilityId: id, castId: s.castId, actor: s.target, destinationX: s.returnX, rootPolicy: "v8-forced-motion", collisionPolicy: "v8-move" }] : [];
       s.phase = "closed";
@@ -11902,10 +11952,10 @@ function createMark(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/rupture.mjs
+// public-typed-input/package/rules/a/extensions/rupture.mjs
 function createRupture(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "hp_pct", "movement_damage_pct", "damage_cap_amount"]);
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "lastX", "lastObservation"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.lastX) && s.lastX >= 0 && s.lastX <= 1200 && Number.isSafeInteger(s.lastObservation) && s.lastObservation >= 0;
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "lastX", "lastObservation"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.lastX) && s.lastX >= 0 && s.lastX <= 1200 && Number.isSafeInteger(s.lastObservation) && s.lastObservation >= 0;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -11926,7 +11976,7 @@ function createRupture(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.statusHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastObservation) return result(s);
-      const target = actor2(e.target);
+      const target = actor3(e.target);
       if (target.id !== s.target) throw Error("Rupture target mismatch");
       const distance = Math.abs(target.x - s.lastX) / 0.55;
       s.lastX = target.x;
@@ -11949,10 +11999,10 @@ function createRupture(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/gaze.mjs
+// public-typed-input/package/rules/a/extensions/gaze.mjs
 function createGaze(definition) {
   const id = definition.id, p = parameters(definition, ["channel_duration", "mana_drain"]);
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "channelHandle", "lastPulse"]) && (s.channelHandle === null || typeof s.channelHandle === "string") && Number.isSafeInteger(s.lastPulse) && s.lastPulse >= 0 && s.lastPulse <= Math.floor(p.channel_duration / 0.25 + 1e-8);
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "channelHandle", "lastPulse"]) && (s.channelHandle === null || typeof s.channelHandle === "string") && Number.isSafeInteger(s.lastPulse) && s.lastPulse >= 0 && s.lastPulse <= Math.floor(p.channel_duration / 0.25 + 1e-8);
   const end = (s, reason) => {
     const handle3 = s.channelHandle;
     s.phase = "closed";
@@ -11979,7 +12029,7 @@ function createGaze(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.channelHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastPulse) return result(s);
-      const owner = actor2(e.owner), target = actor2(e.target);
+      const owner = actor3(e.owner), target = actor3(e.target);
       if (owner.id !== s.owner || target.id !== s.target) throw Error("Gaze actor mismatch");
       if (e.channelAliveBeforePulse === false) return end(s, "expired");
       if (!owner.alive || !e.tokenValid) return end(s, e.reason || "interrupted");
@@ -12004,11 +12054,11 @@ function createGaze(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/exorcism.mjs
+// public-typed-input/package/rules/a/extensions/exorcism.mjs
 function createExorcism(definition) {
   const id = definition.id, p = parameters(definition, ["AbilityDuration", "spirits", "ghost_spawn_rate", "spirit_speed", "give_up_distance", "average_damage", "heal_percent"]);
   if (!Number.isSafeInteger(p.spirits) || p.spirits > 64 || p.ghost_spawn_rate <= 0) throw Error("Invalid spirit profile");
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "swarmHandle", "lastContact", "actual", "pending"]) && (s.swarmHandle === null || typeof s.swarmHandle === "string") && Number.isSafeInteger(s.lastContact) && s.lastContact >= 0 && Number.isFinite(s.actual) && s.actual >= 0 && s.actual <= 1e6 && Array.isArray(s.pending) && s.pending.length <= 64 && s.pending.every((n2) => Number.isSafeInteger(n2) && n2 >= 1 && n2 <= s.lastContact) && new Set(s.pending).size === s.pending.length;
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "swarmHandle", "lastContact", "actual", "pending"]) && (s.swarmHandle === null || typeof s.swarmHandle === "string") && Number.isSafeInteger(s.lastContact) && s.lastContact >= 0 && Number.isFinite(s.actual) && s.actual >= 0 && s.actual <= 1e6 && Array.isArray(s.pending) && s.pending.length <= 64 && s.pending.every((n2) => Number.isSafeInteger(n2) && n2 >= 1 && n2 <= s.lastContact) && new Set(s.pending).size === s.pending.length;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -12031,7 +12081,7 @@ function createExorcism(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.swarmHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastContact) return result(s);
-      const owner = actor2(e.owner), target = actor2(e.target);
+      const owner = actor3(e.owner), target = actor3(e.target);
       if (owner.id !== s.owner || target.id !== s.target) throw Error("Spirit actor mismatch");
       s.lastContact = e.ordinal;
       if (!owner.alive || !target.alive) return result(s);
@@ -12051,7 +12101,7 @@ function createExorcism(definition) {
     expired(s, e) {
       if (!live(s, e) || e.handle !== s.swarmHandle) return result(s);
       if (s.pending.length) throw Error("Expiry must follow contact receipt commits");
-      const owner = actor2(e.owner);
+      const owner = actor3(e.owner);
       if (owner.id !== s.owner) throw Error("Spirit owner mismatch");
       const actual = s.actual;
       s.phase = "closed";
@@ -12071,10 +12121,10 @@ function createExorcism(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/dragon.mjs
+// public-typed-input/package/rules/a/extensions/dragon.mjs
 function createDragon(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "bonus_attack_range", "bonus_ability_cast_range", "bonus_movement_speed", "corrosive_duration", "corrosive_damage_per_second", "frost_duration", "frost_bonus_movement_speed", "frost_bonus_attack_speed"]);
-  const valid = (s) => s === null || belongs(s, id) && exact(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "formHandle", "profileHandle", "lastAttack", "corrosion"]) && (s.formHandle === null || typeof s.formHandle === "string") && (s.profileHandle === null || typeof s.profileHandle === "string") && Number.isSafeInteger(s.lastAttack) && s.lastAttack >= 0 && Array.isArray(s.corrosion) && s.corrosion.length <= 2 && s.corrosion.every((x) => exact(x, ["target", "handle", "ordinal"]) && [0, 1].includes(x.target) && typeof x.handle === "string" && Number.isSafeInteger(x.ordinal) && x.ordinal >= 0 && x.ordinal <= Math.floor(p.corrosive_duration + 1e-8)) && new Set(s.corrosion.map((x) => x.target)).size === s.corrosion.length;
+  const valid = (s) => s === null || belongs(s, id) && exact2(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "formHandle", "profileHandle", "lastAttack", "corrosion"]) && (s.formHandle === null || typeof s.formHandle === "string") && (s.profileHandle === null || typeof s.profileHandle === "string") && Number.isSafeInteger(s.lastAttack) && s.lastAttack >= 0 && Array.isArray(s.corrosion) && s.corrosion.length <= 2 && s.corrosion.every((x) => exact2(x, ["target", "handle", "ordinal"]) && [0, 1].includes(x.target) && typeof x.handle === "string" && Number.isSafeInteger(x.ordinal) && x.ordinal >= 0 && x.ordinal <= Math.floor(p.corrosive_duration + 1e-8)) && new Set(s.corrosion.map((x) => x.target)).size === s.corrosion.length;
   return machine(id, p, valid, {
     begin(old, e) {
       const c = begin(e);
@@ -12107,7 +12157,7 @@ function createDragon(definition) {
     },
     landedAttack(s, e) {
       if (!s || !s.formHandle || !e.formPresent || !e.landed || e.secondary) return result(s);
-      const owner = actor2(e.owner), target = actor2(e.target);
+      const owner = actor3(e.owner), target = actor3(e.target);
       if (owner.id !== s.owner) throw Error("Dragon owner mismatch");
       if (!owner.alive || !owner.passivesEnabled || !target.alive || target.invulnerable) return result(s);
       ordinal(e.ordinal);
@@ -12135,7 +12185,7 @@ function createDragon(definition) {
       if (e.ordinal <= record.ordinal) return result(s);
       if (e.ordinal > Math.floor(p.corrosive_duration + 1e-8)) throw Error("Corrosion pulse beyond source lifetime");
       record.ordinal = e.ordinal;
-      const owner = actor2(e.owner), target = actor2(e.target);
+      const owner = actor3(e.owner), target = actor3(e.target);
       if (owner.id !== s.owner || target.id !== record.target) throw Error("Corrosion actor mismatch");
       return result(s, target.alive && !target.invulnerable && !target.debuffImmune && e.effective ? [damage(id, { ...s, target: record.target }, p.corrosive_damage_per_second, "magical")] : []);
     },
@@ -12170,7 +12220,7 @@ function createDragon(definition) {
   });
 }
 
-// public-batch3-input/package/rules/a/extensions/index.mjs
+// public-typed-input/package/rules/a/extensions/index.mjs
 var constructors = Object.freeze({ vengefulspirit_nether_swap: createSwap, kunkka_x_marks_the_spot: createMark, bloodseeker_rupture: createRupture, lich_sinister_gaze: createGaze, death_prophet_exorcism: createExorcism, dragon_knight_elder_dragon_form: createDragon });
 function createExtensionDraft(definition) {
   const create = constructors[definition.id];
@@ -12179,12 +12229,12 @@ function createExtensionDraft(definition) {
 }
 var EXTENSION_ABILITIES = Object.freeze(Object.keys(constructors));
 
-// public-batch3-input/package/rules/a/extensions/canonical.js
+// public-typed-input/package/rules/a/extensions/canonical.js
 var EXTENSION_SOURCE_FILES = Object.freeze(["rules/a/extensions/canonical.js", "rules/a/extensions/common.mjs", "rules/a/extensions/index.mjs", "rules/a/extensions/swap.mjs", "rules/a/extensions/mark.mjs", "rules/a/extensions/rupture.mjs", "rules/a/extensions/gaze.mjs", "rules/a/extensions/exorcism.mjs", "rules/a/extensions/dragon.mjs"]);
 var closed2 = (p) => ({ type: "object", additionalProperties: false, required: Object.keys(p), properties: p });
 var h = { anyOf: [{ type: "null" }, { type: "string", minLength: 1, maxLength: 128 }] };
 var n = { type: "integer", minimum: 0, maximum: Number.MAX_SAFE_INTEGER };
-var actor3 = { enum: [0, 1] };
+var actor4 = { enum: [0, 1] };
 var groups = /* @__PURE__ */ new WeakMap();
 function refineExtension(state, parameters2) {
   return createExtensionDraft(parameters2.definition).validateState(state);
@@ -12198,14 +12248,14 @@ function canonicalExtension(config) {
   }
   if (group.has(config.definition.id)) return group.get(config.definition.id);
   const definition = config.definition, rule = createExtensionDraft(definition), p = definition.mvp.params;
-  const base2 = { abilityId: { const: definition.id }, castId: { type: "string", minLength: 1, maxLength: 128 }, owner: actor3, target: actor3, reflected: { type: "boolean" }, phase: { enum: ["waiting", "active", "closed"] } };
+  const base2 = { abilityId: { const: definition.id }, castId: { type: "string", minLength: 1, maxLength: 128 }, owner: actor4, target: actor4, reflected: { type: "boolean" }, phase: { enum: ["waiting", "active", "closed"] } };
   const tail = {
     vengefulspirit_nether_swap: { statusHandle: h, remaining: { type: "number", minimum: 0, maximum: p.damage }, lastCommit: n },
     kunkka_x_marks_the_spot: { statusHandle: h, returnX: { type: "number", minimum: 45, maximum: 1155 } },
     bloodseeker_rupture: { statusHandle: h, lastX: { type: "number", minimum: 0, maximum: 1200 }, lastObservation: n },
     lich_sinister_gaze: { channelHandle: h, lastPulse: { type: "integer", minimum: 0, maximum: Math.floor(p.channel_duration / 0.25 + 1e-8) } },
     death_prophet_exorcism: { swarmHandle: h, lastContact: n, actual: { type: "number", minimum: 0, maximum: 1e6 }, pending: { type: "array", maxItems: 64, items: { type: "integer", minimum: 1, maximum: Number.MAX_SAFE_INTEGER } } },
-    dragon_knight_elder_dragon_form: { formHandle: h, profileHandle: h, lastAttack: n, corrosion: { type: "array", maxItems: 2, items: closed2({ target: actor3, handle: { type: "string", minLength: 1, maxLength: 128 }, ordinal: { type: "integer", minimum: 0, maximum: Math.floor(p.corrosive_duration + 1e-8) } }) } }
+    dragon_knight_elder_dragon_form: { formHandle: h, profileHandle: h, lastAttack: n, corrosion: { type: "array", maxItems: 2, items: closed2({ target: actor4, handle: { type: "string", minLength: 1, maxLength: 128 }, ordinal: { type: "integer", minimum: 0, maximum: Math.floor(p.corrosive_duration + 1e-8) } }) } }
   }[definition.id];
   const stateSchema = defineStateSchema({ id: "heros/a/extension/" + definition.id, version: "2.0.0", schema: { anyOf: [{ type: "null" }, closed2({ ...base2, ...tail })] }, parameters: { definition }, refinement: { id: "heros/a/extension/source-constraints", ...codeIdentity(EXTENSION_SOURCE_FILES), validate: refineExtension } });
   const entry = Object.freeze({ rule, stateSchema, ...codeIdentity(EXTENSION_SOURCE_FILES) });
@@ -12213,7 +12263,7 @@ function canonicalExtension(config) {
   return entry;
 }
 
-// public-batch3-input/package/rules/a/runtime.js
+// public-typed-input/package/rules/a/runtime.js
 var A_SOURCE_FILES = Object.freeze(["rules/a/register.js", "rules/a/runtime.js", "rules/a/model.js", "rules/a/gaps.js", "rules/a/state.js", "rules/a/parameters.js", ...EXTENSION_SOURCE_FILES]);
 var negativeKeys = /* @__PURE__ */ new Set(["disarm", "magicVulnerable", "moveSlow"]);
 var controls = ["stun", "root", "hex", "fear", "taunt"];
@@ -12229,6 +12279,7 @@ function capabilities(a) {
     }
     const map = { damage: "damage", heal: "heal", selfCost: "self-damage", mana: x.steal ? "transfer-mana" : "mana", delay: "schedule", area: "schedule", toggle: "schedule", upkeepPulse: "mana", deferredHP: "deferred-hp" };
     if (map[x.op]) set.add(map[x.op]);
+    if (x.op === "area") set.add("legacy-effect");
     if (x.tick) set.add("schedule");
     if (x.values && controls.some((k) => x.values[k])) set.add("control");
     Object.values(x).forEach(scan);
@@ -12294,8 +12345,7 @@ function createRule(config) {
     Object.values(node).forEach(schema);
   }
   schema(r);
-  if (id === "death_prophet_spirit_siphon") areaSchemas.push({ kind: "siphon", duration: m.params.haunt_duration, interval: 0.25, radius: (m.params.AbilityCastRange + m.params.siphon_buffer) * settings.unitScale, follow: true, program: null });
-  if (HOST_REQUESTS[id]) canonicalExtension(config);
+  if (HOST_REQUESTS[id] && id !== "death_prophet_spirit_siphon") canonicalExtension(config);
   const stateSchema = ownStateSchema(lookup, id, statusSchemas, areaSchemas, delayPrograms);
   function exists(ctx, x) {
     return ctx.actor(x.target).alive && x.expires >= ctx.now - 1e-8 && ctx.status.query(x.target, x.key).some((s) => s.abilityId === id && s.owner === x.owner);
@@ -12322,7 +12372,7 @@ function createRule(config) {
       const row = { n: s.next++, owner: c.owner, target, reflected: !!c.reflected, handle: handle3, key: part.key, polarity: part.polarity, pierces: !!op.pierces, startedAt: ctx.now, expires: ctx.now + duration, program: op.tick ? paths.get(op.tick.ops) : null, interval: op.tick ? resolve(op.tick.interval, ctx, c) : 0, values: part.values, remaining: Number(part.values.shield || 0) };
       s.records.push(row);
       write(ctx, s);
-      if (row.program) ctx.schedule({ abilityId: id, owner: c.owner, handler: "statusPulse", delay: row.interval, data: { record: row.n } });
+      if (row.program) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "statusPulse", delay: row.interval, data: { record: row.n }, binding: { kind: "status", ref: row.handle }, delivery: "actor.status-advance" });
     }
     if (parts.some((part) => part.polarity === "positive") || !f.invulnerable && (!f.debuffImmune || op.pierces)) {
       for (const type of controls) if (v[type]) ctx.control.apply({ owner: c.owner, target, abilityId: id, key: id, type, duration, pierces: !!op.pierces, dispel: op.dispel || "basic" });
@@ -12359,7 +12409,7 @@ function createRule(config) {
           break;
         case "delay": {
           const s = read(ctx), row = { n: s.next++, owner: c.owner, target: c.target, reflected: !!c.reflected, handle: "pending", program: paths.get(op.ops), aimX: c.aimX, route: id === "vengefulspirit_magic_missile" && !c.reflected };
-          row.handle = ctx.schedule({ abilityId: id, owner: c.owner, handler: "delayedProgram", delay: resolve(op.delay, ctx, c), data: { job: row.n } });
+          row.handle = ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "delayedProgram", delay: resolve(op.delay, ctx, c), data: { job: row.n }, binding: { kind: "source-job" }, delivery: "pack.job-due" });
           s.jobs.push(row);
           write(ctx, s);
           break;
@@ -12406,10 +12456,13 @@ function createRule(config) {
   }
   function startArea(ctx, c, fields) {
     if (fields.interval <= 0) throw Error("A_INVALID_INTERVAL");
-    const s = read(ctx), row = { n: s.next++, owner: c.owner, target: c.target, reflected: !!c.reflected, startedAt: ctx.now, expires: ctx.now + fields.duration, interval: fields.interval, radius: fields.radius, follow: fields.follow, aimX: c.aimX, program: fields.program, kind: fields.kind };
+    if (fields.kind === "siphon") throw new HostPortRequired(id);
+    const handle3 = ctx.legacyEffect.spawn({ abilityId: id, owner: c.owner, castId: c.castId, kind: "area", x: fields.follow ? ctx.actor(c.owner).x : c.aimX, radius: fields.radius, duration: fields.duration, data: { target: c.target, interval: fields.interval, follow: fields.follow } });
+    if (typeof handle3 !== "string" || !/^[-a-zA-Z0-9_:/.]{1,160}$/.test(handle3)) throw Error("A-ENTITY-14: native area admission requires an accepted opaque handle");
+    const s = read(ctx), row = { n: s.next++, owner: c.owner, target: c.target, reflected: !!c.reflected, handle: handle3, startedAt: ctx.now, expires: ctx.now + fields.duration, interval: fields.interval, radius: fields.radius, follow: fields.follow, aimX: c.aimX, program: fields.program, kind: fields.kind };
     s.areas.push(row);
     write(ctx, s);
-    ctx.schedule({ abilityId: id, owner: c.owner, handler: "areaPulse", delay: fields.interval, data: { area: row.n } });
+    ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: fields.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
   }
   function route(ctx, c) {
     return ctx.target.route({ owner: c.owner, target: c.target, abilityId: id, range: settings.routedDeliveryRange, reflectable: true, reflected: !!c.reflected });
@@ -12420,7 +12473,7 @@ function createRule(config) {
       if (!j) return;
       s.jobs = s.jobs.filter((x) => x.n !== j.n);
       write(ctx, s);
-      if (!ctx.actor(j.owner).alive) return;
+      if (!ctx.actor(j.owner).alive || !ctx.actor(j.target).alive) return;
       let c = { ...j };
       if (j.route) {
         const routed = route(ctx, c);
@@ -12439,44 +12492,46 @@ function createRule(config) {
       }
       if (effective(ctx, row)) execute(ctx, { ...row, aimX: ctx.actor(row.target).x }, row.program);
       const next = read(ctx).records.find((x) => x.n === row.n);
-      if (next && ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, handler: "statusPulse", delay: row.interval, data: { record: row.n } });
+      if (next && ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: next.owner, target: next.target, handler: "statusPulse", delay: next.interval, data: { record: next.n }, binding: { kind: "status", ref: next.handle }, delivery: "actor.status-advance" });
     },
     areaPulse(ctx, data) {
       const s = read(ctx), row = s.areas.find((x) => x.n === data.area);
       if (!row) return;
-      const owner = ctx.actor(row.owner), target = ctx.actor(row.target), distance = ctx.target.distance(row.owner, row.target);
-      if (!owner.alive || ctx.now > row.expires + 1e-8 || row.kind === "siphon" && (!target.alive || distance > row.radius)) {
+      const owner = ctx.actor(row.owner), target = ctx.actor(row.target);
+      if (!owner.alive || ctx.now > row.expires + 1e-8) {
+        ctx.legacyEffect.end(row.handle, owner.alive ? "expired" : "owner-dead");
         s.areas = s.areas.filter((x) => x.n !== row.n);
         write(ctx, s);
         return;
       }
-      if (row.kind === "siphon") {
-        if (!target.invulnerable && !target.debuffImmune) {
-          const receipt = hit(ctx, row, m.params.damage * 0.25, "magical");
-          ctx.heal({ source: row.owner, target: row.owner, abilityId: id, amount: receipt.actual });
-        }
-      } else if ((row.kind !== "aura" || owner.passivesEnabled) && Math.abs(target.x - (row.follow ? owner.x : row.aimX)) <= row.radius) execute(ctx, { ...row, aimX: row.follow ? owner.x : row.aimX }, row.program);
-      if (ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, handler: "areaPulse", delay: row.interval, data: { area: row.n } });
+      if (Math.abs(target.x - (row.follow ? owner.x : row.aimX)) <= row.radius) execute(ctx, { ...row, aimX: row.follow ? owner.x : row.aimX }, row.program);
+      if (ctx.now + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: row.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
       else {
+        ctx.legacyEffect.end(row.handle, "expired");
         const after = read(ctx);
         after.areas = after.areas.filter((x) => x.n !== row.n);
         write(ctx, after);
       }
     }
   };
-  function liveRows(ctx, actor4) {
-    return read(ctx).records.filter((x) => x.target === actor4 && effective(ctx, x));
+  function liveRows(ctx, actor5) {
+    return read(ctx).records.filter((x) => x.target === actor5 && effective(ctx, x));
   }
-  function sum(ctx, actor4, key2) {
-    return liveRows(ctx, actor4).reduce((n2, x) => n2 + Number(x.values[key2] || 0), 0);
+  function sum(ctx, actor5, key2) {
+    return liveRows(ctx, actor5).reduce((n2, x) => n2 + Number(x.values[key2] || 0), 0);
   }
   return {
     behaviorId: "heros/a/v8/" + id,
-    revision: "2.0.0",
+    revision: "2.1.0",
     ...codeIdentity(A_SOURCE_FILES),
     requires: capabilities(a),
     namespace: "heros/a/" + id,
     stateSchema,
+    ...capabilities(a).includes("schedule") ? { scheduledBindings: {
+      ...statusSchemas.some((x) => x.program) ? { statusPulse: [{ binding: "status", delivery: "actor.status-advance" }] } : {},
+      ...delayPrograms.size ? { delayedProgram: [{ binding: "source-job", delivery: "pack.job-due" }] } : {},
+      ...areaSchemas.some((x) => x.kind === "area") ? { areaPulse: [{ binding: "entity-area", delivery: "pack.entity" }] } : {}
+    } } : {},
     planCast(ctx, facts) {
       const owner = ctx.actor(facts.owner), target = ctx.actor(facts.target), base2 = { manaCost: m.mana, cooldownSeconds: m.cooldown_s, chargeCost: m.charges ? 1 : 0, windupSeconds: m.startup_frames / 60, recoverySeconds: m.recovery_frames / 60, action: "cast" };
       let reason = m.passive ? "passive" : HOST_REQUESTS[id] || (!owner.alive ? "dead" : !facts.actionReady ? "action" : owner.silenced ? "silenced" : null);
@@ -12564,6 +12619,14 @@ function createRule(config) {
         const s = read(ctx);
         s.records = s.records.filter((x) => x.handle !== event.handle);
         write(ctx, s);
+      } else if (event.kind === "effect-end") {
+        const s = read(ctx);
+        s.areas = s.areas.filter((x) => x.handle !== event.handle);
+        write(ctx, s);
+      } else if (event.kind === "job-ended") {
+        const s = read(ctx);
+        s.jobs = s.jobs.filter((x) => x.handle !== event.handle);
+        write(ctx, s);
       }
     },
     onInterrupt() {
@@ -12573,6 +12636,7 @@ function createRule(config) {
       s.records.filter((x) => x.target === event.actor).forEach((x) => cancelRecord(ctx, s, x));
       for (const x of s.jobs.filter((x2) => x2.owner === event.actor)) ctx.cancelJob(x.handle);
       s.jobs = s.jobs.filter((x) => x.owner !== event.actor);
+      for (const x of s.areas.filter((x2) => x2.owner === event.actor)) ctx.legacyEffect.end(x.handle, "owner-dead");
       s.areas = s.areas.filter((x) => x.owner !== event.actor);
       write(ctx, s);
     },
@@ -12580,7 +12644,7 @@ function createRule(config) {
   };
 }
 
-// public-batch3-input/package/rules/a/register.js
+// public-typed-input/package/rules/a/register.js
 var A_HERO_IDS = Object.freeze([21, 28, 29, 32, 36, 42, 47, 50, 55]);
 function registerA(registry) {
   for (const id of A_HERO_IDS) for (let slot = 0; slot < 4; slot++)
@@ -12588,7 +12652,7 @@ function registerA(registry) {
   return registry;
 }
 
-// public-batch3-input/package/test/probes.mjs
+// public-typed-input/package/test/probes.mjs
 function probeFactory(kind, { amount = 35, namespace, limit = 100, schema, api = package_exports } = {}) {
   return { abiVersion: api.BATTLE_ABI, parameters: { amount, limit }, create({ definition, parameters: parameters2 }) {
     const stateSchema = schema ?? (kind === "state" ? countSchema(api, parameters2.limit) : api.EMPTY_STATE_SCHEMA);
@@ -12610,7 +12674,7 @@ function countSchema(api = package_exports, limit = 100) {
   return api.defineStateSchema({ id: "test/count", schema: { anyOf: [{ type: "null" }, { type: "object", additionalProperties: false, required: ["count"], properties: { count: { type: "integer", minimum: 0, maximum: limit } } }] } });
 }
 
-// public-batch3-input/package/rules/core4/bash.js
+// public-typed-input/package/rules/core4/bash.js
 function createBash({ definition, hero }) {
   const p = definition.mvp.params, threshold = p.attack_count + 1;
   if (!Number.isSafeInteger(threshold) || threshold < 1 || threshold > 64 || ![p.bonus_damage, p.duration].every((n2) => Number.isFinite(n2) && n2 >= 0) || p.bonus_damage > 1e7 || p.duration > 60) throw Error("Invalid Core4 Bash coefficients");
@@ -12640,7 +12704,7 @@ function createBash({ definition, hero }) {
 }
 var core4Factories = Object.freeze([{ heroId: 31, slot: 2, create: createBash }]);
 
-// public-batch3-input/package/rules/legacy-0-9/direct-hit.js
+// public-typed-input/package/rules/legacy-0-9/direct-hit.js
 var sourceFiles = ["rules/legacy-0-9/direct-hit.js"];
 var selected = /* @__PURE__ */ new Map([[3, "axe_culling"], [8, "lina_laguna"]]);
 function directHitFactory(parameters2 = { damageMultiplier: 1, bodyPadding: 22 }) {
@@ -12679,7 +12743,7 @@ function registerLegacyDirectHits(registry, parameters2) {
   return registry;
 }
 
-// public-batch3-input/package/rules/legacy-0-9/projections.js
+// public-typed-input/package/rules/legacy-0-9/projections.js
 var slots = [[0, 2, "juggernaut_blade_dance"], [1, 2, "crystal_maiden_aura"], [4, 1, "sniper_headshot"], [6, 2, "phantom_assassin_immaterial"], [7, 3, "drow_ranger_marksmanship"]];
 function number(value, name, max = 1e7) {
   if (!Number.isFinite(value) || value < 0 || value > max) throw Error("Invalid projection " + name);
@@ -12754,12 +12818,12 @@ function registerLegacyPassiveProjections(registry) {
   return registry;
 }
 
-// public-batch3-input/package/rules/legacy-0-9/index.js
+// public-typed-input/package/rules/legacy-0-9/index.js
 function registerLegacy0To9(registry) {
   return registerLegacyPassiveProjections(registerLegacyDirectHits(registry));
 }
 
-// public-batch3-input/package/rules/legacy-10-19/index.js
+// public-typed-input/package/rules/legacy-10-19/index.js
 var IMPLEMENTED_SLOTS = Object.freeze([[13, 0], [13, 1], [13, 3], [17, 1]].map(Object.freeze));
 var SOURCES = ["rules/legacy-10-19/index.js"];
 function bounded(value, name, max = 1e7) {
