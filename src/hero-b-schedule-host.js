@@ -2,7 +2,7 @@
 import {privateRuleSession} from './hero-rules-host.js';
 import {services} from './hero-packs/c56_90/system.js';
 import {hasManagedFrameLease} from './hero-frame-transaction-host.js';
-export const B_SCHEDULE_SLOTS=new Set(['62:0']);
+export const B_SCHEDULE_SLOTS=new Set(['62:0','62:1']);
 const stores=new WeakMap(),copy=x=>structuredClone(x),actor=x=>x===0||x===1;
 const number=(x,min=0,max=1e7)=>Number.isFinite(x)&&x>=min&&x<=max,integer=(x,min=0)=>Number.isSafeInteger(x)&&x>=min;
 const closed=(x,keys)=>x&&typeof x==='object'&&!Array.isArray(x)&&Object.keys(x).sort().join(',')===keys.slice().sort().join(',');
