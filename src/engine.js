@@ -1,4 +1,4 @@
-import {withRuleChannelUnitFrame} from './hero-rules-host.js';
+import {withRuleManagedFrame} from './hero-rules-host.js';
 import {observeChargePhase,observeChargeAdvance,cancelCharge,withChargeRelease} from './hero-legacy-charge-host.js';
 import {nativeCaptureFacts,recordNativeDamageDebit,beginLinearDotIteration,endLinearDotIteration,observeLinearDotTargetPhase,withLinearDotPulse,observeLinearHitTargetPhase,observeLinearAdvance,withLinearContact} from './hero-legacy-linear-host.js';
 import {PackTargeting} from './pack-targeting.js';
@@ -195,7 +195,7 @@ export class Engine {
   return candidates[0]||null;
  }
 
- step(dt=FIXED_DT){return withRuleChannelUnitFrame(this,()=>{if(this.paused||this.phase==='matchEnd')return;dt=Math.min(dt,.05);this.frame++;this.effects=this.effects.filter(e=>(e.life-=dt)>0);this.shake=Math.max(0,this.shake-dt*30);if(this.hitstop>0){this.hitstop-=dt;return;}
+ step(dt=FIXED_DT){return withRuleManagedFrame(this,()=>{if(this.paused||this.phase==='matchEnd')return;dt=Math.min(dt,.05);this.frame++;this.effects=this.effects.filter(e=>(e.life-=dt)>0);this.shake=Math.max(0,this.shake-dt*30);if(this.hitstop>0){this.hitstop-=dt;return;}
   if(this.phase!=='fight'){this.phaseTime-=dt;if(this.phaseTime<=0){if(this.phase==='intro'){this.phase='fight';this.fx('announce',600,310,'#ffe3ab',{text:'FIGHT',life:.8,maxLife:.8});}else if(this.phase==='roundEnd'){if(this.score.some(s=>s>=2))this.phase='matchEnd';else{this.round++;this.resetRound();}}}return;}
   PackHP.syncLife(this);this.t+=dt;if(this.mode!=='training')this.time=Math.max(0,this.time-dt);
   this.packCombat.tick(this,dt);reconcileRuleStatuses(this);reconcileRuleJobs(this);reconcileRuleAreas(this);if(this.mode==='cpu')this.ai(1,dt);
