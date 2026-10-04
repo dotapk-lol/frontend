@@ -1,3 +1,4 @@
+import {bFrameRequired} from './hero-b-status-host.js';
 import {withManagedFrame} from './hero-frame-transaction-host.js';
 import {PERIODIC_SLOTS,periodicFrameRequired,periodicFeatures,periodicEnabled,periodicReady,periodicPlan,periodicToggle,activatePeriodic,observePeriodicBuff,beginPeriodicDots,endPeriodicDots,advancePeriodicDot,beginPeriodicAreas,endPeriodicAreas,advancePeriodicArea,snapshotPeriodic,restorePeriodic,validPeriodic} from './hero-legacy-periodic-host.js';
 import {withChannelUnitFrame,channelUnitFrameRequired,CHANNEL_SLOTS,channelFeatures,channelEnabled,channelReady,channelPlan,activateChannel,interruptChannel,beginChannels,endChannels,advanceChannel,beginChannelProjectiles,endChannelProjectiles,observeChannelProjectile,contactChannelProjectile,beginChannelUnits,endChannelUnits,advanceChannelUnit,snapshotChannels,validChannels,restoreChannels} from './hero-legacy-channel-host.js';
@@ -13,6 +14,7 @@ import {effectiveCastRange as nativeEffectiveCastRange,services as aStatusStore}
 import {packStatusEffective} from './pack-services.js';
 const defaultRules=createHeroRegistry().seal(),sessions=new WeakMap();
 export const HERO_RULES_HASH=defaultRules.rulesHash;
+export const privateRuleSession=engine=>binding(engine);
 function binding(engine){
  let entry=sessions.get(engine);
  if(!entry){entry={fighters:engine.fighters,handles:new Map(),nextHandle:1,jobs:new Map(),nextJob:1,sourceId:0,entityId:0,entities:new Map(),nextEntity:1,entityLease:null,allocations:new Map(),statusBirths:new Map(),sourceBirths:new Map(),areaBirths:new Map(),auraClocks:new Map(),generation:1,lease:null,session:createRuleSession(engine.heroRuleRegistry?engine.heroRuleRegistry.seal():defaultRules)};sessions.set(engine,entry);}
@@ -525,6 +527,7 @@ function validAuraWitness(engine,g){try{
 
 function staticToggleProfile(a){const r=a.recipe;return r?.toggle===true&&r.ops?.length===1&&r.ops[0].op==='toggle'&&!r.ops[0].tick;}
 const attackRuleMigrations=new Set(['29:1','47:2']);
+export function hasPrivateAttackReceipt(engine,f,t,event,landed){const lease=bridgeEntry(engine).attackLease;return !!lease&&lease.f===f&&lease.t===t&&lease.event===event&&lease.landed===landed;}
 export function withRuleAttackReceipt(engine,f,t,event,landed,callback){const entry=bridgeEntry(engine);if(entry.attackLease)throw Error('Nested basic attack receipt');entry.attackLease={f,t,event,landed,consumed:new Set()};try{return callback();}finally{entry.attackLease=null;}}
 export function dispatchRuleAfterAttack(engine,f,t,a,event,landed){
  if(!attackRuleMigrations.has(engine.indices[f.i]+':'+engine.hero(f.i).abilities.findIndex(x=>x.id===a.id)))return false;
@@ -655,6 +658,6 @@ export const dispatchRulePeriodicArea=(e,z,dt)=>advancePeriodicArea(e,binding(e)
 export const rulePeriodicSnapshot=e=>snapshotPeriodic(e,binding(e));
 export const restoreRulePeriodicSnapshot=restorePeriodic;
 
-export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s)],run);};
+export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s),()=>bFrameRequired(e)],run);};
 // Compatibility entry point delegates to the shared transport enrollment.
 export const withRuleChannelUnitFrame=withRuleManagedFrame;

@@ -11022,12 +11022,12 @@ var sourceManifest = {
   "contract/schedule-schema.js": "7bd5805e0610c24cb0dcb241587e7ff82dfce2e248a2324523a5d7e3b513fdd6",
   "contract/session.js": "b7daebec87f2f1c2ce617d7661fbcb7b03c483095230231591d432c6ef28cf23",
   "contract/state-schema.js": "ccea5b69726eb88ed568348b5707b987583cc0d92ce7d9a7ee7c5672266e8cfe",
-  "contract/types.ts": "746396cc78e6b713f0deec23547bc9596499dee511b18b76c536d039dfcad378",
+  "contract/types.ts": "4362e8b5afc97059f266ebe69284ebaf4cc683508e9ae46ffd22f94bcf0fdfa2",
   "contract/value.js": "c0da66bad54e30c952287ff6c5ae00b6d551b6ec69ddb6b2fb63c4a0b8186646",
   "examples/blink-range.js": "e1031dc2d8b854b3a9c06dca05f20faa0b71681ce3317edcaa0f8ba836df28f0",
   "examples/demo.mjs": "3051e9b682638fe5d9c54b25277a2317256c53338cb88c6d54e169417c97a2c6",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
-  "package.json": "3994d20faa7ff8df8bc6ed0eeb19162e03c8edd82b2a4c21394909061e3d4bbc",
+  "package.json": "9420e8768ff04614356f1e223c10d1074ed77d8c4fab0371358ede7d4b13fc36",
   "rules/a/extensions/canonical.js": "27589aeae0f4cf0037fea07f0ea9bb7c95977ecb756342396d4bba1de4b519a1",
   "rules/a/extensions/common.mjs": "15b26f87007922ba78f1f6d5b9eb483c6a6de52f5069c592ee81726de9afcc98",
   "rules/a/extensions/dragon.mjs": "e8ef50d566fdd3e4fa3c9bfac07a73571bd216f6ea0a2a1b6108f193fb0e760f",
@@ -11035,7 +11035,7 @@ var sourceManifest = {
   "rules/a/extensions/gaze.mjs": "01fd5e1216c2c7b72bf1d5febb8b82ef17f07ed5178cdf2eda15d84f8f9a984a",
   "rules/a/extensions/index.mjs": "3f22cdfbdbca362435b0d49754c061fe60f3a3084f4d5abd34852d7002df5d13",
   "rules/a/extensions/mark.mjs": "e3d7badd05c4dc269fa194f23d1449b31f495a61b14d22aaa7ddb537f33604f9",
-  "rules/a/extensions/proposal.js": "6c61451417d8c4e120b6100cb7739b32404a6691575cf66ad8f13e1c07e25e55",
+  "rules/a/extensions/proposal.js": "3ce81bc368f576d19b4d86dda306f2e2e330bc5abe2b6261372f70b42e8638cf",
   "rules/a/extensions/rupture.mjs": "2518786b7a23081b185c7e1bd3cbefb5b960ec1cf18c58396a51c37e516ce74e",
   "rules/a/extensions/swap.mjs": "5a5ebee6be5941fa30d612985b6c4cd06bc932fe7e0e2ac0e0abbc1f7cf962e2",
   "rules/a/gaps.js": "d7695ba2e5acb873c3e7417254ff2dd3afad39f5c53ed0fffd29ea839eacd366",
@@ -11044,10 +11044,10 @@ var sourceManifest = {
   "rules/a/register.js": "f9c96a4c7b52dbfe30c3f05eb308758ce8b54a581468d118e57961e00ae6928b",
   "rules/a/runtime.js": "20f27eaf17e9763d43bb877c81fc100c81b546aefcdc77d996e20ea11b3f00a9",
   "rules/a/state.js": "0a5fec0b7ded0ce1976020d58fa956598dc0f242a8d44e8850741446a77b8228",
-  "rules/b/model.js": "0ed3171e5dafcf4086a499235c1721cbfc181e9d58c4a63c85c9b97abfeec6b0",
-  "rules/b/programs.js": "77e06b81e9bbaf55fa23ff5e5037bcdf3a464f6462a3e4a6382f738894c4a7fa",
-  "rules/b/register.js": "bd9371e55ecde22a3bde3204385c365aebc8d523451e971ec137b50dbf8833e3",
-  "rules/b/state.js": "49074b61c31de3f53cff65f15cb3d8f718aa1829d778a61b75e65c0df8b9063a",
+  "rules/b/model.js": "71d6f4a6b929566c6f603cda3a4173bed1777e278baf5b22a65def88844bd593",
+  "rules/b/programs.js": "bd400a514fd0bd1c5dbd4293f66faa835a07529d6b7ddeff6b8b75f5d4d28ca6",
+  "rules/b/register.js": "6a829aa2083b0510e534371ecc4bee963e556182af00d1e75d995c659b4f2aae",
+  "rules/b/state.js": "e4d570f7ff7019ecc7ee259e23d6d670f31d7afe12aff02b737a82f99fea4171",
   "rules/c/centaur.js": "ffdba3d9ec95aac29feccd12b8f6a9669b4eaa7bb0aed2b232d271d97989dd59",
   "rules/c/common.js": "e7f3fb5062d9baae2845a436f50110f1af03444a4ff7af9e9b1f9ddd8977817b",
   "rules/c/extra.js": "2104086d50be5fb5ef6961f6bab3b5830a18102fcab00a38fb7511ffee29df9a",
@@ -11089,7 +11089,7 @@ var sourceManifest = {
   "rules/legacy-10-19/remaining-projectiles.js": "8f25c1e7e98f5fcf6f096f1c6371c692aeb05189efc009c90c43bde543f6b56d",
   "rules/legacy-10-19/remaining.js": "c4e45e6e001a45cb94853a76875037c6830327cf0badcd77ab7f62c0f4082a22",
   "rules/legacy-three.js": "d201c401e3a9ff3d1427d16f1be304410fe60f91c911c1212bc38db5f1a3bc63",
-  "scripts/a-run-tests.mjs": "355d27c4255826d678c8c2171147ba7c3bf3673c9e39c1ab4949457d39816d93",
+  "scripts/a-run-tests.mjs": "5bc2bbbf5ea5735aa3ec0ab7a20b61933f3aef9665f9db3b02671955a0a50a48",
   "scripts/c/fingerprint.mjs": "dc775f4baa042b3af5ebbb5dbda5608e315b4a7910871129309f9f0c964ac0b8",
   "scripts/c/run-tests.mjs": "a409bb5298948b82a29289b51ae9f6836cef07f8deed808623cd9ce4cbb447e9",
   "scripts/fingerprint.mjs": "3c621367e4349d7704fb7b4234067c132504fc2e1bd66e6fa3024181e59bc94e",
@@ -11098,16 +11098,16 @@ var sourceManifest = {
   "scripts/legacy-10-19/run-remaining-tests.mjs": "42ba29f56a69165f1d861d66b35aae429ba87d0a9dbb90b173fd09ada1653bfb",
   "scripts/legacy-10-19/run-tests.mjs": "fdff01465e72761bd493987effb989b80ca96b487f147d009c63bb164a38bd17",
   "scripts/run-tests.mjs": "785bb3162ad22b6e0d7fcb3233d35f23a3b8a7b64c0877eed1a4251c900cd6fc",
-  "scripts/test-suites.mjs": "1c18708500c50aa38d699edc7ad913fc64b87cefb6db43dc47385b69434e1409",
+  "scripts/test-suites.mjs": "0b586ebc2ed859091f37322f2d5450f190c9e5c577f5e87c82d9e87962ce6a1a",
   "test/a-host.mjs": "e3cc198962c8111b44e7064b0ba34d5e0262c958afb96343a5533e0dde49cc2a",
   "test/a-probes.mjs": "d4aeec8429f97a06102473a18e7169bba4e885dcc202c33b296a669401a97ca1",
   "test/a-rules.test.mjs": "152bc8d3d9083d832ed340f78efbbffa88edc27986e5d26ef57a5faca1e9a96e",
   "test/a-six-handlers.test.mjs": "e7adfe6c15c4534f61c85371bb633d0c3618a636510459e25ee3a91bf0e7a1b6",
-  "test/a-v2-contract.test.mjs": "9ea0264ebbf353a940ce78f26aa443f4a44fad11aa597d1343b464e6d9c09d11",
+  "test/a-v2-contract.test.mjs": "c38b981f148f1e747d9f9b48d03d6baa8528e0bdd38d26721eee5976a6616271",
   "test/a-v3-resources.test.mjs": "f93a000f394a19521bee4137bd857667d92cf639c462cf05ce019631a582549e",
   "test/a-v4-schedule.test.mjs": "5b560bb0fa226bb0b497c77086cc17edf17020a4f74513ec9331d00f52b42d9b",
   "test/b24-host.mjs": "0349d5db7d9f4865dd11143d0af0dc898e3a980cafcbbd6713a992f017a58ec1",
-  "test/b24.test.mjs": "915831b07e1776c8392f145de9f453b83e7fb097527ffc46182b68793b9183a1",
+  "test/b24.test.mjs": "4c196966f80653ad91ba166fccc7ee18d019f109342390cf1559a1d5d0d85126",
   "test/batch10-contract-run.mjs": "60373b560e4afe917830bc0cf65cfbe2028060fbcf4a59b1e0781a1790738885",
   "test/batch10-contract.test.mjs": "8d605b3ed266d9a6aeafa2746235c46a12682aeef70878621b74a5b7576325fa",
   "test/c/boundaries.test.mjs": "35683a2150fb9939cc08336992aaa234b59665174fdcea4c5a1d3c592a9358a1",
@@ -11135,6 +11135,8 @@ var sourceManifest = {
   "test/probes.mjs": "a374c25f89cbf253190b409572e5ec5e2a2495bcbc73746cac7c39def6b26a20",
   "test/schedule-schema-run.mjs": "440eb9b2a846d7da8aff28f7d7c031890200f54fccbcea2cd36f8ad5b7436463",
   "test/schedule-schema.test.mjs": "ae2ee197c2ee1eca45e5a117c02dcea7475b17dfb48be461406f60f6dddfc4a0",
+  "test/status-payload-types.ts": "2477b6e839e706fdcfd8b370cdf3e9b2792dc47af4efd41e673a1fbdb79df8ad",
+  "test/status-payload.test.mjs": "4dc87eacc52127db0d6c7a66596b9bf7b894c34c67c3a0c51ed5ae62b7bb4aa7",
   "test/unified.test.mjs": "f3d3ed8b6e29f3ffb97157f32db03ccd733d45ddd229fa40a102f50254efb5e9"
 };
 
@@ -11296,23 +11298,23 @@ var legacyThreeFactories = Object.freeze([
     const m = definition.mvp;
     return metadata("legacy/anti_mage_mana_void", ["damage", "cue", "target-route"], (ctx, cast) => {
       if (!near(ctx, cast, m)) return;
-      const route = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu, reflectable: true, reflected: cast.reflected });
-      if (!route.accepted) return;
-      const t = ctx.actor(route.target), amount = route.reflected ? (t.maxMp - t.mp) * m.missing_mana_multiplier : Math.min(m.damage_cap, m.damage + (t.maxMp - t.mp) * m.missing_mana_multiplier);
-      ctx.damage({ source: route.owner, target: route.target, abilityId: definition.id, amount, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected: route.reflected });
-      ctx.cue({ kind: route.reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: route.owner, target: route.target });
-      if (route.reflected) return { reflected: true };
+      const route2 = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu, reflectable: true, reflected: cast.reflected });
+      if (!route2.accepted) return;
+      const t = ctx.actor(route2.target), amount = route2.reflected ? (t.maxMp - t.mp) * m.missing_mana_multiplier : Math.min(m.damage_cap, m.damage + (t.maxMp - t.mp) * m.missing_mana_multiplier);
+      ctx.damage({ source: route2.owner, target: route2.target, abilityId: definition.id, amount, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected: route2.reflected });
+      ctx.cue({ kind: route2.reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: route2.owner, target: route2.target });
+      if (route2.reflected) return { reflected: true };
     });
   } },
   { heroId: 9, slot: 1, create: ({ definition }) => {
     const m = definition.mvp;
     return metadata("legacy/lion_hex", ["control", "cue", "target-route"], (ctx, cast) => {
       if (!near(ctx, cast, m)) return;
-      const route = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu, reflectable: true, reflected: cast.reflected });
-      if (!route.accepted) return;
-      if (route.reflected || !ctx.actor(route.target).guarding) ctx.control.apply({ owner: route.owner, target: route.target, abilityId: definition.id, key: "hex", type: "hex", duration: m.duration_s, pierces: false, dispel: "strong" });
-      if (route.reflected) {
-        ctx.cue({ kind: "reflect", abilityId: definition.id, actor: route.owner, target: route.target });
+      const route2 = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu, reflectable: true, reflected: cast.reflected });
+      if (!route2.accepted) return;
+      if (route2.reflected || !ctx.actor(route2.target).guarding) ctx.control.apply({ owner: route2.owner, target: route2.target, abilityId: definition.id, key: "hex", type: "hex", duration: m.duration_s, pierces: false, dispel: "strong" });
+      if (route2.reflected) {
+        ctx.cue({ kind: "reflect", abilityId: definition.id, actor: route2.owner, target: route2.target });
         return { reflected: true };
       }
     });
@@ -11514,7 +11516,7 @@ function validateDefinition(hero, resources) {
   }
   return freeze(h2);
 }
-function validateImplementation(raw, executionParameters2) {
+function validateImplementation(raw, executionParameters3) {
   if (!raw || typeof raw.behaviorId !== "string" || !raw.behaviorId || !semver(raw.revision) || !Array.isArray(raw.requires) || new Set(raw.requires).size !== raw.requires.length || raw.requires.some((c) => !CAPABILITIES.includes(c)) || !isStateSchema(raw.stateSchema)) throw Error("Invalid behavior metadata/capabilities/canonical schema");
   const identity2 = assertCodeIdentity(raw);
   if (raw.namespace !== void 0 && (typeof raw.namespace !== "string" || !/^heros\/[a-z0-9/_-]{1,96}$/.test(raw.namespace))) throw Error("Invalid owned rule namespace");
@@ -11528,7 +11530,7 @@ function validateImplementation(raw, executionParameters2) {
   const scheduledBindings = validateScheduledBindings(raw.scheduledBindings, raw.scheduledHandlers);
   if (scheduledBindings && !raw.requires.includes("schedule")) throw Error("Scheduled binding requires schedule capability");
   const requiredCastFacts = validateCastFactRequirements(raw.requiredCastFacts, raw), statusDeclarations = validateStatusDeclarations(raw.statusDeclarations, raw, scheduledBindings);
-  return Object.freeze({ ...raw, ...requiredCastFacts ? { requiredCastFacts } : {}, ...statusDeclarations ? { statusDeclarations } : {}, scheduledBindings, ...identity2, executionParameters: executionParameters2, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
+  return Object.freeze({ ...raw, ...requiredCastFacts ? { requiredCastFacts } : {}, ...statusDeclarations ? { statusDeclarations } : {}, scheduledBindings, ...identity2, executionParameters: executionParameters3, requires: Object.freeze([...raw.requires]), scheduledHandlers: Object.freeze({ ...raw.scheduledHandlers }), validateState: raw.stateSchema.validate });
 }
 var key = (heroId, slot) => heroId + ":" + slot;
 function behaviorManifest(impl) {
@@ -11687,8 +11689,8 @@ function createRuleSession(sealed) {
     validateDeclaredCastFacts(selected2.impl, slot, hook, facts);
     if ("abilityId" in facts && facts.abilityId !== selected2.ability.id) throw Error("Mismatched ability event");
     if ("owner" in facts) {
-      const owner = actorFact(host, facts.owner, sealed.resources);
-      if (owner.heroId !== heroId) throw Error("Mismatched owner hero");
+      const owner2 = actorFact(host, facts.owner, sealed.resources);
+      if (owner2.heroId !== heroId) throw Error("Mismatched owner hero");
     }
     const result2 = selected2.impl[hook](context(selected2, host), facts);
     return Object.freeze({ handled: true, value: result2 === void 0 ? null : freeze(json(result2)) });
@@ -11876,11 +11878,11 @@ function refineOwnState(state, parameters2) {
   for (const row of state.areas) if (!parameters2.areaSchemas.some((v) => row.kind === v.kind && row.program === v.program && row.interval === v.interval && Math.abs(row.expires - row.startedAt - v.duration) < 1e-7 && row.pulses * row.interval <= v.duration + 1e-8)) return false;
   for (const row of state.jobs) if (row.route !== (parameters2.abilityId === "vengefulspirit_magic_missile" && !row.reflected)) return false;
   if (parameters2.statusDeclarations) {
-    const handles = /* @__PURE__ */ new Set();
+    const handles2 = /* @__PURE__ */ new Set();
     for (const row of state.records) {
       const d = parameters2.statusDeclarations.find((x) => x.id === row.statusDeclarationId);
-      if (!d || row.key !== d.key || row.program !== d.programId || row.interval !== d.interval || row.polarity !== d.polarity || row.pierces !== d.pierces || row.target !== (d.recipient === "self" ? row.owner : 1 - row.owner) || Math.abs(row.expires - row.startedAt - d.duration) > 1e-7 || handles.has(row.handle)) return false;
-      handles.add(row.handle);
+      if (!d || row.key !== d.key || row.program !== d.programId || row.interval !== d.interval || row.polarity !== d.polarity || row.pierces !== d.pierces || row.target !== (d.recipient === "self" ? row.owner : 1 - row.owner) || Math.abs(row.expires - row.startedAt - d.duration) > 1e-7 || handles2.has(row.handle)) return false;
+      handles2.add(row.handle);
     }
   }
   for (const row of state.records) {
@@ -11954,9 +11956,9 @@ function actor4(f) {
 }
 function begin(event) {
   handle2(event.castId);
-  const owner = actor4(event.owner), target = actor4(event.target);
+  const owner2 = actor4(event.owner), target = actor4(event.target);
   if (typeof event.accepted !== "boolean" || typeof event.reflected !== "boolean") throw Error("Missing routed cast facts");
-  return { castId: event.castId, owner: owner.id, target: target.id, reflected: event.reflected };
+  return { castId: event.castId, owner: owner2.id, target: target.id, reflected: event.reflected };
 }
 function live(state, event) {
   return !!state && state.castId === event.castId && state.phase !== "closed";
@@ -11964,8 +11966,8 @@ function live(state, event) {
 function damage(id, s, amount, type) {
   return { kind: "damage", abilityId: id, source: s.owner, target: s.target, amount: nonnegative(amount), type, dot: true, blockable: false, reflected: s.reflected, noReflect: s.reflected, noLifesteal: s.reflected };
 }
-function status(id, s, key2, duration, values, { to = s.target, positive = false, pierces = false, dispel = "basic", interval = 0 } = {}) {
-  return { kind: "apply-status", abilityId: id, requestId: handle2(key2), owner: s.owner, target: to, key: key2, duration: nonnegative(duration), polarity: positive ? "positive" : "negative", pierces, dispel, interval, values };
+function status(id, s, key2, duration, values, { to = s.target, positive: positive2 = false, pierces = false, dispel = "basic", interval = 0 } = {}) {
+  return { kind: "apply-status", abilityId: id, requestId: handle2(key2), owner: s.owner, target: to, key: key2, duration: nonnegative(duration), polarity: positive2 ? "positive" : "negative", pierces, dispel, interval, values };
 }
 function belongs(state, id) {
   return state === null || state?.abilityId === id && typeof state.castId === "string" && state.castId.length > 0 && state.castId.length <= 128 && [0, 1].includes(state.owner) && [0, 1].includes(state.target) && typeof state.reflected === "boolean" && ["waiting", "active", "closed"].includes(state.phase);
@@ -12163,14 +12165,14 @@ function createGaze(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.channelHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastPulse) return result(s);
-      const owner = actor4(e.owner), target = actor4(e.target);
-      if (owner.id !== s.owner || target.id !== s.target) throw Error("Gaze actor mismatch");
+      const owner2 = actor4(e.owner), target = actor4(e.target);
+      if (owner2.id !== s.owner || target.id !== s.target) throw Error("Gaze actor mismatch");
       if (e.channelAliveBeforePulse === false) return end(s, "expired");
-      if (!owner.alive || !e.tokenValid) return end(s, e.reason || "interrupted");
+      if (!owner2.alive || !e.tokenValid) return end(s, e.reason || "interrupted");
       if (e.ordinal > Math.floor(p.channel_duration / 0.25 + 1e-8)) throw Error("Gaze pulse beyond duration");
       s.lastPulse = e.ordinal;
-      if (!target.alive || target.invulnerable || target.debuffImmune || Math.abs(owner.x - target.x) > 600 * 0.55) return result(s);
-      const destination = target.x + Math.sign(owner.x - target.x) * Math.min(Math.abs(owner.x - target.x), 25);
+      if (!target.alive || target.invulnerable || target.debuffImmune || Math.abs(owner2.x - target.x) > 600 * 0.55) return result(s);
+      const destination = target.x + Math.sign(owner2.x - target.x) * Math.min(Math.abs(owner2.x - target.x), 25);
       return result(s, [{ kind: "transfer-mana", abilityId: id, source: s.target, target: s.owner, requested: target.mp * p.mana_drain / 100 * 0.25 }, status(id, s, id, 0.25, { stun: true }, { dispel: "strong" }), { kind: "control", abilityId: id, owner: s.owner, target: s.target, type: "stun", duration: 0.25, pierces: false, dispel: "strong" }, { kind: "bounded-pull", abilityId: id, castId: s.castId, actor: s.target, destinationX: clampX(destination), maxDistance: 25, rootPolicy: "v8-forced-motion", collisionPolicy: "v8-move" }]);
     },
     interrupted(s, e) {
@@ -12215,10 +12217,10 @@ function createExorcism(definition) {
       if (!live(s, e) || s.phase !== "active" || e.handle !== s.swarmHandle) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastContact) return result(s);
-      const owner = actor4(e.owner), target = actor4(e.target);
-      if (owner.id !== s.owner || target.id !== s.target) throw Error("Spirit actor mismatch");
+      const owner2 = actor4(e.owner), target = actor4(e.target);
+      if (owner2.id !== s.owner || target.id !== s.target) throw Error("Spirit actor mismatch");
       s.lastContact = e.ordinal;
-      if (!owner.alive || !target.alive) return result(s);
+      if (!owner2.alive || !target.alive) return result(s);
       if (s.pending.length >= 64) throw Error("Too many uncommitted contacts");
       s.pending.push(e.ordinal);
       return result(s, [{ ...damage(id, s, p.average_damage, "physical"), receiptHandler: "damageReceipt", receiptId: e.ordinal }]);
@@ -12235,13 +12237,13 @@ function createExorcism(definition) {
     expired(s, e) {
       if (!live(s, e) || e.handle !== s.swarmHandle) return result(s);
       if (s.pending.length) throw Error("Expiry must follow contact receipt commits");
-      const owner = actor4(e.owner);
-      if (owner.id !== s.owner) throw Error("Spirit owner mismatch");
+      const owner2 = actor4(e.owner);
+      if (owner2.id !== s.owner) throw Error("Spirit owner mismatch");
       const actual = s.actual;
       s.phase = "closed";
       s.swarmHandle = null;
       s.actual = 0;
-      return result(s, owner.alive ? [{ kind: "heal", abilityId: id, source: s.owner, target: s.owner, amount: actual * p.heal_percent / 100 }] : []);
+      return result(s, owner2.alive ? [{ kind: "heal", abilityId: id, source: s.owner, target: s.owner, amount: actual * p.heal_percent / 100 }] : []);
     },
     death(s, e) {
       if (!s || e.actor !== s.owner || s.phase === "closed") return result(s);
@@ -12291,9 +12293,9 @@ function createDragon(definition) {
     },
     landedAttack(s, e) {
       if (!s || !s.formHandle || !e.formPresent || !e.landed || e.secondary) return result(s);
-      const owner = actor4(e.owner), target = actor4(e.target);
-      if (owner.id !== s.owner) throw Error("Dragon owner mismatch");
-      if (!owner.alive || !owner.passivesEnabled || !target.alive || target.invulnerable) return result(s);
+      const owner2 = actor4(e.owner), target = actor4(e.target);
+      if (owner2.id !== s.owner) throw Error("Dragon owner mismatch");
+      if (!owner2.alive || !owner2.passivesEnabled || !target.alive || target.invulnerable) return result(s);
       ordinal(e.ordinal);
       if (e.ordinal <= s.lastAttack) return result(s);
       s.lastAttack = e.ordinal;
@@ -12319,8 +12321,8 @@ function createDragon(definition) {
       if (e.ordinal <= record.ordinal) return result(s);
       if (e.ordinal > Math.floor(p.corrosive_duration + 1e-8)) throw Error("Corrosion pulse beyond source lifetime");
       record.ordinal = e.ordinal;
-      const owner = actor4(e.owner), target = actor4(e.target);
-      if (owner.id !== s.owner || target.id !== record.target) throw Error("Corrosion actor mismatch");
+      const owner2 = actor4(e.owner), target = actor4(e.target);
+      if (owner2.id !== s.owner || target.id !== record.target) throw Error("Corrosion actor mismatch");
       return result(s, target.alive && !target.invulnerable && !target.debuffImmune && e.effective ? [damage(id, { ...s, target: record.target }, p.corrosive_damage_per_second, "magical")] : []);
     },
     formExpired(s, e) {
@@ -12615,7 +12617,7 @@ function createRule(config) {
     write(ctx, s);
     ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: fields.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
   }
-  function route(ctx, c) {
+  function route2(ctx, c) {
     return ctx.target.route({ owner: c.owner, target: c.target, abilityId: id, range: settings.routedDeliveryRange, reflectable: true, reflected: !!c.reflected });
   }
   const scheduledHandlers = {
@@ -12627,7 +12629,7 @@ function createRule(config) {
       if (!ctx.actor(j.owner).alive || !ctx.actor(j.target).alive) return;
       let c = { ...j };
       if (j.route) {
-        const routed = route(ctx, c);
+        const routed = route2(ctx, c);
         if (!routed.accepted) return;
         c = { ...c, ...routed };
       }
@@ -12651,8 +12653,8 @@ function createRule(config) {
       if (!row) return;
       const expectedAt = row.startedAt + (row.pulses + 1) * row.interval;
       if (!Number.isFinite(data.callbackAt) || data.callbackAt < 0 || data.callbackAt > ctx.now + 1e-8 || Math.abs(data.callbackAt - expectedAt) > 1e-8 || data.callbackAt > row.expires + 1e-8 || typeof data.nativeExpired !== "boolean" || typeof data.handle !== "string" || data.handle.length < 1 || data.handle.length > 160 || data.nativeExpired && ctx.now < row.expires - 1e-8) throw Error("A-AREA-CLOCK-01: authenticated nominal callback/native lifetime facts required");
-      const owner = ctx.actor(row.owner), target = ctx.actor(row.target);
-      if (!owner.alive) {
+      const owner2 = ctx.actor(row.owner), target = ctx.actor(row.target);
+      if (!owner2.alive) {
         ctx.legacyEffect.end(row.handle, "owner-dead");
         s.areas = s.areas.filter((x) => x.n !== row.n);
         write(ctx, s);
@@ -12660,7 +12662,7 @@ function createRule(config) {
       }
       row.pulses++;
       write(ctx, s);
-      if (Math.abs(target.x - (row.follow ? owner.x : row.aimX)) <= row.radius) execute(ctx, { ...row, aimX: row.follow ? owner.x : row.aimX }, row.program);
+      if (Math.abs(target.x - (row.follow ? owner2.x : row.aimX)) <= row.radius) execute(ctx, { ...row, aimX: row.follow ? owner2.x : row.aimX }, row.program);
       if (data.callbackAt + row.interval <= row.expires + 1e-8) ctx.schedule({ abilityId: id, owner: row.owner, target: row.target, handler: "areaPulse", delay: row.interval, data: { area: row.n }, binding: { kind: "entity", mode: "area", ref: row.handle }, delivery: "pack.entity" });
       else if (data.nativeExpired) {
         ctx.legacyEffect.end(row.handle, "expired");
@@ -12691,16 +12693,16 @@ function createRule(config) {
       ...areaSchemas.some((x) => x.kind === "area") ? { areaPulse: [{ binding: "entity-area", delivery: "pack.entity" }] } : {}
     } } : {},
     planCast(ctx, facts) {
-      const owner = ctx.actor(facts.owner), target = ctx.actor(facts.target), base2 = { manaCost: m.mana, cooldownSeconds: m.cooldown_s, chargeCost: m.charges ? 1 : 0, windupSeconds: m.startup_frames / 60, recoverySeconds: m.recovery_frames / 60, action: "cast" };
-      let reason = m.passive ? "passive" : HOST_REQUESTS[id] || (!owner.alive ? "dead" : !facts.actionReady ? "action" : owner.silenced ? "silenced" : null);
-      const toggle = r.toggle && liveRows(ctx, facts.owner).some((x) => x.key === id);
-      if (toggle && !reason) return { ...base2, accepted: true, manaCost: 0, cooldownSeconds: 0, chargeCost: 0, windupSeconds: 0, recoverySeconds: 0, action: "toggle-off" };
+      const owner2 = ctx.actor(facts.owner), target = ctx.actor(facts.target), base2 = { manaCost: m.mana, cooldownSeconds: m.cooldown_s, chargeCost: m.charges ? 1 : 0, windupSeconds: m.startup_frames / 60, recoverySeconds: m.recovery_frames / 60, action: "cast" };
+      let reason = m.passive ? "passive" : HOST_REQUESTS[id] || (!owner2.alive ? "dead" : !facts.actionReady ? "action" : owner2.silenced ? "silenced" : null);
+      const toggle2 = r.toggle && liveRows(ctx, facts.owner).some((x) => x.key === id);
+      if (toggle2 && !reason) return { ...base2, accepted: true, manaCost: 0, cooldownSeconds: 0, chargeCost: 0, windupSeconds: 0, recoverySeconds: 0, action: "toggle-off" };
       if (!reason && facts.cooldownRemaining > 1e-8) reason = "cooldown";
       if (!reason && facts.manaAvailable < m.mana) reason = "mana";
       if (!reason && m.charges && facts.chargesAvailable <= 0) reason = "charges";
       if (!reason && r.target === "enemy" && (!target.alive || target.invulnerable || ctx.target.distance(facts.owner, facts.target) > (usesEffectiveRange ? facts.effectiveCastRange : m.range_wu) + 22)) reason = "target";
       if (!reason && !Number.isFinite(facts.aimX)) reason = "aim";
-      if (!reason && r.target === "point" && (facts.aimX < 45 || facts.aimX > 1155 || Math.abs(facts.aimX - owner.x) > m.range_wu + 22)) reason = "aim";
+      if (!reason && r.target === "point" && (facts.aimX < 45 || facts.aimX > 1155 || Math.abs(facts.aimX - owner2.x) > m.range_wu + 22)) reason = "aim";
       return { ...base2, accepted: !reason, ...reason ? { reason } : {} };
     },
     activate(ctx, event) {
@@ -12708,7 +12710,7 @@ function createRule(config) {
       if (HOST_REQUESTS[id]) throw new HostPortRequired(id);
       let c = { ...event };
       if (r.target === "enemy" && id !== "vengefulspirit_magic_missile") {
-        const routed = route(ctx, c);
+        const routed = route2(ctx, c);
         if (!routed.accepted) return { accepted: false, reason: routed.reason };
         c = { ...c, ...routed };
       }
@@ -12769,10 +12771,10 @@ function createRule(config) {
     },
     onStage(ctx, event) {
       if (event.kind === "passive-pulse" && r.aura) {
-        const owner = ctx.actor(event.owner);
-        if (owner.heroId !== config.hero.registryNumericId) throw Error("A_PASSIVE_OWNER");
-        if (owner.alive && owner.passivesEnabled && ctx.target.distance(event.owner, 1 - event.owner) <= resolve(r.aura.radius, ctx, { owner: event.owner, target: 1 - event.owner }) * settings.unitScale)
-          execute(ctx, { owner: event.owner, target: 1 - event.owner, aimX: owner.x, reflected: false }, paths.get(r.aura.ops));
+        const owner2 = ctx.actor(event.owner);
+        if (owner2.heroId !== config.hero.registryNumericId) throw Error("A_PASSIVE_OWNER");
+        if (owner2.alive && owner2.passivesEnabled && ctx.target.distance(event.owner, 1 - event.owner) <= resolve(r.aura.radius, ctx, { owner: event.owner, target: 1 - event.owner }) * settings.unitScale)
+          execute(ctx, { owner: event.owner, target: 1 - event.owner, aimX: owner2.x, reflected: false }, paths.get(r.aura.ops));
       } else if (event.kind === "status-removed") {
         const s = read(ctx);
         s.records = s.records.filter((x) => x.handle !== event.handle);
@@ -12834,11 +12836,11 @@ function directHitFactory(parameters2 = { damageMultiplier: 1, bodyPadding: 22 }
         activate(ctx, cast) {
           const f = ctx.actor(cast.owner), t = ctx.actor(cast.target);
           if (Math.abs(t.x - f.x) > (m.range_wu || m.radius_wu) + p.bodyPadding || m.height === "ground" && t.y >= 45) return;
-          const route = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu || m.radius_wu, reflectable: true, reflected: cast.reflected });
-          if (!route.accepted) return;
-          ctx.damage({ source: route.owner, target: route.target, abilityId: definition.id, amount: m.damage * p.damageMultiplier, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected: route.reflected });
-          ctx.cue({ kind: route.reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: route.owner, target: route.target });
-          if (route.reflected) return { reflected: true };
+          const route2 = ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: definition.id, range: m.range_wu || m.radius_wu, reflectable: true, reflected: cast.reflected });
+          if (!route2.accepted) return;
+          ctx.damage({ source: route2.owner, target: route2.target, abilityId: definition.id, amount: m.damage * p.damageMultiplier, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected: route2.reflected });
+          ctx.cue({ kind: route2.reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: route2.owner, target: route2.target });
+          if (route2.reflected) return { reflected: true };
         }
       };
     }
@@ -12970,15 +12972,15 @@ function legacyFactory(heroId, slot, { damageMultiplier = 1 } = {}) {
       const presentation = slot2 === 1 ? { kind: "ground-pillar", aimX: cast.aimX, radius: m.radius_wu, lifeSeconds: 0.6 } : null;
       const distance = Math.abs(t.x - (slot2 === 1 ? cast.aimX : f.x));
       if (distance > (slot2 === 1 ? m.radius_wu : m.range_wu || m.radius_wu) + 22 || m.height === "ground" && t.y >= 45) return presentation ? { presentation } : void 0;
-      let owner = cast.owner, target = cast.target, reflected = false;
+      let owner2 = cast.owner, target = cast.target, reflected = false;
       if (slot2 !== 1) {
-        const route = ctx.target.route({ owner, target, abilityId: definition.id, range: m.range_wu || m.radius_wu, reflectable: true, reflected: cast.reflected });
-        if (!route.accepted) return;
-        ({ owner, target, reflected } = route);
+        const route2 = ctx.target.route({ owner: owner2, target, abilityId: definition.id, range: m.range_wu || m.radius_wu, reflectable: true, reflected: cast.reflected });
+        if (!route2.accepted) return;
+        ({ owner: owner2, target, reflected } = route2);
       }
-      ctx.damage({ source: owner, target, abilityId: definition.id, amount: m.damage * scale, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected });
+      ctx.damage({ source: owner2, target, abilityId: definition.id, amount: m.damage * scale, type: m.damage_type, blockable: m.blockable, stunSeconds: m.stun_s, hitstunSeconds: m.hitstun_s, reflected });
       if (presentation) return { presentation };
-      ctx.cue({ kind: reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: owner, target });
+      ctx.cue({ kind: reflected ? "reflect" : "targeted-hit", abilityId: definition.id, actor: owner2, target });
       if (reflected) return { reflected: true };
     } };
   } };
@@ -13018,6 +13020,975 @@ function createBash({ definition, hero }) {
 }
 var core4Factories = Object.freeze([{ heroId: 31, slot: 2, create: createBash }]);
 
+// node_modules/@dotapk/heros/rules/b/state.js
+var handles = { type: "array", maxItems: 64, items: { type: "string", minLength: 1, maxLength: 256 } };
+var owner = { type: "object", properties: { toggle: { type: "boolean" }, sequence: { type: "integer", minimum: 0, maximum: 31 }, jobs: handles, areas: handles }, required: ["toggle", "sequence", "jobs", "areas"], additionalProperties: false };
+function createBStateSchema() {
+  return defineStateSchema({ id: "heros/b-scoped-state", version: "2.0.0", schema: { anyOf: [{ type: "null" }, { type: "object", properties: { version: { const: 1 }, owners: { type: "object", properties: { "0": owner, "1": owner }, required: [], additionalProperties: false } }, required: ["version", "owners"], additionalProperties: false }] }, refinement: { id: "b/scoped-handle-uniqueness", ...codeIdentity(["rules/b/state.js"]), validate: validateBState } });
+}
+var statusSupportSchema = { type: "object", properties: { version: { const: "b-status-record-view-1" }, mode: { enum: ["legacy", "strict"] }, record: { const: "StatusRecordView" }, periodic: { const: "status-periodic" }, refresh: { const: "statusRefresh" }, block: { const: "statusBlockUpdate" }, readonlyCrossKeys: { type: "array", maxItems: 1, items: { enum: ["night_stalker_darkness"] } }, handles: { const: "provider-authenticated-origin" } }, required: ["version", "mode", "record", "periodic", "refresh", "block", "readonlyCrossKeys", "handles"], additionalProperties: false };
+function statusContractFor(id, mode = "legacy") {
+  return { version: "b-status-record-view-1", mode, record: "StatusRecordView", periodic: "status-periodic", refresh: "statusRefresh", block: "statusBlockUpdate", readonlyCrossKeys: ["night_stalker_void", "night_stalker_crippling_fear"].includes(id) ? ["night_stalker_darkness"] : [], handles: "provider-authenticated-origin" };
+}
+var B_EXECUTION_SCHEMA = defineStateSchema({ id: "heros/b-execution-parameters", version: "2.1.0", schema: { type: "object", properties: { damageScale: { type: "number", minimum: 0, maximum: 1 }, healScale: { type: "number", minimum: 0, maximum: 1 }, statusContract: statusSupportSchema }, required: ["damageScale", "healScale"], additionalProperties: false } });
+function executionParameters2(config) {
+  if (!B_EXECUTION_SCHEMA.validate(config.parameters)) throw Error("Invalid B execution parameters");
+  const statusContract = config.parameters.statusContract ?? statusContractFor(config.definition.id);
+  if (statusContract.readonlyCrossKeys.join(",") !== statusContractFor(config.definition.id).readonlyCrossKeys.join(",")) throw Error("Invalid B readonly cross-key declaration");
+  return { ...config.parameters, statusContract };
+}
+function validateBState(s) {
+  if (s === null) return true;
+  if (!s || Array.isArray(s) || Object.keys(s).sort().join(",") !== "owners,version" || s.version !== 1 || !s.owners || Array.isArray(s.owners) || Object.keys(s.owners).some((k) => k !== "0" && k !== "1")) return false;
+  return Object.values(s.owners).every((v) => v && Object.keys(v).sort().join(",") === "areas,jobs,sequence,toggle" && typeof v.toggle === "boolean" && Number.isInteger(v.sequence) && v.sequence >= 0 && v.sequence < 32 && ["jobs", "areas"].every((k) => Array.isArray(v[k]) && v[k].length <= 64 && v[k].every((h2) => typeof h2 === "string" && h2.length > 0 && h2.length <= 256) && new Set(v[k]).size === v[k].length));
+}
+function readOwner(ctx, actor6) {
+  return ctx.state.read()?.owners?.[actor6] ?? { toggle: false, sequence: 0, jobs: [], areas: [] };
+}
+function writeOwner(ctx, actor6, value) {
+  const s = ctx.state.read() ?? { version: 1, owners: {} };
+  ctx.state.write({ ...s, owners: { ...s.owners, [actor6]: value } });
+}
+function toggle(ctx, actor6) {
+  const s = readOwner(ctx, actor6);
+  writeOwner(ctx, actor6, { ...s, toggle: !s.toggle });
+}
+function remember(ctx, actor6, kind, handle3) {
+  if (typeof handle3 !== "string") throw Error("Missing bounded effect handle");
+  const s = readOwner(ctx, actor6);
+  if (s[kind].length >= 64) throw Error("B scoped handle capacity");
+  writeOwner(ctx, actor6, { ...s, [kind]: [...s[kind], handle3] });
+}
+function forget(ctx, actor6, kind, handle3) {
+  const s = readOwner(ctx, actor6);
+  writeOwner(ctx, actor6, { ...s, [kind]: s[kind].filter((h2) => h2 !== handle3) });
+}
+
+// node_modules/@dotapk/heros/rules/b/model.js
+var caches2 = /* @__PURE__ */ new WeakMap();
+function model2(config) {
+  let m = caches2.get(config.definitions);
+  if (!m) {
+    m = { heroes: /* @__PURE__ */ new Map(), abilities: /* @__PURE__ */ new Map(), stateSchema: createBStateSchema(), coefficientSchemas: /* @__PURE__ */ new Map(), maxHp: Math.max(...config.definitions.map((h2) => h2.combatHp || h2.hp * 2.8)) };
+    for (const h2 of config.definitions) {
+      m.heroes.set(h2.registryNumericId, h2);
+      for (const a of h2.abilities) m.abilities.set(a.id, a);
+    }
+    for (const id of [57, 58, 62, 71, 81, 82]) {
+      const h2 = m.heroes.get(id);
+      if (!h2 || !Number.isFinite(h2.attributes18?.str) || h2.attributes18.str < 0 || !Number.isFinite(h2.attributes18?.agi) || h2.attributes18.agi < 0 || h2.move_speed <= 0) throw Error("Invalid B derived hero coefficients");
+    }
+    caches2.set(config.definitions, m);
+  }
+  return m;
+}
+var clamp2 = (n2, a, b) => Math.max(a, Math.min(b, n2));
+var number2 = (n2, label) => {
+  if (!Number.isFinite(n2)) throw Error("Missing finite B fact: " + label);
+  return n2;
+};
+function coefficient2(m, id, key2) {
+  return number2(m.abilities.get(id)?.official?.params?.[key2], id + "." + key2);
+}
+function near2(ctx, owner2, target, r) {
+  const f = ctx.actor(owner2), t = ctx.actor(target);
+  return t.alive && Math.abs(t.x - f.x) <= r + 22 && Math.abs(f.y - t.y) < 105;
+}
+var recordRequired = ["owner", "target", "abilityId", "key", "duration", "polarity", "dispel", "pierces", "values", "handle", "effective", "remainingSeconds"];
+var recordOptional = ["intervalSeconds", "enabled", "statusDeclarationId"];
+var isActor = (id) => id === 0 || id === 1;
+var plain = (x) => x !== null && typeof x === "object" && !Array.isArray(x) && Object.getPrototypeOf(x) === Object.prototype;
+function ownedStatusKey(id, key2) {
+  if (id !== "huskar_burning_spear") return key2 === id || id === "treant_overgrowth" && key2 === id + "_control";
+  if (typeof key2 !== "string" || !key2.startsWith(id + "_")) return false;
+  const n2 = key2.slice(id.length + 1);
+  return /^(0|[1-9]\d?)$/.test(n2) && Number(n2) < 32;
+}
+function sourceCadence(m, id) {
+  switch (id) {
+    case "huskar_burning_spear":
+    case "jakiro_dual_breath":
+    case "treant_overgrowth":
+    case "ogre_magi_ignite":
+      return 1;
+    case "jakiro_liquid_fire":
+      return coefficient2(m, id, "tick_rate");
+    case "jakiro_macropyre":
+      return coefficient2(m, id, "burn_interval");
+    default:
+      return null;
+  }
+}
+function finiteJson(x, depth = 0) {
+  if (depth > 16) return false;
+  if (x === null || typeof x === "boolean" || typeof x === "string") return true;
+  if (typeof x === "number") return Number.isFinite(x);
+  if (Array.isArray(x)) return x.length <= 128 && x.every((v) => finiteJson(v, depth + 1));
+  return plain(x) && Object.keys(x).length <= 64 && Object.values(x).every((v) => finiteJson(v, depth + 1));
+}
+var valueFields = { huskar_inner_fire: "silence", huskar_burning_spear: "dps", huskar_life_break: "debuffImmune magicReduction slow aspd", night_stalker_void: "slow aspd", night_stalker_crippling_fear: "silence", night_stalker_darkness: "", jakiro_dual_breath: "slow aspd dps", jakiro_liquid_fire: "dps aspd", jakiro_macropyre: "dps", alchemist_acid_spray: "armor", alchemist_unstable_concoction: "", alchemist_corrosive_weaponry: "stacks slow attackReduction", alchemist_chemical_rage: "", treant_natures_grasp: "slow", treant_leech_seed: "disarm", treant_living_armor: "block", treant_overgrowth: "dps disarm", ogre_magi_ignite: "dps slow", ogre_magi_bloodlust: "" };
+function validateSourceValues(row) {
+  if (!Object.hasOwn(valueFields, row.abilityId)) return;
+  const numeric = valueFields[row.abilityId].split(" ").filter(Boolean), required = row.abilityId === "jakiro_dual_breath" ? ["slow", "aspd"] : row.abilityId === "huskar_life_break" ? row.polarity === "positive" ? ["debuffImmune", "magicReduction"] : ["slow", "aspd"] : row.abilityId === "treant_overgrowth" ? [row.key === row.abilityId + "_control" ? "disarm" : "dps"] : numeric, allowed = ["abilityId", ...numeric, ...row.polarity === "negative" ? ["hostile", "polarity"] : [], ...["huskar_life_break", "night_stalker_void", "ogre_magi_ignite"].includes(row.abilityId) ? ["reflected", "origin"] : []];
+  if (required.some((k) => !Object.hasOwn(row.values, k)) || Object.keys(row.values).some((k) => !allowed.includes(k)) || numeric.some((k) => row.values[k] !== void 0 && (!Number.isFinite(row.values[k]) || Math.abs(row.values[k]) > 1e7)) || row.polarity === "negative" && (row.values.hostile !== true || row.values.polarity !== "hostile") || row.values.reflected !== void 0 && typeof row.values.reflected !== "boolean" || row.values.origin !== void 0 && !isActor(row.values.origin) || row.values.reflected === true && !isActor(row.values.origin)) throw Error("Invalid B strict source status values");
+  if (row.values.stacks !== void 0 && (!Number.isInteger(row.values.stacks) || row.values.stacks < 0 || row.values.stacks > 64)) throw Error("Invalid B strict status stack");
+}
+function validateStatusRecord(row, target, { allowZero = false } = {}) {
+  if (!plain(row) || recordRequired.some((k) => !Object.hasOwn(row, k)) || Object.keys(row).some((k) => !recordRequired.includes(k) && !recordOptional.includes(k)) || !isActor(row.owner) || row.target !== target || !isActor(row.target) || typeof row.abilityId !== "string" || !row.abilityId || typeof row.key !== "string" || !row.key || !Number.isFinite(row.duration) || row.duration <= 0 || row.duration > 3600 || !["positive", "negative"].includes(row.polarity) || !["basic", "strong", "none"].includes(row.dispel) || typeof row.pierces !== "boolean" || !plain(row.values) || !finiteJson(row.values) || row.values.abilityId !== row.abilityId || typeof row.handle !== "string" || !row.handle || row.handle.length > 256 || typeof row.effective !== "boolean" || !Number.isFinite(row.remainingSeconds) || row.remainingSeconds < 0 || row.remainingSeconds > row.duration || !allowZero && row.remainingSeconds === 0) throw Error("Invalid B strict StatusRecordView");
+  if (row.values.dps !== void 0 && (!Number.isFinite(row.values.dps) || row.values.dps < 0 || row.values.dps > 1e7) || row.values.block !== void 0 && (!Number.isFinite(row.values.block) || row.values.block < 0)) throw Error("Invalid B strict status source values");
+  if (row.enabled !== void 0 && (typeof row.enabled !== "boolean" || row.enabled !== row.effective) || row.intervalSeconds !== void 0 && (!Number.isFinite(row.intervalSeconds) || row.intervalSeconds <= 0) || row.statusDeclarationId !== void 0 && (typeof row.statusDeclarationId !== "string" || !row.statusDeclarationId)) throw Error("Invalid B strict StatusRecordView alias/cadence");
+  if (row.polarity === "positive" && row.owner !== row.target || row.polarity === "negative" && row.owner === row.target) throw Error("Invalid B status recipient");
+  validateSourceValues(row);
+  return row;
+}
+function validateSourceDuration(row, m) {
+  const p = (key2) => coefficient2(m, row.abilityId, key2);
+  let exact4 = null, maximum2 = null;
+  switch (row.abilityId) {
+    case "huskar_inner_fire":
+      exact4 = [p("disarm_duration")];
+      break;
+    case "huskar_burning_spear":
+    case "ogre_magi_ignite":
+    case "night_stalker_darkness":
+    case "alchemist_chemical_rage":
+    case "treant_living_armor":
+    case "ogre_magi_bloodlust":
+      exact4 = [p("duration")];
+      break;
+    case "huskar_life_break":
+      if (row.polarity === "positive") maximum2 = 60;
+      else exact4 = [p("AbilityDuration")];
+      break;
+    case "night_stalker_void":
+      exact4 = [p("duration_day"), p("duration_night")];
+      break;
+    case "night_stalker_crippling_fear":
+      exact4 = [0.12];
+      break;
+    case "jakiro_dual_breath":
+    case "jakiro_liquid_fire":
+      exact4 = [p("AbilityDuration")];
+      break;
+    case "jakiro_macropyre":
+      exact4 = [p("linger_duration")];
+      break;
+    case "alchemist_acid_spray":
+      exact4 = [p("tick_rate") + 0.05];
+      break;
+    case "alchemist_unstable_concoction":
+      exact4 = [p("brew_time")];
+      break;
+    case "alchemist_corrosive_weaponry":
+      exact4 = [p("debuff_duration")];
+      break;
+    case "treant_natures_grasp":
+      exact4 = [0.55];
+      break;
+    case "treant_leech_seed":
+      maximum2 = p("duration");
+      break;
+    case "treant_overgrowth":
+      if (row.key === row.abilityId + "_control") maximum2 = p("duration");
+      else exact4 = [p("duration")];
+      break;
+  }
+  if (exact4 && !exact4.includes(row.duration) || maximum2 !== null && row.duration > maximum2) throw Error("Unadmitted B status source lifetime");
+}
+function authorizeRecord(row, scope, key2) {
+  const expected = scope.id === row.abilityId ? scope.id : scope.contract.readonlyCrossKeys.includes(key2) ? key2 : null;
+  if (expected !== row.abilityId || expected === scope.id && !ownedStatusKey(scope.id, key2) || expected !== scope.id && row.polarity !== "positive") throw Error("Unauthorized B status record identity");
+}
+function queryStatuses(ctx, target, key2, scope) {
+  if (scope.contract.mode === "strict" && !ownedStatusKey(scope.id, key2) && !scope.contract.readonlyCrossKeys.includes(key2)) throw Error("Unauthorized B readonly status query");
+  const rows = ctx.status.query(target, key2);
+  if (scope.contract.mode !== "strict") return rows;
+  if (!Array.isArray(rows) || rows.length > 64) throw Error("Invalid B strict query list");
+  const handles2 = /* @__PURE__ */ new Set();
+  for (const row of rows) {
+    validateStatusRecord(row, target);
+    if (row.key !== key2 || handles2.has(row.handle)) throw Error("Mismatched B status query key/handle");
+    authorizeRecord(row, scope, key2);
+    validateSourceDuration(row, scope.m);
+    if (row.values.dps !== void 0 && row.intervalSeconds !== sourceCadence(scope.m, row.abilityId)) throw Error("Unadmitted B query source cadence");
+    handles2.add(row.handle);
+  }
+  return rows;
+}
+function active(status3, actor6, mode = "legacy") {
+  if (mode === "strict") {
+    validateStatusRecord(status3, actor6.id, { allowZero: true });
+    return status3.effective && status3.remainingSeconds > 0;
+  }
+  return status3.enabled === true || status3.enabled === void 0 && (status3.polarity === "positive" || !actor6.invulnerable && (status3.pierces || !actor6.debuffImmune));
+}
+function positive(ctx, actor6, key2, scope) {
+  const f = ctx.actor(actor6);
+  return queryStatuses(ctx, actor6, key2, scope).find((s) => s.target === actor6 && s.polarity === "positive" && active(s, f, scope.contract.mode));
+}
+function statuses(event, actor6, scope) {
+  if (!Array.isArray(event.statuses)) throw Error("Missing B readonly status facts");
+  if (scope.contract.mode === "strict") {
+    if (event.statuses.length > 64) throw Error("Invalid B strict status list");
+    const handles2 = /* @__PURE__ */ new Set();
+    for (const row of event.statuses) {
+      validateStatusRecord(row, actor6.id);
+      if (handles2.has(row.handle)) throw Error("Duplicate B status list handle");
+      handles2.add(row.handle);
+      if (row.abilityId === scope.id) {
+        if (!ownedStatusKey(scope.id, row.key)) throw Error("Unauthorized B status list key");
+        validateSourceDuration(row, scope.m);
+      }
+    }
+  }
+  return event.statuses.filter((s) => s.target === actor6.id && active(s, actor6, scope.contract.mode));
+}
+function validatePeriodic(event, scope) {
+  if (scope.contract.mode !== "strict") return;
+  if (!plain(event) || Object.keys(event).sort().join(",") !== "actor,enabled,intervalSeconds,kind,status" || event.kind !== "status-periodic" || !isActor(event.actor) || typeof event.enabled !== "boolean") throw Error("Invalid B strict periodic payload");
+  const row = validateStatusRecord(event.status, event.actor, { allowZero: true });
+  if (row.abilityId !== scope.id || !ownedStatusKey(scope.id, row.key) || row.effective !== event.enabled) throw Error("Mismatched B strict periodic identity/effectiveness");
+  validateSourceDuration(row, scope.m);
+  const cadence = sourceCadence(scope.m, scope.id);
+  if (cadence === null || row.intervalSeconds !== cadence || event.intervalSeconds !== cadence) throw Error("Unadmitted B periodic source cadence");
+}
+function plan(ctx, facts, definition) {
+  const m = definition.mvp, f = ctx.actor(facts.owner), t = ctx.actor(facts.target);
+  let ok = facts.actionReady === true && !m.passive && f.alive && !f.silenced && facts.cooldownRemaining <= 1e-8 && facts.manaAvailable >= m.mana;
+  if (definition.id === "huskar_life_break" && f.rooted) ok = false;
+  if (["huskar_life_break", "night_stalker_void", "ogre_magi_fireblast", "ogre_magi_ignite"].includes(definition.id) && (!t.alive || t.invulnerable || Math.abs(t.x - f.x) > m.range_wu + 22)) ok = false;
+  if (definition.id === "jakiro_dual_breath" && (t.invulnerable || !near2(ctx, facts.owner, facts.target, m.range_wu))) ok = false;
+  if (["jakiro_ice_path", "jakiro_macropyre", "alchemist_acid_spray", "treant_natures_grasp"].includes(definition.id) && (!Number.isFinite(facts.aimX) || facts.aimX < 45 || facts.aimX > 1155 || Math.abs(facts.aimX - f.x) > m.range_wu + 22)) ok = false;
+  return { accepted: ok, ...!ok ? { reason: m.passive ? "passive" : "not-admitted" } : {}, manaCost: m.mana, cooldownSeconds: m.cooldown_s, chargeCost: 0, windupSeconds: m.startup_frames / 60, recoverySeconds: m.recovery_frames / 60, action: "cast" };
+}
+var reflection = (route2) => route2.reflected ? { reflected: true, origin: route2.originalOwner } : {};
+function damage2(ctx, id, source, target, amount, type = "magical", reflected = false) {
+  return ctx.damage({ source, target, abilityId: id, amount, type, dot: true, blockable: false, reflected, noReflect: reflected, noLifesteal: reflected });
+}
+function status2(ctx, id, owner2, target, duration, values = {}, options = {}) {
+  return ctx.status.apply({ owner: owner2, target, abilityId: id, key: options.key ?? id, duration, polarity: options.positive ? "positive" : "negative", dispel: options.dispel ?? "basic", pierces: options.pierces ?? false, values: { abilityId: id, ...!options.positive ? { hostile: true, polarity: "hostile" } : {}, ...values }, ...options.interval ? { intervalSeconds: options.interval } : {} });
+}
+function buff(ctx, id, owner2, duration, values = {}) {
+  return status2(ctx, id, owner2, owner2, duration, values, { positive: true, dispel: id === "huskar_life_break" ? "none" : "basic" });
+}
+function control(ctx, id, owner2, target, type, duration, pierces = false) {
+  return ctx.control.apply({ owner: owner2, target, abilityId: id, key: id, type, duration, pierces, dispel: "strong" });
+}
+function route(ctx, id, cast, range) {
+  return ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: id, range, reflectable: true, reflected: cast.reflected === true });
+}
+function immediateMove(ctx, id, actor6, castId, destinationX) {
+  return ctx.motion({ actor: actor6, abilityId: id, castId, kind: "dash", destinationX, speed: 0, duration: 0 });
+}
+function combineInterval(baseSeconds, baseAttackSpeed, contributions) {
+  let attackSpeed = 0, baseAttackTime = null;
+  for (const c of contributions) {
+    attackSpeed += number2(c.attackSpeed ?? 0, "attack speed");
+    if (c.baseAttackTime !== void 0) baseAttackTime = number2(c.baseAttackTime, "base attack time");
+  }
+  const raw = baseAttackTime === null ? baseSeconds : baseAttackTime * 100 / baseAttackSpeed;
+  return raw * baseAttackSpeed / clamp2(baseAttackSpeed + attackSpeed, 20, 700);
+}
+function combineAttack(baseAttack, contributions) {
+  let bonus = 0, reduction = 0;
+  for (const c of contributions) {
+    bonus += number2(c.attackBonus ?? 0, "attack bonus");
+    reduction += number2(c.baseAttackReduction ?? 0, "base attack reduction");
+  }
+  return Math.max(0, baseAttack + bonus - baseAttack * clamp2(reduction, 0, 1));
+}
+function combineMovement(contributions) {
+  let bonus = 0, slow = 0;
+  for (const c of contributions) {
+    bonus += number2(c.moveBonus ?? 0, "move bonus");
+    slow += number2(c.slow ?? 0, "slow");
+  }
+  return (1 + bonus) * (1 - clamp2(slow, 0, 1));
+}
+var exactKeys = (value, keys) => plain(value) && Object.keys(value).sort().join(",") === keys.slice().sort().join(",");
+function validateRefreshResult(result2, scope, target) {
+  if (scope.contract.mode !== "strict") return result2;
+  const r = result2?.statusRefresh;
+  if (scope.id !== "jakiro_macropyre" || !exactKeys(result2, ["statusRefresh"]) || !exactKeys(r, ["target", "key", "duration", "resetElapsed", "preserveTick"]) || r.target !== target || !isActor(target) || r.key !== scope.id || !Number.isFinite(r.duration) || r.duration < 0 || r.duration !== coefficient2(scope.m, scope.id, "linger_duration") || r.resetElapsed !== true || r.preserveTick !== true) throw Error("Invalid B strict statusRefresh");
+  return result2;
+}
+function validateBlockResult(result2, scope, target) {
+  if (scope.contract.mode !== "strict") return result2;
+  const r = result2?.statusBlockUpdate;
+  if (scope.id !== "treant_living_armor" || !exactKeys(result2, ["damage", "statusBlockUpdate"]) || !exactKeys(r, ["target", "key", "remainingBlock", "removeAtZero"]) || r.target !== target || !isActor(target) || r.key !== scope.id || !Number.isFinite(result2.damage) || result2.damage < 0 || !Number.isFinite(r.remainingBlock) || r.removeAtZero !== true) throw Error("Invalid B strict statusBlockUpdate");
+  return result2;
+}
+
+// node_modules/@dotapk/heros/rules/b/programs.js
+var AREAS = /* @__PURE__ */ new Set(["night_stalker_crippling_fear", "jakiro_ice_path", "jakiro_macropyre", "alchemist_acid_spray", "treant_natures_grasp"]);
+var PERIODIC = /* @__PURE__ */ new Set(["huskar_burning_spear", "huskar_life_break", "night_stalker_void", "jakiro_dual_breath", "jakiro_liquid_fire", "jakiro_macropyre", "treant_overgrowth", "ogre_magi_ignite"]);
+var SLOW = /* @__PURE__ */ new Set(["huskar_life_break", "night_stalker_void", "jakiro_dual_breath", "alchemist_corrosive_weaponry", "treant_natures_grasp", "ogre_magi_ignite"]);
+var ASPD = /* @__PURE__ */ new Set(["huskar_life_break", "night_stalker_void", "jakiro_dual_breath", "jakiro_liquid_fire"]);
+var PARAMS = {
+  huskar_inner_fire: "health_cost damage radius disarm_duration knockback_distance",
+  huskar_burning_spear: "max_health_cost burn_damage burn_damage_max_pct duration",
+  huskar_berserkers_blood: "hp_threshold_max maximum_attack_speed maximum_magic_resist maximum_health_regen",
+  huskar_life_break: "charge_speed immunity_resist health_cost_percent health_damage AbilityDuration movespeed attack_speed",
+  night_stalker_void: "damage duration_night duration_day movespeed_slow attackspeed_slow",
+  night_stalker_crippling_fear: "radius duration_night duration_day tick_rate dps",
+  night_stalker_midnight_feast: "attack_heal",
+  night_stalker_darkness: "duration bonus_damage",
+  jakiro_dual_breath: "AbilityDuration fire_delay burn_damage",
+  jakiro_ice_path: "path_delay path_radius path_duration damage stun_duration",
+  jakiro_liquid_fire: "AbilityDuration damage slow_attack_speed_pct tick_rate",
+  jakiro_macropyre: "path_width duration burn_interval linger_duration damage",
+  alchemist_acid_spray: "radius duration tick_rate armor_reduction damage",
+  alchemist_unstable_concoction: "brew_time brew_explosion max_damage max_stun move_speed",
+  alchemist_corrosive_weaponry: "max_stacks stacks_per_attack debuff_duration slow_per_stack attack_dmg_per_stack",
+  alchemist_chemical_rage: "duration base_attack_time bonus_movespeed bonus_health_regen",
+  treant_natures_grasp: "latch_range vines_duration movement_slow damage_per_second",
+  treant_leech_seed: "leech_damage duration flat_heal leech_heal healing_pulse_count",
+  treant_living_armor: "duration damage_block_base damage_block_threshold damage_block_loss heal_per_second",
+  treant_overgrowth: "radius duration damage",
+  ogre_magi_fireblast: "fireblast_damage stun_duration multicast_delay",
+  ogre_magi_ignite: "duration burn_damage slow_movement_speed_pct multicast_delay",
+  ogre_magi_bloodlust: "duration self_bonus bonus_movement_speed",
+  ogre_magi_multicast: "strength_for_one_pct multicast_4_times multicast_3_times multicast_2_times"
+};
+var signed = /* @__PURE__ */ new Set(["movespeed", "slow_attack_speed_pct", "slow_movement_speed_pct"]);
+var lifetimes = /* @__PURE__ */ new Set(["duration", "duration_day", "duration_night", "AbilityDuration", "disarm_duration", "path_duration", "linger_duration", "vines_duration", "debuff_duration", "stun_duration", "max_stun"]);
+var timings = /* @__PURE__ */ new Set(["brew_time", "brew_explosion", "fire_delay", "path_delay", "multicast_delay", "base_attack_time"]);
+var intervals = /* @__PURE__ */ new Set(["tick_rate", "burn_interval"]);
+var percent = /* @__PURE__ */ new Set(["max_health_cost", "burn_damage_max_pct", "maximum_magic_resist", "immunity_resist", "slow_per_stack", "attack_dmg_per_stack", "movement_slow", "movespeed_slow", "bonus_movement_speed", "leech_heal"]);
+function bCoefficientSchema(id) {
+  const properties = {};
+  for (const key2 of (PARAMS[id] ?? "").split(" ")) {
+    let minimum = signed.has(key2) ? -100 : 0, maximum2 = signed.has(key2) ? 100 : 1e6, type = "number";
+    if (lifetimes.has(key2) || timings.has(key2)) {
+      minimum = 1e-3;
+      maximum2 = 60;
+    }
+    if (intervals.has(key2)) {
+      minimum = 1e-3;
+      maximum2 = 60;
+    }
+    if (percent.has(key2)) maximum2 = 100;
+    if (["health_cost_percent", "health_damage"].includes(key2)) maximum2 = 1;
+    if (key2 === "hp_threshold_max") maximum2 = 99;
+    if (["charge_speed", "strength_for_one_pct"].includes(key2)) minimum = 1e-3;
+    if (key2 === "max_stacks" || key2 === "stacks_per_attack") {
+      type = "integer";
+      minimum = 1;
+      maximum2 = 64;
+    }
+    if (key2 === "healing_pulse_count") {
+      type = "integer";
+      maximum2 = 64;
+    }
+    if (["radius", "path_radius", "path_width", "latch_range", "knockback_distance"].includes(key2)) maximum2 = 1e4;
+    properties[key2] = { type, minimum, maximum: maximum2 };
+  }
+  return defineStateSchema({ id: "heros/b-coefficients/" + id, version: "2.0.0", schema: { type: "object", properties, required: Object.keys(properties), additionalProperties: false } });
+}
+function validateCoefficients(m, id, p, a) {
+  const values = Object.fromEntries(PARAMS[id].split(" ").map((key2) => [key2, p(key2)]));
+  let schema = m.coefficientSchemas.get(id);
+  if (!schema) {
+    schema = bCoefficientSchema(id);
+    m.coefficientSchemas.set(id, schema);
+  }
+  if (!schema.validate(values)) throw Error("Invalid B coefficient schema " + id);
+  const maxHp = m.maxHp;
+  if (id === "huskar_burning_spear" && p("burn_damage") + maxHp * p("burn_damage_max_pct") / 100 > 1e7) throw Error("B derived Spear damage overflow");
+  if (id === "huskar_life_break" && (maxHp * Math.max(p("health_damage"), p("health_cost_percent")) > 1e7 || Math.min(a.mvp.range_wu + 22, 1110) / (p("charge_speed") * 0.55) + 0.05 > 60)) throw Error("B derived Life Break damage/travel overflow");
+  if (id === "alchemist_unstable_concoction" && p("brew_explosion") < p("brew_time")) throw Error("B explosion before brew");
+  if (id === "alchemist_corrosive_weaponry" && p("stacks_per_attack") > p("max_stacks")) throw Error("Invalid B stack increment");
+  if (id === "treant_leech_seed" && p("flat_heal") + maxHp * p("leech_heal") / 100 > 1e7) throw Error("B derived Seed healing overflow");
+  if (id === "huskar_berserkers_blood" && m.heroes.get(57).attributes18.str * p("maximum_health_regen") / 100 > 1e7) throw Error("B derived Blood healing overflow");
+  for (const [rate, interval] of [["burn_damage", "tick_rate"], ["damage", "tick_rate"], ["damage", "burn_interval"], ["dps", "tick_rate"]]) if (rate in values && interval in values && values[rate] * values[interval] > 1e7) throw Error("B periodic damage overflow");
+}
+function createBRule(config) {
+  const m = model2(config), a = config.definition, id = a.id, p = (key2) => coefficient2(m, id, key2);
+  validateCoefficients(m, id, p, a);
+  const execution = executionParameters2(config), damage3 = (ctx, id2, source, target, amount, ...rest) => damage2(ctx, id2, source, target, amount * execution.damageScale, ...rest), heal = (ctx, spec) => ctx.heal({ ...spec, amount: spec.amount * execution.healScale });
+  const scope = { m, id, contract: execution.statusContract }, positive2 = (ctx, actor6, key2) => positive(ctx, actor6, key2, scope), query = (ctx, target, key2) => queryStatuses(ctx, target, key2, scope);
+  const impl = { behaviorId: "b-v6/" + id, revision: "2.2.0", ...codeIdentity(["rules/b/model.js", "rules/b/programs.js", "rules/b/register.js", "rules/b/state.js"]), namespace: "heros/b/" + id, requires: [], stateSchema: m.stateSchema, planCast: (ctx, facts) => plan(ctx, facts, a) };
+  const requireCaps = (...caps) => {
+    impl.requires.push(...caps);
+  };
+  const aliveOwner = (ctx, event) => ctx.actor(event.actor ?? event.owner).alive;
+  const ownStatus = (ctx, event) => statuses(event, ctx.actor(event.actor), scope).filter((s) => s.abilityId === id || s.values?.abilityId === id);
+  const schedule = (ctx, owner2, target, handler, delay, castId, payload = {}) => {
+    const h2 = ctx.schedule({ abilityId: id, owner: owner2, handler, delay, data: { owner: owner2, target, castId, payload } });
+    remember(ctx, owner2, "jobs", h2);
+    return h2;
+  };
+  const jobStart = (ctx, d) => {
+    if (typeof d.handle !== "string") throw Error("Missing B scheduled handle fact");
+    forget(ctx, d.owner, "jobs", d.handle);
+    return ctx.actor(d.owner).alive && (d.target === null || ctx.actor(d.target).alive);
+  };
+  const removeKey = (ctx, target, key2) => {
+    if (scope.contract.mode === "strict" && !ownedStatusKey(id, key2)) throw Error("Unauthorized B status removal");
+    for (const s of query(ctx, target, key2)) {
+      if (typeof s.handle !== "string") throw Error("Missing B status handle fact");
+      ctx.status.remove(s.handle);
+    }
+  };
+  const spawnArea = (ctx, c, x, radius, duration, interval, follow = false, oneHit = false) => {
+    const h2 = ctx.legacyEffect.spawn({ owner: c.owner, abilityId: id, castId: c.castId, kind: "area", x, radius, duration, data: { intervalSeconds: interval, follow, oneHit } });
+    remember(ctx, c.owner, "areas", h2);
+  };
+  switch (id) {
+    case "huskar_inner_fire":
+      requireCaps("self-damage", "damage", "status", "motion-request");
+      impl.activate = (ctx, c) => {
+        const f = ctx.actor(c.owner), t = ctx.actor(c.target);
+        ctx.selfDamage({ actor: c.owner, abilityId: id, amount: p("health_cost"), nonlethal: true });
+        if (near2(ctx, c.owner, c.target, p("radius") * 0.55)) {
+          damage3(ctx, id, c.owner, c.target, p("damage"));
+          if (status2(ctx, id, c.owner, c.target, p("disarm_duration"), { silence: 1 })) immediateMove(ctx, id, c.target, c.castId, f.x + Math.sign(t.x - f.x || 1) * p("knockback_distance") * 0.55);
+        }
+      };
+      break;
+    case "huskar_burning_spear":
+      requireCaps("self-damage", "status", "damage");
+      impl.activate = (ctx, c) => toggle(ctx, c.owner);
+      impl.onAttack = (ctx, e) => {
+        const f = ctx.actor(e.actor), t = ctx.actor(e.target), s = readOwner(ctx, e.actor);
+        if (!e.landed || f.heroId !== 57 || !f.alive || !t.alive || !s.toggle) return;
+        ctx.selfDamage({ actor: e.actor, abilityId: id, amount: f.maxHp * p("max_health_cost") / 100, nonlethal: true });
+        status2(ctx, id, e.actor, e.target, p("duration"), { dps: p("burn_damage") + t.maxHp * p("burn_damage_max_pct") / 100 }, { key: id + "_" + s.sequence, interval: 1 });
+        writeOwner(ctx, e.actor, { ...s, sequence: (s.sequence + 1) % 32 });
+      };
+      break;
+    case "huskar_berserkers_blood": {
+      requireCaps("heal");
+      const blood = (ctx, actor6) => {
+        const f = ctx.actor(actor6);
+        return f.heroId === 57 && f.passivesEnabled ? clamp2((1 - f.hp / f.maxHp) / (1 - p("hp_threshold_max") / 100), 0, 1) : 0;
+      };
+      impl.projectInterval = (ctx, e) => ({ attackSpeed: blood(ctx, e.actor) * p("maximum_attack_speed") });
+      impl.projectDamage = (ctx, e) => ({ magicalMultiplier: e.stage === "modify" && e.damageType === "magical" ? 1 - blood(ctx, e.target) * p("maximum_magic_resist") / 100 : 1 });
+      impl.onStage = (ctx, e) => {
+        const f = ctx.actor(e.actor);
+        if (e.kind === "passive-continuous" && f.alive && f.heroId === 57) heal(ctx, { source: e.actor, target: e.actor, abilityId: id, amount: m.heroes.get(f.heroId).attributes18.str * p("maximum_health_regen") / 100 * blood(ctx, e.actor) * number2(e.elapsedSeconds, "elapsed seconds") });
+      };
+      break;
+    }
+    case "huskar_life_break":
+      requireCaps("status", "target-route", "schedule", "self-damage", "damage", "motion-request");
+      impl.activate = (ctx, c) => {
+        const r = route(ctx, id, c, a.mvp.range_wu);
+        if (!r.accepted) return;
+        ctx.status.cleanse(r.owner, "basic", id);
+        const travel = ctx.target.distance(r.owner, r.target) / (p("charge_speed") * 0.55);
+        buff(ctx, id, r.owner, travel + 0.05, { debuffImmune: 1, magicReduction: p("immunity_resist") / 100, ...reflection(r) });
+        schedule(ctx, r.owner, r.target, "release", travel, c.castId, reflection(r));
+        return { recoveryFloor: { actor: r.owner, seconds: travel } };
+      };
+      impl.scheduledHandlers = { release(ctx, d) {
+        if (!jobStart(ctx, d)) return;
+        removeKey(ctx, d.owner, id);
+        const f = ctx.actor(d.owner), t = ctx.actor(d.target);
+        if (t.invulnerable) return;
+        immediateMove(ctx, id, d.owner, d.castId, t.x - Math.sign(t.x - f.x || 1) * 40);
+        ctx.selfDamage({ actor: d.owner, abilityId: id, amount: f.hp * p("health_cost_percent"), nonlethal: true });
+        damage3(ctx, id, d.owner, d.target, t.hp * p("health_damage"), "magical", d.payload.reflected === true);
+        status2(ctx, id, d.owner, d.target, p("AbilityDuration"), { slow: -p("movespeed") / 100, aspd: -p("attack_speed"), ...d.payload });
+      } };
+      impl.projectDamage = (ctx, e) => ({ magicalMultiplier: e.stage === "modify" && e.damageType === "magical" ? 1 - ownStatus(ctx, { ...e, actor: e.target }).reduce((n2, s) => n2 + (s.values.magicReduction ?? 0), 0) : 1 });
+      break;
+    case "night_stalker_void":
+      requireCaps("status", "damage", "target-route", "control");
+      impl.activate = (ctx, c) => {
+        if (!near2(ctx, c.owner, c.target, a.mvp.range_wu)) return;
+        const night = !!positive2(ctx, c.owner, "night_stalker_darkness"), r = route(ctx, id, c, a.mvp.range_wu);
+        if (!r.accepted) return;
+        damage3(ctx, id, r.owner, r.target, p("damage"), "magical", r.reflected);
+        status2(ctx, id, r.owner, r.target, p(night ? "duration_night" : "duration_day"), { slow: p("movespeed_slow") / 100, aspd: -p("attackspeed_slow"), ...reflection(r) });
+        if (night) control(ctx, id, r.owner, r.target, "stun", 0.1);
+      };
+      break;
+    case "night_stalker_crippling_fear":
+      requireCaps("legacy-effect", "status", "damage");
+      impl.activate = (ctx, c) => spawnArea(ctx, c, ctx.actor(c.owner).x, p("radius") * 0.55, p(positive2(ctx, c.owner, "night_stalker_darkness") ? "duration_night" : "duration_day"), p("tick_rate"), true);
+      impl.onContact = (ctx, e) => {
+        if (e.kind === "area-exit") return removeKey(ctx, e.target, id);
+        if (e.kind === "area-pulse" && ctx.actor(e.actor).alive && status2(ctx, id, e.actor, e.target, 0.12, { silence: 1 })) damage3(ctx, id, e.actor, e.target, p("dps") * number2(e.intervalSeconds, "area interval"));
+      };
+      break;
+    case "night_stalker_midnight_feast":
+      requireCaps("heal");
+      impl.onAttack = (ctx, e) => {
+        const f = ctx.actor(e.actor);
+        if (e.landed && f.alive && f.heroId === 58 && f.passivesEnabled) heal(ctx, { source: e.actor, target: e.actor, abilityId: id, amount: p("attack_heal") });
+      };
+      break;
+    case "night_stalker_darkness":
+      requireCaps("status");
+      impl.activate = (ctx, c) => buff(ctx, id, c.owner, p("duration"));
+      impl.projectAttack = (ctx, e) => ({ attackBonus: ownStatus(ctx, e).some((s) => s.polarity === "positive") ? p("bonus_damage") : 0 });
+      break;
+    case "jakiro_dual_breath":
+      requireCaps("status", "schedule", "damage");
+      impl.activate = (ctx, c) => {
+        if (near2(ctx, c.owner, c.target, a.mvp.range_wu)) {
+          status2(ctx, id, c.owner, c.target, p("AbilityDuration"), { slow: 0.4, aspd: -40 });
+          schedule(ctx, c.owner, c.target, "release", p("fire_delay"), c.castId);
+        }
+      };
+      impl.scheduledHandlers = { release(ctx, d) {
+        if (jobStart(ctx, d) && near2(ctx, d.owner, d.target, a.mvp.range_wu)) status2(ctx, id, d.owner, d.target, p("AbilityDuration"), { slow: 0.4, aspd: -40, dps: p("burn_damage") }, { interval: 1 });
+      } };
+      break;
+    case "jakiro_ice_path":
+      requireCaps("schedule", "legacy-effect", "damage", "control");
+      impl.activate = (ctx, c) => {
+        const x = ctx.actor(c.owner).x;
+        schedule(ctx, c.owner, null, "release", p("path_delay"), c.castId, { origin: x, aim: clamp2(c.aimX, x - a.mvp.range_wu, x + a.mvp.range_wu) });
+      };
+      impl.scheduledHandlers = { release(ctx, d) {
+        if (!jobStart(ctx, d)) return;
+        const end = d.payload.aim;
+        spawnArea(ctx, { owner: d.owner, castId: d.castId }, (d.payload.origin + end) / 2, Math.abs(end - d.payload.origin) / 2 + p("path_radius") * 0.55, p("path_duration"), 0, false, true);
+      } };
+      impl.onContact = (ctx, e) => {
+        if (e.kind === "area-contact" && e.firstContact === true && ctx.actor(e.actor).alive) {
+          damage3(ctx, id, e.actor, e.target, p("damage"));
+          control(ctx, id, e.actor, e.target, "stun", p("stun_duration"));
+        }
+      };
+      break;
+    case "jakiro_liquid_fire":
+      requireCaps("status", "damage");
+      impl.activate = (ctx, c) => {
+        const s = readOwner(ctx, c.owner);
+        writeOwner(ctx, c.owner, { ...s, toggle: true });
+      };
+      impl.onAttack = (ctx, e) => {
+        const s = readOwner(ctx, e.actor);
+        if (e.landed && ctx.actor(e.actor).heroId === 62 && ctx.actor(e.actor).alive && s.toggle) {
+          writeOwner(ctx, e.actor, { ...s, toggle: false });
+          status2(ctx, id, e.actor, e.target, p("AbilityDuration"), { dps: p("damage"), aspd: p("slow_attack_speed_pct") }, { interval: p("tick_rate") });
+        }
+      };
+      break;
+    case "jakiro_macropyre":
+      requireCaps("legacy-effect", "status", "damage");
+      impl.activate = (ctx, c) => {
+        const x = ctx.actor(c.owner).x, end = clamp2(c.aimX, x - a.mvp.range_wu, x + a.mvp.range_wu);
+        spawnArea(ctx, c, (x + end) / 2, Math.abs(end - x) / 2 + p("path_width") * 0.275, p("duration"), p("burn_interval"));
+      };
+      impl.onContact = (ctx, e) => {
+        if (e.kind !== "area-pulse" || !ctx.actor(e.actor).alive) return;
+        const old = query(ctx, e.target, id)[0];
+        if (old) return validateRefreshResult({ statusRefresh: { target: e.target, key: id, duration: p("linger_duration"), resetElapsed: true, preserveTick: true } }, scope, e.target);
+        status2(ctx, id, e.actor, e.target, p("linger_duration"), { dps: p("damage") }, { interval: p("burn_interval") });
+      };
+      break;
+    case "alchemist_acid_spray":
+      requireCaps("legacy-effect", "status", "damage");
+      impl.activate = (ctx, c) => spawnArea(ctx, c, c.aimX, p("radius") * 0.55, p("duration"), p("tick_rate"));
+      impl.onContact = (ctx, e) => {
+        if (e.kind === "area-pulse" && ctx.actor(e.actor).alive) {
+          status2(ctx, id, e.actor, e.target, number2(e.intervalSeconds, "area interval") + 0.05, { armor: -p("armor_reduction") });
+          damage3(ctx, id, e.actor, e.target, p("damage") * e.intervalSeconds, "physical");
+        }
+      };
+      impl.projectDamage = (ctx, e) => ({ sharedArmorDelta: e.stage === "modify" && e.damageType === "physical" ? ownStatus(ctx, { ...e, actor: e.target }).reduce((n2, s) => n2 + (s.values.armor ?? 0), 0) : 0 });
+      break;
+    case "alchemist_unstable_concoction":
+      requireCaps("status", "schedule", "damage", "control", "target-route", "cue");
+      impl.activate = (ctx, c) => {
+        buff(ctx, id, c.owner, p("brew_time"));
+        schedule(ctx, c.owner, null, "release", p("brew_time"), c.castId);
+      };
+      impl.scheduledHandlers = { release(ctx, d) {
+        if (!jobStart(ctx, d)) return;
+        removeKey(ctx, d.owner, id);
+        if (d.payload.self) {
+          damage3(ctx, id, d.owner, d.owner, p("max_damage"), "physical");
+          control(ctx, id, d.owner, d.owner, "stun", p("max_stun"));
+        } else if (!ctx.actor(d.target ?? 1 - d.owner).invulnerable && near2(ctx, d.owner, d.target ?? 1 - d.owner, a.mvp.range_wu)) {
+          ctx.cue({ kind: "targeted-hit", abilityId: id, actor: d.owner, target: d.target ?? 1 - d.owner });
+          const r = route(ctx, id, { owner: d.owner, target: d.target ?? 1 - d.owner, reflected: false }, a.mvp.range_wu);
+          if (!r.accepted) return;
+          damage3(ctx, id, r.owner, r.target, p("max_damage"), "physical", r.reflected);
+          control(ctx, id, r.owner, r.target, "stun", p("max_stun"));
+        } else schedule(ctx, d.owner, d.target, "release", p("brew_explosion") - p("brew_time"), d.castId, { self: true });
+      } };
+      impl.projectInterval = (ctx, e) => ({ moveBonus: ownStatus(ctx, e).some((s) => s.polarity === "positive") ? p("move_speed") / 100 : 0 });
+      break;
+    case "alchemist_corrosive_weaponry":
+      requireCaps("status");
+      impl.onAttack = (ctx, e) => {
+        const f = ctx.actor(e.actor);
+        if (!e.landed || !f.alive || f.heroId !== 71 || !f.passivesEnabled) return;
+        const old = query(ctx, e.target, id)[0], stacks = Math.min(p("max_stacks"), (old?.values.stacks ?? 0) + p("stacks_per_attack"));
+        status2(ctx, id, e.actor, e.target, p("debuff_duration"), { stacks, slow: stacks * p("slow_per_stack") / 100, attackReduction: stacks * p("attack_dmg_per_stack") / 100 });
+      };
+      impl.projectAttack = (ctx, e) => ({ baseAttackReduction: ownStatus(ctx, e).reduce((n2, s) => n2 + (s.values.attackReduction ?? 0), 0) });
+      break;
+    case "alchemist_chemical_rage":
+      requireCaps("status", "heal");
+      impl.activate = (ctx, c) => {
+        ctx.status.cleanse(c.owner, "basic", id);
+        buff(ctx, id, c.owner, p("duration"));
+      };
+      impl.projectInterval = (ctx, e) => {
+        const f = ctx.actor(e.actor), on = ownStatus(ctx, e).some((s) => s.polarity === "positive");
+        return on ? { baseAttackTime: p("base_attack_time"), moveBonus: p("bonus_movespeed") * 0.8 / m.heroes.get(f.heroId).move_speed } : {};
+      };
+      impl.onStage = (ctx, e) => {
+        if (e.kind === "continuous" && ctx.actor(e.actor).alive && ownStatus(ctx, e).length) heal(ctx, { source: e.actor, target: e.actor, abilityId: id, amount: p("bonus_health_regen") * number2(e.elapsedSeconds, "live elapsed") });
+      };
+      break;
+    case "treant_natures_grasp":
+      requireCaps("legacy-effect", "status", "damage");
+      impl.activate = (ctx, c) => {
+        const x = ctx.actor(c.owner).x, end = clamp2(c.aimX, x - a.mvp.range_wu, x + a.mvp.range_wu);
+        spawnArea(ctx, c, (x + end) / 2, Math.abs(end - x) / 2 + p("latch_range") * 0.55, p("vines_duration"), 0.5);
+      };
+      impl.onContact = (ctx, e) => {
+        if (e.kind === "area-pulse" && ctx.actor(e.actor).alive && status2(ctx, id, e.actor, e.target, number2(e.intervalSeconds, "area interval") + 0.05, { slow: p("movement_slow") / 100 })) damage3(ctx, id, e.actor, e.target, p("damage_per_second") * e.intervalSeconds);
+      };
+      break;
+    case "treant_leech_seed":
+      requireCaps("damage", "status", "control", "heal", "schedule");
+      impl.activate = (ctx, c) => {
+        const s = readOwner(ctx, c.owner);
+        writeOwner(ctx, c.owner, { ...s, toggle: true });
+      };
+      impl.onDamage = (ctx, e) => {
+        const f = ctx.actor(e.actor), s = readOwner(ctx, e.actor);
+        if (f.heroId !== 81 || !s.toggle || !e.basic || e.guarded || e.reflected || e.actor === e.target || number2(e.actual, "actual debit") <= 0) return;
+        writeOwner(ctx, e.actor, { ...s, toggle: false });
+        damage3(ctx, id, e.actor, e.target, p("leech_damage"));
+        const cc = control(ctx, id, e.actor, e.target, "root", p("duration"));
+        if (cc) status2(ctx, id, e.actor, e.target, cc.duration, { disarm: 1 }, { dispel: "strong" });
+        const amount = p("flat_heal") + e.actual * p("leech_heal") / 100;
+        for (let i = 1; i <= p("healing_pulse_count"); i++) schedule(ctx, e.actor, null, "heal", i * 0.5, e.attackHandle, { amount });
+      };
+      impl.scheduledHandlers = { heal(ctx, d) {
+        if (jobStart(ctx, d)) heal(ctx, { source: d.owner, target: d.owner, abilityId: id, amount: d.payload.amount });
+      } };
+      break;
+    case "treant_living_armor":
+      requireCaps("status", "heal");
+      impl.activate = (ctx, c) => buff(ctx, id, c.owner, p("duration"), { block: p("damage_block_base") });
+      impl.projectDamage = (ctx, e) => {
+        if (e.stage !== "before-debit") return {};
+        if (scope.contract.mode === "strict" && (!Number.isFinite(e.amount) || e.amount < 0)) throw Error("Invalid B strict damage fact");
+        const s = ownStatus(ctx, { ...e, actor: e.target }).find((s2) => s2.polarity === "positive");
+        if (!s || e.amount < p("damage_block_threshold")) return {};
+        const block = number2(s.values.block, "living armor block");
+        return validateBlockResult({ damage: Math.max(0, e.amount - block), statusBlockUpdate: { target: e.target, key: id, remainingBlock: block - p("damage_block_loss"), removeAtZero: true } }, scope, e.target);
+      };
+      impl.onStage = (ctx, e) => {
+        if (e.kind === "continuous" && ctx.actor(e.actor).alive && ownStatus(ctx, e).length) heal(ctx, { source: e.actor, target: e.actor, abilityId: id, amount: p("heal_per_second") * number2(e.elapsedSeconds, "live elapsed") });
+      };
+      break;
+    case "treant_overgrowth":
+      requireCaps("status", "damage", "control");
+      impl.activate = (ctx, c) => {
+        if (near2(ctx, c.owner, c.target, p("radius") * 0.55)) {
+          status2(ctx, id, c.owner, c.target, p("duration"), { dps: p("damage") }, { dispel: "strong", pierces: true, interval: 1 });
+          const cc = control(ctx, id, c.owner, c.target, "root", p("duration"), true);
+          if (cc) status2(ctx, id, c.owner, c.target, cc.duration, { disarm: 1 }, { key: id + "_control", dispel: "strong", pierces: true });
+        }
+      };
+      break;
+    case "ogre_magi_fireblast":
+    case "ogre_magi_ignite": {
+      requireCaps("status", "target-route", "damage", "control", "schedule");
+      const deliver = (ctx, owner2, target) => {
+        const r = route(ctx, id, { owner: owner2, target, reflected: false }, a.mvp.range_wu);
+        if (!r.accepted) return;
+        if (id === "ogre_magi_fireblast") {
+          damage3(ctx, id, r.owner, r.target, p("fireblast_damage"), "magical", r.reflected);
+          control(ctx, id, r.owner, r.target, "stun", p("stun_duration"));
+        } else status2(ctx, id, r.owner, r.target, p("duration"), { dps: p("burn_damage"), slow: -p("slow_movement_speed_pct") / 100, ...reflection(r) }, { interval: 1 });
+      };
+      impl.activate = (ctx, c) => {
+        if (!Number.isInteger(c.multicastCount) || c.multicastCount < 1 || c.multicastCount > 4) throw Error("Missing B committed multicast fact");
+        if (!ctx.actor(c.target).alive || ctx.actor(c.target).invulnerable) return;
+        deliver(ctx, c.owner, c.target);
+        for (let i = 1; i < c.multicastCount; i++) schedule(ctx, c.owner, c.target, "pulse", i * p("multicast_delay"), c.castId);
+      };
+      impl.scheduledHandlers = { pulse(ctx, d) {
+        if (jobStart(ctx, d)) deliver(ctx, d.owner, d.target);
+      } };
+      break;
+    }
+    case "ogre_magi_bloodlust":
+      requireCaps("status");
+      impl.activate = (ctx, c) => buff(ctx, id, c.owner, p("duration"));
+      impl.projectInterval = (ctx, e) => ownStatus(ctx, e).some((s) => s.polarity === "positive") ? { attackSpeed: p("self_bonus"), moveBonus: p("bonus_movement_speed") / 100 } : {};
+      break;
+    case "ogre_magi_multicast":
+      impl.onCastCommitted = (ctx, e) => {
+        if (!["ogre_magi_fireblast", "ogre_magi_ignite"].includes(e.castAbilityId)) return { multicastCount: 1 };
+        const f = ctx.actor(e.actor);
+        if (!f.passivesEnabled) return { multicastCount: 1 };
+        const roll = ctx.random() * 100, bonus = m.heroes.get(f.heroId).attributes18.str / p("strength_for_one_pct");
+        return { multicastCount: roll < p("multicast_4_times") + bonus ? 4 : roll < p("multicast_3_times") + bonus ? 3 : roll < p("multicast_2_times") + bonus ? 2 : 1 };
+      };
+      break;
+    default:
+      throw Error("Unowned B skill " + id);
+  }
+  if (ASPD.has(id)) {
+    requireCaps("status");
+    const prior = impl.projectInterval;
+    impl.projectInterval = (ctx, e) => ({ ...prior?.(ctx, e), attackSpeed: ownStatus(ctx, e).reduce((n2, s) => n2 + (s.values.aspd ?? 0), 0) });
+  }
+  if (SLOW.has(id)) {
+    requireCaps("status");
+    const prior = impl.projectInterval;
+    impl.projectInterval = (ctx, e) => ({ ...prior?.(ctx, e), slow: ownStatus(ctx, e).reduce((n2, s) => n2 + (s.values.slow ?? 0), 0) });
+  }
+  if (id === "huskar_inner_fire" || id === "night_stalker_crippling_fear" || id === "treant_overgrowth" || id === "treant_leech_seed") {
+    requireCaps("status");
+    const prior = impl.projectInterval;
+    impl.projectInterval = (ctx, e) => ({ ...prior?.(ctx, e), silenced: ownStatus(ctx, e).some((s) => s.values.silence > 0), disarmed: ownStatus(ctx, e).some((s) => s.values.disarm > 0) });
+  }
+  if (PERIODIC.has(id)) {
+    requireCaps("status", "damage");
+    const prior = impl.onStage;
+    impl.onStage = (ctx, e) => {
+      prior?.(ctx, e);
+      if (e.kind !== "status-periodic") return;
+      validatePeriodic(e, scope);
+      if (e.status?.values?.abilityId !== id || e.status.abilityId !== void 0 && e.status.abilityId !== id) return;
+      if (e.status.target !== e.actor) throw Error("B periodic target mismatch");
+      const interval = number2(e.intervalSeconds, "status interval");
+      if (interval <= 0 || typeof e.enabled !== "boolean") throw Error("Invalid B periodic clock facts");
+      if (e.enabled && ctx.actor(e.actor).alive && e.status.values.dps) damage3(ctx, id, e.status.owner, e.actor, number2(e.status.values.dps, "status dps") * interval, "magical", e.status.values.reflected === true);
+    };
+  }
+  impl.requires = [...new Set(impl.requires)];
+  impl.onDeath = (ctx, e) => {
+    const s = readOwner(ctx, e.actor);
+    if (impl.requires.includes("schedule")) for (const h2 of s.jobs) ctx.cancelJob(h2);
+    if (impl.requires.includes("legacy-effect")) for (const h2 of s.areas) ctx.legacyEffect.end(h2, "owner-dead");
+    if (impl.requires.includes("status")) for (const key2 of id === "huskar_burning_spear" ? Array.from({ length: 32 }, (_, i) => id + "_" + i) : id === "treant_overgrowth" ? [id, id + "_control"] : [id]) removeKey(ctx, e.actor, key2);
+    writeOwner(ctx, e.actor, { toggle: false, sequence: s.sequence, jobs: [], areas: [] });
+  };
+  if (AREAS.has(id)) {
+    const prior = impl.onContact;
+    impl.onContact = (ctx, e) => {
+      if (e.kind === "effect-end") {
+        forget(ctx, e.actor, "areas", e.handle);
+        return;
+      }
+      return prior?.(ctx, e);
+    };
+  }
+  return impl;
+}
+
+// node_modules/@dotapk/heros/rules/b/register.js
+var B_HERO_IDS = Object.freeze([57, 58, 62, 71, 81, 82]);
+function registerB(registry, { statusMode = "legacy" } = {}) {
+  for (const heroId of B_HERO_IDS) for (let slot = 0; slot < 4; slot++) registry.registerFactory(heroId, slot, { abiVersion: BATTLE_ABI, parameters: { damageScale: 1, healScale: 1, statusContract: statusContractFor(registry.definition(heroId).abilities[slot].id, statusMode) }, create: createBRule });
+  return registry;
+}
+
+// node_modules/@dotapk/heros/rules/a/extensions/proposal.js
+var extensionProposalFactory = Object.freeze({ abiVersion: BATTLE_ABI, parameters: { mode: "proposal-only" }, create(config) {
+  if (config.parameters?.mode !== "proposal-only" || Object.keys(config.parameters).length !== 1) throw Error("A_INVALID_PROPOSAL_PARAMETERS");
+  const { rule, stateSchema } = canonicalExtension(config);
+  return {
+    behaviorId: "heros/a/proposal/" + config.definition.id,
+    revision: "2.0.0",
+    ...codeIdentity([...EXTENSION_SOURCE_FILES, "rules/a/extensions/proposal.js"]),
+    requires: [],
+    namespace: "heros/a/proposal/" + config.definition.id,
+    stateSchema,
+    onStage(ctx, event) {
+      if (event.kind !== "extension-proposal") throw Error("A_PROPOSAL_EVENT_REQUIRED");
+      const handler = rule.handlers[event.handler];
+      if (!handler) throw Error("A_UNKNOWN_PROPOSAL_HANDLER");
+      const facts = { ...event.facts };
+      if (facts.owner !== void 0) facts.owner = ctx.actor(facts.owner);
+      if (facts.target !== void 0) facts.target = ctx.actor(facts.target);
+      const next = handler(ctx.state.read(), facts);
+      ctx.state.write(next.state);
+      return { requiresHostContract: true, commands: next.commands };
+    }
+  };
+} });
+var freezeDispatch = (v) => {
+  if (v && typeof v === "object") {
+    Object.values(v).forEach(freezeDispatch);
+    Object.freeze(v);
+  }
+  return v;
+};
+var stableDispatch = (v) => JSON.stringify(v, (_, x) => x && Object.getPrototypeOf(x) === Object.prototype ? Object.fromEntries(Object.keys(x).sort().map((k) => [k, x[k]])) : x);
+var obj = (p, optional = []) => ({ type: "object", additionalProperties: false, required: Object.keys(p).filter((k) => !optional.includes(k)), properties: p });
+var scalarDispatch = { type: "number", minimum: 0 };
+var actorDispatch = { enum: [0, 1] };
+var boolDispatch = { type: "boolean" };
+var opaqueDispatch = { type: "string", minLength: 1, maxLength: 128 };
+var ordinalDispatch = { type: "integer", minimum: 1, maximum: Number.MAX_SAFE_INTEGER };
+var nullableHandle = { anyOf: [{ type: "null" }, opaqueDispatch] };
+var lit = (x) => ({ const: x });
+var reasonDispatch = { enum: ["control", "input-cancel", "movement", "action", "silence", "interrupted", "expired", "owner-dead"] };
+var castFact = { castId: opaqueDispatch };
+var beginFact = obj({ ...castFact, owner: actorDispatch, target: actorDispatch, accepted: boolDispatch, reflected: boolDispatch });
+var receiptFact = { anyOf: [obj({ ...castFact, accepted: lit(true), handle: opaqueDispatch }), obj({ ...castFact, accepted: lit(false), handle: lit(null) })] };
+var removalFact = obj({ ...castFact, handle: opaqueDispatch });
+var deathFact = obj({ actor: actorDispatch });
+var damageReceiptDispatch = obj({ accepted: boolDispatch, landed: boolDispatch, guarded: boolDispatch, raw: scalarDispatch, actual: scalarDispatch, deferred: scalarDispatch, killedAtDebit: boolDispatch });
+var H = (facts, actors, commands, binding) => ({ facts, actorViews: actors, commands, binding });
+var skill = (heroId, slot, handlers, commandSchemas) => ({ heroId, slot, handlers, commandSchemas });
+var commandBase = (id) => ({ abilityId: lit(id) });
+var damageShape = (id, type, receipt = false) => obj({ kind: lit("damage"), ...commandBase(id), source: actorDispatch, target: actorDispatch, amount: scalarDispatch, type: lit(type), dot: lit(true), blockable: lit(false), reflected: boolDispatch, noReflect: boolDispatch, noLifesteal: boolDispatch, ...receipt ? { receiptHandler: lit("damageReceipt"), receiptId: ordinalDispatch } : {} });
+var statusShape = (id, key2, values, { positive: positive2 = false, pierces = false, dispel = "basic", interval = 0, receipt = false } = {}) => obj({ kind: lit("apply-status"), ...commandBase(id), requestId: lit(key2), owner: actorDispatch, target: actorDispatch, key: lit(key2), duration: scalarDispatch, polarity: lit(positive2 ? "positive" : "negative"), pierces: lit(pierces), dispel: lit(dispel), interval: lit(interval), values: obj(values), ...receipt ? { receiptHandler: lit("corrosionReceipt"), receiptTarget: actorDispatch } : {} });
+var swap = "vengefulspirit_nether_swap";
+var mark = "kunkka_x_marks_the_spot";
+var rupture = "bloodseeker_rupture";
+var gaze = "lich_sinister_gaze";
+var exorcism = "death_prophet_exorcism";
+var dragon = "dragon_knight_elder_dragon_form";
+var selectedDefinitions = {
+  [swap]: skill(28, 3, {
+    begin: H(beginFact, ["owner", "target"], ["atomic-swap", "damage", "apply-status"], "admitted-routed-cast"),
+    statusReceipt: H(receiptFact, [], [], "status-admission"),
+    projectPostMitigation: H(obj({ ...castFact, effective: boolDispatch, target: actorDispatch, amount: scalarDispatch }), ["target"], ["damage-projection"], "status-post-mitigation-preview"),
+    shieldCommitted: H(obj({ ...castFact, handle: opaqueDispatch, ordinal: ordinalDispatch, amount: scalarDispatch }), [], [], "status-actual-shield-debit"),
+    statusRemoved: H(removalFact, [], [], "status-removal"),
+    death: H(deathFact, [], [], "resource-scoped-death")
+  }, {
+    "atomic-swap": obj({ kind: lit("atomic-swap"), ...commandBase(swap), castId: opaqueDispatch, owner: actorDispatch, target: actorDispatch, ownerDestinationX: { type: "number", minimum: 45, maximum: 1155 }, targetDestinationX: { type: "number", minimum: 45, maximum: 1155 }, interruptTarget: lit(true), collisionPolicy: lit("v8-move") }),
+    damage: damageShape(swap, "magical"),
+    "apply-status": statusShape(swap, swap, { shield: scalarDispatch }, { positive: true }),
+    "damage-projection": obj({ kind: lit("damage-projection"), ...commandBase(swap), amount: scalarDispatch, shieldDebit: scalarDispatch, statusHandle: opaqueDispatch })
+  }),
+  [mark]: skill(29, 2, {
+    begin: H(beginFact, ["owner", "target"], ["apply-status"], "admitted-routed-cast"),
+    statusReceipt: H(receiptFact, [], [], "status-admission"),
+    statusExpiring: H(obj({ ...castFact, handle: opaqueDispatch, target: actorDispatch, effective: boolDispatch }), ["target"], ["forced-return"], "natural-status-expiry-before-removal"),
+    statusRemoved: H(removalFact, [], [], "status-removal-no-return"),
+    death: H(deathFact, [], [], "resource-scoped-death")
+  }, { "apply-status": statusShape(mark, mark, {}, { dispel: "none" }), "forced-return": obj({ kind: lit("forced-return"), ...commandBase(mark), castId: opaqueDispatch, actor: actorDispatch, destinationX: { type: "number", minimum: 45, maximum: 1155 }, rootPolicy: lit("v8-forced-motion"), collisionPolicy: lit("v8-move") }) }),
+  [rupture]: skill(21, 3, {
+    begin: H(beginFact, ["owner", "target"], ["damage", "apply-status"], "admitted-routed-cast"),
+    statusReceipt: H(receiptFact, [], [], "status-admission"),
+    movementObserved: H(obj({ ...castFact, handle: opaqueDispatch, ordinal: ordinalDispatch, target: actorDispatch, effective: boolDispatch }), ["target"], ["damage"], "actor.status-pre-advance-observation"),
+    statusRemoved: H(removalFact, [], [], "status-removal"),
+    death: H(deathFact, [], [], "resource-scoped-death")
+  }, { damage: damageShape(rupture, "pure"), "apply-status": statusShape(rupture, rupture, { rupture: scalarDispatch, damageCap: scalarDispatch }, { pierces: true, dispel: "none" }) }),
+  [gaze]: skill(32, 2, {
+    begin: H(beginFact, ["owner", "target"], ["begin-channel-area"], "admitted-routed-cast"),
+    channelReceipt: H(receiptFact, [], [], "channel-admission"),
+    gazePulse: H(obj({ ...castFact, handle: opaqueDispatch, ordinal: ordinalDispatch, owner: actorDispatch, target: actorDispatch, channelAliveBeforePulse: boolDispatch, tokenValid: boolDispatch, reason: reasonDispatch }, ["reason"]), ["owner", "target"], ["end-channel-area", "transfer-mana", "apply-status", "control", "bounded-pull"], "channel-advance-before-pulse"),
+    interrupted: H(obj({ ...castFact, reason: reasonDispatch }, ["reason"]), [], ["end-channel-area"], "irreversible-channel-cancellation"),
+    expired: H(removalFact, [], ["end-channel-area"], "channel-expiry"),
+    death: H(deathFact, [], ["end-channel-area"], "resource-scoped-death")
+  }, {
+    "begin-channel-area": obj({ kind: lit("begin-channel-area"), ...commandBase(gaze), castId: opaqueDispatch, owner: actorDispatch, target: actorDispatch, duration: scalarDispatch, interval: lit(0.25), radius: lit(330), followOwner: lit(true), lockMovement: lit(true), lockAttacks: lit(true), lockCasts: lit(true), cancellation: lit(["control", "input-cancel", "movement", "action", "silence"]), handler: lit("gazePulse") }),
+    "end-channel-area": obj({ kind: lit("end-channel-area"), ...commandBase(gaze), castId: opaqueDispatch, channelHandle: nullableHandle, reason: reasonDispatch }),
+    "transfer-mana": obj({ kind: lit("transfer-mana"), ...commandBase(gaze), source: actorDispatch, target: actorDispatch, requested: scalarDispatch }),
+    "apply-status": statusShape(gaze, gaze, { stun: lit(true) }, { dispel: "strong" }),
+    control: obj({ kind: lit("control"), ...commandBase(gaze), owner: actorDispatch, target: actorDispatch, type: lit("stun"), duration: lit(0.25), pierces: lit(false), dispel: lit("strong") }),
+    "bounded-pull": obj({ kind: lit("bounded-pull"), ...commandBase(gaze), castId: opaqueDispatch, actor: actorDispatch, destinationX: { type: "number", minimum: 45, maximum: 1155 }, maxDistance: lit(25), rootPolicy: lit("v8-forced-motion"), collisionPolicy: lit("v8-move") })
+  }),
+  [exorcism]: skill(42, 3, {
+    begin: H(beginFact, ["owner", "target"], ["end-returning-spirits", "begin-returning-spirits"], "admitted-routed-cast"),
+    swarmReceipt: H(receiptFact, [], [], "swarm-admission"),
+    hostileArrival: H(obj({ ...castFact, handle: opaqueDispatch, ordinal: ordinalDispatch, owner: actorDispatch, target: actorDispatch }), ["owner", "target"], ["damage"], "swarm-hostile-contact"),
+    damageReceipt: H(obj({ ...castFact, ordinal: ordinalDispatch, receipt: damageReceiptDispatch }), [], [], "contact-actual-damage-receipt"),
+    expired: H(obj({ ...castFact, handle: opaqueDispatch, owner: actorDispatch }), ["owner"], ["heal"], "swarm-natural-expiry-after-receipts"),
+    death: H(deathFact, [], ["end-returning-spirits"], "resource-scoped-death")
+  }, {
+    "begin-returning-spirits": obj({ kind: lit("begin-returning-spirits"), ...commandBase(exorcism), castId: opaqueDispatch, owner: actorDispatch, target: actorDispatch, duration: scalarDispatch, maxSpirits: { type: "integer", minimum: 0, maximum: 64 }, spawnInterval: { type: "number", minimum: Number.MIN_VALUE }, speed: scalarDispatch, giveUpDistance: scalarDispatch, returnOnTargetDead: lit(true), contactHandler: lit("hostileArrival"), expiryHandler: lit("expired") }),
+    "end-returning-spirits": obj({ kind: lit("end-returning-spirits"), ...commandBase(exorcism), castId: opaqueDispatch, handle: nullableHandle, reason: { enum: ["replaced", "owner-dead"] } }),
+    damage: damageShape(exorcism, "physical", true),
+    heal: obj({ kind: lit("heal"), ...commandBase(exorcism), source: actorDispatch, target: actorDispatch, amount: scalarDispatch })
+  }),
+  [dragon]: skill(47, 3, {
+    begin: H(beginFact, ["owner", "target"], ["apply-status", "begin-attack-range-profile"], "admitted-routed-cast"),
+    formReceipt: H(receiptFact, [], [], "form-status-admission"),
+    profileReceipt: H(receiptFact, [], [], "native-profile-admission"),
+    projectAbilityRange: H(obj({ ...castFact, formEffective: boolDispatch }), [], ["cast-range-contribution"], "effective-form-range-preview"),
+    projectMovement: H(obj({ ...castFact, formEffective: boolDispatch }), [], ["movement-contribution"], "effective-form-movement-preview"),
+    landedAttack: H(obj({ owner: actorDispatch, target: actorDispatch, formPresent: boolDispatch, landed: boolDispatch, secondary: boolDispatch, ordinal: ordinalDispatch }), ["owner", "target"], ["apply-status"], "native-landed-primary-attack"),
+    corrosionReceipt: H({ anyOf: [obj({ accepted: lit(true), handle: opaqueDispatch, target: actorDispatch }), obj({ accepted: lit(false), handle: lit(null), target: actorDispatch })] }, [], [], "originating-attack-corrosion-admission"),
+    corrosionPulse: H(obj({ handle: opaqueDispatch, ordinal: ordinalDispatch, owner: actorDispatch, target: actorDispatch, effective: boolDispatch }), ["owner", "target"], ["damage"], "corrosion-status-live-slice-independent-of-form"),
+    formExpired: H(obj({ handle: opaqueDispatch }), [], [], "form-status-expiry"),
+    profileExpired: H(obj({ handle: opaqueDispatch }), [], [], "native-profile-expiry"),
+    statusRemoved: H(obj({ handle: opaqueDispatch }), [], [], "status-removal"),
+    death: H(deathFact, [], ["end-attack-range-profile"], "resource-scoped-death")
+  }, {
+    "apply-status": { anyOf: [statusShape(dragon, dragon, { attackRange: scalarDispatch, moveFlat: scalarDispatch }, { positive: true, dispel: "none" }), statusShape(dragon, dragon + "_corrosion", {}, { interval: 1, receipt: true }), statusShape(dragon, dragon + "_frost", { moveSlow: scalarDispatch, attackSlow: scalarDispatch }, { pierces: true })] },
+    "begin-attack-range-profile": obj({ kind: lit("begin-attack-range-profile"), ...commandBase(dragon), castId: opaqueDispatch, actor: actorDispatch, attackRangeBonus: scalarDispatch, duration: scalarDispatch }),
+    "end-attack-range-profile": obj({ kind: lit("end-attack-range-profile"), ...commandBase(dragon), castId: opaqueDispatch, actor: actorDispatch, handle: opaqueDispatch, reason: lit("owner-dead") }),
+    "cast-range-contribution": obj({ kind: lit("cast-range-contribution"), ...commandBase(dragon), actor: actorDispatch, flat: scalarDispatch }),
+    "movement-contribution": obj({ kind: lit("movement-contribution"), ...commandBase(dragon), actor: actorDispatch, flat: scalarDispatch }),
+    damage: damageShape(dragon, "magical")
+  })
+};
+var A_EXTENSION_DISPATCH = freezeDispatch({ id: "heros/a/extension-dispatch/1", version: 1, eventKind: "a-extension-dispatch", originOwner: "envelope.owner", routedActors: "facts", resultKind: "a-extension-commands", eventEnvelope: { requiredKeys: ["abilityId", "dispatchId", "facts", "handler", "kind", "owner", "slot"], additionalProperties: false, fixed: { kind: "a-extension-dispatch", dispatchId: "heros/a/extension-dispatch/1" }, selectedRowFields: ["abilityId", "slot"], owner: actorDispatch, handlerBinding: "skills[abilityId].handlers", factsBinding: "skills[abilityId].handlers[handler].facts" }, resultEnvelope: { requiredKeys: ["abilityId", "commands", "dispatchId", "handler", "kind", "owner", "slot"], additionalProperties: false, fixed: { kind: "a-extension-commands", dispatchId: "heros/a/extension-dispatch/1" }, echoFields: ["abilityId", "slot", "owner", "handler"], commandsBinding: "skills[abilityId].handlers[handler].commands + skills[abilityId].commandSchemas" }, statusTranslation: { sourceField: "interval", unit: "seconds", zero: "omit native intervalSeconds", positive: "native intervalSeconds = exact intent.interval", periodic: { skill: dragon, key: dragon + "_corrosion", handler: "corrosionPulse", binding: "status", delivery: "actor.status-advance", clock: "native lifetime-limited status live slice", ordinal: "authenticated per corrosion resource" }, markExpiry: { handler: "statusExpiring", delivery: "natural expiry before status removal", dispel: "statusRemoved only; no return" } }, skills: selectedDefinitions });
+var canonicalParameters = freezeDispatch({ mode: "canonical-command-dispatch", dispatch: A_EXTENSION_DISPATCH });
+var validatorDispatch = /* @__PURE__ */ new Map();
+function acceptsDispatch(key2, schema, value) {
+  let v = validatorDispatch.get(key2);
+  if (!v) {
+    v = defineStateSchema({ id: "heros/a/wire/" + key2, version: "1.0.0", schema }).validate;
+    validatorDispatch.set(key2, v);
+  }
+  return v(value);
+}
+function validateExtensionCommands(abilityId, handler, commands) {
+  const declared = A_EXTENSION_DISPATCH.skills[abilityId], entry = declared?.handlers[handler];
+  if (!entry || !Array.isArray(commands) || commands.length > 8) throw Error("A_DISPATCH_COMMAND_LIST");
+  for (const command of commands) {
+    if (!command || !entry.commands.includes(command.kind) || !acceptsDispatch(abilityId + "/" + command.kind, declared.commandSchemas[command.kind], command)) throw Error("A_DISPATCH_COMMAND_SHAPE");
+    if (command.kind === "damage" && (command.noReflect !== command.reflected || command.noLifesteal !== command.reflected)) throw Error("A_DISPATCH_DAMAGE_FLAGS");
+  }
+  return true;
+}
+function refineCanonicalDispatchState(state, parameters2) {
+  if (state === null) return true;
+  const machine2 = createExtensionDraft(parameters2.definition), handles2 = /* @__PURE__ */ new Set();
+  for (const own of state.casts) {
+    if (!machine2.validateState(own)) return false;
+    if (own) for (const ref2 of [own.statusHandle, own.channelHandle, own.swarmHandle, own.formHandle, own.profileHandle, ...(own.corrosion ?? []).map((x) => x.handle)]) {
+      if (ref2 == null) continue;
+      if (handles2.has(ref2)) return false;
+      handles2.add(ref2);
+    }
+  }
+  return true;
+}
+var extensionCanonicalFactory = Object.freeze({ abiVersion: BATTLE_ABI, parameters: canonicalParameters, create(config) {
+  if (stableDispatch(config.parameters) !== stableDispatch(canonicalParameters)) throw Error("A_DISPATCH_PARAMETERS");
+  const id = config.definition.id, declared = A_EXTENSION_DISPATCH.skills[id];
+  if (!declared || config.hero.registryNumericId !== declared.heroId || config.hero.abilities[declared.slot]?.id !== id) throw Error("A_DISPATCH_SKILL_ROW");
+  const { rule, stateSchema: single } = canonicalExtension(config), identity2 = codeIdentity([...EXTENSION_SOURCE_FILES, "rules/a/extensions/proposal.js"]);
+  const schema = defineStateSchema({ id: "heros/a/extension-dispatch/" + id, version: "1.0.0", schema: { anyOf: [{ type: "null" }, obj({ casts: { type: "array", minItems: 2, maxItems: 2, items: single.schema } })] }, parameters: { definition: config.definition, dispatch: A_EXTENSION_DISPATCH, originOwner: "envelope.owner" }, refinement: { id: "heros/a/extension-dispatch/actor-resource-state", ...identity2, validate: refineCanonicalDispatchState } });
+  return {
+    behaviorId: "heros/a/extension-dispatch/" + id,
+    revision: "1.0.0",
+    ...identity2,
+    requires: [],
+    namespace: "heros/a/extension-dispatch/" + id,
+    stateSchema: schema,
+    onStage(ctx, event) {
+      if (!event || Object.keys(event).sort().join(",") !== A_EXTENSION_DISPATCH.eventEnvelope.requiredKeys.join(",") || event.kind !== A_EXTENSION_DISPATCH.eventKind || event.dispatchId !== A_EXTENSION_DISPATCH.id || event.abilityId !== id || event.slot !== declared.slot || !Object.hasOwn(declared.handlers, event.handler) || event.owner !== 0 && event.owner !== 1) throw Error("A_DISPATCH_ENVELOPE");
+      const chosen = declared.handlers[event.handler];
+      if (!acceptsDispatch(id + "/" + event.handler, chosen.facts, event.facts)) throw Error("A_DISPATCH_FACTS");
+      if (event.handler === "damageReceipt" && !event.facts.receipt.accepted && event.facts.receipt.actual > 0) throw Error("A_DISPATCH_REJECTED_DAMAGE_CREDIT");
+      const facts = { ...event.facts };
+      for (const name of chosen.actorViews) facts[name] = ctx.actor(facts[name]);
+      const state = structuredClone(ctx.state.read() ?? { casts: [null, null] }), next = rule.handlers[event.handler](state.casts[event.owner], facts);
+      validateExtensionCommands(id, event.handler, next.commands);
+      state.casts[event.owner] = next.state;
+      if (!schema.validate(state)) throw Error("A_DISPATCH_OWN_STATE");
+      ctx.state.write(state);
+      return { kind: A_EXTENSION_DISPATCH.resultKind, dispatchId: A_EXTENSION_DISPATCH.id, abilityId: id, slot: declared.slot, owner: event.owner, handler: event.handler, commands: next.commands };
+    }
+  };
+} });
+
 // node_modules/@dotapk/heros/test/probes.mjs
 function probeFactory(kind, { amount = 35, namespace, limit = 100, schema, api = heros_exports } = {}) {
   return { abiVersion: api.BATTLE_ABI, parameters: { amount, limit }, create({ definition, parameters: parameters2 }) {
@@ -13040,21 +14011,29 @@ function countSchema(api = heros_exports, limit = 100) {
   return api.defineStateSchema({ id: "test/count", schema: { anyOf: [{ type: "null" }, { type: "object", additionalProperties: false, required: ["count"], properties: { count: { type: "integer", minimum: 0, maximum: limit } } }] } });
 }
 export {
+  A_EXTENSION_DISPATCH,
   BATTLE_ABI,
   CAPABILITIES,
   EMPTY_STATE_SCHEMA,
   HOOKS,
   codeIdentity,
+  combineAttack,
+  combineInterval,
+  combineMovement,
+  createBRule,
   createBash,
   createHeroRegistry,
   createRuleSession,
   defineStateSchema,
   directHitFactory,
+  extensionCanonicalFactory,
   heroes,
   legacyFactory,
   passiveProjectionFactory,
   probeFactory,
   registerA,
+  registerB,
   registerLegacy0To9,
-  registerLegacy10To19
+  registerLegacy10To19,
+  validateExtensionCommands
 };
