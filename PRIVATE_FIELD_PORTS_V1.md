@@ -1,0 +1,18 @@
+# Private periodic-field transport v1 — three-slot candidate
+
+Accepted baseline: bc30938a5d34330b361a1e26ae1ac7e54cca8247, 59/184 accepted, 125 remaining. Original Native oracle: 6b7b61fa6c4b27c66c4b9bdafb6af0a162077885 (archived independently). This batch adds only 0/0 `juggernaut_blade_fury`, 2/1 `pudge_rot`, 4/0 `sniper_shrapnel`; acceptance remains with the integrator.
+
+Readonly public handshake: `heros-host-events-1`, capabilities `legacy-hit-v1`, `legacy-field-v1`, `legacy-status-v1`. Existing owned `activate`, `planCast`, `onStage` return closed programs; they receive detached two-actor facts, no Engine and no mutable/resource ports. Public files, ABI, schema, registry and package remain unchanged.
+
+Order:
+1. Ordinary input admission and actual cast independently run the stateless plan and closed source/stage preflight before MP, charge, cooldown, cast ID or action commits. Valid rejected plans preserve current state. Native action/resource transaction runs once.
+2. At actual windup completion, call the actual public activate, validate the complete returned program, then commit declared cleanse, marker and field. Return handled, bypassing original hero activation.
+3. In each native fighter buff phase, observe full native dt before decrement; at expiry call declared expiry stage once when the marker declares an expiry dispel. Rot has no expiry dispel/callback in the owned contract. Native marker removal/filter still occurs at its original position.
+4. In the existing zone iteration, acquire a private phase token. Advance native life/age/tick with liveDt, compute due once, call actual public zone-tick with current detached actors, then commit its declared hit/nonlethal self damage/end exactly once. Empty command arrays bypass native damage. Source contact geometry, damage, slow and immunity semantics belong to the public program.
+5. Declared Blade Dance projection uses the already accepted pure passive dispatcher. Actual damage receipt comes from the sole native resolveDamage debit. No preview consumes RNG. Ordinary control, damage policy, collision, AI and input stay private.
+6. Field expiry includes its final native due tick. Owner death ends auras, preserves ground fields, and dispatches actual effect-end once. Toggle-off calls actual public zero-cost plan and activate removal declarations; no additional cast/resource/log sequence is minted.
+7. Marker and zone lifetimes differ at the birth frame exactly as Native. Snapshot records source facts/code identity via rulesHash, native model, marker/zone clocks, end reason and bijective native bindings. Restoring validates the whole graph before any mutation; after restore, real pointers and private phase tokens are rebound. Marker-only post-zone snapshots are supported.
+
+Closed supported subset: one aura marker, one stationary aura/ground DOT source; bounded duration (<=1000s), interval >=0.05s, radius <=10000; one target hit and one nonlethal self debit per due stage. No healing ward, follow-moving area, jobs, channel, new reflection mechanism, unsupported actor/handle, mutable public state or random calls. Other unaccepted registrations retain their existing routes. This transport is private and makes no new public owned contract proposal.
+
+Verification scope: real ordinary input→step vs original frozen Native, actual returned source/stage replacements, uninterrupted continuation restore, malformed admission and snapshot refusal, previously accepted representative regressions. Starstorm/Omnislash stopped verification and 11 related cases are excluded; no browser/production/deployment assertion.
