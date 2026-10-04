@@ -1,4 +1,4 @@
-import {CHANNEL_SLOTS,channelFeatures,channelEnabled,channelReady,channelPlan,activateChannel,interruptChannel,beginChannels,endChannels,advanceChannel,beginChannelProjectiles,endChannelProjectiles,observeChannelProjectile,contactChannelProjectile,beginChannelUnits,endChannelUnits,advanceChannelUnit,snapshotChannels,validChannels,restoreChannels} from './hero-legacy-channel-host.js';
+import {withChannelUnitFrame,CHANNEL_SLOTS,channelFeatures,channelEnabled,channelReady,channelPlan,activateChannel,interruptChannel,beginChannels,endChannels,advanceChannel,beginChannelProjectiles,endChannelProjectiles,observeChannelProjectile,contactChannelProjectile,beginChannelUnits,endChannelUnits,advanceChannelUnit,snapshotChannels,validChannels,restoreChannels} from './hero-legacy-channel-host.js';
 import {STATUS_DOT_SLOTS,STATUS_DOT_FEATURES,statusDotEnabled,statusDotReady,statusDotPlan,activateStatusDot,beginStatusDots,endStatusDots,advanceStatusDot,snapshotStatusDots,validStatusDots,restoreStatusDots} from './hero-legacy-status-dot-host.js';
 import {UNIT_SLOTS,unitEnabled,unitReady,unitPlan,activateUnit,endUnit,beginUnits,endUnits,advanceUnit,snapshotUnits,validUnits,restoreUnits} from './hero-legacy-unit-host.js';
 import {FIELD_SLOTS,FIELD_FEATURES,fieldEnabled,fieldReady,fieldInputPlan,fieldToggle,activateField,observeFieldBuff,expireFieldBuff,fieldAttackBlocked,beginFields,endFields,advanceField,snapshotFields,validFields,restoreFields} from './hero-legacy-field-host.js';
@@ -640,3 +640,5 @@ export const beginRuleChannelUnits=beginChannelUnits,endRuleChannelUnits=endChan
 export const dispatchRuleChannelUnitAdvance=(e,z,dt)=>advanceChannelUnit(e,binding(e),z,dt);
 export const ruleChannelSnapshot=e=>snapshotChannels(e,binding(e));
 export const restoreRuleChannelSnapshot=restoreChannels;
+
+export const withRuleChannelUnitFrame=(e,run)=>withChannelUnitFrame(e,binding(e),run);

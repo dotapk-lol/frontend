@@ -1,3 +1,4 @@
+import {withRuleChannelUnitFrame} from './hero-rules-host.js';
 import {observeChargePhase,observeChargeAdvance,cancelCharge,withChargeRelease} from './hero-legacy-charge-host.js';
 import {nativeCaptureFacts,recordNativeDamageDebit,beginLinearDotIteration,endLinearDotIteration,observeLinearDotTargetPhase,withLinearDotPulse,observeLinearHitTargetPhase,observeLinearAdvance,withLinearContact} from './hero-legacy-linear-host.js';
 import {PackTargeting} from './pack-targeting.js';
@@ -194,7 +195,7 @@ export class Engine {
   return candidates[0]||null;
  }
 
- step(dt=FIXED_DT){if(this.paused||this.phase==='matchEnd')return;dt=Math.min(dt,.05);this.frame++;this.effects=this.effects.filter(e=>(e.life-=dt)>0);this.shake=Math.max(0,this.shake-dt*30);if(this.hitstop>0){this.hitstop-=dt;return;}
+ step(dt=FIXED_DT){return withRuleChannelUnitFrame(this,()=>{if(this.paused||this.phase==='matchEnd')return;dt=Math.min(dt,.05);this.frame++;this.effects=this.effects.filter(e=>(e.life-=dt)>0);this.shake=Math.max(0,this.shake-dt*30);if(this.hitstop>0){this.hitstop-=dt;return;}
   if(this.phase!=='fight'){this.phaseTime-=dt;if(this.phaseTime<=0){if(this.phase==='intro'){this.phase='fight';this.fx('announce',600,310,'#ffe3ab',{text:'FIGHT',life:.8,maxLife:.8});}else if(this.phase==='roundEnd'){if(this.score.some(s=>s>=2))this.phase='matchEnd';else{this.round++;this.resetRound();}}}return;}
   PackHP.syncLife(this);this.t+=dt;if(this.mode!=='training')this.time=Math.max(0,this.time-dt);
   this.packCombat.tick(this,dt);reconcileRuleStatuses(this);reconcileRuleJobs(this);reconcileRuleAreas(this);if(this.mode==='cpu')this.ai(1,dt);
@@ -246,7 +247,7 @@ export class Engine {
   }for(const z of this.zones){if(this.fighters[z.owner].hp<=0&&['aura','ward','heal','deathWard'].includes(z.type)){if(z.type==='ward')this.endWard(z,'owner_defeated');else z.life=0;}else if(z.type==='ward'&&z.life<=1e-7&&!z.ended)this.endWard(z,'expired');}this.zones=this.zones.filter(z=>z.life>1e-7);endRuleFields(this);endRuleUnits(this);endRuleChannelUnits(this);
   PackHP.tick(this,dt);PackHP.deaths(this);this.packCombat.endStep(this);reconcileRuleStatuses(this);reconcileRuleJobs(this);reconcileRuleAreas(this);PackHP.deaths(this);PackControl.cleanup(this);if(this.mode==='training'){for(const f of this.fighters)if(f.hp<=0){f.hp=f.maxHp;f.mp=f.maxMp;this.fx('text',f.x,220,'#fff',{text:'训练重置'});}}
   else if(a.hp<=0||b.hp<=0||this.time<=0){const diff=a.hp/a.maxHp-b.hp/b.maxHp;this.winner=Math.abs(diff)<.0001?-1:diff>0?0:1;if(this.winner>=0)this.score[this.winner]++;this.phase='roundEnd';this.phaseTime=3;this.input=[{},{}];this.history.push({round:this.round,winner:this.winner,remaining:this.time,damage:[a.damage,b.damage]});this.log('round_end',this.winner,{score:[...this.score]});}
- }
+ });}
  ai(i,dt){const f=this.fighters[i],t=this.fighters[1-i],d=Math.abs(f.x-t.x),inp={};f.aiDelay-=dt;if(f.aiDelay<=0){f.aiDelay=.12+this.random()*.16;f.aiIntent={defend:!!t.cast&&this.random()<.65,attack:d<this.hero(i).attack_range+15,jump:this.projectiles.some(p=>p.owner!==i&&Math.abs(p.x-f.x)<220)&&this.random()<.4};if(this.random()<.35){const slots=this.hero(i).abilities.map((a,s)=>s).filter(s=>!this.ability(i,s).mvp.passive&&f.cd[s]<=0&&f.mp>=this.ability(i,s).mvp.mana&&!(this.ability(i,s).valveAbilityId===5218&&f.pack?.poisonOn));if(slots.length)f.aiIntent['s'+slots[Math.floor(this.random()*slots.length)]]=true;}}
   Object.assign(inp,f.aiIntent);if(inp.defend){inp[t.x>f.x?'left':'right']=true;delete inp.attack;for(let s=0;s<4;s++)delete inp['s'+s];}else if(d>this.hero(i).attack_range*.8){inp[t.x>f.x?'right':'left']=true;}if(f.channel){for(let s=0;s<4;s++)inp['s'+s]=s===f.channel.slot;delete inp.left;delete inp.right;}this.setInput(i,inp);}
  restoreSimulation(g){
