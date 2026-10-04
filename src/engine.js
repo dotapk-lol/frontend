@@ -1,4 +1,4 @@
-import {observeLinearAdvance,withLinearContact} from './hero-legacy-linear-host.js';
+import {observeLinearHitTargetPhase,observeLinearAdvance,withLinearContact} from './hero-legacy-linear-host.js';
 import {PackTargeting} from './pack-targeting.js';
 import {ruleLinearSnapshot,restoreRuleLinearSnapshot,dispatchRuleLinearContact,planLegacyRuleCast,withLegacyPhaseReceipt,validateRuleLegacyPhases,dispatchLegacyActivation,projectLegacyVulnerability,dispatchLegacyWardCleave,withRuleAttackReceipt,dispatchRuleAfterAttack,projectRuleArmedAttack,initRulePassiveAuras,observeRulePassiveAura,readyRulePassiveAura,dispatchRulePassiveAura,validateRuleStaticPassives,projectRuleStaticPassive,dispatchRuleEntityPulse,reconcileRuleAreas,dispatchRuleJobDue,reconcileRuleJobs,dispatchRuleStatusPulse,projectLegacyPassive,activateHeroRule,castHeroRule,usesPrivateRuleCast,reconcileRuleStatuses,ruleHostSnapshot,ruleHostEpochSnapshot,validRuleHostSnapshot,validRulePackSnapshot,restoreRuleHostSnapshot,moduleAbility,rulesSnapshot,validRulesSnapshot,restoreRulesSnapshot,validHeroRuleResources,validateHeroRuleFacts} from './hero-rules-host.js';
 import {PackControl} from './pack-control.js';
@@ -198,7 +198,7 @@ export class Engine {
   PackHP.syncLife(this);this.t+=dt;if(this.mode!=='training')this.time=Math.max(0,this.time-dt);
   this.packCombat.tick(this,dt);reconcileRuleStatuses(this);reconcileRuleJobs(this);reconcileRuleAreas(this);if(this.mode==='cpu')this.ai(1,dt);
   for(const f of this.fighters){const i=f.i,t=this.fighters[1-i],h=this.hero(i),inp=this.input[i],prev=this.previous[i];
-   if(f.hp<=0){f.cast=null;f.channel=null;f.motion=null;f.skillBuffer=null;continue;}
+   observeLinearHitTargetPhase(this,f,dt);if(f.hp<=0){f.cast=null;f.channel=null;f.motion=null;f.skillBuffer=null;continue;}
    const hard=this.blocked(f);
    for(const k of ['attackCd','recovery','stun','root','silence','hex','fear','taunt','slow','invuln','ccGrace','animTime','hitFlash','comboTime'])f[k]=Math.max(0,(f[k]||0)-dt);
    PackControl.advance(this,f,dt);if(hard&&!this.blocked(f)){f.ccGrace=1;f.ccChain=0;}if(f.slow<=0)f.slowPct=0;
@@ -227,7 +227,7 @@ export class Engine {
   const [a,b]=this.fighters;if(Math.abs(a.x-b.x)<60&&Math.abs(a.y-b.y)<90&&!a.motion&&!b.motion){const dir=a.x<=b.x?-1:1,mid=(a.x+b.x)/2;a.x=clamp(mid+dir*30,45,1155);b.x=clamp(mid-dir*30,45,1155);}
   for(const f of this.fighters)this.updateGuard(f);
   const due=this.events.filter(e=>e.at<=this.t+1e-7);this.events=this.events.filter(e=>e.at>this.t+1e-7);for(const e of due){if(e.type==='attack')this.resolveAttack(e);else if(e.type==='skill_hit'){const f=this.fighters[e.owner],t=this.fighters[1-e.owner];if(f.hp>0&&Math.abs(t.x-f.x)<=e.range+22&&!this.blocked(f)){if(e.track){this.move(f,t.x-f.dir*75-f.x);this.fx('slash',t.x,t.y+100,this.hero(f.i).color,{size:160,dir:f.dir});}if(e.track)this.basicHit(f,t,{...e,damage:this.bladeDance(f,e.damage)});else this.hit(f,t,e.damage,e.m,{skill:e.id,linaDone:true});}}}
-  for(const p of this.projectiles){observeLinearAdvance(this,p,dt);const old=p.x,remaining=Math.max(0,p.range-p.travel),distance=Math.min(Math.max(0,p.v*dt),remaining),next=clamp(old+p.dir*distance,0,1200);const f=this.fighters[p.owner],t=this.fighters[1-p.owner];if(old<0||old>1200||remaining<=0){p.dead=true;continue;}const collision=this.projectileCollision(p,old,next);p.x=collision?old+p.dir*collision.distance:next;p.travel+=Math.abs(p.x-old);
+  for(const p of this.projectiles){const old=p.x,remaining=Math.max(0,p.range-p.travel),distance=Math.min(Math.max(0,p.v*dt),remaining),next=clamp(old+p.dir*distance,0,1200);observeLinearAdvance(this,p,dt,{from:old,to:next,travelBefore:p.travel});const f=this.fighters[p.owner],t=this.fighters[1-p.owner];if(old<0||old>1200||remaining<=0){p.dead=true;continue;}const collision=this.projectileCollision(p,old,next);p.x=collision?old+p.dir*collision.distance:next;p.travel+=Math.abs(p.x-old);
    if(!collision){if(p.travel>=p.range-1e-7||p.x<=0||p.x>=1200)p.dead=true;continue;}
    if(collision.type==='ward'){this.endWard(collision.target,'attack',p.owner);p.dead=true;continue;}
    if(collision.type==='fighter'){if(withLinearContact(this,p,collision,()=>dispatchRuleLinearContact(this,p,collision)))continue;const counter=this.buff(t,'counter');if(!p.basic&&p.m.reflectable&&!p.reflected&&counter&&!counter.m.counter_type){p.owner=t.i;p.dir=-p.dir;p.reflected=true;p.travel=0;p.x=t.x+p.dir*35;t.buffs=t.buffs.filter(x=>x!==counter);this.fx('text',t.x,t.y+190,'#b5dcff',{text:'反制!'});continue;}

@@ -1,4 +1,4 @@
-import {LINEAR_SLOTS,LINEAR_FEATURES,linearFacts,linearReady,preflightLinear,spawnLinear,linearDamage,dispatchLinearContact,snapshotLinear,validLinear,restoreLinear} from './hero-legacy-linear-host.js';
+import {LINEAR_SLOTS,LINEAR_FEATURES,linearFacts,linearReady,preflightLinear,spawnLinear,linearDamage,recordLinearHitOutcome,dispatchLinearContact,snapshotLinear,validLinear,restoreLinear} from './hero-legacy-linear-host.js';
 import {readNativeAreaPulseReceipt,consumeNativeAreaPulseReceipt,hasConsumedNativeAreaPulseReceipt} from './hero-area-pulse-receipts.js';
 import {createHeroRegistry,createRuleSession} from './heros-rules.js';
 import {effectiveCastRange as nativeEffectiveCastRange,services as aStatusStore} from './hero-packs/r20_55/combat.js';
@@ -41,7 +41,7 @@ function host(engine,abilityId,origin,capture={}){
     if(linear){for(const k of Object.keys(info))delete info[k];info.skill=abilityId;}
     if(spec.legacyInfo!==undefined&&!linear){const lease=bridgeEntry(engine).legacyPhaseLease,tag=spec.legacyInfo;if(lease?.kind!=='legacy-skill-activating'||originKey(lease.origin)!==originKey(origin)||spec.source!==origin.actor||spec.passive!==true||spec.dot||spec.legacyEffects!==undefined||Object.keys(tag).sort().join(',')!=='omitSkill,preLog'||tag.omitSkill!==true||Object.keys(tag.preLog??{}).sort().join(',')!=='kind,skillId'||tag.preLog.kind!=='passive'||tag.preLog.skillId!==abilityId)throw Error('Unsupported native passive hit metadata');delete info.skill;engine.log('passive',origin.actor,{skill:abilityId});}
     if(spec.legacyEffects!==undefined&&!linear)applyLegacyHitEffects(engine,origin,spec,m);
-    const receipt=engine.resolveDamage(source,target,amount,m,info);
+    const receipt=engine.resolveDamage(source,target,amount,m,info);if(linear)recordLinearHitOutcome(engine,origin,receipt);
     return {accepted:receipt.accepted,landed:receipt.landed,guarded:receipt.guard,raw:receipt.rawDamage,actual:receipt.actual,deferred:receipt.deferred??0,killedAtDebit:receipt.killedAtDebit};
    },
    control:{apply(spec){identity(spec);actor(spec.owner);const target=actor(spec.target);if(!['stun','root','hex','fear','taunt'].includes(spec.type))throw Error('Invalid control kind');const duration=engine.control(target,spec.type,bounded(spec.duration,0,60),!!spec.pierces);return duration?{handle:'legacy-control:'+target.i+':'+spec.type,duration}:null;}},
