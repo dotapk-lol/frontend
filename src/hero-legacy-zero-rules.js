@@ -1,7 +1,7 @@
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining.js
 import { BATTLE_ABI, EMPTY_STATE_SCHEMA } from "./heros-rules.js";
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining-common.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining-common.js
 import { codeIdentity, defineStateSchema } from "./heros-rules.js";
 var EVENT_VERSION = "heros-host-events-1";
 var FEATURES = Object.freeze(["legacy-hit-v1", "legacy-linear-v1", "legacy-dot-v1", "legacy-field-v1", "legacy-channel-v1", "legacy-job-v1", "legacy-property-v1", "legacy-passive-v1", "legacy-status-v1", "legacy-contact-v1"]);
@@ -151,7 +151,7 @@ function ownedSchema(config, kind) {
   return schema;
 }
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining-projectiles.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining-projectiles.js
 var IDS = ["pudge_hook", "sniper_assassinate", "phantom_assassin_dagger", "drow_ranger_gust", "lina_slave", "lion_spike"];
 function buildProjectile(config) {
   const id = config.definition.id;
@@ -186,7 +186,7 @@ function buildProjectile(config) {
   };
 }
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining-effects.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining-effects.js
 var AREA = ["juggernaut_blade_fury", "juggernaut_healing_ward", "pudge_rot", "sniper_shrapnel"];
 var DOT = ["crystal_maiden_frostbite", "axe_hunger"];
 function buildEffect(config) {
@@ -311,7 +311,7 @@ function buildEffect(config) {
   return null;
 }
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining-channels.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining-channels.js
 var IDS2 = ["crystal_maiden_freezing_field", "pudge_dismember", "drow_ranger_multishot", "lion_drain"];
 function buildChannel(config) {
   const id = config.definition.id, m = config.definition.mvp;
@@ -376,7 +376,7 @@ function buildChannel(config) {
   };
 }
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining-passives.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining-passives.js
 function buildPassive(config) {
   const id = config.definition.id, m = config.definition.mvp;
   const features = ["legacy-passive-v1", "legacy-status-v1", "legacy-contact-v1", ...id === "axe_helix" ? ["legacy-hit-v1"] : []];
@@ -501,7 +501,7 @@ function buildPassive(config) {
   return null;
 }
 
-// legacy-zero-linear-batch20-host/node_modules/@dotapk/heros/rules/legacy-0-9/remaining.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/remaining.js
 var REMAINING_SLOTS = Object.freeze([[0, 0], [0, 1], [0, 3], [1, 0], [1, 1], [1, 3], [2, 0], [2, 1], [2, 3], [3, 1], [3, 2], [4, 0], [4, 3], [5, 0], [6, 0], [6, 3], [7, 0], [7, 1], [7, 2], [8, 0], [8, 2], [9, 0], [9, 2]].map(Object.freeze));
 function remainingLegacyFactory(heroId, slot, { hostSemantics = null, hostCapabilities = [] } = {}) {
   if (!REMAINING_SLOTS.some(([h, s]) => h === heroId && s === slot)) throw Error("Out of owned remaining scope");
