@@ -44,3 +44,5 @@ for(const restoreBeforeReply of [false,true])test(`guest rotation during committ
 test('portrait advertised in the connection hello blocks lobby readiness',()=>{
  const h=connected('host');try{h.receive(JSON.stringify({type:'hello',version:NET_VERSION,compatibility:GAME_COMPATIBILITY,hero:13,policy,available:false}),'control');assert.equal(h.info().peerAvailable,false);assert.equal(h.setReady(),false);}finally{h.shutdown();}
 });
+
+test('a room allocated after host cancellation is released once without reviving the session',async()=>{let resolveRoom;const calls=[],id='d'.repeat(64);const service={request(path,body,method){calls.push({path,method});return path==='rooms'?new Promise(r=>resolveRoom=r):Promise.resolve({ok:true});}};const p=new PeerSession({role:'host',hero:0,policy,service});const pending=p.api('rooms',{});p.close();resolveRoom({id,code:'000012'});await assert.rejects(pending,/连接已关闭/);await flush();assert(p.stopped);assert(!p.ready&&!p.peerReady);assert.equal(p.code,'');assert.deepEqual(calls,[{path:'rooms',method:'POST'},{path:'rooms/'+id,method:'DELETE'}]);p.close();assert.equal(calls.length,2);});
