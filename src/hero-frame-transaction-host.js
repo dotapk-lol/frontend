@@ -6,6 +6,14 @@ export const hasManagedFrameLease=engine=>leases.has(engine);
 export function withManagedFrame(engine,participants,run){
  if(engine.paused||engine.phase!=='fight'||engine.hitstop>0||!participants.some(required=>required()))return run();
  if(leases.has(engine))throw Error('Nested managed frame transaction');
+ return transaction(engine,run);
+}
+// Native input release can occur between frames, including pause/hitstop.
+export function withManagedAction(engine,required,run){
+ if(!required()||leases.has(engine))return run();
+ return transaction(engine,run);
+}
+function transaction(engine,run){
  const checkpoint=engine.snapshot(),logs=structuredClone(engine.logs);leases.add(engine);
  try{return run();}
  catch(error){engine.restoreSimulation(checkpoint);engine.logs=logs;throw error;}
