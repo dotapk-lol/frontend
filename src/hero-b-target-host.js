@@ -1,6 +1,6 @@
 // PRIVATE authenticated target routing. Public source owns spell semantics.
 import {services} from './hero-packs/c56_90/system.js';
-export const B_TARGET_SLOTS=new Set(['58:0']);
+export const B_TARGET_SLOTS=new Set(['58:0','71:1']);
 const actor=x=>x===0||x===1,number=(x,min=0,max=1e7)=>Number.isFinite(x)&&x>=min&&x<=max;
 const closed=(x,keys)=>x&&typeof x==='object'&&!Array.isArray(x)&&Object.keys(x).sort().join(',')===keys.slice().sort().join(',');
 export function bTargetPort(e,o,{write,birthLease,once,onRoute}){return{route(spec){write();if(!B_TARGET_SLOTS.has(o.heroId+':'+o.slot)||birthLease?.actor!==o.actor||!closed(spec,['owner','target','abilityId','range','reflectable','reflected'])||spec.owner!==o.actor||spec.target!==1-o.actor||spec.abilityId!==o.abilityId||!number(spec.range,0,10000)||spec.reflectable!==true||spec.reflected!==false)throw Error('Invalid B source target route');once('target-route');const result=services.routeTargetedSpell(e,spec),receipt={frame:e.frame,at:e.t,castId:birthLease.castId,result};onRoute(receipt);return result;}};}
