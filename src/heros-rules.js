@@ -11022,12 +11022,12 @@ var sourceManifest = {
   "contract/schedule-schema.js": "7bd5805e0610c24cb0dcb241587e7ff82dfce2e248a2324523a5d7e3b513fdd6",
   "contract/session.js": "b7daebec87f2f1c2ce617d7661fbcb7b03c483095230231591d432c6ef28cf23",
   "contract/state-schema.js": "ccea5b69726eb88ed568348b5707b987583cc0d92ce7d9a7ee7c5672266e8cfe",
-  "contract/types.ts": "4362e8b5afc97059f266ebe69284ebaf4cc683508e9ae46ffd22f94bcf0fdfa2",
+  "contract/types.ts": "4892c963f2d0836672a1791359cd6ece37c81634834f4335bdaaa1ccfce2bb34",
   "contract/value.js": "c0da66bad54e30c952287ff6c5ae00b6d551b6ec69ddb6b2fb63c4a0b8186646",
   "examples/blink-range.js": "e1031dc2d8b854b3a9c06dca05f20faa0b71681ce3317edcaa0f8ba836df28f0",
   "examples/demo.mjs": "3051e9b682638fe5d9c54b25277a2317256c53338cb88c6d54e169417c97a2c6",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
-  "package.json": "9420e8768ff04614356f1e223c10d1074ed77d8c4fab0371358ede7d4b13fc36",
+  "package.json": "a1f3d243da7f4618221720322a73a0390055a3239807a12aa46dbff21538b37b",
   "rules/a/extensions/canonical.js": "27589aeae0f4cf0037fea07f0ea9bb7c95977ecb756342396d4bba1de4b519a1",
   "rules/a/extensions/common.mjs": "15b26f87007922ba78f1f6d5b9eb483c6a6de52f5069c592ee81726de9afcc98",
   "rules/a/extensions/dragon.mjs": "e8ef50d566fdd3e4fa3c9bfac07a73571bd216f6ea0a2a1b6108f193fb0e760f",
@@ -11044,8 +11044,8 @@ var sourceManifest = {
   "rules/a/register.js": "f9c96a4c7b52dbfe30c3f05eb308758ce8b54a581468d118e57961e00ae6928b",
   "rules/a/runtime.js": "20f27eaf17e9763d43bb877c81fc100c81b546aefcdc77d996e20ea11b3f00a9",
   "rules/a/state.js": "0a5fec0b7ded0ce1976020d58fa956598dc0f242a8d44e8850741446a77b8228",
-  "rules/b/model.js": "71d6f4a6b929566c6f603cda3a4173bed1777e278baf5b22a65def88844bd593",
-  "rules/b/programs.js": "bd400a514fd0bd1c5dbd4293f66faa835a07529d6b7ddeff6b8b75f5d4d28ca6",
+  "rules/b/model.js": "43a72ccffd4de534168a0e69c6901957346d1e4f107ce8ead1ad0e87e60aab35",
+  "rules/b/programs.js": "cf5b09ce1a9115040df39394f6bf8b242beed1a42cdd82a9840a2543d2c9d259",
   "rules/b/register.js": "6a829aa2083b0510e534371ecc4bee963e556182af00d1e75d995c659b4f2aae",
   "rules/b/state.js": "e4d570f7ff7019ecc7ee259e23d6d670f31d7afe12aff02b737a82f99fea4171",
   "rules/c/centaur.js": "ffdba3d9ec95aac29feccd12b8f6a9669b4eaa7bb0aed2b232d271d97989dd59",
@@ -11107,7 +11107,7 @@ var sourceManifest = {
   "test/a-v3-resources.test.mjs": "f93a000f394a19521bee4137bd857667d92cf639c462cf05ce019631a582549e",
   "test/a-v4-schedule.test.mjs": "5b560bb0fa226bb0b497c77086cc17edf17020a4f74513ec9331d00f52b42d9b",
   "test/b24-host.mjs": "0349d5db7d9f4865dd11143d0af0dc898e3a980cafcbbd6713a992f017a58ec1",
-  "test/b24.test.mjs": "4c196966f80653ad91ba166fccc7ee18d019f109342390cf1559a1d5d0d85126",
+  "test/b24.test.mjs": "d6bf66d436c1351e027a4f8ce502812d7841f1cded6d8dc6d786a3b4ce9c6842",
   "test/batch10-contract-run.mjs": "60373b560e4afe917830bc0cf65cfbe2028060fbcf4a59b1e0781a1790738885",
   "test/batch10-contract.test.mjs": "8d605b3ed266d9a6aeafa2746235c46a12682aeef70878621b74a5b7576325fa",
   "test/c/boundaries.test.mjs": "35683a2150fb9939cc08336992aaa234b59665174fdcea4c5a1d3c592a9358a1",
@@ -13274,8 +13274,9 @@ function buff(ctx, id, owner2, duration, values = {}) {
 function control(ctx, id, owner2, target, type, duration, pierces = false) {
   return ctx.control.apply({ owner: owner2, target, abilityId: id, key: id, type, duration, pierces, dispel: "strong" });
 }
-function route(ctx, id, cast, range) {
-  return ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: id, range, reflectable: true, reflected: cast.reflected === true });
+function route(ctx, id, cast, range, rangePolicy = "admission-and-delivery") {
+  if (!Number.isFinite(range) || range < 0 || !["admission-and-delivery", "admission-only"].includes(rangePolicy)) throw Error("Invalid B target range policy");
+  return ctx.target.route({ owner: cast.owner, target: cast.target, abilityId: id, range, reflectable: true, reflected: cast.reflected === true, ...rangePolicy === "admission-only" ? { rangePolicy } : {} });
 }
 function immediateMove(ctx, id, actor6, castId, destinationX) {
   return ctx.motion({ actor: actor6, abilityId: id, castId, kind: "dash", destinationX, speed: 0, duration: 0 });
@@ -13407,7 +13408,7 @@ function createBRule(config) {
   validateCoefficients(m, id, p, a);
   const execution = executionParameters2(config), damage3 = (ctx, id2, source, target, amount, ...rest) => damage2(ctx, id2, source, target, amount * execution.damageScale, ...rest), heal = (ctx, spec) => ctx.heal({ ...spec, amount: spec.amount * execution.healScale });
   const scope = { m, id, contract: execution.statusContract }, positive2 = (ctx, actor6, key2) => positive(ctx, actor6, key2, scope), query = (ctx, target, key2) => queryStatuses(ctx, target, key2, scope);
-  const impl = { behaviorId: "b-v6/" + id, revision: "2.2.0", ...codeIdentity(["rules/b/model.js", "rules/b/programs.js", "rules/b/register.js", "rules/b/state.js"]), namespace: "heros/b/" + id, requires: [], stateSchema: m.stateSchema, planCast: (ctx, facts) => plan(ctx, facts, a) };
+  const impl = { behaviorId: "b-v6/" + id, revision: "2.3.1", ...codeIdentity(["rules/b/model.js", "rules/b/programs.js", "rules/b/register.js", "rules/b/state.js"]), namespace: "heros/b/" + id, requires: [], stateSchema: m.stateSchema, planCast: (ctx, facts) => plan(ctx, facts, a) };
   const requireCaps = (...caps) => {
     impl.requires.push(...caps);
   };
@@ -13474,7 +13475,7 @@ function createBRule(config) {
     case "huskar_life_break":
       requireCaps("status", "target-route", "schedule", "self-damage", "damage", "motion-request");
       impl.activate = (ctx, c) => {
-        const r = route(ctx, id, c, a.mvp.range_wu);
+        const r = route(ctx, id, c, a.mvp.range_wu, "admission-only");
         if (!r.accepted) return;
         ctx.status.cleanse(r.owner, "basic", id);
         const travel = ctx.target.distance(r.owner, r.target) / (p("charge_speed") * 0.55);
@@ -13698,7 +13699,7 @@ function createBRule(config) {
     case "ogre_magi_ignite": {
       requireCaps("status", "target-route", "damage", "control", "schedule");
       const deliver = (ctx, owner2, target) => {
-        const r = route(ctx, id, { owner: owner2, target, reflected: false }, a.mvp.range_wu);
+        const r = route(ctx, id, { owner: owner2, target, reflected: false }, a.mvp.range_wu, "admission-only");
         if (!r.accepted) return;
         if (id === "ogre_magi_fireblast") {
           damage3(ctx, id, r.owner, r.target, p("fireblast_damage"), "magical", r.reflected);

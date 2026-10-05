@@ -1,7 +1,7 @@
 import {build} from 'esbuild';
 import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';import{fileURLToPath}from'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.6-ab-owned.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/ab-owned-source-manifest.json'),'utf8'));
-if(hash(tar)!=='8ef30ae65b3423af7b6f3823cec98d3319505a23bddfeb918f6f971b579c2319')throw Error('Wrong exact reviewed A+B+types archive');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pkg=path.join(root,'node_modules/@dotapk/heros'),hash=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex'),tar=path.join(root,'vendor/dotapk-heros-0.1.0-review.8-life-break.1.tgz'),manifest=JSON.parse(fs.readFileSync(path.join(root,'vendor/ab-owned-source-manifest.json'),'utf8'));
+if(hash(tar)!=='d36530ba8b4b6302a56d0e5aca9e4b406141c9e325e8a143ce696c76fe6faaaf')throw Error('Wrong exact reviewed A+B+types archive');
 if(Object.keys(manifest).length!==136)throw Error('Wrong approved public inventory');
 for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Installed public source differs: '+file);
 const result=await build({absWorkingDir:root,stdin:{contents:`export * from './index.js';
@@ -15,4 +15,4 @@ export {extensionCanonicalFactory,A_EXTENSION_DISPATCH,validateExtensionCommands
 export {probeFactory} from './test/probes.mjs';`,resolveDir:pkg,sourcefile:'private-consumer-entry.mjs',loader:'js'},bundle:true,format:'esm',platform:'browser',target:'es2022',outfile:'src/heros-rules.js',write:false,legalComments:'none',charset:'utf8'});
 for(const[file,sha]of Object.entries(manifest))if(hash(path.join(pkg,file))!==sha)throw Error('Source changed during build: '+file);
 fs.writeFileSync(path.join(root,'src/heros-rules.js'),result.outputFiles[0].contents);
-console.log('Verified 136 frozen A+B+types public files; built private consumer bundle.');
+console.log('Verified 136 reviewed review8 A+B+types public files; built private consumer bundle.');
