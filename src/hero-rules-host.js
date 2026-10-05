@@ -1,3 +1,7 @@
+import {c43FrameRequired} from './hero-c43-host.js';
+import {core43FrameRequired} from './hero-core43-host.js';
+import {receiptFrameRequired} from './hero-legacy-receipt-host.js';
+import {finiteFrameRequired} from './hero-legacy-finite-host.js';
 import {aChannelFrameRequired} from './hero-a-channel-host.js';
 import {aExtensionFrameRequired} from './hero-a-extension-host.js';
 import {bFrameRequired} from './hero-b-status-host.js';
@@ -660,6 +664,6 @@ export const dispatchRulePeriodicArea=(e,z,dt)=>advancePeriodicArea(e,binding(e)
 export const rulePeriodicSnapshot=e=>snapshotPeriodic(e,binding(e));
 export const restoreRulePeriodicSnapshot=restorePeriodic;
 
-export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s),()=>bFrameRequired(e),()=>aChannelFrameRequired(e),()=>aExtensionFrameRequired(e)],run);};
+export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>c43FrameRequired(e),()=>core43FrameRequired(e),()=>receiptFrameRequired(e),()=>finiteFrameRequired(e),()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s),()=>bFrameRequired(e),()=>aChannelFrameRequired(e),()=>aExtensionFrameRequired(e)],run);};
 // Compatibility entry point delegates to the shared transport enrollment.
 export const withRuleChannelUnitFrame=withRuleManagedFrame;
