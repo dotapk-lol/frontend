@@ -1,3 +1,4 @@
+import {aExtensionFrameRequired} from './hero-a-extension-host.js';
 import {bFrameRequired} from './hero-b-status-host.js';
 import {withManagedFrame} from './hero-frame-transaction-host.js';
 import {PERIODIC_SLOTS,periodicFrameRequired,periodicFeatures,periodicEnabled,periodicReady,periodicPlan,periodicToggle,activatePeriodic,observePeriodicBuff,beginPeriodicDots,endPeriodicDots,advancePeriodicDot,beginPeriodicAreas,endPeriodicAreas,advancePeriodicArea,snapshotPeriodic,restorePeriodic,validPeriodic} from './hero-legacy-periodic-host.js';
@@ -658,6 +659,6 @@ export const dispatchRulePeriodicArea=(e,z,dt)=>advancePeriodicArea(e,binding(e)
 export const rulePeriodicSnapshot=e=>snapshotPeriodic(e,binding(e));
 export const restoreRulePeriodicSnapshot=restorePeriodic;
 
-export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s),()=>bFrameRequired(e)],run);};
+export const withRuleManagedFrame=(e,run)=>{const s=binding(e);return withManagedFrame(e,[()=>channelUnitFrameRequired(e,s),()=>periodicFrameRequired(e,s),()=>bFrameRequired(e),()=>aExtensionFrameRequired(e)],run);};
 // Compatibility entry point delegates to the shared transport enrollment.
 export const withRuleChannelUnitFrame=withRuleManagedFrame;

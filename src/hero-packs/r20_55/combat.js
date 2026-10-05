@@ -1,3 +1,4 @@
+import {withAStatusPreAdvanceReceipt} from '../../hero-a-extension-host.js';
 import {withNativeAreaPulseReceipt} from '../../hero-area-pulse-receipts.js';
 import {ADAPTED_SOURCES as SOURCES} from './adaptations.js';
 import {createPackServices,packHasDebuffImmunity,PACK_ABI_VERSION} from '../../pack-services.js';
@@ -76,7 +77,7 @@ function statusSchema(e,g,f,b){
 }
 function tickStatus(e,f,s,enabled){if(enabled&&(!s.hostile||f.invuln<=0)&&s.programId){const c=context(e,s.owner,f.i,s.abilityId,f.x,s.reflected);execute(c,programs.get(s.programId));}}
 function cleanup(e,f){services.cancelOwnerEffects(e,f.i,{includePersistent:true});world(e).entities=world(e).entities.filter(x=>x.owner!==f.i);const d=state(e,f).data;state(e,f).statuses=[];d.channel=null;d.swarm=null;f.buffs=f.buffs.filter(b=>!abilities.has(b.key));}
-export const Combat={namespace:'r20_55',
+export const Combat={namespace:'r20_55',statusPreAdvanceVersion:'native-status-pre-advance-1',
  init(e){world(e);for(const f of e.fighters)state(e,f).data={channel:null,swarm:null,dead:false,aura:{},proc:{}};},
  cast(e,f,slot,options={}){const a=e.ability(f.i,slot),m=a?.mvp,t=e.fighters[1-f.i];if(!own(e,f)||!a||m.passive||a.engineStatus!=='implemented'||f.hp<=0||e.paused||e.phase!=='fight'||e.blocked(f)||e.isSilenced(f)||f.cast||f.recovery>0)return false;
   if(a.id==='puck_illusory_orb'){const orb=world(e).entities.find(x=>x.kind==='orb'&&x.owner===f.i&&x.life>0);if(orb){if(services.effectiveStatus(e,f,'root')||services.effectiveStatus(e,f,'leash'))return false;e.commitAction(f);e.move(f,orb.x-f.x);orb.life=0;f.buffs=f.buffs.filter(b=>b.key!==a.id);e.log('pack_recast',f.i,{skill:a.id,entityId:orb.id});return true;}}
@@ -110,7 +111,7 @@ export const Combat={namespace:'r20_55',
  interrupted(e,f){state(e,f).data.channel=null;world(e).entities=world(e).entities.filter(x=>x.owner!==f.i||!x.data.channel);const pending=world(e).jobs.filter(j=>j.owner===f.i&&!j.cancelOnInterrupt);services.cancelOwnerEffects(e,f.i);world(e).jobs=[...world(e).jobs.filter(j=>j.owner!==f.i),...pending];},
  dispel(e,f,tier){services.dispel(e,f,tier);},
  tick(e,dt){for(const f of e.fighters){const d=state(e,f).data;if(f.hp<=0){e.heroRulePassiveAuraObserve?.(f,dt,false);if(!d.dead){cleanup(e,f);d.dead=true;}continue;}d.dead=false;if(d.channel){d.channel.life-=dt;const inp=e.input[f.i];if(d.channel.life<=1e-8||!services.actionTokenValid(e,d.channel.token)||inp.left||inp.right||inp.attack||[0,1,2,3].some(slot=>inp['s'+slot]&&!e.previous[f.i]['s'+slot])||e.blocked(f)||services.effectiveStatus(e,f,'silence'))this.interrupted(e,f);}
-   for(const s of [...state(e,f).statuses]){if(s.values.rupture){const distance=Math.abs(f.x-s.lastX)/.55;s.lastX=f.x;if(active(e,f,s)&&distance<=s.values.damageCap)hit(context(e,s.owner,f.i,s.abilityId,f.x,s.reflected),distance*s.values.rupture,'pure');}if(s.returnX!==undefined&&s.life<=dt+1e-8&&active(e,f,s)&&f.invuln<=0)e.move(f,s.returnX-f.x);}
+   for(const s of [...state(e,f).statuses]){if(withAStatusPreAdvanceReceipt(e,f,s,dt,()=>e.heroRuleStatusPreAdvance?.(f,s,dt,active(e,f,s)))===true)continue;if(s.values.rupture){const distance=Math.abs(f.x-s.lastX)/.55;s.lastX=f.x;if(active(e,f,s)&&distance<=s.values.damageCap)hit(context(e,s.owner,f.i,s.abilityId,f.x,s.reflected),distance*s.values.rupture,'pure');}if(s.returnX!==undefined&&s.life<=dt+1e-8&&active(e,f,s)&&f.invuln<=0)e.move(f,s.returnX-f.x);}
    services.advanceStatuses(e,f,dt,(s,enabled)=>{if(s.specialTick==='corrosion'){if(enabled&&(!s.hostile||f.invuln<=0))hit(context(e,s.owner,f.i,s.abilityId,f.x,s.reflected),abilities.get(s.abilityId).mvp.params.corrosive_damage_per_second,'magical');}else tickStatus(e,f,s,enabled);});
 
    e.heroRulePassiveAuraObserve?.(f,dt,true);
