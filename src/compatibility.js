@@ -1,5 +1,6 @@
+import {HEROS22_BUILD} from './release-profile.js';
 import {NET_VERSION} from './net-version.js';
-import {REGISTRY_VERSION,REGISTRY_HASH,ACTIVE_ROSTER,validHeroPair,heroRegistry,LEGACY_ROSTER_ID} from './hero-registry.js';
+import {REGISTRY_VERSION,REGISTRY_HASH,ACTIVE_ROSTER,validHeroPair,isActiveHero,heroRegistry,LEGACY_ROSTER_ID} from './hero-registry.js';
 import {ABILITY_CATALOG_HASH} from './catalog-data.js';
 import {RULESET_HASH} from './rules-version.js';
 export const GAME_COMPATIBILITY=Object.freeze({protocolVersion:'duel-wire-3',registryVersion:REGISTRY_VERSION,registrySha256:REGISTRY_HASH,rosterId:ACTIVE_ROSTER.rosterId,mechanicsVersion:ACTIVE_ROSTER.mechanicsVersion,rulesetHash:RULESET_HASH,abilityCatalogHash:ABILITY_CATALOG_HASH,gameVersion:NET_VERSION});
@@ -11,4 +12,8 @@ export function validateBackendRegistry(data,gameVersion=NET_VERSION,rosterId=AC
  const bindings=data.gameplayRosters.filter(r=>Array.isArray(r.gameVersions)&&r.gameVersions.includes(gameVersion));if(rosterId===LEGACY_ROSTER_ID?bindings.length>0:bindings.length!==1||bindings[0].rosterId!==rosterId)throw Error('构建版本与可玩名单不匹配');
  return Object.freeze({status:'verified',rosterId,registryVersion:REGISTRY_VERSION,registrySha256:REGISTRY_HASH,heroIds:Object.freeze([...roster.heroIds])});
 }
-export const compatibleMatch=match=>(match?.rosterId===undefined||match.rosterId===ACTIVE_ROSTER.rosterId)&&(match?.registryVersion===undefined||[REGISTRY_VERSION,LEGACY_ROSTER_ID].includes(match.registryVersion))&&(!match?.heroes||validHeroPair(match.heroes));
+export const compatibleMatch=match=>{
+ if(HEROS22_BUILD&&(!match||match.rosterId!==ACTIVE_ROSTER.rosterId||match.registryVersion!==REGISTRY_VERSION||match.version!==NET_VERSION))return false;
+ if(HEROS22_BUILD&&match.players!==undefined&&(!Array.isArray(match.players)||!match.players.every(p=>isActiveHero(p?.hero))))return false;
+ return (match?.rosterId===undefined||match.rosterId===ACTIVE_ROSTER.rosterId)&&(match?.registryVersion===undefined||[REGISTRY_VERSION,LEGACY_ROSTER_ID].includes(match.registryVersion))&&(!match?.heroes||validHeroPair(match.heroes));
+};

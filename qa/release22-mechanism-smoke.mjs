@@ -70,13 +70,22 @@ for(const [name,h,s,edit,factory,want]of[
  replacements.push({name,hero:h,slot:s,want,actualDamage:result.damage,hitEvents:result.hitEvents,castCount:1,cost:result.cost,largestPayment:result.largestPayment,realInput:true,restoreContinuation:30,rulesHash:r.seal().rulesHash});
 }
 assert.equal(createReleasedHeroRegistry().seal().rulesHash,baseRulesHash,'replacement fixtures do not mutate the released registry');
+{
+ const r=fullWave(),a=structuredClone(r.definition(1).abilities[0]);
+ r.replaceSkill(1,0,{definition:a,factory:R.probeFactory('heal',{amount:35})},{abilityId:a.id,revision:sealed.implementation(1,0).revision});
+ const e=new Engine(runtimeHeroes,[1,9],{seed:0,simulationRoster:ACTIVE_ROSTER,heroRuleRegistry:r}).start(),g=e.snapshot();
+ assert.equal(e.cast(0,0),false);assert.deepEqual(e.snapshot(),g);
+ assert.equal(e.queueSkill(0,0),false);assert.deepEqual(e.snapshot(),g);
+ e.setInput(0,{s0:true});e.step();assert.equal(e.fighters[0].casts,0);assert.equal(e.fighters[0].cd[0],0);assert.equal(e.fighters[0].mp,g.fighters[0].mp);
+}
 const original=new Engine(runtimeHeroes,[50,9],{seed:0,simulationRoster:ACTIVE_ROSTER,heroRuleRegistry:registry}).start();
 const originalSnapshot=original.snapshot(),v=createRemoteSnapshotValidator(runtimeHeroes,{roster:ACTIVE_ROSTER,heroRuleRegistry:registry});
 for(const id of disabled){const bad=structuredClone(originalSnapshot);bad.indices[0]=id;assert(!v(bad));}
 const wrongIdentity=structuredClone(originalSnapshot);wrongIdentity.heroRules.rulesHash='0'.repeat(64);assert(!v(wrongIdentity));
 assert.throws(()=>original.restoreSimulation(wrongIdentity));assert.deepEqual(original.snapshot(),originalSnapshot);
 assert(v(originalSnapshot));
-const report={result:'PASS focused22 wiring',root,rosterId:ACTIVE_ROSTER.rosterId,heroIds:ids,registryVersion:REGISTRY_VERSION,registrySHA256:REGISTRY_HASH,rulesHash:baseRulesHash,sessions,replacements,disabledHeroIds:disabled,disabledCount:disabled.length,invalidExpandedRosterDenied:true,invalidRemoteHeroDenied:true,wrongRulesIdentityRejectedWithoutMutation:true,seed0:true,newMechanismAcceptance:0,fullMechanismMatrixRerun:false};
-const output=process.env.RELEASE22_REPORT||new URL('../release22-mechanism-smoke.json',import.meta.url).pathname;
+const report={result:'PASS focused22 wiring',root,rosterId:ACTIVE_ROSTER.rosterId,heroIds:ids,registryVersion:REGISTRY_VERSION,registrySHA256:REGISTRY_HASH,rulesHash:baseRulesHash,sessions,replacements,disabledHeroIds:disabled,disabledCount:disabled.length,unsupportedHandlerRejectedBeforePayment:true,invalidExpandedRosterDenied:true,invalidRemoteHeroDenied:true,wrongRulesIdentityRejectedWithoutMutation:true,seed0:true,newMechanismAcceptance:0,fullMechanismMatrixRerun:false};
+const output=process.env.RELEASE22_REPORT||new URL('./browser-evidence/release22-mechanism-smoke.json',import.meta.url).pathname;
+fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({result:report.result,sessions:sessions.length,replacements:replacements.length,disabledIds:disabled.length,rulesHash:baseRulesHash,report:output}));

@@ -6,6 +6,8 @@ import {RELEASE_RULES_HASH} from '../src/released-hero-rules.js';
 import {MatchAPI} from '../src/match-api.js';
 import {PeerSession} from '../src/p2p.js';
 import {DEFAULT_NET_POLICY} from '../src/net-quality.js';
+import {compatibleMatch,GAME_COMPATIBILITY} from '../src/compatibility.js';
+import {NET_VERSION} from '../src/net-version.js';
 import {registryFixture} from './registry-fixture.mjs';
 const ids=[...ACTIVE_ROSTER.heroIds],disabled=heroRegistry.rows().map(r=>r.registryNumericId).filter(id=>!ids.includes(id));
 const plain=x=>JSON.parse(JSON.stringify(x)),checks=[];
@@ -41,7 +43,7 @@ assert.equal(a.duel.engine.mode,'cpu');assert.deepEqual(plain(a.duel.engine.indi
 assert.equal(a.duel.engine.heroRuleRegistry.seal().rulesHash,RELEASE_RULES_HASH);
 assert.deepEqual(plain(a.duel.engine.simulationRoster.heroIds),ids);
 a.button('pause');a.button('quit');
-a.duel.start({mode:'training',p1:50,p2:9});a.tick(150);a.key('KeyR');a.tick(1);a.key('KeyR',false);a.tick(160);
+a.duel.start({mode:'training',p1:50,p2:9});a.tick(150);a.key('KeyD');a.tick(160);a.key('KeyD',false);a.key('KeyR');a.tick(1);a.key('KeyR',false);a.tick(160);
 const e=a.duel.engine,hits=e.logs.filter(x=>x.type==='hit'&&x.player===0&&x.skill==='leshrac_lightning_storm');
 assert.equal(e.fighters[0].casts,1);assert.equal(hits.length,1);
 assert(a.ctx.__releaseQA.validRemoteSnapshot(e.snapshot()),'actual app remote validator shares selected registry');
@@ -61,7 +63,14 @@ const calls=[],service=new MatchAPI({fetcher:async(url,options)=>{calls.push({ur
 for(const id of disabled){await assert.rejects(service.createLocal(id,3,'local','invalid'),/Inactive hero selection/);await assert.rejects(service.createPVE(1,id,'invalid'),/Inactive hero selection/);}
 assert.equal(calls.length,0);const permit=await service.authorizeRoster();assert.equal(permit.fields.rosterId,'arena-heros22-v1');
 checks.push({name:'MatchAPI rejects all105 IDs before any request; new roster fixture authorizes only exact version',denied:210,requestsBeforeValidAuthorization:0,rosterId:permit.fields.rosterId});
+const match={version:NET_VERSION,rosterId:ACTIVE_ROSTER.rosterId,registryVersion:GAME_COMPATIBILITY.registryVersion,heroes:[1,3],players:[{hero:1},{hero:3}]};
+assert(compatibleMatch(match));
+for(const id of disabled)assert(!compatibleMatch({...match,players:[{hero:id},{hero:3}]}));
+for(const key of ['version','rosterId','registryVersion']){const missing={...match};delete missing[key];assert(!compatibleMatch(missing));}
+assert(!compatibleMatch({...match,rosterId:'arena-first22-46-v1'}));
+checks.push({name:'release match replies require current version and roster; all105 player IDs rejected',oldOrMissingIdentityDenied:true});
 await flush();
 const report={result:'PASS actual bundled UI wiring under mocked DOM/channel/fetch',heroIds:ids,checks,realBrowser:false,realWebRTC:false,layoutOrTouchHardwareAcceptance:false,backendRegistered:false,newMechanismAcceptance:0};
-fs.writeFileSync(new URL('../release22-ui-smoke.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
+fs.mkdirSync(new URL('./browser-evidence/',import.meta.url),{recursive:true});
+fs.writeFileSync(new URL('./browser-evidence/release22-ui-smoke.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({result:report.result,checks:checks.length,disabledIds:disabled.length}));

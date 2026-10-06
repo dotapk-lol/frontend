@@ -1,5 +1,8 @@
 // A missing RTT rule is intentionally fail-closed until the owner confirms it.
 export const DEFAULT_NET_POLICY = {direction:null,rttMs:null,jitterMs:30,lossPct:5,minSamples:24,window:30,maxAgeMs:3000};
+// Public PvP uses an automatic rule. Keep the legacy API's exact seven fields
+// and insertion order: PeerSession compares the server-echoed policy verbatim.
+export const AUTO_PVP_POLICY = Object.freeze({...DEFAULT_NET_POLICY,direction:'above',rttMs:150});
 export function validPolicy(p){return !!p&&['above','below'].includes(p.direction)&&Number.isFinite(p.rttMs)&&p.rttMs>=1&&p.rttMs<=2000&&p.jitterMs===30&&p.lossPct===5&&p.minSamples===24&&p.window===30&&p.maxAgeMs===3000;}
 const percentile=(a,p)=>a.length?[...a].sort((x,y)=>x-y)[Math.min(a.length-1,Math.ceil(a.length*p)-1)]:null;
 export function summarizeProbes(rows,now){const done=rows.filter(x=>x.rtt!==null||now-x.sent>=1200).slice(-30),ok=done.filter(x=>Number.isFinite(x.rtt)&&x.rtt>=0),rtts=ok.map(x=>x.rtt),delta=rtts.slice(1).map((x,i)=>Math.abs(x-rtts[i]));return {samples:done.length,received:ok.length,median:percentile(rtts,.5),p95:percentile(rtts,.95),jitter:percentile(delta,.95),loss:done.length?100*(done.length-ok.length)/done.length:100,last:ok.length?Math.max(...ok.map(x=>x.received)):null};}

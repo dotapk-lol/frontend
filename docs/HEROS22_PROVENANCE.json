@@ -1,0 +1,29 @@
+{
+  "baselineCommit": "5fd32d825fca76f29b48ab964a27d5c4ca374e25",
+  "sourceUiCommit": "43bf16d1006468d8d630d14b2a7ed91022c6a77a",
+  "uiOriginalPatchSHA256": "9ef7d8080d6c79c67512461a21125259e9f2954e13ba879fa986f1749ec984ff",
+  "uiExactSevenFiles": [
+    "qa/dom-protocol.test.mjs",
+    "qa/p2p-quality.test.mjs",
+    "qa/p2p-session.test.mjs",
+    "src/app.js",
+    "src/net-quality.js",
+    "src/p2p.js",
+    "src/style.css"
+  ],
+  "uiMerge": "Exact seven-file cherry-pick; app and style conflicts retain released22 wiring and the hosted six-digit entry; new release fixtures use allowed hero IDs.",
+  "publicSDKSourceSHA256": "649d21dfb2ae1b056c8226784b3a985f74d19d60bc8c789326a9ae4eeda02e8e",
+  "publicPackage": {
+    "name": "@dotapk/heros",
+    "version": "0.1.0-review.10-rupture-order.1",
+    "vendorPath": "vendor/dotapk-heros-0.1.0-review.10-rupture-order.1.tgz",
+    "sha256": "2885ade8d7eeb06a03045f41ac2907e17d5e753f0b881091515a3afc9005a391",
+    "license": "MIT",
+    "privateReviewPackage": true
+  },
+  "publicPackageChanged": false,
+  "publicSchemaChanged": false,
+  "engineSnapshotSchemaChanged": false,
+  "heroRegistryNumericIdentitiesChanged": false,
+  "productionOrBackendChanged": false
+}
