@@ -1,2 +1,3 @@
-// Candidate builds replace this module at build time only. No URL/storage override.
+// Private release profile; only the build changes profiles, never URL/storage.
 export const CANDIDATE_BUILD=false;
+export const HEROS22_BUILD=true;

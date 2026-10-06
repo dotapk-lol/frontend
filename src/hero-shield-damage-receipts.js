@@ -1,0 +1,5 @@
+// PRIVATE Engine-issued actual packet lease. Nested hits receive separate scopes.
+import {packStatusEffective} from './pack-services.js';
+const stacks=new WeakMap();
+export function withNativeShieldDamageReceipt(e,event,run){if(e.fighters[event.attacker?.i]!==event.attacker||e.fighters[event.target?.i]!==event.target||!Number.isFinite(event.damage)||event.damage<0)throw Error('Invalid actual shield packet');let stack=stacks.get(e);if(!stack){stack=[];stacks.set(e,stack);}const scope={event,frame:e.frame,at:e.t,round:e.round,consumed:new Set()};stack.push(scope);try{return run();}finally{if(stack.pop()!==scope)throw Error('Corrupt private shield scope');}}
+export function consumeNativeShieldDamageReceipt(e,event,record){const s=stacks.get(e)?.at(-1);if(!s||s.event!==event||s.frame!==e.frame||s.at!==e.t||s.round!==e.round||s.consumed.has(record)||!event.target.packModules?.r20_55?.statuses.includes(record)||!packStatusEffective(e,event.target,record)||record.life<=1e-8||record.values.shield<=0)throw Error('Unleased or repeated actual shield receipt');s.consumed.add(record);}

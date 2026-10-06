@@ -1,3 +1,4 @@
+import {createHeroRegistry,heroes as ruleDefinitions} from '../../../src/heros-rules.js';
 import {Engine} from '../../../src/engine.js';
 import {runtimeHeroes} from '../../../src/runtime-heroes.js';
 import {CORE4_PACKS} from '../../../src/hero-packs/index.js';
@@ -8,7 +9,9 @@ export function fixture(id=57,side=0,opponent=0,{training=false}={}){
  const defs=PACKS.map(p=>p.definition),ids=new Set(defs.map(h=>h.registryNumericId));
  const heroes=[...runtimeHeroes.filter(h=>!ids.has(h.registryNumericId)),...defs];
  const pair=side===0?[id,opponent]:[opponent,id];
- const e=new Engine(heroes,pair,{seed:197,mode:training?'training':'local',simulationRoster:{...ACTIVE_ROSTER,heroIds:[...new Set([...ACTIVE_ROSTER.heroIds,...ids])]},heroPacks:[...CORE4_PACKS,...PACKS]}).start();
+ // HARNESS resource schema: existing stress cases explicitly set maxMp=5000.
+ const heroRuleRegistry=createHeroRegistry(ruleDefinitions.map(h=>({...h,combatMana:5000})));
+ const e=new Engine(heroes,pair,{heroRuleRegistry,seed:197,mode:training?'training':'local',simulationRoster:{...ACTIVE_ROSTER,heroIds:[...new Set([...ACTIVE_ROSTER.heroIds,...ids])]},heroPacks:[...CORE4_PACKS,...PACKS]}).start();
  const f=e.fighters[side],t=e.fighters[1-side];f.x=side===0?500:700;t.x=side===0?700:500;f.dir=Math.sign(t.x-f.x);t.dir=-f.dir;
  return {e,f,t};
 }

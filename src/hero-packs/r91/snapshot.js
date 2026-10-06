@@ -1,8 +1,9 @@
+import {c43Enabled} from '../../hero-c43-host.js';
 import {validateExtraStatus,validateExtraJob,validateExtraEntity,EXTRA_IDS} from './extra.js';
 import {DEFINITIONS} from './definitions.js';
 const eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),n=(x,min=0,max=1e6)=>Number.isFinite(x)&&x>=min&&x<=max,actor=x=>x===0||x===1;
 const keys=(v,allowed)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).every(k=>allowed.includes(k))&&allowed.every(k=>Object.hasOwn(v,k));
-const find=(e,owner,id)=>e.hero(owner).abilities.find(a=>a.id===id),param=(a,k)=>a?.official.params[k];
+const find=(e,owner,id)=>{const slot=e.hero(owner).abilities.findIndex(a=>a.id===id);return slot<0?undefined:e.ability(owner,slot);},param=(a,k)=>a?.official.params[k];
 const buff=(b,owner,extra)=>keys(b,['owner','hostile','polarity','pierces',...extra])&&b.owner===owner&&b.hostile===false&&b.polarity==='positive'&&b.pierces===false;
 const statusRules={seal:{duration:6,values:{magicAmp:.35,silence:true},dispel:'basic'},concussive_slow:{duration:4,values:{moveSlow:.4},dispel:'basic'},stampede_slow:{duration:3,values:{moveSlow:1},dispel:'basic'}};
 export function validateSnapshot(e,g){try{
@@ -32,10 +33,10 @@ export function validateSnapshot(e,g){try{
 
   for(const s of v.statuses){if(s.key.startsWith('x_')){if(!keys(s,['key','owner','life','duration','elapsed','tick','interval','values','dispel','pierces','hostile','polarity','origin','group','allowInvulnerable','abilityId'])||!validateExtraStatus(e,s)||Math.abs(s.elapsed+s.life-s.duration)>1e-6)return false;continue;}if(!keys(s,['key','owner','life','duration','elapsed','tick','interval','values','dispel','pierces','hostile','polarity','origin','group','allowInvulnerable'])||!actor(s.origin)||s.owner!==s.origin&&i!==s.origin||s.hostile!==true||s.polarity!=='hostile'||s.group!==null||s.allowInvulnerable!==false||s.pierces!==false||s.interval!==0||!n(s.life,0,s.duration)||!n(s.elapsed,0,s.duration+1e-7)||!n(s.tick,0,s.duration+1e-7)||Math.abs(s.elapsed+s.life-s.duration)>1e-6)return false;
    if(s.key==='goo'){const c=s.values.stacks;if(e.hero(s.origin).key!=='bristleback'||!Number.isInteger(c)||!n(c,1,6)||!eq(s.values,{stacks:c,armor:3+3.5*c,moveSlow:(12+12*c)/100})||!n(s.duration,5,5*1.045)||s.dispel!=='basic')return false;}
-   else {const r=statusRules[s.key],caster={seal:'skywrath_mage',concussive_slow:'skywrath_mage',stampede_slow:'centaur'}[s.key];if(!r||e.hero(s.origin).key!==caster||s.duration!==r.duration||!eq(s.values,r.values)||s.dispel!==r.dispel)return false;}
+   else {const a=s.key==='seal'&&c43Enabled(e,s.origin,2)?e.ability(s.origin,2):null,r=a?{duration:a.official.params.seal_duration,values:{magicAmp:-a.official.params.resist_debuff/100,silence:true},dispel:'basic'}:statusRules[s.key],caster={seal:'skywrath_mage',concussive_slow:'skywrath_mage',stampede_slow:'centaur'}[s.key];if(!r||e.hero(s.origin).key!==caster||s.duration!==r.duration||!eq(s.values,r.values)||s.dispel!==r.dispel)return false;}
   }
   // Core holds a copied casting profile; pin it to the immutable selected slot.
-  if(f.cast&&e.hero(i).packKey==='r91'){const c=f.cast,a=e.hero(i).abilities[c.slot];if(!a||a.mvp.passive||!eq(c.m,a.mvp)||!Number.isInteger(c.slot)||!n(c.remaining,0,a.mvp.startup_frames/60)||!n(c.aim,45,1155))return false;}
+  if(f.cast&&e.hero(i).packKey==='r91'){const c=f.cast,a=e.ability(i,c.slot);if(!a||a.mvp.passive||!eq(c.m,a.mvp)||!Number.isInteger(c.slot)||!n(c.remaining,0,a.mvp.startup_frames/60)||!n(c.aim,45,1155))return false;}
  }
  return true;
 }catch{return false;}}

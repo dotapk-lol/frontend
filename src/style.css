@@ -59,6 +59,10 @@ html,body{overscroll-behavior:none}#app{width:100%;min-height:var(--view-height)
 [data-short-view='true'] .result-summary{padding:8px 12px;gap:8px}[data-short-view='true'] .result-summary .result-heroes img{width:25px;height:30px}[data-short-view='true'] .result-summary h2{font-size:16px;margin:0}[data-short-view='true'] .result-summary .eyebrow{display:none}[data-short-view='true'] .result-summary .result-score{font-size:30px}[data-short-view='true'] .result-details{padding:5px 12px}[data-short-view='true'] .result-footer{padding:5px 8px 8px}[data-short-view='true'] .result-save-row{margin-bottom:4px}[data-short-view='true'] .result-actions button{padding:6px}
 @media(max-height:420px){.result-summary{padding:10px 14px}.result-summary h2{font-size:18px}.result-summary .result-score{font-size:36px}.result-details{padding:8px 14px}.result-footer{padding:6px 10px 8px}}
 
+/* Unfinished heroes remain visible; selection is controlled by the same release allowlist. */
+.hero.unreleased{filter:grayscale(1);opacity:.5;cursor:not-allowed;border-color:#5c6570}
+.hero.unreleased:hover{transform:none;box-shadow:none}
+.hero .release-status{display:block;font-size:10px;line-height:1.35;color:#c6cbd2;white-space:normal}
 /* The invitation form stays inside the existing visual viewport overlay. */
 .overlay .pvp-entry{position:relative;width:min(420px,100%);padding:20px;text-align:center}
 .pvp-entry h2{margin:4px 40px 20px}

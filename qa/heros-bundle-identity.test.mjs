@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {build} from 'esbuild';
+import {createHeroRegistry as sourceRegistry} from '../node_modules/@dotapk/heros/index.js';
+import {createHeroRegistry as nativeRegistry} from '../src/heros-rules.js';
+test('rules hash survives native/standalone bundling and minification',async()=>{const expected=sourceRegistry().seal().rulesHash;assert.equal(nativeRegistry().seal().rulesHash,expected);for(const minify of [false,true]){const result=await build({entryPoints:['src/heros-rules.js'],bundle:true,format:'iife',globalName:'HerosRules',platform:'browser',target:'es2022',write:false,minify});const c={};vm.runInNewContext(result.outputFiles[0].text,c);assert.equal(c.HerosRules.createHeroRegistry().seal().rulesHash,expected);}});

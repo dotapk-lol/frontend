@@ -22,7 +22,7 @@ export async function bundleApp({append='',offline=false,candidate=false,overrid
   b.onLoad({filter:/.*/,namespace:'duel'},()=>({contents:'export const OFFLINE_ASSETS='+JSON.stringify(assets)+';',loader:'js'}));
   b.onLoad({filter:/\.js$/},args=>{
    let contents=overrides[path.relative(src,args.path)]??fs.readFileSync(args.path,'utf8');
-   if(candidate&&args.path===path.join(src,'release-profile.js'))contents='export const CANDIDATE_BUILD=true;';
+   if(candidate&&args.path===path.join(src,'release-profile.js'))contents='export const CANDIDATE_BUILD=true;export const HEROS22_BUILD=false;';
    if(args.path===path.join(src,'app.js')){
     contents+='\n'+append;
     if(offline){contents=contents.replace('function img(src){','function img(src){src=OFFLINE_ASSETS[src]||src;').replace(/fetch\('assets\/atlas\.json'\)[\s\S]*?\.catch\(\(\)=>\{\}\);/,`atlas=${JSON.stringify(atlas)};Object.values(atlas.sheets).forEach(s=>img(s));`);}
