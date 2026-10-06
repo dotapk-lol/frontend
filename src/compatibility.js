@@ -17,3 +17,12 @@ export const compatibleMatch=match=>{
  if(HEROS22_BUILD&&match.players!==undefined&&(!Array.isArray(match.players)||!match.players.every(p=>isActiveHero(p?.hero))))return false;
  return (match?.rosterId===undefined||match.rosterId===ACTIVE_ROSTER.rosterId)&&(match?.registryVersion===undefined||[REGISTRY_VERSION,LEGACY_ROSTER_ID].includes(match.registryVersion))&&(!match?.heroes||validHeroPair(match.heroes));
 };
+// RoomView has two fixed seats. Before joining, Go serializes the guest's
+// zero-value Player as {id:'',hero:0}; it is not a selected hero or a match.
+export const compatibleRoom=(room,{role,hero}={})=>{
+ if(!HEROS22_BUILD)return compatibleMatch(room);
+ if(!['host','guest'].includes(role)||!isActiveHero(hero)||!room||room.rosterId!==ACTIVE_ROSTER.rosterId||room.registryVersion!==REGISTRY_VERSION||room.version!==NET_VERSION||!Array.isArray(room.players)||room.players.length!==2)return false;
+ const occupied=p=>/^[a-f0-9]{64}$/.test(p?.id||'')&&isActiveHero(p?.hero);
+ const [host,guest]=room.players,emptyGuest=guest?.id===''&&guest?.hero===0;
+ return occupied(host)&&(occupied(guest)||role==='host'&&emptyGuest)&&room.players[role==='host'?0:1].hero===hero;
+};
