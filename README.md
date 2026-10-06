@@ -55,6 +55,6 @@ DUEL_ALLOWED_ORIGIN=http://127.0.0.1:4173
 
 ## 许可与素材
 
-本仓库目前**没有 LICENSE**；公开可见不等于前后端已采用 heros 的 MIT。`@dotapk/heros` 自有代码遵循其原有许可，但不自动覆盖本仓库代码或素材。贡献时保留来源，勿擅自给第三方内容授 MIT。
+本项目自有代码与开发者文档采用 [MIT 许可](LICENSE)，版权归属为 `Copyright (c) 2026 dotapk-lol contributors`。使用、修改和分发时保留许可及版权声明。MIT 仅适用于项目自有内容，第三方图片、音乐、字体、商标与依赖遵循各自适用许可，不因收录在本仓库而改为 MIT；保留上游 LICENSE/NOTICE 和来源说明。`@dotapk/heros` 保持其原有 MIT 许可，其他依赖按其各自许可使用。
 
 Valve 的名称、商标、英雄图像、技能图标与音乐不在代码许可范围内，也不表示 Valve 背书。当前播放器使用 `assets/music/reborn-dnb-remix.mp3`，来源记录在 [reborn-source.json](assets/music/reborn-source.json)；仓库还保留 TI4 曲目与 [source-manifest.json](assets/music/source-manifest.json)。用户提供下载或记录 hash 并不证明公开再分发授权，复用/发布前需分别核实适用许可。历史文档中的 private/candidate 字样是当时状态，不是当前仓库可见性或自动发布许可。

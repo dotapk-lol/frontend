@@ -39,3 +39,7 @@ node --test --test-concurrency=1 qa/registry-retry.test.mjs
 ```
 
 选择与改动相关的文件；vendor 相关用例先 `npm ci`、`node scripts/vendor-heros.mjs`。完整 `npm test` 有 pretest 与全量发现，`qa/standalone-build.test.mjs` 等依赖构建产物，浏览器脚本依赖独立 QA 条件。不要启动生产 API 来代替隔离测试，不要并行浏览器/构建/测试。文档改动可只检查相对链接、脚本/模块路径与 `git diff --check`，无需生成规则或 build。
+
+## 许可范围
+
+本项目自有代码与开发者文档采用 [MIT](../LICENSE)；修改或分发时保留版权和许可声明。第三方图片、音乐、字体、商标与依赖各自适用的许可保持独立，不包含在项目自有代码 MIT 授权内。保留上游 LICENSE/NOTICE 与来源记录；素材是否可再分发应按素材自身授权核实，不能仅凭项目 LICENSE 判断。
