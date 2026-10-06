@@ -1,3 +1,5 @@
+import {HEROS22_BUILD} from './release-profile.js';
+import {createReleasedHeroRegistry} from './released-hero-rules.js';
 import {c43FrameRequired,c43ModuleAbility,snapshotC43,restoreC43,validC43} from './hero-c43-host.js';
 import {core43FrameRequired,core43ModuleAbility,snapshotCore43,restoreCore43,validCore43,core43Prune} from './hero-core43-host.js';
 import {receiptFrameRequired,receiptEnabled,receiptReady,receiptAttackStart,receiptAttackContact,receiptAttackReturn,receiptFiery,receiptHelix,receiptInterval,receiptMovement,receiptToggle,activateReceipt,receiptCommitted,receiptOverload,receiptShellProjection,receiptShellDamage,receiptCounterExpiry,receiptFeastBuff,receiptSouls,receiptModuleAbility,validReceiptSnapshot} from './hero-legacy-receipt-host.js';
@@ -20,7 +22,7 @@ import {PackHP} from './pack-hp.js';
 import {createPackDispatcher} from './pack-dispatcher.js';
 import {assertPackSerializable,packHasDebuffImmunity,packStatusFlag} from './pack-services.js';
 import {HERO_PACKS} from './pack-runtime.js';
-import {lookupRuntimeHero,validHeroPair,validSimulationPair} from './hero-registry.js';
+import {ACTIVE_ROSTER,lookupRuntimeHero,validHeroPair,validSimulationPair} from './hero-registry.js';
 export const formatCombatNumber=value=>{if(!Number.isFinite(value))return '0';const n=Math.max(0,value);return n>0&&n<.1?'<0.1':n.toFixed(1).replace(/\.0$/,'');};
 // DOTA DUEL fixed-step deterministic two-sided combat engine.
 // Gameplay units use a 1200-wide arena; skill geometry is adapted to 2D.
@@ -28,7 +30,7 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const clone=x=>JSON.parse(JSON.stringify(x));
 export const FIXED_DT=1/60;
 export class Engine {
- constructor(heroes,indices=[0,3],opts={}){this.heroRuleRegistry=opts.heroRuleRegistry;if(opts.heroPacks&&!opts.simulationRoster)throw Error('Custom packs require an explicit simulation roster');this.packCombat=createPackDispatcher(bridgeAExtensionPacks(bridgeBStatusPacks(bridgeAChannelPacks(opts.heroPacks??HERO_PACKS))));if(!(opts.simulationRoster?validSimulationPair(indices,opts.simulationRoster):validHeroPair(indices)))throw Error('Inactive hero selection');this.heroes=heroes;this.simulationRoster=opts.simulationRoster;this.indices=[...indices];this.runtimeHeroes=this.indices.map(id=>lookupRuntimeHero(heroes,id,opts.simulationRoster));this.mode=opts.mode||'local';this.seed=opts.seed??8192;this.score=[0,0];this.round=1;this.history=[];this.logSeq=0;this.resetRound();}
+ constructor(heroes,indices=ACTIVE_ROSTER.heroIds.slice(0,2),opts={}){if(!(opts.simulationRoster?validSimulationPair(indices,opts.simulationRoster):validHeroPair(indices)))throw Error('Inactive hero selection');this.heroRuleRegistry=opts.heroRuleRegistry??(HEROS22_BUILD?createReleasedHeroRegistry():undefined);if(opts.heroPacks&&!opts.simulationRoster)throw Error('Custom packs require an explicit simulation roster');this.packCombat=createPackDispatcher(bridgeAExtensionPacks(bridgeBStatusPacks(bridgeAChannelPacks(opts.heroPacks??HERO_PACKS))));this.heroes=heroes;this.simulationRoster=opts.simulationRoster;this.indices=[...indices];this.runtimeHeroes=this.indices.map(id=>lookupRuntimeHero(heroes,id,opts.simulationRoster));this.mode=opts.mode||'local';this.seed=opts.seed??8192;this.score=[0,0];this.round=1;this.history=[];this.logSeq=0;this.resetRound();}
  random(){this.seed=(this.seed*1664525+1013904223)>>>0;return this.seed/4294967296;}
  hero(i){return this.runtimeHeroes[i];}
  ability(i,s){return aChannelModuleAbility(this,i,s,aExtensionModuleAbility(this,i,s,bModuleAbility(this,i,s,c43ModuleAbility(this,i,s,core43ModuleAbility(this,i,s,receiptModuleAbility(this,i,s,finiteModuleAbility(this,i,s,moduleAbility(this,i,s,this.hero(i).abilities[s]))))))));}
