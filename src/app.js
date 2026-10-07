@@ -21,7 +21,24 @@ import {DATA} from './data.js';
 import {runtimeHeroes} from './runtime-heroes.js';
 import {Engine,FIXED_DT,formatCombatNumber} from './engine.js';
 const $=s=>document.querySelector(s),app=$('#app'),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const language=createLanguage({storage:globalThis.localStorage,document,onchange:()=>refreshLanguageSwitch()});
+const readLanguageCookie=key=>document.cookie?.split(';').map(part=>part.trim()).find(part=>part.startsWith(key+'='))?.slice(key.length+1);
+// One host-scoped preference for the shared i18n controller. Migrate the old
+// saved choice; retain storage only when cookies are unavailable (e.g. file://).
+const languagePreference={
+ getItem(key){
+  let value;try{value=readLanguageCookie(key);}catch{}
+  if(['zh','en'].includes(value))return value;
+  try{value=globalThis.localStorage?.getItem(key);}catch{}
+  if(['zh','en'].includes(value)){this.setItem(key,value);return value;}return null;
+ },
+ setItem(key,value){
+  try{document.cookie=`${key}=${value}; Path=/; Max-Age=31536000; SameSite=Lax${location.protocol==='https:'?'; Secure':''}`;
+   if(readLanguageCookie(key)===value){try{globalThis.localStorage?.removeItem(key);}catch{}return;}
+  }catch{}
+  try{globalThis.localStorage?.setItem(key,value);}catch{}
+ }
+};
+const language=createLanguage({storage:languagePreference,document,onchange:()=>refreshLanguageSwitch()});
 language.registerHeroes(runtimeHeroes,heroCatalog);
 const playableHero=id=>lookupRuntimeHero(runtimeHeroes,id);
 const activeHeroes=Object.freeze(ACTIVE_ROSTER.heroIds.map(playableHero));
