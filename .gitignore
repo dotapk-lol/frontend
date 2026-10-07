@@ -29,3 +29,15 @@ qa/cohort/r91/*closure*.json
 docs/roster-matrix-results.json
 docs/r20_55/
 qa-runtime/
+
+# Private operator configuration and authentication material stay local.
+/.ssh/
+/credentials/
+/private-deploy/
+/operator.local.*
+/.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+/wrangler.local.*
