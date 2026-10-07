@@ -5,6 +5,8 @@ import {execFileSync} from 'node:child_process';
 import {RELEASED_ROSTER} from '../src/released-roster.js';
 import {createReleasedHeroRegistry} from '../src/released-hero-rules.js';
 import {bundleApp} from './bundle-app.mjs';
+import {transform} from 'esbuild';
+import {gzipSync} from 'node:zlib';
 import fs from 'node:fs';import {createHash} from 'node:crypto';import path from 'node:path';import {fileURLToPath} from 'node:url';
 if(process.argv.includes('--candidate')||process.argv.includes('--stable'))throw Error('This release builds arena-heros22-v1 only; use the archived baseline for historical profiles');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist'),pub=path.join(dist,'client');
@@ -44,9 +46,16 @@ for(const f of fs.readdirSync(path.join(root,'assets'))){if(f==='audio')continue
 // old complete build, but cannot assemble a new game from old/new module URLs.
 const entry={script:`src/app.${assetVersion}.js`,style:`src/style.${assetVersion}.css`};
 const {code:online}=await bundleApp({overrides:{'net-version.js':netSource}});
-fs.writeFileSync(path.join(pub,entry.script),online);
+const compact=(await transform(online,{minifyWhitespace:true,minifyIdentifiers:true,minifySyntax:false,keepNames:true,target:'es2022',charset:'utf8',legalComments:'none'})).code;
+const appBytes=Buffer.from(compact),sha256=bytes=>createHash('sha256').update(bytes).digest('hex'),parts=[];
+// Immutable transport fragments reconstruct and verify the exact same bundled program.
+// Completed fragments survive an in-page retry; none is executed independently.
+for(let offset=0;offset<appBytes.length;offset+=262144){const bytes=appBytes.subarray(offset,offset+262144),src=`src/startup.${assetVersion}.${parts.length}.js`;fs.writeFileSync(path.join(pub,src),bytes);parts.push({src,bytes:bytes.length,sha256:sha256(bytes)});}
+const startup={src:entry.script,bytes:appBytes.length,sha256:sha256(appBytes),parts};
+fs.writeFileSync(path.join(pub,entry.script),compact);
 fs.copyFileSync(path.join(root,'src/style.css'),path.join(pub,entry.style));
-const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('href="src/style.css"',`href="${entry.style}"`).replace('src="src/app.js"',`src="${entry.script}"`);
+let entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('href="src/style.css"',`href="${entry.style}"`).replace('src="src/app.js"',`src="${entry.script}"`);
+entryHTML=entryHTML.replace(/<script\b[^>]*id="startup-app"[^>]*><\/script>/,()=>'<script id="startup-config" type="application/json">'+JSON.stringify(startup)+'</script><script id="startup-launch">window.DOTA_STARTUP.start(JSON.parse(document.getElementById("startup-config").textContent));</script>');
 fs.writeFileSync(path.join(pub,'index.html'),entryHTML);
 const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
@@ -56,5 +65,5 @@ for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);
 fs.copyFileSync(path.join(root,'_headers'),path.join(pub,'_headers'));
 const rules=createReleasedHeroRegistry().seal();
-fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
-console.log(JSON.stringify({build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
+fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,startup,roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
+console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,fragmentGzipBytes:parts.reduce((n,p)=>n+gzipSync(fs.readFileSync(path.join(pub,p.src))).length,0),parts:parts.length},build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
