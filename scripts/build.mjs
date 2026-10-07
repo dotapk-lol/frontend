@@ -50,7 +50,7 @@ const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('hre
 fs.writeFileSync(path.join(pub,'index.html'),entryHTML);
 const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
-let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('<link rel="stylesheet" href="src/style.css">','<style>'+css+'</style>').replace('<script type="module" src="src/app.js"></script>',()=>'<script type="module">'+js.replaceAll(/<\/script/gi,'<\\/script')+'</script>');
+let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/<link\b[^>]*href="src\/style\.css"[^>]*>/,()=>'<style id="startup-style">'+css+'</style>').replace(/<script\b[^>]*src="src\/app\.js"[^>]*><\/script>/,()=>'<script type="module">'+js.replaceAll(/<\/script/gi,'<\\/script')+'</script>');
 html=html.replace('<link rel="manifest" href="manifest.webmanifest">','');
 for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32.png'])html=html.replace('href="assets/'+icon+'"','href="'+dataUri('assets/'+icon)+'"');
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);

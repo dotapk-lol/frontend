@@ -258,5 +258,6 @@ function p2pRematch(){p2pSession?.draft.requestRematch();}
 
 window.DUEL={language,get materials(){return {...fighterMaterials.info(),background:arenaMaterials.info(),ready:battleMaterialsReady()};},get versionCheck(){return entryVersion.info();},heroes:activeHeroes,catalog:heroCatalog,roster:ACTIVE_ROSTER,compatibility:GAME_COMPATIBILITY,DATA,state,get musicStatus(){return {...music.status(),...officialMusic.status(),sfx:music.status()};},get record(){return activeRecord?.view()||null;},get viewport(){return {portrait:portraitViewport(window),mobile:mobileViewport(window),safe:{...viewportSafe}};},get backend(){return {base:deviceService.base,registry:deviceService.registryStatus};},get network(){return p2pSession?.info();},start,selection,get engine(){return engine;},setInput:(i,v)=>{input[i]=v;engine?.setInput(i,v);},get snapshot(){return(engine||remoteSnapshot)?.snapshot?.()||remoteSnapshot;},get room(){return state.room;},createRoom,joinRoom,roomDialog,release,render:()=>engine&&draw(engine,performance.now())};
 selection();
+window.DOTA_STARTUP?.appReady();
 
 if(location.hostname==='127.0.0.1'&&location.port==='4174'){deviceService.loadRegistry().then(r=>toast(r.status==='verified'?'候选后端注册表已核对':'候选后端注册表不可用，新名单未获批准')).catch(e=>toast('候选后端：'+e.message));}
