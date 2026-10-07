@@ -1,5 +1,15 @@
 // Canonical display copy only; never protocol or simulation data.
 export const UI_COPY_EN=Object.freeze({
+  "网络连接暂不可用，请稍后重试": "Connection temporarily unavailable. Retry.",
+  "版本信息暂不可用，请稍后重试": "Version information unavailable. Retry.",
+  "当前版本与对战服务不兼容，请稍后重新检查": "This version is unavailable. Check again.",
+  "版本检查已更新，请重试": "Version check changed. Retry.",
+  "正在检查版本…": "Checking version…",
+  "发现新版本，请更新后进入对战": "A new version is available.",
+  "新版本将在退出对局后更新": "Update after leaving the match.",
+  "重新检查": "Check again",
+  "更新并重新加载": "Update and reload",
+
   "选择英雄": "Choose your hero",
   "连接房间": "Connecting to room",
   "连接正常": "Connection stable",

@@ -1,19 +1,20 @@
 import {ACTIVE_ROSTER,REGISTRY_VERSION,LEGACY_ROSTER_ID,validHeroPair} from './hero-registry.js';
 import {GAME_COMPATIBILITY,validateBackendRegistry,compatibleMatch} from './compatibility.js';
 import {NET_VERSION} from './net-version.js';
+import {checkedJSON,connectionError} from './version-check.js';
 export const matchRequestId=()=>globalThis.crypto.randomUUID();
 export const resultPayload=(game,reason='')=>{const rounds=(game.history||[]).map((r,i)=>({number:i+1,winner:r.winner,remainingMs:Math.max(0,Math.min(99000,Math.round(r.remaining*1000)))})),score=[0,0];for(const r of rounds)if(r.winner>=0)score[r.winner]++;const winner=score.findIndex(n=>n>=2),complete=winner>=0;return {version:NET_VERSION,outcome:complete?'completed':'aborted',rounds,score,winner:complete?winner:-1,reason:complete?'':reason||'cancelled'};};
 export const recordStatusText=status=>({confirmed:'战绩已保存 · 双方一致',recorded:'战绩已保存 · 客户端上报',pending:'已提交，等待对方确认',disputed:'双方战果不一致，未计胜负',aborted:'比赛已中止，未计胜负',in_progress:'比赛进行中',awaiting_ready:'等待双方确认开战',awaiting_report:'等待房主保存战绩',saving:'正在保存战绩…',local:'已保存本机，尚未同步服务器',error:'尚未保存到服务器，可重试'}[status]||'尚未保存到服务器');
 export class MatchAPI{
- constructor({fetcher=(...a)=>globalThis.fetch(...a),base,storage=globalThis.sessionStorage,rosterId=ACTIVE_ROSTER.rosterId}={}){if(rosterId!==ACTIVE_ROSTER.rosterId)throw Error('Inactive gameplay roster');this.rosterId=rosterId;this.registryTask=null;this.registryStatus=null;this.registryGeneration=0;this.fetcher=fetcher;this.base=base??(['127.0.0.1','localhost'].includes(globalThis.location?.hostname)?(globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4196'?'http://127.0.0.1:18086/api/v1':globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4174'?'http://127.0.0.1:18083/api/v1':globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4185'?'http://127.0.0.1:18084/api/v1':'http://127.0.0.1:18082/api/v1'):'https://api.dotapk.lol/api/v1');this.storage=storage;this.credentials=null;this.sessionTask=null;}
+ constructor({fetcher=(...a)=>globalThis.fetch(...a),base,storage=globalThis.sessionStorage,rosterId=ACTIVE_ROSTER.rosterId,onVersionMismatch=()=>{}}={}){if(rosterId!==ACTIVE_ROSTER.rosterId)throw Error('Inactive gameplay roster');this.onVersionMismatch=onVersionMismatch;this.rosterId=rosterId;this.registryTask=null;this.registryStatus=null;this.registryGeneration=0;this.fetcher=fetcher;this.base=base??(['127.0.0.1','localhost'].includes(globalThis.location?.hostname)?(globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4196'?'http://127.0.0.1:18086/api/v1':globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4174'?'http://127.0.0.1:18083/api/v1':globalThis.location?.hostname==='127.0.0.1'&&globalThis.location?.port==='4185'?'http://127.0.0.1:18084/api/v1':'http://127.0.0.1:18082/api/v1'):'https://api.dotapk.lol/api/v1');this.storage=storage;this.credentials=null;this.sessionTask=null;}
  async loadRegistry({refresh=false}={}){
   if(this.registryTask&&!refresh)return this.registryTask;
   const generation=++this.registryGeneration;
   const publish=status=>{if(generation!==this.registryGeneration)throw Error('注册表核对已更新，请重试');this.registryStatus=status;return status;};
   // Start after task assignment so synchronous fetch failures are also safely deduplicated.
   const task=Promise.resolve().then(async()=>{
-   let data;try{const response=await this.fetcher(this.base+'/registry',{method:'GET',cache:'no-store',...(globalThis.AbortSignal?.timeout?{signal:globalThis.AbortSignal.timeout(2500)}:{})});if(!response.ok)throw Error('Registry unavailable');data=await response.json();if(!data?.registryVersion)throw Error('Registry unavailable');}
-   catch{return publish(Object.freeze({status:'unavailable',rosterId:LEGACY_ROSTER_ID,expandedReady:false}));}
+   let data;try{data=await checkedJSON(this.fetcher,this.base+'/registry');if(!data?.registryVersion)throw connectionError();}
+   catch{return publish(Object.freeze({status:'unavailable',rosterId:LEGACY_ROSTER_ID,expandedReady:false,error:'网络连接暂不可用，请稍后重试'}));}
    let status;try{status=validateBackendRegistry(data,NET_VERSION,this.rosterId);}
    catch(e){publish(Object.freeze({status:'incompatible',error:e.message,expandedReady:false}));throw e;}
    return publish(status);
@@ -22,12 +23,12 @@ export class MatchAPI{
   try{const status=await task;if(this.registryTask===task&&status.status!=='verified')this.registryTask=null;return status;}
   catch(e){if(this.registryTask===task)this.registryTask=null;throw e;}
  }
- assertRegistryPermit(permit){if(!permit||permit.generation!==this.registryGeneration||permit.registry!==this.registryStatus||!(permit.registry.status==='verified'||this.rosterId===LEGACY_ROSTER_ID&&permit.registry.status==='unavailable'))throw Error('英雄名单核对已变化，请重试');}
+ assertRegistryPermit(permit){if(permit?.registry?.status==='unavailable'&&this.rosterId!==LEGACY_ROSTER_ID)throw connectionError();if(!permit||permit.generation!==this.registryGeneration||permit.registry!==this.registryStatus||!(permit.registry.status==='verified'||this.rosterId===LEGACY_ROSTER_ID&&permit.registry.status==='unavailable'))throw Error('版本检查已更新，请重试');}
  async authorizeRoster(){const task=this.loadRegistry(),generation=this.registryGeneration,registry=await task;const fields=registry.status==='verified'?{rosterId:this.rosterId}:{};const permit=Object.freeze({generation,registry,fields:Object.freeze(fields)});this.assertRegistryPermit(permit);return permit;}
  async rosterFields(){const permit=await this.authorizeRoster();this.assertRegistryPermit(permit);return permit.fields;}
  async request(path,body,method='POST',{unauthenticated=false,keepalive=false,registryPermit=null}={}){
   if(registryPermit)this.assertRegistryPermit(registryPermit);if(!unauthenticated)await this.session();if(registryPermit){this.assertRegistryPermit(registryPermit);if(body?.rosterId!==registryPermit.fields.rosterId)throw Error('请求英雄名单与核对凭据不一致');}const response=await this.fetcher(this.base+'/'+path,{method,headers:{'Content-Type':'application/json',...(!unauthenticated?{Authorization:'Bearer '+this.credentials.token}:{})},...(body!==undefined&&body!==null?{body:JSON.stringify(body)}:{}),cache:'no-store',keepalive,...(globalThis.AbortSignal?.timeout?{signal:globalThis.AbortSignal.timeout(10000)}:{})});
-  const data=await response.json().catch(()=>({error:'战绩服务没有返回有效数据'}));if(!response.ok){const e=Error(data.error||'战绩服务暂不可用');e.status=response.status;throw e;}return data;
+  const data=await response.json().catch(()=>({error:'战绩服务没有返回有效数据'}));if(!response.ok){const e=Error(data.error||'战绩服务暂不可用');e.status=response.status;if(['version mismatch','game version and roster mismatch','unknown or inactive gameplay roster'].includes(data.error)){this.registryTask=null;this.registryStatus=null;this.registryGeneration++;this.onVersionMismatch();e.kind='version';}throw e;}return data;
  }
  session(){if(this.credentials)return Promise.resolve(this.credentials);if(this.sessionTask)return this.sessionTask;this.sessionTask=this.request('sessions',{},'POST',{unauthenticated:true}).then(v=>{if(!/^[a-f0-9]{64}$/.test(v.playerId)||typeof v.token!=='string'||v.token.length<32)throw Error('战绩会话无效');this.credentials=v;return v;}).finally(()=>this.sessionTask=null);return this.sessionTask;}
  async createPVE(hero,opponentHero,requestId){if(!validHeroPair([hero,opponentHero]))throw Error('Inactive hero selection');const permit=await this.authorizeRoster();return this.request('matches/pve',{...permit.fields,requestId,version:NET_VERSION,hero,opponentHero,aiDifficulty:'normal'},'POST',{registryPermit:permit});}

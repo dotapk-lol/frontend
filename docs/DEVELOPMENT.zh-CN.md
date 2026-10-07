@@ -12,7 +12,7 @@
 | registryVersion | `duel-heroes-127-v1` |
 | registrySha256 | `5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138` |
 | mechanicsVersion | `arena-heros22-public127-v1` |
-| 当前源码 NET_VERSION | `duel-2f81eeda15fb572139ad`，`src/net-version.js` |
+| 当前源码 NET_VERSION | `duel-e81da0fe6c6faec0eef8`，`src/net-version.js` |
 | 前端组合 rulesHash | `5747bdeffe9948c67882ea02858e7958a5ea15be090b08d9ac6d8561a57970a4` |
 | WebRTC 协议 | `duel-wire-3` |
 
@@ -54,4 +54,12 @@ node --test --test-concurrency=1 qa/registry-retry.test.mjs
 
 ## 新选人版本绑定
 
-当前源码 build `duel-2f81eeda15fb572139ad` 需在后端22名单和 `roomSelectionVersions` 中精确追加绑定，保留所有旧版本。该文档不表示生产已启用；需配套后端契约、原生双窗验收和协调发布。默认占席英雄注册ID1是水晶室女（Valve ID5），不是Valve的ID1。品牌元信息更新会通过既有全文摘要规则改变 `RULESET_HASH`，封印技能规则的 `rulesHash` 和22/88名单保持不变。
+当前源码 build `duel-e81da0fe6c6faec0eef8` 需在后端22名单和 `roomSelectionVersions` 中精确追加绑定，保留所有旧版本。该文档不表示生产已启用；需配套后端契约、原生双窗验收和协调发布。默认占席英雄注册ID1是水晶室女（Valve ID5），不是Valve的ID1。品牌元信息更新会通过既有全文摘要规则改变 `RULESET_HASH`，封印技能规则的 `rulesHash` 和22/88名单保持不变。
+
+## 入口核验与更新
+
+托管入口先以10秒有限时限读取 `build-manifest.json`，再严格核验后端注册表。整页房间与人机共用一个 `MatchAPI`；成功核验只在当前已加载构建的内存中复用。注册表代际凭据及后端房间、比赛、选人检查仍保留，不用 cookie 或永久成功缓存授权未来构建。网络失败可在入口重试，与身份不兼容分开；失败缓存清除。服务端版本拒绝会作废旧凭据和入口状态。
+
+空闲入口或回前台时，版本元信息最多每分钟检查一次；活动房间与比赛不会触发刷新。发现新发布版本后显示明确更新按钮，保留设置，通过 build 查询参数重新加载页面，不自动循环刷新。HTML及构建元信息禁止缓存；正式入口引用完整的带指纹 JS 包和 CSS。源码模块仍供检查与测试，但正式入口不再用各自缓存的模块地址拼装游戏。离线单文件保留本地模式。
+
+不需新增后端版本发现接口。新源码运行时仍须先追加精确22名单、选人 feature 和 SQL 元数据绑定，才能发布。物理 Safari/iOS 验收须与实际 MacChrome及明确标注的网络夹具分开。

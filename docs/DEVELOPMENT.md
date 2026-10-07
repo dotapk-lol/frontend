@@ -12,7 +12,7 @@ The source profile is `HEROS22_BUILD=true`, `CANDIDATE_BUILD=false`.
 | registryVersion | `duel-heroes-127-v1` |
 | registrySha256 | `5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138` |
 | mechanicsVersion | `arena-heros22-public127-v1` |
-| Source NET_VERSION | `duel-2f81eeda15fb572139ad`, `src/net-version.js` |
+| Source NET_VERSION | `duel-e81da0fe6c6faec0eef8`, `src/net-version.js` |
 | Frontend composition rulesHash | `5747bdeffe9948c67882ea02858e7958a5ea15be090b08d9ac6d8561a57970a4` |
 | WebRTC protocol | `duel-wire-3` |
 
@@ -54,4 +54,12 @@ Project-owned code/docs use [MIT](../LICENSE); retain copyright/license notices 
 
 ## New selection build binding
 
-Current source build `duel-2f81eeda15fb572139ad` requires append-only exact binding in the backend22 roster and `roomSelectionVersions`, preserving all historical versions. This document does not mean production has activated it; pair the backend contract, native two-window acceptance and coordinated release. Default reservation registry ID1 is Crystal Maiden (Valve ID5), not Valve ID1. Branding metadata updates change `RULESET_HASH` through the existing full-source digest, while sealed skill `rulesHash` and22/88 roster remain unchanged.
+Current source build `duel-e81da0fe6c6faec0eef8` requires append-only exact binding in the backend22 roster and `roomSelectionVersions`, preserving all historical versions. This document does not mean production has activated it; pair the backend contract, native two-window acceptance and coordinated release. Default reservation registry ID1 is Crystal Maiden (Valve ID5), not Valve ID1. Branding metadata updates change `RULESET_HASH` through the existing full-source digest, while sealed skill `rulesHash` and22/88 roster remain unchanged.
+
+## Entry validation and updating
+
+Hosted entry checks `build-manifest.json` with a finite10s deadline, then the exact backend registry. The page shares one `MatchAPI` across rooms and PvE; successful registry validation stays in memory for the loaded build. Registry generation permits and backend room/match/selection checks remain strict. No registry cookie or persistent success override authorizes a future build. Transport failures are retryable entry errors, distinct from incompatible identity; failed checks are cleared. Server version rejection invalidates the permit and entry state.
+
+Idle entry/foreground checks refresh metadata at most once per minute; active rooms/matches do not trigger refresh. A newer published manifest offers an explicit update button; the button preserves settings and loads the page with a build query, without automatic reload loops. HTML/build metadata are no-store, and production HTML references one complete fingerprinted JS bundle plus fingerprinted CSS. Source modules remain available for inspection/tests, but the hosted entry does not assemble gameplay from individually cached module URLs. Offline standalone remains local.
+
+No new backend discovery API is needed. A new exact source runtime still requires append-only22 roster/selection feature/SQL metadata binding before publication. Physical Safari/iOS acceptance is separate from actual MacChrome and labeled network fixtures.

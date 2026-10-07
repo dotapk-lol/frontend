@@ -35,6 +35,14 @@ for(const f of clientFiles){const target=path.join(pub,'src',f);fs.mkdirSync(pat
 for(const f of ['index.html','manifest.webmanifest'])fs.copyFileSync(path.join(root,f),path.join(pub,f));
 for(const f of fs.readdirSync(path.join(root,'assets'))){if(f.endsWith('-render.png')||f==='audio')continue;const p=path.join(root,'assets',f);if(fs.statSync(p).isDirectory())fs.cpSync(p,path.join(pub,'assets',f),{recursive:true});else fs.copyFileSync(p,path.join(pub,'assets',f));}
 let data=fs.readFileSync(path.join(root,'src/data.js'),'utf8');data=data.replaceAll(/assets\/[a-z_]+-render\.png/g,m=>m.replace('assets/','assets/portraits/').replace('-render.png','.webp'));fs.writeFileSync(path.join(pub,'src/data.js'),data);
+// A single immutable entry contains every game module. A cache can retain an
+// old complete build, but cannot assemble a new game from old/new module URLs.
+const entry={script:`src/app.${assetVersion}.js`,style:`src/style.${assetVersion}.css`};
+const {code:online}=await bundleApp({overrides:{'net-version.js':netSource}});
+fs.writeFileSync(path.join(pub,entry.script),online);
+fs.copyFileSync(path.join(root,'src/style.css'),path.join(pub,entry.style));
+const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('href="src/style.css"',`href="${entry.style}"`).replace('src="src/app.js"',`src="${entry.script}"`);
+fs.writeFileSync(path.join(pub,'index.html'),entryHTML);
 const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
 let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('<link rel="stylesheet" href="src/style.css">','<style>'+css+'</style>').replace('<script type="module" src="src/app.js"></script>','<script type="module">'+js.replaceAll('</script','<\\/script')+'</script>');
@@ -43,5 +51,5 @@ for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);
 fs.copyFileSync(path.join(root,'_headers'),path.join(pub,'_headers'));
 const rules=createReleasedHeroRegistry().seal();
-fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
+fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
 console.log(JSON.stringify({build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
