@@ -18,3 +18,14 @@ incoming/
 qa/browser-evidence/
 
 dist-candidate/
+
+# Local maintenance outputs; never publish per-game QA or frozen run logs.
+.DS_Store
+coverage/
+qa/cohort/r91/engine-matrix*.json
+qa/cohort/r91/*results*.txt
+qa/cohort/r91/*integrity.json
+qa/cohort/r91/*closure*.json
+docs/roster-matrix-results.json
+docs/r20_55/
+qa-runtime/

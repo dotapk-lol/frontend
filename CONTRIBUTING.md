@@ -1,12 +1,12 @@
-# 贡献指南
+[English](CONTRIBUTING.md) | [简体中文](CONTRIBUTING.zh-CN.md) | [Website / 官网](https://dotapk.lol)
 
-先阅读 [README](README.md)、[开发指南](docs/DEVELOPMENT.md) 及相关真实源码。使用最新 main 的独立分支，每个 PR 聚焦一个问题，说明触发条件、修改后行为与实际验证命令。
+# Contributing
 
-- 文档修正核对路径、API 字段与链接，不复制凭据、玩家标识、原始报告、生产备份或本机个人路径。
-- 界面变化保持中英显示、横屏与键盘/触控语义。语言偏好不能改变 roster/build/协议。
-- 战斗或规则变化保留稳定 ID、四槽、参数边界、状态恢复和真实 host 回执；规则包/能力变更先提出设计。只启用已发布 22 英雄，暂停英雄不随文档更新恢复。
-- 按改动运行必要的逐文件回归，说明哪些是源码测试、哪些是真实浏览器/网络验证；不以历史证据代替当前验收。
-- 新 build 与 roster 必须经过前后端登记和一致性审核，不绕过校验。数据库、部署、安全/CI 权限变化应明确提出独立范围。
-- 不提交 .env、token、密码、原始战绩或第三方未授权素材；自有代码与文档按 [MIT](LICENSE) 贡献，保留版权/许可声明。第三方图片、音乐及依赖仍遵循各自许可，保留来源与上游 LICENSE/NOTICE，不擅自改授 MIT。
+Start from current main in a separate branch. Read the [README](README.md), [development](docs/DEVELOPMENT.md), [architecture](docs/ARCHITECTURE.md) and changed source. Keep each PR focused: concrete trigger, resulting behavior and actual checks.
 
-提交前检查 `git diff --check` 和文件范围。请勿强推 main 或覆盖其他贡献者改动；并发修改先协调，再快进或使用 PR。
+- Maintain paired English/Chinese Markdown. `README.md` is English, `README.zh-CN.md` Chinese; every guide starts with language links and the website. Update both, preserve relative links and avoid duplicating machine schemas/data for translation.
+- Keep UI language, landscape, keyboard/touch semantics and roster/build/protocol independent. Only22 heroes are enabled; paused adaptations need separate acceptance.
+- Rule changes preserve stable IDs, four slots, bounded parameters, atomic restore and authentic host receipts. Package/capability changes need design review and exact source/build binding.
+- Choose serial tests for affected boundaries, separating source/VM tests from actual browser/network acceptance. Do not commit generated matrices, per-game evidence, private paths, credentials or backups. Historical evidence is not current certification.
+- Project-owned contributions use [MIT](LICENSE); preserve copyright/license notices. Third-party media/dependencies retain their own terms; do not introduce unauthorized assets.
+- Deployment, DB/security/CI permissions need an explicit change scope. Avoid force pushes and coordinate concurrent edits. Run `git diff --check`, paired-doc/link checks and applicable tests before submitting.
