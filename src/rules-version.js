@@ -1,2 +1,2 @@
 // Private rule identity includes frozen public handlers, host composition and released roster.
-export const RULESET_HASH="c1f4ccd86a0dc21f293d7a56489d10a0ecaebcc7d08260b33218b809f983122f";
+export const RULESET_HASH="26dad0377e32e4180743f12edaf2fa2c646b977d8b8dc30126c9d34281393797";

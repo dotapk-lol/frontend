@@ -20,3 +20,14 @@ node --max-old-space-size=256 scripts/generate-catalog.mjs --check
 本地 API 集成使用隔离数据库和后端指南中的匹配 profile/build，会生成测试局，不能用生产作夹具。纯文档检查双语配对、首部/链接和 `git diff --check` 即可。PR 记录实际命令、运行时、证明范围和剩余限制。
 
 双语维护：`python3 scripts/check-docs.py` 检查全部保留 Markdown 首部、语言配对与相对链接。
+
+## 先入房流程的定向检查
+
+每次只执行一个有内存上限的分组，不为这些交互修改并行重复全英雄矩阵。
+
+```sh
+node --max-old-space-size=256 --test --test-concurrency=1 qa/room-selection.test.mjs qa/p2p-quality.test.mjs qa/p2p-room-identity.test.mjs
+node --max-old-space-size=256 --test --test-concurrency=1 --test-name-pattern='homepage|language setting|six digits|waiting P2P|English host' qa/i18n-ui.test.mjs
+```
+
+确定性测试覆盖默认/提前/到时锁定、旧轮次、点击与到时竞态、单次建局、后台保留倒计时、网络只提示不按统计否决，以及终态/双方再战/新比赛。测试使用传输与服务器夹具，不是自然浏览器或 SQL 验收。原生验收必须另以两 Chrome 窗口连接匹配后端，实际自然结果后同房再战、真实六码自动加入、取消/重入，以及不同小屏横屏尺寸和两种语言的固定底栏命中测试。逐局 SQL ID 和运维证据只放私有交接。可靠连接失败应如实报告测量限制；夹具不证明真实连接或物理 iOS。

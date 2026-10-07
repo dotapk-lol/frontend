@@ -24,6 +24,7 @@ export function createLanguage({storage,document,onchange=()=>{}}={}){
   if(source.includes('\n'))return source.split('\n').map(translate).join('\n');
   const trimmed=source.trim();if(copies.has(trimmed))return source.replace(trimmed,copies.get(trimmed));
   const patterns=[
+   [/^(\d+) 秒$/,m=>`${m[1]}s`],
    [/^(本端|对端) (.+)$/,m=>`${m[1]==='本端'?'Local':'Peer'}: ${translate(m[2])}`],
    [/^正在为 P(\d+) 选择英雄$/,m=>`Choosing a hero for P${m[1]}`],
    [/^为玩家(\d+)选英雄$/,m=>`Select a hero for player ${m[1]}`],

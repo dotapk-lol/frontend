@@ -4,6 +4,8 @@
 
 项目自有代码/文档采用 [MIT](../LICENSE)，版权2026 dotapk-lol contributors；不改授第三方依赖、Valve 图像/音乐/名称/商标、字体或描述的许可。保留上游许可/声明，署名、下载 URL、用户提供文件或 SHA256 都不证明再分发授权。本同人适配不表示 Valve 背书。
 
+产品名为 **DOTA PK**。`assets/favicon.svg` 是项目原创的双人交叉武器图形，与生成的 favicon/app-icon PNG 和 ICO 一起适用项目 MIT 许可。红黑配色与棱角风格参考2026-10-07查看的[官方 Dota favicon](https://www.dota2.com/favicon.ico)，本标识没有复制或再分发官方图形；既有 Valve 素材仍保留各自权利。SVG 不含外部资源、内嵌官方图像或跟踪。`scripts/render-brand-icons.py` 用本地 macOS Quick Look 和 Pillow 生成16/32px favicon、180px Apple touch、192/512px app 及独立512px maskable 图标；普通构建只读取已提交的本地图标。小 PNG favicon 保留透明圆角，Apple/app 为不透明深色底，maskable 前景位于中央安全圆内。
+
 ## 保留的源输入
 
 `reference/official-2026-10-02/` 保留 `scripts/generate-catalog.mjs` 读取的冻结身份/目录/技能/天赋及必要能力/覆盖输入；`reference/hero-pack-inputs/first21-assets.json`、`src/hero-packs/*/*.json` 支持开发生成/来源记录；`docs/official-combat-overrides.json` 保留最初20英雄适配使用的数值转换来源。这些是项目快照，不保证当前补丁或官方可执行机制。ID、源字段和元数据留在原文件，不重复到交接日志。

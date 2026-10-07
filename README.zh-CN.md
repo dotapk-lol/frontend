@@ -1,6 +1,6 @@
 [English](README.md) | [简体中文](README.zh-CN.md) | [Website / 官网](https://dotapk.lol)
 
-# DOTA DUEL 前端
+# DOTA PK 前端
 
 [dotapk.lol](https://dotapk.lol) 的浏览器客户端：**22 位已发布英雄 / 88 个技能槽**、六位邀请码 WebRTC 对战、人机、桌面同屏和同浏览器 BroadcastChannel。玩家无需登录账号；首页中英偏好保存在 localStorage。手机采用横屏、拖动摇杆和四技能按钮，未发布英雄保持灰禁、暂停适配。
 

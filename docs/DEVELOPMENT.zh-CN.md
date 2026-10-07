@@ -12,13 +12,13 @@
 | registryVersion | `duel-heroes-127-v1` |
 | registrySha256 | `5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138` |
 | mechanicsVersion | `arena-heros22-public127-v1` |
-| 当前源码 NET_VERSION | `duel-851e67d77307f479f1fa`，`src/net-version.js` |
+| 当前源码 NET_VERSION | `duel-2f81eeda15fb572139ad`，`src/net-version.js` |
 | 前端组合 rulesHash | `5747bdeffe9948c67882ea02858e7958a5ea15be090b08d9ac6d8561a57970a4` |
 | WebRTC 协议 | `duel-wire-3` |
 
 允许的稳定数字 ID：`1,3,4,5,7,8,9,15,17,18,28,31,32,36,50,55,57,58,62,71,81,82`。数字是 registryNumericId，不是列表下标或 Valve hero ID。目录的 127 身份不代表全部可玩；未发布英雄继续灰禁。
 
-后端 production profile 对该 roster 精确允许 `duel-27c78aa4cfc8facc8a23`、`duel-6b1d12f75aa4bbac4e12`、`duel-851e67d77307f479f1fa`。历史 build 仅用于保留旧客户端/记录兼容性；双方仍须使用相同 build。`GAME_COMPATIBILITY` 还包含规则和能力目录 hash，见 `src/compatibility.js`。前端校验完整身份映射、名单成员和 gameVersion 唯一绑定；后端不执行技能，也没有客户端传入 rulesHash 的 API 字段。
+后端 production profile 对该 roster 精确允许 `duel-27c78aa4cfc8facc8a23`、`duel-6b1d12f75aa4bbac4e12`、`duel-851e67d77307f479f1fa`、`duel-9431984810f197b393c5`。历史 build 仅用于保留旧客户端/记录兼容性；双方仍须使用相同 build。`GAME_COMPATIBILITY` 还包含规则和能力目录 hash，见 `src/compatibility.js`。前端校验完整身份映射、名单成员和 gameVersion 唯一绑定；后端不执行技能，也没有客户端传入 rulesHash 的 API 字段。
 
 普通 build 根据源码/资产生成新的 NET_VERSION。新标识需要在**本地或获授权的发布流程**中同时登记于 Go embed profile 与 MySQL roster 元数据；只改其中一处不足以联调。不要手填旧 hash 冒充兼容；当前 `--ui-only-from=<COMMIT>` 是受路径白名单限制的显示修复流程，文档文件变化也不在其白名单，包含非显示文件的提交不能直接拿旧提交执行该模式。没有运行 build 的文档提交不会改变已登记 wire 标识。
 
@@ -26,7 +26,7 @@
 
 静态服务使用 `http://127.0.0.1:4173`，后端单个精确 `DUEL_ALLOWED_ORIGIN` 与之相同。已有隔离本地 MySQL 与22 overlay 按[后端开发指南](https://github.com/dotapk-lol/backend/blob/main/docs/DEVELOPMENT.zh-CN.md)准备。
 
-`src/match-api.js` 对 localhost/127.0.0.1 使用18082，但 `127.0.0.1:4174` 使用18083、`127.0.0.1:4185` 使用18084；其他主机使用 `https://api.dotapk.lol/api/v1`。没有 `VITE_API_URL` 或通用页面地址开关，测试可注入 `new MatchAPI({base: '<LOCAL_API_BASE>'})`。localhost 与127.0.0.1、协议和端口是不同 origin。建局前检查本地 GET `/healthz`、GET `/api/v1/registry` 和 OPTIONS，不为本地开发改生产 CORS 或绕过名单检查。
+`src/match-api.js` 对 localhost/127.0.0.1 使用18082，但 `127.0.0.1:4174` 使用18083、`127.0.0.1:4185` 使用18084、隔离选人预览 `127.0.0.1:4196` 使用18086；其他主机使用 `https://api.dotapk.lol/api/v1`。没有 `VITE_API_URL` 或通用页面地址开关，测试可注入 `new MatchAPI({base: '<LOCAL_API_BASE>'})`。localhost 与127.0.0.1、协议和端口是不同 origin。建局前检查本地 GET `/healthz`、GET `/api/v1/registry` 和 OPTIONS，不为本地开发改生产 CORS 或绕过名单检查。
 
 ## 英雄包与 host
 
@@ -51,3 +51,7 @@ node --test --test-concurrency=1 qa/registry-retry.test.mjs
 ## 许可范围
 
 本项目自有代码与开发者文档采用 [MIT](../LICENSE)；修改或分发时保留版权和许可声明。第三方图片、音乐、字体、商标与依赖各自适用的许可保持独立，不包含在项目自有代码 MIT 授权内。保留上游 LICENSE/NOTICE 与来源记录；素材是否可再分发应按素材自身授权核实，不能仅凭项目 LICENSE 判断。
+
+## 新选人版本绑定
+
+当前源码 build `duel-2f81eeda15fb572139ad` 需在后端22名单和 `roomSelectionVersions` 中精确追加绑定，保留所有旧版本。该文档不表示生产已启用；需配套后端契约、原生双窗验收和协调发布。默认占席英雄注册ID1是水晶室女（Valve ID5），不是Valve的ID1。品牌元信息更新会通过既有全文摘要规则改变 `RULESET_HASH`，封印技能规则的 `rulesHash` 和22/88名单保持不变。

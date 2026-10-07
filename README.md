@@ -1,6 +1,6 @@
 [English](README.md) | [简体中文](README.zh-CN.md) | [Website / 官网](https://dotapk.lol)
 
-# DOTA DUEL frontend
+# DOTA PK frontend
 
 Browser client for [dotapk.lol](https://dotapk.lol): **22 released heroes / 88 skill slots**, six-digit WebRTC invitations, PVE, desktop same-screen and same-browser BroadcastChannel play. Players need no account login. The home-page English/Chinese preference stays in localStorage. Mobile play uses landscape, a drag joystick and four skill buttons; unreleased heroes stay grey and paused.
 

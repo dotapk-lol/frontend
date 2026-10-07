@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">DOTA PK</title>
+  <desc id="desc">Original two-player crossed-blade mark. Fan project, not an official Dota logo.</desc>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="#12161b"/>
+  <g stroke="#12161b" stroke-width="2" stroke-linejoin="round">
+    <path d="M10 10 21 12 47 38 39 46 12 21Z" fill="#e44836"/>
+    <path d="M54 10 43 12 17 38 25 46 52 21Z" fill="#fff1d8"/>
+  </g>
+  <g fill="none" stroke-width="6" stroke-linecap="square">
+    <path d="m40 43 10 10m-14-5 12-12" stroke="#e44836"/>
+    <path d="m24 43-10 10m14-5L16 36" stroke="#fff1d8"/>
+  </g>
+</svg>

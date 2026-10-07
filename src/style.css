@@ -84,3 +84,26 @@ html[lang="en"] .hero .release-status{font-size:8px;white-space:normal}html[lang
 @media(orientation:landscape) and (max-width:650px){.nav .quiet{padding:4px 6px;font-size:10px}.nav [data-action="fullscreen"]{font-size:0;min-width:28px}.nav [data-action="fullscreen"]:before{content:'⛶';font-size:16px}}
 @media(orientation:landscape) and (max-height:360px){.selection{min-height:0}.roster{grid-template-rows:none;grid-auto-rows:34px;align-content:start;overflow-y:auto;scrollbar-width:thin}}
 @media(orientation:landscape) and (max-height:300px){.version,.selection-title,.draft-help{display:none}.mast{align-items:center}.fighter-card .info h2{font-size:12px;white-space:nowrap}.pvp-entry h2{font-size:20px;line-height:32px}}
+
+/* Room controls occupy their own viewport row; only the hero list scrolls. */
+.online-home{padding:16px 24px;display:grid;grid-template-rows:auto auto minmax(0,1fr);min-height:var(--view-height,100dvh)}
+.online-home .mast{margin-bottom:10px}.online-home .mode-tabs{margin-bottom:10px}
+.home-entry{width:min(420px,100%);margin:auto;text-align:center;padding:16px}
+.home-entry h2{margin:0 0 12px}.home-entry .invite-create{margin-top:0}
+.room-flow{position:fixed;left:var(--view-left,0);top:var(--view-top,0);width:var(--view-width,100vw);height:var(--view-height,100dvh);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;background:#101d26}
+.room-header{display:flex;align-items:center;gap:16px;min-height:42px;padding:8px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.room-header strong{color:var(--gold)}#p2p-room-code{letter-spacing:.16em}#draft-clock{margin-left:auto;font-variant-numeric:tabular-nums;font-size:14px}
+.room-content{min-height:0;overflow:auto;overscroll-behavior:contain;padding:10px 16px;touch-action:pan-y}
+.draft-players{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+.draft-players article{display:flex;align-items:center;gap:10px;min-width:0;border:1px solid var(--line);padding:6px;border-radius:4px}
+.draft-players img{width:44px;height:44px;object-fit:cover}.draft-players article>div{min-width:0}.draft-players strong{font-size:14px}.draft-players article span[id^="draft-lock"]{display:block;color:#b3c5d0;font-size:12px}
+.draft-roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px;max-width:1100px;margin:auto}.draft-roster .hero{height:72px}.draft-roster .hero:hover{transform:none}
+.room-footer{padding:6px 12px 10px;border-top:1px solid var(--line);background:#172a35;min-width:0}
+.room-network{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;font-size:12px;line-height:16px;min-height:16px}.room-network>*{min-width:0;overflow-wrap:anywhere}
+.room-flow .room-actions{display:flex;gap:8px;margin:0}.room-flow .room-actions button{flex:1;min-width:0;min-height:44px;padding:8px 10px;font-size:14px}.room-flow button[hidden]{display:none}
+.connection-progress{max-width:520px;margin:12px auto}.connection-progress ol{display:flex;list-style:none;padding:0;gap:12px;flex-wrap:wrap}.connection-progress li{color:var(--muted);padding:8px;border-bottom:2px solid var(--line)}.connection-progress li.done{color:#99d4b4;border-color:#99d4b4}
+.network-live{position:absolute;top:74px;left:50%;transform:translateX(-50%);max-width:70%;font-size:11px;text-align:center;padding:2px 6px;border-radius:3px;background:#09151dcc;pointer-events:none;z-index:3}
+#rematch-status{font-size:12px;line-height:16px;margin:0 0 4px}
+@media(max-height:360px){.online-home{padding:6px 12px}.online-home .mast,.online-home .mode-tabs{margin-bottom:6px}.online-home .mode{padding:6px}.home-entry{padding:6px 12px}.home-entry h2{font-size:20px;margin:0 0 6px}.home-entry .invite-digit{height:44px}.home-entry .invite-error{margin:0}.room-header{padding:4px 10px;min-height:32px;gap:8px}.room-content{padding:5px 10px}.draft-players img{width:28px;height:28px}.draft-players article{padding:3px}.draft-roster .hero{height:52px}.room-footer{padding:4px 8px 6px}.room-network{margin-bottom:3px}.network-live{top:46px;font-size:10px}}
+@media(max-height:270px){.online-home .mast>div{display:none}.draft-players{margin-bottom:4px}.draft-players strong{font-size:12px}.room-network{font-size:10px;line-height:14px}.room-header{font-size:12px}.room-flow .room-actions button{font-size:12px}}
+@media(orientation:landscape) and (max-height:220px){.online-home .mode small{display:none}.home-entry{width:min(560px,100%);display:grid;grid-template-columns:minmax(0,1fr) 114px;align-items:start;gap:8px;padding:0}.home-entry h2{display:none}.home-entry .invite-digits{gap:3px}.home-entry .invite-digit{font-size:18px}.home-entry .invite-create{font-size:12px;padding:8px 6px}}

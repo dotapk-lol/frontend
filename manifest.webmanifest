@@ -1,18 +1,37 @@
 {
   "id": "./",
-  "name": "DOTA DUEL · 1V1 竞技场",
-  "short_name": "DOTA DUEL",
+  "name": "DOTA PK",
+  "short_name": "DOTA PK",
   "description": "Dota 英雄 1V1 同人格斗，横屏双手操作，无需游戏账号。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["fullscreen", "standalone"],
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
   "orientation": "landscape",
   "background_color": "#070c10",
-  "theme_color": "#101719",
+  "theme_color": "#12161b",
   "icons": [
-    {"src": "assets/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-    {"src": "assets/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+    {
+      "src": "assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/app-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

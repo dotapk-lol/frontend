@@ -35,10 +35,11 @@ for(const f of clientFiles){const target=path.join(pub,'src',f);fs.mkdirSync(pat
 for(const f of ['index.html','manifest.webmanifest'])fs.copyFileSync(path.join(root,f),path.join(pub,f));
 for(const f of fs.readdirSync(path.join(root,'assets'))){if(f.endsWith('-render.png')||f==='audio')continue;const p=path.join(root,'assets',f);if(fs.statSync(p).isDirectory())fs.cpSync(p,path.join(pub,'assets',f),{recursive:true});else fs.copyFileSync(p,path.join(pub,'assets',f));}
 let data=fs.readFileSync(path.join(root,'src/data.js'),'utf8');data=data.replaceAll(/assets\/[a-z_]+-render\.png/g,m=>m.replace('assets/','assets/portraits/').replace('-render.png','.webp'));fs.writeFileSync(path.join(pub,'src/data.js'),data);
-const dataUri=(f)=>{const mime=f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
+const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
 let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('<link rel="stylesheet" href="src/style.css">','<style>'+css+'</style>').replace('<script type="module" src="src/app.js"></script>','<script type="module">'+js.replaceAll('</script','<\\/script')+'</script>');
-html=html.replace('<link rel="manifest" href="manifest.webmanifest">','').replace('href="assets/app-icon-180.png"','href="'+dataUri('assets/app-icon-180.png')+'"');
+html=html.replace('<link rel="manifest" href="manifest.webmanifest">','');
+for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32.png'])html=html.replace('href="assets/'+icon+'"','href="'+dataUri('assets/'+icon)+'"');
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);
 fs.copyFileSync(path.join(root,'_headers'),path.join(pub,'_headers'));
 const rules=createReleasedHeroRegistry().seal();

@@ -20,3 +20,14 @@ Old task-bound browser scripts have been removed. Browser acceptance requires se
 Local API integration must use an isolated database and matching profile/build from the backend guide. Integration creates test games; never use production as a fixture. Documentation-only changes need paired-language/header/link checks and `git diff --check`. Report exact commands, runtime, scope and remaining limits in PRs.
 
 Paired-guide maintenance: `python3 scripts/check-docs.py` checks all retained Markdown headers, language partners and relative links.
+
+## Room-first focused checks
+
+Run one bounded group at a time; do not parallelize whole hero matrices for these interaction changes.
+
+```sh
+node --max-old-space-size=256 --test --test-concurrency=1 qa/room-selection.test.mjs qa/p2p-quality.test.mjs qa/p2p-room-identity.test.mjs
+node --max-old-space-size=256 --test --test-concurrency=1 --test-name-pattern='homepage|language setting|six digits|waiting P2P|English host' qa/i18n-ui.test.mjs
+```
+
+Deterministic tests cover default/early/timeout locks, stale epochs, click/timeout races, one match allocation, background clock preservation, network hints without statistical vetoes, and terminal-result/bilateral-rematch/new-match behavior. These use transport/server fixtures and are not natural browser or SQL acceptance. Native acceptance must separately exercise two Chrome windows against the matching backend, natural result followed by same-room rematch, real six-digit auto-join, cancel/re-entry, and fixed-footer hit-testing in both languages at several small landscape sizes. Keep per-game SQL IDs/operator evidence private. If reliable transport fails, report the measured limitation; a fixture does not prove a real connection or physical iOS.

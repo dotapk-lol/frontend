@@ -18,7 +18,7 @@ test('central dictionaries have complete English values and exact 22 × 4 arena 
 });
 
 test('all static protocol, quality, record and native-browser error messages have English display translations',()=>{
- const l=controller();l.setLanguage('en');for(const path of ['p2p.js','match-api.js','local-rooms.js','net-quality.js','mobile.js','official-music.js','compatibility.js','engine.js']){
+ const l=controller();l.setLanguage('en');for(const path of ['p2p.js','room-selection.js','match-api.js','local-rooms.js','net-quality.js','mobile.js','official-music.js','compatibility.js','engine.js']){
   const source=fs.readFileSync(new URL('../src/'+path,import.meta.url),'utf8');
   for(const m of source.matchAll(/'([^'\\\n]*(?:\\.[^'\\\n]*)*)'/g)){if(han.test(m[1])&&!m[1].includes('<'))assert(!han.test(l.translate(m[1])),path+': '+m[1]);}
  }
