@@ -1,5 +1,17 @@
 // Canonical display copy only; never protocol or simulation data.
 export const UI_COPY_EN=Object.freeze({
+  "房间码": "Room code",
+  "六位房间码": "Six-digit room code",
+  "把房间码发给朋友": "Send this code to a friend",
+  "复制房间码": "Copy room code",
+  "房间码已复制": "Room code copied",
+  "请选中房间码并手动复制": "Select the code and copy it manually",
+  "等待对手加入…": "Waiting for your opponent…",
+  "竞技场背景加载失败": "Arena background unavailable",
+  "正在准备竞技场素材…": "Preparing arena images…",
+  "战斗精灵加载失败": "Fighter images unavailable",
+  "等待双方横屏与素材就绪": "Waiting for both players' landscape view and images",
+
   "网络连接暂不可用，请稍后重试": "Connection temporarily unavailable. Retry.",
   "版本信息暂不可用，请稍后重试": "Version information unavailable. Retry.",
   "当前版本与对战服务不兼容，请稍后重新检查": "This version is unavailable. Check again.",

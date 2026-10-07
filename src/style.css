@@ -112,3 +112,14 @@ html[lang="en"] .hero .release-status{font-size:8px;white-space:normal}html[lang
 @media(max-height:220px) and (orientation:landscape){.home-entry .version-check{grid-column:1/-1;margin-bottom:0}}
 
 .fighter-material-status{position:absolute;z-index:8;top:100px;left:50%;transform:translateX(-50%);max-width:90%;padding:10px 16px;border:1px solid #eac788;border-radius:8px;background:#071018ed;color:#eaf0ee;text-align:center;font:600 14px sans-serif;pointer-events:auto}.fighter-material-status[hidden]{display:none}.fighter-material-status button{margin-left:12px;padding:6px 12px;border:1px solid #eac788;border-radius:5px;background:#16232c;color:#eac788;cursor:pointer}
+
+/* Invitation code is the primary action while the host awaits a friend. */
+.room-invite{grid-template-rows:minmax(0,1fr) auto}.room-invite .room-content{display:flex;justify-content:center;align-items:center;padding:6px 12px;overflow:hidden}
+.invite-waiting{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:100%;text-align:center}.invite-waiting label{font-size:14px;color:var(--muted)}
+.invite-code-display{display:block;width:7ch;max-width:100%;min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--gold);font:700 clamp(48px,14dvh,108px)/1.05 ui-monospace,monospace;letter-spacing:.06em;text-align:center;font-variant-numeric:tabular-nums;user-select:text;-webkit-user-select:text;touch-action:manipulation}
+.invite-waiting p{margin:0;font-size:14px;line-height:18px}.invite-waiting .button{min-height:44px;padding:8px 24px}.invite-waiting #room-copy-feedback{font-size:12px;line-height:16px;min-height:16px;color:#b4dfc3}.room-invite .room-actions{justify-content:center}.room-invite .room-actions .quiet{flex:0 1 200px;color:var(--muted)}
+.room-footer .fighter-material-status{position:static;transform:none;max-width:none;padding:4px 8px;margin-bottom:4px;font-size:12px}.room-footer .fighter-material-status button{padding:4px 12px}
+@media(max-height:270px){.invite-waiting{gap:2px}.invite-waiting label{font-size:12px}.invite-waiting p{font-size:12px;line-height:16px}.invite-waiting #room-copy-feedback:empty{display:none}.room-invite .room-network:has(#p2p-status:empty){display:none}.room-invite .room-footer{padding:3px 8px}.room-invite .room-actions button{min-height:32px;padding:4px 12px}}
+
+.room-invite .room-network:has(#p2p-status:empty):has(#p2p-live:empty){display:none}
+@media(max-height:270px){.invite-waiting .button{min-height:36px;padding:4px 16px}.invite-waiting #room-copy-feedback{font-size:11px;line-height:14px;min-height:14px}.room-invite .room-footer .fighter-material-status{font-size:11px;line-height:14px;padding:2px 6px}.room-invite .room-footer .fighter-material-status button{padding:2px 10px}}
