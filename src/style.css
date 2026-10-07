@@ -123,3 +123,5 @@ html[lang="en"] .hero .release-status{font-size:8px;white-space:normal}html[lang
 
 .room-invite .room-network:has(#p2p-status:empty):has(#p2p-live:empty){display:none}
 @media(max-height:270px){.invite-waiting .button{min-height:36px;padding:4px 16px}.invite-waiting #room-copy-feedback{font-size:11px;line-height:14px;min-height:14px}.room-invite .room-footer .fighter-material-status{font-size:11px;line-height:14px;padding:2px 6px}.room-invite .room-footer .fighter-material-status button{padding:2px 10px}}
+
+@media(max-height:270px){.invite-waiting{gap:0}.invite-waiting label{display:none}}

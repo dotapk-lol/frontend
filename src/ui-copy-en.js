@@ -1,5 +1,6 @@
 // Canonical display copy only; never protocol or simulation data.
 export const UI_COPY_EN=Object.freeze({
+  "等待双方素材就绪": "Waiting for both players' images",
   "房间码": "Room code",
   "六位房间码": "Six-digit room code",
   "把房间码发给朋友": "Send this code to a friend",
