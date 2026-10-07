@@ -1,3 +1,6 @@
+import {runtimeHeroes} from '../src/runtime-heroes.js';
+import {lookupRuntimeHero} from '../src/hero-registry.js';
+import {FIGHTER_SPRITES} from '../src/fighter-sprites.js';
 import {execFileSync} from 'node:child_process';
 import {RELEASED_ROSTER} from '../src/released-roster.js';
 import {createReleasedHeroRegistry} from '../src/released-hero-rules.js';
@@ -21,6 +24,8 @@ if(uiBaseArg){
  registeredVersion=baseSource.match(/^export const NET_VERSION='(duel-[a-f0-9]{20})';$/)?.[1];
  if(!registeredVersion)throw Error('Invalid registered baseline wire version');
 }
+// Every released fighter and backup must resolve before writing a release.
+for(const id of RELEASED_ROSTER.heroIds){const hero=lookupRuntimeHero(runtimeHeroes,id),sprite=FIGHTER_SPRITES[hero.id];if(!sprite)throw Error('Missing fighter metadata: '+hero.id);for(const asset of [hero.portrait,hero.render,...hero.abilities.map(a=>a.icon),sprite.primary.src,sprite.fallback.src])if(!asset||!fs.existsSync(path.join(root,asset)))throw Error('Missing released hero asset: '+asset);}
 fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(path.join(pub,'src'),{recursive:true});fs.mkdirSync(path.join(pub,'assets'),{recursive:true});
 await import('./generate-catalog.mjs');
 // Copy and fingerprint every private client module, including all registry/phase imports.
@@ -33,8 +38,8 @@ const assetVersion='duel-'+fingerprint.digest('hex').slice(0,20),netVersion=regi
 fs.writeFileSync(path.join(root,'src/net-version.js'),netSource);
 for(const f of clientFiles){const target=path.join(pub,'src',f);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(root,'src',f),target);}
 for(const f of ['index.html','manifest.webmanifest'])fs.copyFileSync(path.join(root,f),path.join(pub,f));
-for(const f of fs.readdirSync(path.join(root,'assets'))){if(f.endsWith('-render.png')||f==='audio')continue;const p=path.join(root,'assets',f);if(fs.statSync(p).isDirectory())fs.cpSync(p,path.join(pub,'assets',f),{recursive:true});else fs.copyFileSync(p,path.join(pub,'assets',f));}
-let data=fs.readFileSync(path.join(root,'src/data.js'),'utf8');data=data.replaceAll(/assets\/[a-z_]+-render\.png/g,m=>m.replace('assets/','assets/portraits/').replace('-render.png','.webp'));fs.writeFileSync(path.join(pub,'src/data.js'),data);
+for(const f of fs.readdirSync(path.join(root,'assets'))){if(f==='audio')continue;const p=path.join(root,'assets',f);if(fs.statSync(p).isDirectory())fs.cpSync(p,path.join(pub,'assets',f),{recursive:true});else fs.copyFileSync(p,path.join(pub,'assets',f));}
+
 // A single immutable entry contains every game module. A cache can retain an
 // old complete build, but cannot assemble a new game from old/new module URLs.
 const entry={script:`src/app.${assetVersion}.js`,style:`src/style.${assetVersion}.css`};
@@ -45,7 +50,7 @@ const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('hre
 fs.writeFileSync(path.join(pub,'index.html'),entryHTML);
 const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
-let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('<link rel="stylesheet" href="src/style.css">','<style>'+css+'</style>').replace('<script type="module" src="src/app.js"></script>','<script type="module">'+js.replaceAll('</script','<\\/script')+'</script>');
+let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@import[^\r\n]*(?:\r?\n|$)/,'');let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('<link rel="stylesheet" href="src/style.css">','<style>'+css+'</style>').replace('<script type="module" src="src/app.js"></script>',()=>'<script type="module">'+js.replaceAll(/<\/script/gi,'<\\/script')+'</script>');
 html=html.replace('<link rel="manifest" href="manifest.webmanifest">','');
 for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32.png'])html=html.replace('href="assets/'+icon+'"','href="'+dataUri('assets/'+icon)+'"');
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);

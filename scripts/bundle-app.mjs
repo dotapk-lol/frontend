@@ -8,7 +8,7 @@ export const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url
 export async function bundleApp({append='',offline=false,candidate=false,overrides={}}={}){
  const src=path.join(projectRoot,'src'),assets={},assetNames=new Set();
  const localAsset=/(['"])(assets\/[^'"\\]+\.(?:png|webp|mp3))\1/g;
- const canonical=f=>f.replace('assets/music/reborn-dnb-remix.mp3','assets/music/reborn-dnb-remix-offline.mp3').replace(/^(assets\/cohort\/[a-z_]+-render)\.png$/,'$1.webp').replace(/^assets\/([a-z_]+)-render\.png$/,'assets/portraits/$1.webp');
+ const canonical=f=>f.replace('assets/music/reborn-dnb-remix.mp3','assets/music/reborn-dnb-remix-offline.mp3');
  const uri=f=>{const target=canonical(f);if(!fs.existsSync(path.join(projectRoot,target)))throw Error('Missing offline asset: '+target);const mime=target.endsWith('.mp3')?'audio/mpeg':target.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(projectRoot,target)).toString('base64')}`;};
  let atlas;
  if(offline){
@@ -25,7 +25,7 @@ export async function bundleApp({append='',offline=false,candidate=false,overrid
    if(candidate&&args.path===path.join(src,'release-profile.js'))contents='export const CANDIDATE_BUILD=true;export const HEROS22_BUILD=false;';
    if(args.path===path.join(src,'app.js')){
     contents+='\n'+append;
-    if(offline){contents=contents.replace('function img(src){','function img(src){src=OFFLINE_ASSETS[src]||src;').replace(/fetch\('assets\/atlas\.json'\)[\s\S]*?\.catch\(\(\)=>\{\}\);/,`atlas=${JSON.stringify(atlas)};Object.values(atlas.sheets).forEach(s=>img(s));`);}
+    if(offline)contents=contents.replace('function img(src){','function img(src){src=OFFLINE_ASSETS[src]||src;');
    }
    if(offline){contents=contents.replace(localAsset,(m,_q,f)=>assets[f]?`OFFLINE_ASSETS[${JSON.stringify(f)}]`:m);contents="import {OFFLINE_ASSETS} from 'duel:offline-assets';\n"+contents;}
    return {contents,loader:'js',resolveDir:path.dirname(args.path)};

@@ -1,7 +1,6 @@
 node_modules/
 dist/
 release/
-assets/*-render.png
 .sites-runtime/
 *.tar.gz
 
