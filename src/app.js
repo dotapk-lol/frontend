@@ -76,7 +76,7 @@ function syncMaterialAvailability(){const ready=battleMaterialsReady();p2pSessio
 function optionalArtworkFailed(){return arenaMaterials.fighter('arena').status==='failed'||portraitMaterials.info().heroes.some(h=>h.status==='failed')||portraitDisplayErrors.size>0;}
 function refreshPortraits(){for(const node of app.querySelectorAll('[data-material-portrait]')){const id=node.getAttribute?.('data-material-portrait')||node.dataset.materialPortrait,image=portraitMaterials.fighter(id).image;
  node.hidden=!image||portraitDisplayErrors.has(id);if(image&&!portraitDisplayErrors.has(id)){const src=image.src||portraitSprites[id].primary.src;if(node.getAttribute?.('src')!==src)node.src=src;}
- node.onerror=()=>{node.hidden=true;portraitDisplayErrors.add(id);materialsChanged();};
+ node.onerror=()=>{node.hidden=true;portraitDisplayErrors.add(id);node.removeAttribute?.('src');materialsChanged();};
 }}
 function retryMaterials(){arenaMaterials.retry();fighterMaterials.retry();if(portraitDisplayErrors.size){portraitDisplayErrors.clear();portraitMaterials.select([]);portraitMaterials.select(state.picks.map(id=>playableHero(id).id));}else portraitMaterials.retry();refreshFighterMaterials();}
 function materialMessage(){const heroes=fighterMaterials.info().heroes;
