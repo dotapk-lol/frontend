@@ -1,11 +1,20 @@
 import {FIGHTER_SPRITES} from './fighter-sprites.js';
 import {createImageLoader} from './image-loader.js';
 export function createFighterMaterials({sprites=FIGHTER_SPRITES,loader=null,onchange=()=>{}}={}){
- const images=loader||createImageLoader({onchange}),selected=new Set();
+ const selected=new Set(),watched=new WeakSet();
+ const images=loader||createImageLoader({onchange:changed});
+ if(loader)images.subscribe?.(changed);
+ function changed(){
+  // A small transparent backup can become usable while a slow sheet continues.
+  // Each selected URL is deduplicated; never cancel that sheet at the soft wait.
+  for(const id of selected){const spec=sprites[id];if(!spec)continue;const primary=images.status(spec.primary.src);
+   if(primary?.status==='failed'||(primary?.status==='loading'&&primary.slow))images.load(spec.fallback.src);
+  }
+  onchange();
+ }
  function ensure(id){const spec=sprites[id];if(!spec)return;
   const primary=images.load(spec.primary.src);
-  // Only decode a backup when the primary exhausted its finite retries.
-  primary.promise.then(record=>{if(record.status==='failed'&&selected.has(id)){images.load(spec.fallback.src);onchange();}});
+  if(!watched.has(primary)){watched.add(primary);primary.promise.then(changed);}
  }
  function select(ids){const next=new Set(ids);if(next.size===selected.size&&[...next].every(id=>selected.has(id)))return;
   selected.clear();for(const id of next)selected.add(id);

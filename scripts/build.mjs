@@ -12,12 +12,14 @@ if(process.argv.includes('--candidate')||process.argv.includes('--stable'))throw
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist'),pub=path.join(dist,'client');
 // A reviewed display-only hotfix can keep its registered wire identity. Refuse
 // any changed game, roster, protocol, dependency or asset source in this mode.
+// The two explicit material-loading modules affect display readiness only;
+// every engine/rules/protocol module and asset remains pinned to the baseline.
 const uiBaseArg=process.argv.find(arg=>arg.startsWith('--ui-only-from='));
 let uiBase=null,registeredVersion=null;
 if(uiBaseArg){
  const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
  uiBase=git(['rev-parse',uiBaseArg.slice('--ui-only-from='.length)+'^{commit}']);
- const allowed=f=>['src/app.js','src/style.css','index.html','scripts/build.mjs'].includes(f)||f.startsWith('qa/');
+ const allowed=f=>['src/app.js','src/style.css','src/image-loader.js','src/fighter-materials.js','index.html','scripts/build.mjs'].includes(f)||f.startsWith('qa/');
  const changed=git(['diff','--name-only',uiBase,'--']).split('\n').filter(Boolean);
  const untracked=git(['ls-files','--others','--exclude-standard']).split('\n').filter(Boolean);
  if([...changed,...untracked].some(f=>!allowed(f)))throw Error('UI-only build includes non-display changes');
