@@ -48,8 +48,10 @@ const entry={script:`src/app.${assetVersion}.js`,style:`src/style.${assetVersion
 const {code:online}=await bundleApp({overrides:{'net-version.js':netSource}});
 const compact=(await transform(online,{minifyWhitespace:true,minifyIdentifiers:true,minifySyntax:false,keepNames:true,target:'es2020',charset:'utf8',legalComments:'none'})).code;
 // The bundle is self-contained: native defer avoids a module-loader dependency.
-// Preserve module strictness and report actual execution separately from download.
-const native='"use strict";if(window.DOTA_STARTUP&&window.DOTA_STARTUP.appStarting)window.DOTA_STARTUP.appStarting();\n'+compact;
+// Preserve module strictness and scope for the entire transformed output.
+// esbuild may place compiler helpers before the original bundle IIFE. Keep
+// those helpers local too, so foreign globals cannot block or change startup.
+const native='"use strict";(()=>{if(window.DOTA_STARTUP&&window.DOTA_STARTUP.appStarting)window.DOTA_STARTUP.appStarting();\n'+compact+'\n})();\n';
 const appBytes=Buffer.from(native);
 fs.writeFileSync(path.join(pub,entry.script),native);
 fs.copyFileSync(path.join(root,'src/style.css'),path.join(pub,entry.style));
