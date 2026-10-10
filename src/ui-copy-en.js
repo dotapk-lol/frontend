@@ -1,5 +1,9 @@
 // Canonical display copy only; never protocol or simulation data.
 export const UI_COPY_EN=Object.freeze({
+  "正在准备对战…": "Preparing the duel…",
+  "正在准备战斗角色…": "Preparing fighters…",
+  "已使用备用场景": "Using the fallback arena",
+  "头像暂不可用，可重试": "Portraits unavailable; retry",
   "code must contain exactly six digits": "Enter a six-digit room code",
   "等待双方素材就绪": "Waiting for both players' images",
   "房间号": "Room code",
