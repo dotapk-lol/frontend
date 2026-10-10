@@ -2,7 +2,7 @@
 export const FIGHTER_SPRITES={
   "juggernaut": {
     "primary": {
-      "src": "assets/heroes-01.png",
+      "src": "assets/heroes-01.webp",
       "frames": [
         [
           29,
@@ -54,7 +54,7 @@ export const FIGHTER_SPRITES={
   },
   "crystal_maiden": {
     "primary": {
-      "src": "assets/heroes-01.png",
+      "src": "assets/heroes-01.webp",
       "frames": [
         [
           33,
@@ -106,7 +106,7 @@ export const FIGHTER_SPRITES={
   },
   "pudge": {
     "primary": {
-      "src": "assets/heroes-01.png",
+      "src": "assets/heroes-01.webp",
       "frames": [
         [
           38,
@@ -158,7 +158,7 @@ export const FIGHTER_SPRITES={
   },
   "axe": {
     "primary": {
-      "src": "assets/heroes-01.png",
+      "src": "assets/heroes-01.webp",
       "frames": [
         [
           44,
@@ -210,7 +210,7 @@ export const FIGHTER_SPRITES={
   },
   "sniper": {
     "primary": {
-      "src": "assets/heroes-01.png",
+      "src": "assets/heroes-01.webp",
       "frames": [
         [
           40,
