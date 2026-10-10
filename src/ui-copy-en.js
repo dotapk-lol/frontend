@@ -426,7 +426,20 @@ export const UI_COPY_EN=Object.freeze({
   "近战 · 区域控制": "Melee · Area control",
   "近战 · 位移爆发": "Melee · Mobility and burst",
   "近战 · 治疗连击": "Melee · Healing and combos",
-  "远程 · 双枪爆发": "Ranged · Dual-gun burst"
+  "远程 · 双枪爆发": "Ranged · Dual-gun burst",
+  "正在准备游戏…": "Preparing the game\u2026",
+  "完成后即可选人开战": "Choose heroes and play once ready",
+  "游戏素材进度": "Game assets progress",
+  "已解码": "Decoded",
+  "角色动作 1": "Fighter animations 1",
+  "角色动作 2": "Fighter animations 2",
+  "头像与技能": "Portraits and abilities",
+  "加载失败": "Load failed",
+  "正在解码…": "Decoding\u2026",
+  "正在重试…": "Retrying\u2026",
+  "正在下载…": "Downloading\u2026",
+  "游戏素材加载失败，请重试同一份素材": "Game assets failed to load. Retry the same assets.",
+  "加载较慢，请稍候": "Loading slowly. Please wait.",
 });
 
 // Recognized backend/browser faults are localized only at the display boundary.
@@ -478,4 +491,5 @@ export const SERVICE_COPY_ZH=Object.freeze({
   "fetch failed": "网络请求失败，请重试",
   "The operation was aborted due to timeout": "请求超时，请重试",
   "This operation was aborted": "请求已取消"
+
 });

@@ -1,6 +1,7 @@
 import {runtimeHeroes} from '../src/runtime-heroes.js';
 import {lookupRuntimeHero} from '../src/hero-registry.js';
 import {FIGHTER_SPRITES} from '../src/fighter-sprites.js';
+import {CORE_ASSETS} from '../src/core-assets.js';
 import {execFileSync} from 'node:child_process';
 import {RELEASED_ROSTER} from '../src/released-roster.js';
 import {createReleasedHeroRegistry} from '../src/released-hero-rules.js';
@@ -21,7 +22,7 @@ if(uiBaseArg){
  uiBase=git(['rev-parse',uiBaseArg.slice('--ui-only-from='.length)+'^{commit}']);
  const copyOnly={'src/i18n.js':[['邀请码','房间号'],['Invite code','Room code']],'src/p2p.js':[['请输入六位数字口令','请输入六位数字房间号']],'src/local-rooms.js':[['房号','房间号'],['口令','房间号']]};
  const unchangedExceptCopy=f=>copyOnly[f]&&fs.readFileSync(path.join(root,f),'utf8').trim()===copyOnly[f].reduce((text,[before,after])=>text.replaceAll(before,after),git(['show',uiBase+':'+f]));
- const allowed=f=>unchangedExceptCopy(f)||['src/app.js','src/style.css','src/image-loader.js','src/fighter-materials.js','src/fighter-sprites.js','src/ui-copy-en.js','assets/arena.webp','assets/heroes-01.webp','index.html','scripts/build.mjs','README.md','README.zh-CN.md','docs/ARCHITECTURE.md','docs/ARCHITECTURE.zh-CN.md'].includes(f)||f.startsWith('qa/');
+ const allowed=f=>unchangedExceptCopy(f)||['src/app.js','src/style.css','src/image-loader.js','src/fighter-materials.js','src/fighter-sprites.js','src/core-assets.js','scripts/generate-core-assets.mjs','src/ui-copy-en.js','assets/arena.webp','assets/heroes-01.webp','index.html','scripts/build.mjs','README.md','README.zh-CN.md','docs/ARCHITECTURE.md','docs/ARCHITECTURE.zh-CN.md'].includes(f)||/^assets\/core\/(fighters-[12]|ui)-[a-f0-9]{12}\.webp$/.test(f)||f.startsWith('qa/');
  const changed=git(['diff','--name-only',uiBase,'--']).split('\n').filter(Boolean);
  const untracked=git(['ls-files','--others','--exclude-standard']).split('\n').filter(Boolean);
  if([...changed,...untracked].some(f=>!allowed(f)))throw Error('UI-only build includes non-display changes');
@@ -31,7 +32,7 @@ if(uiBaseArg){
  if(!registeredVersion)throw Error('Invalid registered baseline wire version');
 }
 // Every released fighter and backup must resolve before writing a release.
-for(const id of RELEASED_ROSTER.heroIds){const hero=lookupRuntimeHero(runtimeHeroes,id),sprite=FIGHTER_SPRITES[hero.id];if(!sprite)throw Error('Missing fighter metadata: '+hero.id);for(const asset of [hero.portrait,hero.render,...hero.abilities.map(a=>a.icon),sprite.primary.src,sprite.fallback.src])if(!asset||!fs.existsSync(path.join(root,asset)))throw Error('Missing released hero asset: '+asset);}
+for(const id of RELEASED_ROSTER.heroIds){const hero=lookupRuntimeHero(runtimeHeroes,id),sprite=FIGHTER_SPRITES[hero.id];if(!sprite)throw Error('Missing fighter metadata: '+hero.id);for(const asset of [hero.portrait,hero.render,...hero.abilities.map(a=>a.icon),sprite.primary.src,...(sprite.fallback?[sprite.fallback.src]:[])])if(!asset||!fs.existsSync(path.join(root,asset)))throw Error('Missing released hero asset: '+asset);}
 fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(path.join(pub,'src'),{recursive:true});fs.mkdirSync(path.join(pub,'assets'),{recursive:true});
 await import('./generate-catalog.mjs');
 // Copy and fingerprint every private client module, including all registry/phase imports.
@@ -77,7 +78,7 @@ if(retainArg){
  if(m.gameVersion!==netVersion||m.rulesHash!==createReleasedHeroRegistry().seal().rulesHash)throw Error('Retained entry must have exact current compatibility');
  for(const field of ['script','style']){const file=m.entry[field];if(!/^src\/(?:app|style)\.duel-[a-f0-9]{20}\.(?:js|css)$/.test(file))throw Error('Unsafe retained entry path');if(file!==entry[field]){fs.copyFileSync(path.join(prior,file),path.join(pub,file));retained.push(file);}}
 }
-const immutable=[entry.script,entry.style,...retained].map(file=>`/${file}\n  Cache-Control: public, max-age=31536000, immutable\n`).join('\n');
+const immutable=[entry.script,entry.style,...retained,...CORE_ASSETS.map(a=>a.src)].map(file=>`/${file}\n  Cache-Control: public, max-age=31536000, immutable\n`).join('\n');
 // Avoid conflicting max-age values: unversioned files keep the platform default.
 const baseHeaders=fs.readFileSync(path.join(root,'_headers'),'utf8').replace('  Cache-Control: public, max-age=0, must-revalidate\n','');
 fs.writeFileSync(path.join(pub,'_headers'),baseHeaders+'\n'+immutable);
