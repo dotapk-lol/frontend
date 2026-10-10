@@ -6,7 +6,7 @@ test('hosted frontend uses HTTPS Go API and localhost keeps QA endpoint',()=>{co
 test('published HTML boots one complete fingerprinted package and entry metadata bypasses stale caches',()=>{
  const root=new URL('../dist/client/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('build-manifest.json',root),'utf8')),html=fs.readFileSync(new URL('index.html',root),'utf8');
  assert.equal(manifest.gameVersion,NET_VERSION);assert.match(manifest.entry.script,/^src\/app\.duel-[a-f0-9]{20}\.js$/);assert.match(manifest.entry.style,/^src\/style\.duel-[a-f0-9]{20}\.css$/);
- assert(html.includes('src="'+manifest.entry.script+'"'));assert(html.includes('href="'+manifest.entry.style+'"'));assert(!html.includes('src="src/app.js"'));
+ assert(html.includes('src="'+manifest.entry.script+'"'));assert(html.includes('data-source="'+manifest.entry.style+'"'));assert.match(html,/<script id="startup-app" defer src=/);assert(!html.includes('rel="stylesheet"'));assert(!html.includes('src="src/app.js"'));
  const bundle=fs.readFileSync(new URL(manifest.entry.script,root),'utf8');assert(bundle.includes(NET_VERSION));assert(!bundle.includes('I18N_QA'));new vm.Script(bundle);assert(fs.statSync(new URL(manifest.entry.style,root)).size>1000);
  const headers=fs.readFileSync(new URL('_headers',root),'utf8');for(const path of ['/','/index.html','/build-manifest.json'])assert(headers.includes(path+'\n  Cache-Control: no-store'));
 });

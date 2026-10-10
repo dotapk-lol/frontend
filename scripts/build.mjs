@@ -46,11 +46,17 @@ for(const f of fs.readdirSync(path.join(root,'assets'))){if(f==='audio')continue
 // old complete build, but cannot assemble a new game from old/new module URLs.
 const entry={script:`src/app.${assetVersion}.js`,style:`src/style.${assetVersion}.css`};
 const {code:online}=await bundleApp({overrides:{'net-version.js':netSource}});
-const compact=(await transform(online,{minifyWhitespace:true,minifyIdentifiers:true,minifySyntax:false,keepNames:true,target:'es2022',charset:'utf8',legalComments:'none'})).code;
-const appBytes=Buffer.from(compact);
-fs.writeFileSync(path.join(pub,entry.script),compact);
+const compact=(await transform(online,{minifyWhitespace:true,minifyIdentifiers:true,minifySyntax:false,keepNames:true,target:'es2020',charset:'utf8',legalComments:'none'})).code;
+// The bundle is self-contained: native defer avoids a module-loader dependency.
+// Preserve module strictness and report actual execution separately from download.
+const native='"use strict";if(window.DOTA_STARTUP&&window.DOTA_STARTUP.appStarting)window.DOTA_STARTUP.appStarting();\n'+compact;
+const appBytes=Buffer.from(native);
+fs.writeFileSync(path.join(pub,entry.script),native);
 fs.copyFileSync(path.join(root,'src/style.css'),path.join(pub,entry.style));
-const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace('href="src/style.css"',`href="${entry.style}"`).replace('src="src/app.js"',`src="${entry.script}"`);
+// One HTML response supplies styles; no CSS request/onload can hold the startup shell.
+const cssText=fs.readFileSync(path.join(root,'src/style.css'),'utf8');
+if(/@import\b|<\/style/i.test(cssText))throw Error('Hosted inline styles must be self-contained');
+const entryHTML=fs.readFileSync(path.join(pub,'index.html'),'utf8').replace(/<link\b[^>]*id="startup-style"[^>]*>/,()=>`<style id="startup-style" data-source="${entry.style}">${cssText}</style>`).replace('src="src/app.js"',`src="${entry.script}"`).replace('<script id="startup-app" type="module"','<script id="startup-app" defer');
 fs.writeFileSync(path.join(pub,'index.html'),entryHTML);
 const dataUri=(f)=>{const mime=f.endsWith('.svg')?'image/svg+xml':f.endsWith('.mp3')?'audio/mpeg':f.endsWith('.webp')?'image/webp':'image/png';return `data:${mime};base64,${fs.readFileSync(path.join(root,f)).toString('base64')}`;};
 const {code:js}=await bundleApp({offline:true,overrides:{'net-version.js':netSource}});
@@ -58,7 +64,17 @@ let css=fs.readFileSync(path.join(root,'src/style.css'),'utf8').replace(/^@impor
 html=html.replace('<link rel="manifest" href="manifest.webmanifest">','');
 for(const icon of ['app-icon-180.png','favicon.svg','favicon-16.png','favicon-32.png'])html=html.replace('href="assets/'+icon+'"','href="'+dataUri('assets/'+icon)+'"');
 fs.mkdirSync(path.join(root,'release'),{recursive:true});fs.writeFileSync(path.join(root,'release/DOTA_DUEL_22.html'),html);
-fs.copyFileSync(path.join(root,'_headers'),path.join(pub,'_headers'));
+// Keep only the previous complete entry for cached HTML; never copy private files.
+const retainArg=process.argv.find(arg=>arg.startsWith('--retain-client-from=')),retained=[];
+if(retainArg){
+ const prior=path.resolve(retainArg.slice('--retain-client-from='.length)),m=JSON.parse(fs.readFileSync(path.join(prior,'build-manifest.json'),'utf8'));
+ if(m.gameVersion!==netVersion||m.rulesHash!==createReleasedHeroRegistry().seal().rulesHash)throw Error('Retained entry must have exact current compatibility');
+ for(const field of ['script','style']){const file=m.entry[field];if(!/^src\/(?:app|style)\.duel-[a-f0-9]{20}\.(?:js|css)$/.test(file))throw Error('Unsafe retained entry path');if(file!==entry[field]){fs.copyFileSync(path.join(prior,file),path.join(pub,file));retained.push(file);}}
+}
+const immutable=[entry.script,entry.style,...retained].map(file=>`/${file}\n  Cache-Control: public, max-age=31536000, immutable\n`).join('\n');
+// Avoid conflicting max-age values: unversioned files keep the platform default.
+const baseHeaders=fs.readFileSync(path.join(root,'_headers'),'utf8').replace('  Cache-Control: public, max-age=0, must-revalidate\n','');
+fs.writeFileSync(path.join(pub,'_headers'),baseHeaders+'\n'+immutable);
 const rules=createReleasedHeroRegistry().seal();
-fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
-console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-module',appRequests:1},build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
+fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,delivery:{script:"native-defer",styles:"inline",immutableEntries:true,retainedEntries:retained},roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
+console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-defer',appRequests:1,criticalStylesheetRequests:0,retainedEntries:retained.length},build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
