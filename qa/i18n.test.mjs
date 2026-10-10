@@ -25,7 +25,7 @@ test('all static protocol, quality, record and native-browser error messages hav
 });
 
 test('composed dynamic quality, failure prefixes, room policy and results translate without changing source values',()=>{
- const l=controller();const values=['对方：探测丢包过多','开战检查未通过：双方尚未准备好','战绩服务：版本不一致','自己 已准备 · 对方 未准备','本端 样本 30/24　RTT P95 151.0ms　抖动 5.0ms　丢包 0.0%\n对端 尚未收到','P95 RTT > 150ms 禁战 · 抖动≤30ms · 探测丢包≤5%','P1 拿下本回合　2 : 1','P1最高 12 连击','邀请码第6位','22 位已开放 · 24 位未发布 · 三局两胜 · 99 秒回合'];l.setLanguage('en');
+ const l=controller();const values=['对方：探测丢包过多','开战检查未通过：双方尚未准备好','战绩服务：版本不一致','自己 已准备 · 对方 未准备','本端 样本 30/24　RTT P95 151.0ms　抖动 5.0ms　丢包 0.0%\n对端 尚未收到','P95 RTT > 150ms 禁战 · 抖动≤30ms · 探测丢包≤5%','P1 拿下本回合　2 : 1','P1最高 12 连击','房间号第6位','22 位已开放 · 24 位未发布 · 三局两胜 · 99 秒回合'];l.setLanguage('en');
  for(const source of values)assert(!han.test(l.translate(source)),source);
  assert(l.translate(values[4]).includes('RTT P95 151.0ms'));assert(l.translate(values[5]).includes('> 150ms'));
  l.setLanguage('zh');assert.equal(l.translate(values[4]),values[4]);
@@ -43,3 +43,5 @@ test('canonical backend errors render Chinese or English and language is absent 
  room.players[1]={id:'b'.repeat(64),hero:0};assert(!compatibleRoom(room,{role:'host',hero:1}));
  const bad={samples:30,received:30,p95:151,median:40,jitter:4,loss:0};const result=qualityDecision(bad,AUTO_PVP_POLICY);assert(!result.ok);assert.equal(result.reason,'RTT不符合开战规则');l.setLanguage('en');assert.equal(l.translate(result.reason),'RTT does not meet the start policy');assert.equal(qualityDecision(bad,AUTO_PVP_POLICY).reason,result.reason);
 });
+
+test('room code terminology covers entry, accessibility, sharing and displayed service errors',()=>{const l=controller();for(const [zh,en]of [['输入房间号','Enter room code'],['六位数字房间号','Six-digit room code'],['请输入六位数字房间号','Enter a six-digit room code'],['房间号第6位','Room code digit 6'],['复制房间号','Copy room code'],['房间号已复制','Room code copied'],['把房间号发给朋友','Send this room code to a friend'],['分享房间号，等待对方','Share your room code; waiting for opponent']]){l.setLanguage('zh');assert.equal(l.translate(zh),zh);l.setLanguage('en');assert.equal(l.translate(zh),en);}l.setLanguage('zh');assert.equal(l.translate('code must contain exactly six digits'),'请输入六位数字房间号');assert.equal(l.translate('房间号碰撞，请重试'),'房间号碰撞，请重试');l.setLanguage('en');assert.equal(l.translate('请输入六位数字口令'),'Enter a six-digit room code');assert.equal(l.translate('code must contain exactly six digits'),'Enter a six-digit room code');});

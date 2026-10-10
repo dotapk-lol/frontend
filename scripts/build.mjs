@@ -19,7 +19,9 @@ let uiBase=null,registeredVersion=null;
 if(uiBaseArg){
  const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
  uiBase=git(['rev-parse',uiBaseArg.slice('--ui-only-from='.length)+'^{commit}']);
- const allowed=f=>['src/app.js','src/style.css','src/image-loader.js','src/fighter-materials.js','src/fighter-sprites.js','assets/arena.webp','assets/heroes-01.webp','index.html','scripts/build.mjs'].includes(f)||f.startsWith('qa/');
+ const copyOnly={'src/i18n.js':[['邀请码','房间号'],['Invite code','Room code']],'src/p2p.js':[['请输入六位数字口令','请输入六位数字房间号']],'src/local-rooms.js':[['房号','房间号'],['口令','房间号']]};
+ const unchangedExceptCopy=f=>copyOnly[f]&&fs.readFileSync(path.join(root,f),'utf8').trim()===copyOnly[f].reduce((text,[before,after])=>text.replaceAll(before,after),git(['show',uiBase+':'+f]));
+ const allowed=f=>unchangedExceptCopy(f)||['src/app.js','src/style.css','src/image-loader.js','src/fighter-materials.js','src/fighter-sprites.js','src/ui-copy-en.js','assets/arena.webp','assets/heroes-01.webp','index.html','scripts/build.mjs','README.md','README.zh-CN.md','docs/ARCHITECTURE.md','docs/ARCHITECTURE.zh-CN.md'].includes(f)||f.startsWith('qa/');
  const changed=git(['diff','--name-only',uiBase,'--']).split('\n').filter(Boolean);
  const untracked=git(['ls-files','--others','--exclude-standard']).split('\n').filter(Boolean);
  if([...changed,...untracked].some(f=>!allowed(f)))throw Error('UI-only build includes non-display changes');

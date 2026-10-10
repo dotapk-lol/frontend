@@ -28,7 +28,7 @@ export function createLanguage({storage,document,onchange=()=>{}}={}){
    [/^(本端|对端) (.+)$/,m=>`${m[1]==='本端'?'Local':'Peer'}: ${translate(m[2])}`],
    [/^正在为 P(\d+) 选择英雄$/,m=>`Choosing a hero for P${m[1]}`],
    [/^为玩家(\d+)选英雄$/,m=>`Select a hero for player ${m[1]}`],
-   [/^邀请码第(\d+)位$/,m=>`Invite code digit ${m[1]}`],
+   [/^房间号第(\d+)位$/,m=>`Room code digit ${m[1]}`],
    [/^(\d+) 位已开放(?: · (\d+) 位未发布)? · 三局两胜 · 99 秒回合$/,m=>`${m[1]} released${m[2]?` · ${m[2]} unreleased`:''} · Best of three · 99-second rounds`],
    [/^(\d+) 个回合$/,m=>`${m[1]} rounds`],
    [/^P(\d+)最高 (\d+) 连击$/,m=>`P${m[1]} best: ${m[2]} hits`],

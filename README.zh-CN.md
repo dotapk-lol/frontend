@@ -2,12 +2,12 @@
 
 # DOTA PK 前端
 
-[dotapk.lol](https://dotapk.lol) 的浏览器客户端：**22 位已发布英雄 / 88 个技能槽**、六位邀请码 WebRTC 对战、人机、桌面同屏和同浏览器 BroadcastChannel。玩家无需登录账号；首页中英偏好保存在 localStorage。手机采用横屏、拖动摇杆和四技能按钮，未发布英雄保持灰禁、暂停适配。
+[dotapk.lol](https://dotapk.lol) 的浏览器客户端：**22 位已发布英雄 / 88 个技能槽**、六位房间号 WebRTC 对战、人机、桌面同屏和同浏览器 BroadcastChannel。玩家无需登录账号；首页中英偏好保存在 localStorage。手机采用横屏、拖动摇杆和四技能按钮，未发布英雄保持灰禁、暂停适配。
 
 | 仓库 | 职责 |
 | --- | --- |
 | frontend（本仓库） | Cloudflare 静态 UI、输入、渲染、AI、浏览器战斗世界、规则 host、P2P 与结果客户端 |
-| [backend](https://github.com/dotapk-lol/backend) | Go 匿名会话、邀请码/信令、结果核对和现有 MySQL 统计；`https://api.dotapk.lol/api/v1` |
+| [backend](https://github.com/dotapk-lol/backend) | Go 匿名会话、房间号/信令、结果核对和现有 MySQL 统计；`https://api.dotapk.lol/api/v1` |
 | [heros](https://github.com/dotapk-lol/heros) | MIT 确定性规则、参数和 host 合约；[人工汇总数据说明](https://github.com/dotapk-lol/heros/blob/main/balance-data/README.zh-CN.md) |
 
 战斗在浏览器运行。WebRTC 通过 API 交换信令，再使用 DataChannel；BC 不能连接不同设备。当前没有 TURN，部分 NAT 组合无法连接。PVP `confirmed / peer_agreement` 仅表示双报一致，不是服务器模拟或反作弊认证。PVE/local/BC 为 `recorded / client_reported`；中止和争议局不计胜率。

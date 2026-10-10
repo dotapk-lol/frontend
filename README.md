@@ -2,12 +2,12 @@
 
 # DOTA PK frontend
 
-Browser client for [dotapk.lol](https://dotapk.lol): **22 released heroes / 88 skill slots**, six-digit WebRTC invitations, PVE, desktop same-screen and same-browser BroadcastChannel play. Players need no account login. The home-page English/Chinese preference stays in localStorage. Mobile play uses landscape, a drag joystick and four skill buttons; unreleased heroes stay grey and paused.
+Browser client for [dotapk.lol](https://dotapk.lol): **22 released heroes / 88 skill slots**, six-digit WebRTC room codes, PVE, desktop same-screen and same-browser BroadcastChannel play. Players need no account login. The home-page English/Chinese preference stays in localStorage. Mobile play uses landscape, a drag joystick and four skill buttons; unreleased heroes stay grey and paused.
 
 | Repository | Responsibility |
 | --- | --- |
 | frontend (this repository) | Cloudflare static UI, input, rendering, AI, browser combat world, rule host adapters, P2P and result client |
-| [backend](https://github.com/dotapk-lol/backend) | Go anonymous sessions, invitations/signaling, result reconciliation and existing MySQL statistics; `https://api.dotapk.lol/api/v1` |
+| [backend](https://github.com/dotapk-lol/backend) | Go anonymous sessions, room codes/signaling, result reconciliation and existing MySQL statistics; `https://api.dotapk.lol/api/v1` |
 | [heros](https://github.com/dotapk-lol/heros) | MIT deterministic rules, parameters and host contracts; [manual aggregate-data policy](https://github.com/dotapk-lol/heros/blob/main/balance-data/README.md) |
 
 Combat runs in browsers. WebRTC exchanges signaling through the API then uses DataChannel; BC cannot connect different devices. No TURN is provisioned, so some NAT combinations fail. PVP `confirmed / peer_agreement` means both reports agreed, not server simulation or anti-cheat certification. PVE/local/BC use `recorded / client_reported`; aborted/disputed games do not enter win rates.

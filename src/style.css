@@ -112,7 +112,7 @@ html[lang="en"] .hero .release-status{font-size:8px;white-space:normal}html[lang
 
 .fighter-material-status{position:absolute;z-index:8;top:100px;left:50%;transform:translateX(-50%);max-width:90%;padding:10px 16px;border:1px solid #eac788;border-radius:8px;background:#071018ed;color:#eaf0ee;text-align:center;font:600 14px sans-serif;pointer-events:auto}.fighter-material-status[hidden]{display:none}.fighter-material-status button{margin-left:12px;padding:6px 12px;border:1px solid #eac788;border-radius:5px;background:#16232c;color:#eac788;cursor:pointer}
 
-/* Invitation code is the primary action while the host awaits a friend. */
+/* Room code is the primary action while the host awaits a friend. */
 .room-invite{grid-template-rows:minmax(0,1fr) auto}.room-invite .room-content{display:flex;justify-content:center;align-items:center;padding:6px 12px;overflow:hidden}
 .invite-waiting{display:flex;flex-direction:column;align-items:center;gap:6px;max-width:100%;text-align:center}.invite-waiting label{font-size:14px;color:var(--muted)}
 .invite-code-display{display:block;width:7ch;max-width:100%;min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--gold);font:700 clamp(48px,14dvh,108px)/1.05 ui-monospace,monospace;letter-spacing:.06em;text-align:center;font-variant-numeric:tabular-nums;user-select:text;-webkit-user-select:text;touch-action:manipulation}

@@ -2,7 +2,7 @@
 
 # Architecture
 
-The browser is the combat host: UI/input → Engine and pack dispatcher → reviewed hero sessions/providers → rendering and snapshots. The host validates casts, pays resources, owns effect receipts and world state. WebRTC uses a host-authoritative world, guest input/snapshots and reliable control; Go provides invitations/signaling and result storage, not simulation. Same-screen and BC are explicitly separate transports.
+The browser is the combat host: UI/input → Engine and pack dispatcher → reviewed hero sessions/providers → rendering and snapshots. The host validates casts, pays resources, owns effect receipts and world state. WebRTC uses a host-authoritative world, guest input/snapshots and reliable control; Go provides room codes/signaling and result storage, not simulation. Same-screen and BC are explicitly separate transports.
 
 | Path | Role |
 | --- | --- |
@@ -24,7 +24,7 @@ The client keeps a recent local result display but only a successful server rece
 
 ## Room-first PvP
 
-PvP opens with six independent invitation digits and Create room. A complete valid code automatically submits once; there is no pre-room hero selection or extra Join button. Both occupied seats initially use the explicitly published default Crystal Maiden (ID1). Successful native control/frames channels and an exact version/roster hello allow selection, without waiting for a sample window. PVE retains its immediate local selection flow. Language is chosen only in the home header and shared through the persistent front-end i18n controller.
+PvP opens with six independent room-code digits and Create room. A complete valid code automatically submits once; there is no pre-room hero selection or extra Join button. Both occupied seats initially use the explicitly published default Crystal Maiden (ID1). Successful native control/frames channels and an exact version/roster hello allow selection, without waiting for a sample window. PVE retains its immediate local selection flow. Language is chosen only in the home header and shared through the persistent front-end i18n controller.
 
 The host begins an authenticated selection epoch, waits for both clients to render and acknowledge that epoch, and owns a20-second monotonic countdown. Preview heroes use ordered P2P messages; each participant locks only their own legal hero through the server before reporting ready. Both locks start early; timeout asks both to lock their current choices (default Crystal Maiden when untouched). Match creation requires the same selection epoch and two server locks, followed by both existing backend ready calls and verified in_progress. No client-only hero substitution is permitted.
 
