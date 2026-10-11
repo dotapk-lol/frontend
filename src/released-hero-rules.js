@@ -6,7 +6,7 @@ import {remainingLegacyFactory as zero} from './hero-legacy-zero-rules.js';
 import {registerLegacyStatusDrafts,legacyActiveDraftFactory} from './hero-legacy-next-rules.js';
 import {core4Factory,centaurFactory,skywrathFactory,extraFactory} from './hero-wave43-owned-rules.js';
 import {RELEASED_ROSTER} from './released-roster.js';
-export const RELEASE_RULES_HASH='af7cba2fb2aba770cd9ea18c08c4be97ac8d09d53bde76c6c3e0aa98fb4b0506';
+export const RELEASE_RULES_HASH='1c834e77da8f10a46a281da6df9f62458b701a7297befc9c5d5c9c52210d3f67';
 export const slots=[[1,0],[2,2],[3,0],[4,2],[5,2],[8,1],[9,3],[15,0]];
 export function accepted(){const r=R.registerB(R.registerLegacy10To19(R.registerLegacy0To9(R.registerA(R.createHeroRegistry()))),{statusMode:'strict'}).registerFactory(31,2,{abiVersion:R.BATTLE_ABI,create:R.createBash});
  const tenRows=[[10,2,['legacy-passive-v1','legacy-hit-v1']],[12,1,['legacy-passive-v1','legacy-ward-cleave-v1']],[15,2,['legacy-property-v1']],[15,3,['legacy-hit-v1','legacy-souls-v1']],[17,2,['legacy-hit-v1']]];

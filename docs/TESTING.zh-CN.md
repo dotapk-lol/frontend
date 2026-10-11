@@ -31,3 +31,7 @@ node --max-old-space-size=256 --test --test-concurrency=1 --test-name-pattern='h
 ```
 
 确定性测试覆盖默认/提前/到时锁定、旧轮次、点击与到时竞态、单次建局、后台保留倒计时、网络只提示不按统计否决，以及终态/双方再战/新比赛。测试使用传输与服务器夹具，不是自然浏览器或 SQL 验收。原生验收必须另以两 Chrome 窗口连接匹配后端，实际自然结果后同房再战、真实六码自动加入、取消/重入，以及不同小屏横屏尺寸和两种语言的固定底栏命中测试。逐局 SQL ID 和运维证据只放私有交接。可靠连接失败应如实报告测量限制；夹具不证明真实连接或物理 iOS。
+
+## 六英雄复审回归
+
+执行 `node --test --test-concurrency=1 qa/dismember-control.test.mjs qa/strike-counterspell.test.mjs qa/six-snapshot-integrity.test.mjs qa/six-heroes.test.mjs`。这些测试通过真实 Engine 验证双方座位、累计控制预算与保护期、反射突袭的资源及回执，以及效果中途恢复。重复实体、伪造行程与反射、波命中重放和过期状态时钟负例均由 Engine 恢复入口和远端入口拒绝。独立出生、推进和回执记录序列化在 `packClock.sixEffects`；这是结构完整性校验，不是服务端权威反作弊。28 英雄机制冒烟脚本只证明接线。真实双浏览器 PVP、暂停恢复、自然结束及同房重赛仍为依赖后端的单独验收门槛。

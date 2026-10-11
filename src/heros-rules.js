@@ -4,7 +4,7 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// ../frontend/node_modules/@dotapk/heros/index.js
+// node_modules/@dotapk/heros/index.js
 var heros_exports = {};
 __export(heros_exports, {
   BATTLE_ABI: () => BATTLE_ABI,
@@ -18,7 +18,7 @@ __export(heros_exports, {
   heroes: () => heroes
 });
 
-// ../frontend/node_modules/@dotapk/heros/content/heroes.json
+// node_modules/@dotapk/heros/content/heroes.json
 var heroes_default = [
   {
     id: "juggernaut",
@@ -10997,7 +10997,7 @@ var heroes_default = [
   }
 ];
 
-// ../frontend/node_modules/@dotapk/heros/content/index.js
+// node_modules/@dotapk/heros/content/index.js
 function freezeTree(v) {
   if (v && typeof v === "object" && !Object.isFrozen(v)) {
     Object.values(v).forEach(freezeTree);
@@ -11007,7 +11007,7 @@ function freezeTree(v) {
 }
 var heroes = freezeTree(heroes_default);
 
-// ../frontend/node_modules/@dotapk/heros/rules/fingerprint.js
+// node_modules/@dotapk/heros/rules/fingerprint.js
 var sourceManifest = {
   "content/heroes.json": "b837cb0c5c601092c7ce1b0d2fda6a90bcde8b6d797149cbac9cc9cf3d381b7d",
   "content/index.js": "e552bf8888a58f1c171e430e36a4767157eaf43d717cd7b3195d3a8643cf85e1",
@@ -11027,13 +11027,13 @@ var sourceManifest = {
   "examples/training-lantern/plugin.mjs": "15ed3acb4fc79412a6dfc131b673b33b9a92553d77beba7a1d82d52253e8700e",
   "examples/training-lantern/run.mjs": "a68e1822c9a26ba5be49139555f3e42b2ecea647e4ed31fc23098fd4b318cc5c",
   "index.js": "e34c25f5432c730d52a336b7be86bce1ea9e39b65b4b1cdd9a0cc0f1aef38ca8",
-  "package.json": "1b12b2d212d8b63bfae418daa52d29f22294112cba32c4878de63053890ced7f",
+  "package.json": "459bd554e71764668f7d2cf469e643d82c2486ac8ae7c378e2aad5796ff0e04c",
   "release/catalog-status.json": "2dbb618e75aec32c815e180e34af96c32efdab172e30293a15b9ef71e82625bb",
   "release/catalog.js": "879082ec6178ae9d8518efac4de408dcc1810580cdea1d18f7b65bed65dbdb5a",
-  "release/expected-manifest.json": "13a4490d74c5e3029e1b5fb9c4b2e97adf289810e7ce8967548ecb4cf714825b",
+  "release/expected-manifest.json": "105e241a5866a248693c232339ef5dca42f2a1951fe06dab9bfed4187f283eba",
   "release/factories.js": "a357249d9800fe593f663444ac896594f9dc71de6af03676ddaa13099b3e464e",
   "release/index.js": "2c68b1c952ed79e33c8daf8383720a89cdbb1f2d81a2bf043f52fad1a4315ec5",
-  "release/profile.json": "39676a873adc25cff0aaa0a03d00118681ee5d5dcc1edd676dc0cd26f1c741df",
+  "release/profile.json": "4178cbfb62574c3d1a83936cf8b0d58e54fa55141770107b314ee51c3a264f2a",
   "rules/a/extensions/canonical.js": "27589aeae0f4cf0037fea07f0ea9bb7c95977ecb756342396d4bba1de4b519a1",
   "rules/a/extensions/common.mjs": "15b26f87007922ba78f1f6d5b9eb483c6a6de52f5069c592ee81726de9afcc98",
   "rules/a/extensions/dragon.mjs": "e8ef50d566fdd3e4fa3c9bfac07a73571bd216f6ea0a2a1b6108f193fb0e760f",
@@ -11088,7 +11088,7 @@ var sourceManifest = {
   "rules/legacy-10-19/remaining-projectiles.js": "8f25c1e7e98f5fcf6f096f1c6371c692aeb05189efc009c90c43bde543f6b56d",
   "rules/legacy-10-19/remaining.js": "c4e45e6e001a45cb94853a76875037c6830327cf0badcd77ab7f62c0f4082a22",
   "rules/legacy-three.js": "d201c401e3a9ff3d1427d16f1be304410fe60f91c911c1212bc38db5f1a3bc63",
-  "rules/six/index.js": "fb15552ab92184955fd3df0f3d86b4b0b9c93282992e3f501ee2a344f5da44ce",
+  "rules/six/index.js": "0dfea7aa739f5cff3a0f4641cca2dbc756344f0ae1039e95f47d04241163b8a2",
   "scripts/fingerprint.mjs": "3c621367e4349d7704fb7b4234067c132504fc2e1bd66e6fa3024181e59bc94e",
   "scripts/test.mjs": "bfc3321709118d513abac0e86e2b5c8d6c7cff5eae1bdcbe9059c7f1afe28985",
   "test/documentation/check.mjs": "d5e2a260974700a809f845c861f8859519f93df4dae3db2c3cd81e0f9203166b",
@@ -11096,7 +11096,7 @@ var sourceManifest = {
   "test/release/profile.mjs": "5651a50d557b395f89b298beaa202fe3150dd2af925596c367165240d78be38d"
 };
 
-// ../frontend/node_modules/@dotapk/heros/contract/value.js
+// node_modules/@dotapk/heros/contract/value.js
 function freeze(value) {
   if (value && typeof value === "object") {
     Object.values(value).forEach(freeze);
@@ -11163,7 +11163,7 @@ function sha256(text) {
   return h2.map((x) => x.toString(16).padStart(8, "0")).join("");
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/code-identity.js
+// node_modules/@dotapk/heros/contract/code-identity.js
 function codeIdentity(sourceFiles2) {
   if (!Array.isArray(sourceFiles2) || !sourceFiles2.length || new Set(sourceFiles2).size !== sourceFiles2.length || sourceFiles2.some((path) => typeof path !== "string" || !Object.hasOwn(sourceManifest, path))) throw Error("Unknown reviewed implementation source");
   const files = [...sourceFiles2].sort(), inputs = files.map((path) => ({ path, sha256: sourceManifest[path] }));
@@ -11176,7 +11176,7 @@ function assertCodeIdentity(value) {
 }
 var coreCodeIdentity = () => codeIdentity(Object.keys(sourceManifest).filter((path) => path.startsWith("contract/") || path === "index.js"));
 
-// ../frontend/node_modules/@dotapk/heros/contract/state-schema.js
+// node_modules/@dotapk/heros/contract/state-schema.js
 var owned = /* @__PURE__ */ new WeakSet();
 var types = /* @__PURE__ */ new Set(["null", "boolean", "number", "integer", "string", "array", "object"]);
 function inspect(schema, depth = 0) {
@@ -11243,7 +11243,7 @@ function defineStateSchema({ id, version = "1.0.0", schema, refinement = null, p
 var isStateSchema = (value) => owned.has(value);
 var EMPTY_STATE_SCHEMA = defineStateSchema({ id: "heros/empty-state", schema: { type: "null" } });
 
-// ../frontend/node_modules/@dotapk/heros/rules/legacy-three.js
+// node_modules/@dotapk/heros/rules/legacy-three.js
 function near(ctx, cast, m) {
   const f = ctx.actor(cast.owner), t = ctx.actor(cast.target);
   return Math.abs(t.x - f.x) <= (m.range_wu || m.radius_wu) + 22 && (m.height !== "ground" || t.y < 45);
@@ -11286,7 +11286,7 @@ var legacyThreeFactories = Object.freeze([
   } }
 ]);
 
-// ../frontend/node_modules/@dotapk/heros/contract/definition-schema.js
+// node_modules/@dotapk/heros/contract/definition-schema.js
 var templates = new Map(heroes.flatMap((h2) => h2.abilities.map((a) => [a.id, a.mvp])));
 var NONNEG = /^(damage|damage_cap|dot_damage|execute_damage|mana|cooldown_s|duration_s|range_wu|radius_wu|startup_frames|recovery_frames|active_frames|ticks|tick_interval_s|stun_s|stun_cap_s|root_s|silence_s|slow_pct|slow_duration_s|charges|charge_restore_s|charge_max_s|mana_burn|mana_burn_pct|mana_damage_ratio|projectile_speed_wu_s|missing_mana_multiplier|critChance|critMultiplier|evasion|hitstun_s|buff_duration_s|stack_damage|stack_duration_s|max_stacks|burst_cap|burstInterval|lost_hp_multiplier|travelDuration|tracking_break_wu|arming_s|internal_cooldown_s|wall_height_wu|wall_bind_distance_wu|wall_bind_stun_s|distance_damage_per_100|damageOverTime|mana_per_second|heal_total|self_damage_per_tick|mana_drain_per_tick|wave_speed_wu_s|walkSpeed|explosionMin|explosionMax|explosionRadius)$/;
 function numbers(value, path = []) {
@@ -11336,7 +11336,7 @@ function validateRecipe(a, resources) {
   return true;
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/resource-schema.js
+// node_modules/@dotapk/heros/contract/resource-schema.js
 function buildResourceSchema(definitions) {
   const maxMpByHero = {};
   for (const h2 of definitions) {
@@ -11350,7 +11350,7 @@ function validManaFact(resources, fact) {
   return !!fact && Number.isFinite(fact.maxMp) && fact.maxMp > 0 && fact.maxMp <= (resources.maxMpByHero[fact.heroId] ?? -1) && Number.isFinite(fact.mp) && fact.mp >= 0 && fact.mp <= fact.maxMp;
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/schedule-schema.js
+// node_modules/@dotapk/heros/contract/schedule-schema.js
 var exact = (v, keys) => v && Object.getPrototypeOf(v) === Object.prototype && Object.keys(v).length === keys.length && keys.every((k) => Object.hasOwn(v, k));
 var actor = (v) => v === 0 || v === 1;
 var ref = (v) => typeof v === "string" && /^[-a-zA-Z0-9_:/.]{1,160}$/.test(v);
@@ -11393,7 +11393,7 @@ function validateScheduleRequest(spec, manifest) {
   return true;
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/rule-declarations.js
+// node_modules/@dotapk/heros/contract/rule-declarations.js
 var actor2 = (id) => id === 0 || id === 1;
 var exact2 = (v, keys) => !!v && Object.getPrototypeOf(v) === Object.prototype && Object.keys(v).sort().join(",") === keys.slice().sort().join(",");
 var bounded = (n2) => Number.isFinite(n2) && n2 >= 0 && n2 <= 3600;
@@ -11454,7 +11454,7 @@ function validateDeclaredStatusRequest(name, spec, implementation) {
   }
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/registry.js
+// node_modules/@dotapk/heros/contract/registry.js
 var BATTLE_ABI = "heros-effects-2";
 var CAPABILITIES = Object.freeze(["damage", "heal", "mana", "transfer-mana", "self-damage", "protect", "status", "control", "target-route", "motion-request", "projectile-request", "legacy-effect", "schedule", "action-token", "deferred-hp", "cue"]);
 var HOOKS = Object.freeze(["planCast", "onCastCommitted", "activate", "onContact", "onInterrupt", "onDeath", "projectAttack", "projectDamage", "projectHealing", "projectInterval", "onAttack", "onDamage", "onTargeted", "onStage"]);
@@ -11570,7 +11570,7 @@ function createHeroRegistry(initial2 = heroes, { defaults = true } = {}) {
   return api;
 }
 
-// ../frontend/node_modules/@dotapk/heros/contract/session.js
+// node_modules/@dotapk/heros/contract/session.js
 var actorId = (id) => {
   if (id !== 0 && id !== 1) throw Error("Invalid actor");
   return id;
@@ -11690,14 +11690,14 @@ function createRuleSession(sealed) {
   }, has: (heroId, slot, hook = "activate") => typeof select(heroId, slot)?.impl[hook] === "function" });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/parameters.js
+// node_modules/@dotapk/heros/rules/a/parameters.js
 var A_PARAMETERS = Object.freeze({ adaptation: "author-a-v8", unitScale: 0.55, statusToggleSeconds: 3600, routedDeliveryRange: 1200 });
 function executionParameters(parameters2) {
   if (!parameters2 || Object.keys(parameters2).sort().join(",") !== Object.keys(A_PARAMETERS).sort().join(",") || parameters2.adaptation !== "author-a-v8" || parameters2.unitScale !== 0.55 || parameters2.statusToggleSeconds !== 3600 || parameters2.routedDeliveryRange !== 1200) throw Error("A_INVALID_EXECUTION_PARAMETERS");
   return parameters2;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/model.js
+// node_modules/@dotapk/heros/rules/a/model.js
 var caches = /* @__PURE__ */ new WeakMap();
 var clamp = (n2, a, b) => Math.max(a, Math.min(b, n2));
 function validateExpression(expr, definition) {
@@ -11794,7 +11794,7 @@ function coefficient(expr, ctx, c, definition, lookup) {
   throw Error("A_UNKNOWN_EXPRESSION");
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/gaps.js
+// node_modules/@dotapk/heros/rules/a/gaps.js
 var HOST_REQUESTS = Object.freeze({
   "vengefulspirit_nether_swap": "A-PORT-01: atomic two-actor swap plus target interruption",
   "kunkka_x_marks_the_spot": "A-STAGE-02: effective status expiry before removal and bounded return motion",
@@ -11812,7 +11812,7 @@ var HostPortRequired = class extends Error {
   }
 };
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/state.js
+// node_modules/@dotapk/heros/rules/a/state.js
 var maximum = Number.MAX_SAFE_INTEGER;
 var integer = { type: "integer", minimum: 1, maximum };
 var time = { type: "number", minimum: 0, maximum: 1e12 };
@@ -11858,7 +11858,7 @@ function ownStateSchema(lookup, abilityId, statusSchemas, areaSchemas, delayProg
   return schema;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/common.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/common.mjs
 var actorId2 = (x) => {
   if (x !== 0 && x !== 1) throw Error("Invalid actor");
   return x;
@@ -11940,7 +11940,7 @@ function machine(id, p, validator, handlers) {
   }]))) });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/swap.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/swap.mjs
 function createSwap(definition) {
   const id = definition.id, p = parameters(definition, ["damage", "damage_reduction_duration"]);
   const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "remaining", "lastCommit"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.remaining) && s.remaining >= 0 && s.remaining <= p.damage && Number.isSafeInteger(s.lastCommit) && s.lastCommit >= 0;
@@ -12000,7 +12000,7 @@ function createSwap(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/mark.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/mark.mjs
 function createMark(definition) {
   const id = definition.id, p = parameters(definition, ["duration"]);
   const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "returnX"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.returnX) && s.returnX >= 45 && s.returnX <= 1155;
@@ -12044,7 +12044,7 @@ function createMark(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/rupture.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/rupture.mjs
 function createRupture(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "hp_pct", "movement_damage_pct", "damage_cap_amount"]);
   const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "statusHandle", "lastX", "lastObservation"]) && (s.statusHandle === null || typeof s.statusHandle === "string") && Number.isFinite(s.lastX) && s.lastX >= 0 && s.lastX <= 1200 && Number.isSafeInteger(s.lastObservation) && s.lastObservation >= 0;
@@ -12091,7 +12091,7 @@ function createRupture(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/gaze.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/gaze.mjs
 function createGaze(definition) {
   const id = definition.id, p = parameters(definition, ["channel_duration", "mana_drain"]);
   const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "channelHandle", "lastPulse"]) && (s.channelHandle === null || typeof s.channelHandle === "string") && Number.isSafeInteger(s.lastPulse) && s.lastPulse >= 0 && s.lastPulse <= Math.floor(p.channel_duration / 0.25 + 1e-8);
@@ -12146,7 +12146,7 @@ function createGaze(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/exorcism.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/exorcism.mjs
 function createExorcism(definition) {
   const id = definition.id, p = parameters(definition, ["AbilityDuration", "spirits", "ghost_spawn_rate", "spirit_speed", "give_up_distance", "average_damage", "heal_percent"]);
   if (!Number.isSafeInteger(p.spirits) || p.spirits > 64 || p.ghost_spawn_rate <= 0) throw Error("Invalid spirit profile");
@@ -12213,7 +12213,7 @@ function createExorcism(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/dragon.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/dragon.mjs
 function createDragon(definition) {
   const id = definition.id, p = parameters(definition, ["duration", "bonus_attack_range", "bonus_ability_cast_range", "bonus_movement_speed", "corrosive_duration", "corrosive_damage_per_second", "frost_duration", "frost_bonus_movement_speed", "frost_bonus_attack_speed"]);
   const valid = (s) => s === null || belongs(s, id) && exact3(s, ["abilityId", "castId", "owner", "target", "reflected", "phase", "formHandle", "profileHandle", "lastAttack", "corrosion"]) && (s.formHandle === null || typeof s.formHandle === "string") && (s.profileHandle === null || typeof s.profileHandle === "string") && Number.isSafeInteger(s.lastAttack) && s.lastAttack >= 0 && Array.isArray(s.corrosion) && s.corrosion.length <= 2 && s.corrosion.every((x) => exact3(x, ["target", "handle", "ordinal"]) && [0, 1].includes(x.target) && typeof x.handle === "string" && Number.isSafeInteger(x.ordinal) && x.ordinal >= 0 && x.ordinal <= Math.floor(p.corrosive_duration + 1e-8)) && new Set(s.corrosion.map((x) => x.target)).size === s.corrosion.length;
@@ -12312,7 +12312,7 @@ function createDragon(definition) {
   });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/index.mjs
+// node_modules/@dotapk/heros/rules/a/extensions/index.mjs
 var constructors = Object.freeze({ vengefulspirit_nether_swap: createSwap, kunkka_x_marks_the_spot: createMark, bloodseeker_rupture: createRupture, lich_sinister_gaze: createGaze, death_prophet_exorcism: createExorcism, dragon_knight_elder_dragon_form: createDragon });
 function createExtensionDraft(definition) {
   const create = constructors[definition.id];
@@ -12321,7 +12321,7 @@ function createExtensionDraft(definition) {
 }
 var EXTENSION_ABILITIES = Object.freeze(Object.keys(constructors));
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/canonical.js
+// node_modules/@dotapk/heros/rules/a/extensions/canonical.js
 var EXTENSION_SOURCE_FILES = Object.freeze(["rules/a/extensions/canonical.js", "rules/a/extensions/common.mjs", "rules/a/extensions/index.mjs", "rules/a/extensions/swap.mjs", "rules/a/extensions/mark.mjs", "rules/a/extensions/rupture.mjs", "rules/a/extensions/gaze.mjs", "rules/a/extensions/exorcism.mjs", "rules/a/extensions/dragon.mjs"]);
 var closed2 = (p) => ({ type: "object", additionalProperties: false, required: Object.keys(p), properties: p });
 var h = { anyOf: [{ type: "null" }, { type: "string", minLength: 1, maxLength: 128 }] };
@@ -12355,7 +12355,7 @@ function canonicalExtension(config) {
   return entry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/runtime.js
+// node_modules/@dotapk/heros/rules/a/runtime.js
 var A_SOURCE_FILES = Object.freeze(["rules/a/register.js", "rules/a/runtime.js", "rules/a/model.js", "rules/a/gaps.js", "rules/a/state.js", "rules/a/parameters.js", ...EXTENSION_SOURCE_FILES]);
 var negativeKeys = /* @__PURE__ */ new Set(["disarm", "magicVulnerable", "moveSlow"]);
 var controls = ["stun", "root", "hex", "fear", "taunt"];
@@ -12760,7 +12760,7 @@ function createRule(config) {
   };
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/register.js
+// node_modules/@dotapk/heros/rules/a/register.js
 var A_HERO_IDS = Object.freeze([21, 28, 29, 32, 36, 42, 47, 50, 55]);
 function registerA(registry) {
   for (const id of A_HERO_IDS) for (let slot = 0; slot < 4; slot++)
@@ -12768,7 +12768,7 @@ function registerA(registry) {
   return registry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/legacy-0-9/direct-hit.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/direct-hit.js
 var sourceFiles = ["rules/legacy-0-9/direct-hit.js"];
 var selected = /* @__PURE__ */ new Map([[3, "axe_culling"], [8, "lina_laguna"]]);
 function directHitFactory(parameters2 = { damageMultiplier: 1, bodyPadding: 22 }) {
@@ -12807,7 +12807,7 @@ function registerLegacyDirectHits(registry, parameters2) {
   return registry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/legacy-0-9/projections.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/projections.js
 var slots = [[0, 2, "juggernaut_blade_dance"], [1, 2, "crystal_maiden_aura"], [4, 1, "sniper_headshot"], [6, 2, "phantom_assassin_immaterial"], [7, 3, "drow_ranger_marksmanship"]];
 function number(value, name, max = 1e7) {
   if (!Number.isFinite(value) || value < 0 || value > max) throw Error("Invalid projection " + name);
@@ -12882,12 +12882,12 @@ function registerLegacyPassiveProjections(registry) {
   return registry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/legacy-0-9/index.js
+// node_modules/@dotapk/heros/rules/legacy-0-9/index.js
 function registerLegacy0To9(registry) {
   return registerLegacyPassiveProjections(registerLegacyDirectHits(registry));
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/legacy-10-19/index.js
+// node_modules/@dotapk/heros/rules/legacy-10-19/index.js
 var IMPLEMENTED_SLOTS = Object.freeze([[13, 0], [13, 1], [13, 3], [17, 1]].map(Object.freeze));
 var SOURCES = ["rules/legacy-10-19/index.js"];
 function bounded2(value, name, max = 1e7) {
@@ -12946,7 +12946,7 @@ function registerLegacy10To19(registry, parameters2 = {}) {
   return registry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/core4/bash.js
+// node_modules/@dotapk/heros/rules/core4/bash.js
 function createBash({ definition, hero }) {
   const p = definition.mvp.params, threshold = p.attack_count + 1;
   if (!Number.isSafeInteger(threshold) || threshold < 1 || threshold > 64 || ![p.bonus_damage, p.duration].every((n2) => Number.isFinite(n2) && n2 >= 0) || p.bonus_damage > 1e7 || p.duration > 60) throw Error("Invalid Core4 Bash coefficients");
@@ -12976,7 +12976,7 @@ function createBash({ definition, hero }) {
 }
 var core4Factories = Object.freeze([{ heroId: 31, slot: 2, create: createBash }]);
 
-// ../frontend/node_modules/@dotapk/heros/rules/b/state.js
+// node_modules/@dotapk/heros/rules/b/state.js
 var handles = { type: "array", maxItems: 64, items: { type: "string", minLength: 1, maxLength: 256 } };
 var owner = { type: "object", properties: { toggle: { type: "boolean" }, sequence: { type: "integer", minimum: 0, maximum: 31 }, jobs: handles, areas: handles }, required: ["toggle", "sequence", "jobs", "areas"], additionalProperties: false };
 function createBStateSchema() {
@@ -13020,7 +13020,7 @@ function forget(ctx, actor6, kind, handle3) {
   writeOwner(ctx, actor6, { ...s, [kind]: s[kind].filter((h2) => h2 !== handle3) });
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/b/model.js
+// node_modules/@dotapk/heros/rules/b/model.js
 var caches2 = /* @__PURE__ */ new WeakMap();
 function model2(config) {
   let m = caches2.get(config.definitions);
@@ -13276,7 +13276,7 @@ function validateBlockResult(result2, scope, target) {
   return result2;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/b/programs.js
+// node_modules/@dotapk/heros/rules/b/programs.js
 var AREAS = /* @__PURE__ */ new Set(["night_stalker_crippling_fear", "jakiro_ice_path", "jakiro_macropyre", "alchemist_acid_spray", "treant_natures_grasp"]);
 var PERIODIC = /* @__PURE__ */ new Set(["huskar_burning_spear", "huskar_life_break", "night_stalker_void", "jakiro_dual_breath", "jakiro_liquid_fire", "jakiro_macropyre", "treant_overgrowth", "ogre_magi_ignite"]);
 var SLOW = /* @__PURE__ */ new Set(["huskar_life_break", "night_stalker_void", "jakiro_dual_breath", "alchemist_corrosive_weaponry", "treant_natures_grasp", "ogre_magi_ignite"]);
@@ -13740,14 +13740,14 @@ function createBRule(config) {
   return impl;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/b/register.js
+// node_modules/@dotapk/heros/rules/b/register.js
 var B_HERO_IDS = Object.freeze([57, 58, 62, 71, 81, 82]);
 function registerB(registry, { statusMode = "legacy" } = {}) {
   for (const heroId of B_HERO_IDS) for (let slot = 0; slot < 4; slot++) registry.registerFactory(heroId, slot, { abiVersion: BATTLE_ABI, parameters: { damageScale: 1, healScale: 1, statusContract: statusContractFor(registry.definition(heroId).abilities[slot].id, statusMode) }, create: createBRule });
   return registry;
 }
 
-// ../frontend/node_modules/@dotapk/heros/rules/a/extensions/proposal.js
+// node_modules/@dotapk/heros/rules/a/extensions/proposal.js
 var extensionProposalFactory = Object.freeze({ abiVersion: BATTLE_ABI, parameters: { mode: "proposal-only" }, create(config) {
   if (config.parameters?.mode !== "proposal-only" || Object.keys(config.parameters).length !== 1) throw Error("A_INVALID_PROPOSAL_PARAMETERS");
   const { rule, stateSchema } = canonicalExtension(config);
@@ -13946,7 +13946,7 @@ var extensionCanonicalFactory = Object.freeze({ abiVersion: BATTLE_ABI, paramete
   };
 } });
 
-// ../frontend/node_modules/@dotapk/heros/test/probes.mjs
+// node_modules/@dotapk/heros/test/probes.mjs
 function probeFactory(kind, { amount = 35, namespace, limit = 100, schema, api = heros_exports } = {}) {
   return { abiVersion: api.BATTLE_ABI, parameters: { amount, limit }, create({ definition, parameters: parameters2 }) {
     const stateSchema = schema ?? (kind === "state" ? countSchema(api, parameters2.limit) : api.EMPTY_STATE_SCHEMA);

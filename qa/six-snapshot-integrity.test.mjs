@@ -1,0 +1,27 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {Engine} from '../src/engine.js';import {runtimeHeroes} from '../src/runtime-heroes.js';import {createReleasedHeroRegistry} from '../src/released-hero-rules.js';import {createRemoteSnapshotValidator} from '../src/remote-snapshot.js';
+const registry=createReleasedHeroRegistry();
+const make=(h,s,enemy=1,frames=30)=>{const e=new Engine(runtimeHeroes,[h,enemy],{heroRuleRegistry:registry,seed:0}).start();e.fighters[0].x=300;e.fighters[1].x=h===0?500:h===14&&s===3?650:1000;e.setInput(0,{['s'+s]:true});for(let n=0;n<frames;n++)e.step();return e;};
+const reject=(e,mutate)=>{const g=e.snapshot(),bad=structuredClone(g);mutate(bad);const validate=createRemoteSnapshotValidator(runtimeHeroes,{heroRuleRegistry:registry});assert(validate(g),'genuine snapshot passes remote validator');assert.equal(validate(bad),false,'forged snapshot rejected remotely');assert.throws(()=>e.restoreSimulation(bad));assert.deepEqual(e.snapshot(),g,'failure is atomic');};
+for(const [name,mutate]of [
+ ['duplicate Hook',g=>g.projectiles.push(structuredClone(g.projectiles[0]))],
+ ['Hook x',g=>g.projectiles[0].x+=10],['Hook y',g=>g.projectiles[0].y+=10],['Hook travel',g=>g.projectiles[0].travel+=10],
+ ['fake reflection',g=>{const p=g.projectiles[0];p.reflected=true;p.owner=1;p.dir=-p.dir;p.travel=0;}]
+])test('real restore and remote gate reject '+name,()=>{const e=make(2,0);assert(e.projectiles[0]?.six);reject(e,mutate);});
+for(const [name,mutate]of [['Ravage center',g=>g.zones[0].x+=10],['Ravage hit replay',g=>g.zones[0].hit=false]])test('real restore and remote gate reject '+name,()=>{const e=make(19,3,1,55);e.fighters[1].x=320;for(let n=0;n<3;n++)e.step();assert(e.zones[0]?.hit);reject(e,mutate);});
+test('real restore and remote gate reject aged Windrun with full life',()=>{const e=make(14,2);reject(e,g=>{g.t+=100;g.frame+=6000;});});
+test('real restore and remote gate reject refreshed Windrun and duplicate buff',()=>{const e=make(14,2,1,70);reject(e,g=>{g.fighters[0].buffs.find(b=>b.six).life=6;});reject(e,g=>{g.fighters[0].buffs.push(structuredClone(g.fighters[0].buffs.find(b=>b.six)));});});
+for(const [h,s]of [[2,0],[6,0],[10,0],[14,2],[14,3],[19,3],[0,3]])test(`genuine hero ${h} slot ${s} mid-effect continuation and cleanup`,()=>{const e=make(h,s,1,h===19?50:h===10?55:30);const g=e.snapshot();assert(g.packClock.sixEffects?.rows.length,'fixture contains an active effect');const v=createRemoteSnapshotValidator(runtimeHeroes,{heroRuleRegistry:registry});assert(v(g));const r=new Engine(runtimeHeroes,e.indices,{heroRuleRegistry:registry}).start().restoreSimulation(g);for(let n=0;n<140;n++){e.step();r.step();assert.deepEqual(r.snapshot(),e.snapshot());if(n%20===0)assert(v(e.snapshot()));}e.resetRound();assert(v(e.snapshot()));});
+for(const hero of [2,6])test(`genuine reflected projectile hero ${hero} has a restorable trajectory and cannot alter reflection location`,()=>{const e=make(hero,0,5,30);e.addBuff(e.fighters[1],'counter',{mode:'spell'},5);for(let n=0;n<100&&!e.projectiles[0]?.reflected;n++)e.step();assert(e.projectiles[0]?.reflected);const g=e.snapshot(),r=new Engine(runtimeHeroes,e.indices,{heroRuleRegistry:registry}).start().restoreSimulation(g);reject(e,b=>b.projectiles[0].x+=25);for(let n=0;n<80;n++){e.step();r.step();assert.deepEqual(e.snapshot(),r.snapshot());}});
+
+for(const [name,mutate]of [
+ ['duplicate entity plus copied proof',g=>{g.projectiles.push(structuredClone(g.projectiles[0]));const row=structuredClone(g.packClock.sixEffects.rows.find(r=>r.kind==='projectile'));row.index=g.projectiles.length-1;g.packClock.sixEffects.rows.push(row);}],
+ ['missing source graph',g=>delete g.packClock.sixEffects],
+ ['clock elapsed',g=>g.packClock.sixEffects.rows[0].clock.elapsed+=.1],
+ ['source command',g=>g.packClock.sixEffects.rows[0].command.x+=10],
+ ['source actor',g=>g.packClock.sixEffects.rows[0].birth.actors[0].x+=10]
+])test('source graph rejects '+name,()=>reject(make(2,0),mutate));
+test('wave receipt removal and duplication cannot replay a committed hit',()=>{const e=make(19,3,1,55);e.fighters[1].x=320;for(let n=0;n<5;n++)e.step();assert(e.zones[0].hit);reject(e,g=>{g.zones[0].hit=false;g.packClock.sixEffects.rows[0].hit=null;});reject(e,g=>g.zones.push(structuredClone(g.zones[0])));});
+test('reflection receipt cannot be removed or moved independently',()=>{const e=make(2,0,5);e.addBuff(e.fighters[1],'counter',{mode:'spell'},5);for(let n=0;n<100&&!e.projectiles[0]?.reflected;n++)e.step();assert(e.projectiles[0]?.reflected);reject(e,g=>g.packClock.sixEffects.rows[0].reflection=null);reject(e,g=>g.packClock.sixEffects.rows[0].reflection.target.x+=20);});
+
+for(const side of [0,1])for(const dt of [1/60,.05])test(`six source clocks at side ${side} fixed step ${dt} survive live remote snapshots`,()=>{for(const [hero,slot]of [[0,3],[2,0],[6,0],[6,1],[10,0],[10,1],[14,2],[14,3],[19,3]]){const e=new Engine(runtimeHeroes,side?[1,hero]:[hero,1],{heroRuleRegistry:registry,seed:0}).start();e.fighters[0].x=400;e.fighters[1].x=620;e.setInput(side,{['s'+slot]:true});const v=createRemoteSnapshotValidator(runtimeHeroes,{heroRuleRegistry:registry});for(let n=0;n<100;n++){e.step(dt);if(n%7===0)assert(v(e.snapshot()),`hero ${hero} slot ${slot} step ${n}`);}const r=new Engine(runtimeHeroes,e.indices,{heroRuleRegistry:registry}).start().restoreSimulation(e.snapshot());for(let n=0;n<20;n++){e.step(dt);r.step(dt);assert.deepEqual(r.snapshot(),e.snapshot());}}});

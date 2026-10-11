@@ -13,7 +13,7 @@
 | registrySha256 | `5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138` |
 | mechanicsVersion | `arena-heros28-public112-v1` |
 | 当前源码 NET_VERSION | 由构建生成，见 `src/net-version.js` 和 `dist/client/build-manifest.json` |
-| 前端组合 rulesHash | `af7cba2fb2aba770cd9ea18c08c4be97ac8d09d53bde76c6c3e0aa98fb4b0506` |
+| 前端组合 rulesHash | `1c834e77da8f10a46a281da6df9f62458b701a7297befc9c5d5c9c52210d3f67` |
 | WebRTC 协议 | `duel-wire-3` |
 
 允许的稳定数字 ID：`0,1,2,3,4,5,6,7,8,9,10,14,15,17,18,19,28,31,32,36,50,55,57,58,62,71,81,82`。数字是 registryNumericId，不是列表下标或 Valve hero ID。目录的 127 身份不代表全部可玩；未发布英雄继续灰禁。
@@ -30,7 +30,7 @@
 
 ## 英雄包与 host
 
-前端 package.json 固定 `vendor/dotapk-heros-0.1.0-review.10-rupture-order.1.tgz`，`scripts/vendor-heros.mjs` 校验 136 个源文件并生成消费 bundle。公开 [heros](https://github.com/dotapk-lol/heros) 根入口默认 28/112，公共 rulesHash 为 `c2e180393dd9a639ee806c85df949b32aa427a8d018b77324f35cfb981b5e6e4`；前端组合含 143 条实现元数据并执行 28 英雄准入。143 不是发布英雄/技能数量。两者 hash、组合与 checkpoint 不可混用，不能把依赖直接改为 `github:dotapk-lol/heros#main` 当作已验证升级。
+前端 package.json 固定 `vendor/dotapk-heros-0.2.0-six28.2.tgz`，`scripts/vendor-heros.mjs` 校验 123 个源文件并生成消费 bundle。公开 [heros](https://github.com/dotapk-lol/heros) 根入口默认 28/112，公共 rulesHash 为 `16babcb1b13197104f59d33b39bdd412ace1b339157f23ab1b3559cd78609049`；前端组合含 143 条实现元数据并执行 28 英雄准入。143 不是发布英雄/技能数量。两者 hash、组合与 checkpoint 不可混用，不能把依赖直接改为 `github:dotapk-lol/heros#main` 当作已验证升级。
 
 规则通过静态 factory、固定 ID/四槽、参数、源码身份、revision 与 state schema 注册，再 seal 创建会话。前端 host 提供 actor 事实、资源/施法事务、真实效果回执、时钟与队列、物理世界和 lifecycle 投递。参数变更应在规则定义或 factory.parameters 中校验并捕获，重新核对 rulesHash；改 UI 标签不改变机制。详见 heros 的 [参数](https://github.com/dotapk-lol/heros/blob/main/docs/balance-identity.md)、[插件](https://github.com/dotapk-lol/heros/blob/main/docs/plugins.md) 与 [host 合约](https://github.com/dotapk-lol/heros/blob/main/docs/host-adapter.md)。
 
