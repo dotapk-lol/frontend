@@ -20,7 +20,7 @@ export function createImageLoader({ImageClass=globalThis.Image,timeoutMs=8000,sl
      // Do not automatically discard and restart that body at a second URL.
      if(retry&&record.attempts<maxAttempts){record.phase='retry';wait=schedule(attempt,retryDelayMs);changed();}else finish('failed',record.error);
     };
-    const loaded=async()=>{if(settled||ended||token!==generation||decoding)return;decoding=true;cancel(timer);cancel(slowTimer);record.phase='decode';record.slow=false;
+    const loaded=async()=>{if(settled||ended||token!==generation||decoding)return;decoding=true;cancel(timer);cancel(slowTimer);record.phase='decode';record.slow=false;changed();
      timer=schedule(()=>failed('image decode timed out'),timeoutMs);
      try{if(typeof image.decode==='function')await image.decode();if(!image.naturalWidth||!image.naturalHeight)throw Error('empty decoded image');if(settled||ended||token!==generation)return;settled=true;image.onload=image.onerror=null;finish('ready');}catch(error){failed(error);}
     };
