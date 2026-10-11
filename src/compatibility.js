@@ -14,7 +14,7 @@ export function validateBackendRegistry(data,gameVersion=NET_VERSION,rosterId=AC
 }
 export const compatibleMatch=match=>{
  if(HEROS22_BUILD&&(!match||match.rosterId!==ACTIVE_ROSTER.rosterId||match.registryVersion!==REGISTRY_VERSION||match.version!==NET_VERSION))return false;
- if(HEROS22_BUILD&&match.players!==undefined&&(!Array.isArray(match.players)||!match.players.every(p=>isActiveHero(p?.hero))))return false;
+ if(HEROS22_BUILD&&match.players!==undefined&&(!Array.isArray(match.players)||match.players.length!==2||!match.players.every(p=>isActiveHero(p?.hero)&&p.id!=='')))return false;
  return (match?.rosterId===undefined||match.rosterId===ACTIVE_ROSTER.rosterId)&&(match?.registryVersion===undefined||[REGISTRY_VERSION,LEGACY_ROSTER_ID].includes(match.registryVersion))&&(!match?.heroes||validHeroPair(match.heroes));
 };
 // RoomView has two fixed seats. Before joining, Go serializes the guest's

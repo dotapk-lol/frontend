@@ -2,7 +2,7 @@
 
 # DOTA PK frontend
 
-Browser client for [dotapk.lol](https://dotapk.lol): **22 released heroes / 88 skill slots**, six-digit WebRTC room codes, PVE, desktop same-screen and same-browser BroadcastChannel play. Players need no account login. The home-page English/Chinese preference stays in localStorage. Mobile play uses landscape, a drag joystick and four skill buttons; unreleased heroes stay grey and paused.
+Browser client for [dotapk.lol](https://dotapk.lol): **28 released heroes / 112 skill slots**, six-digit WebRTC room codes, PVE, desktop same-screen and same-browser BroadcastChannel play. Players need no account login. The home-page English/Chinese preference stays in localStorage. Mobile play uses landscape, a drag joystick and four skill buttons; unreleased heroes stay grey and paused.
 
 | Repository | Responsibility |
 | --- | --- |
@@ -24,7 +24,7 @@ npm run dev
 
 Open `http://127.0.0.1:4173`. `dev` serves built `dist/client` only, without hot reload, API or database. Rebuild after source edits; `DUEL_PORT` changes the static port. Build writes generated catalog/rule identity files and `src/net-version.js`, `dist/client/build-manifest.json`, and `release/DOTA_DUEL_22.html`. A new gameVersion may require exact backend registration before play. Cloudflare receives only static assets; `worker/` and `drizzle/` remain regression fixtures, not the current backend. No D1/R2 setup is required.
 
-For the current22 frontend, follow the backend [development guide](https://github.com/dotapk-lol/backend/blob/main/docs/DEVELOPMENT.md): ordinary backend builds contain legacy20 only. Local API defaults to `http://127.0.0.1:18082/api/v1`, with backend `DUEL_ALLOWED_ORIGIN=http://127.0.0.1:4173`. Protocol, hostname and port must match exactly. The page has no general API environment switch; see [development](docs/DEVELOPMENT.md) for the actual routing rules and roster/build bindings.
+For the current28 frontend, follow the backend [development guide](https://github.com/dotapk-lol/backend/blob/main/docs/DEVELOPMENT.md): ordinary backend builds contain legacy20 only. Local API defaults to `http://127.0.0.1:18082/api/v1`, with backend `DUEL_ALLOWED_ORIGIN=http://127.0.0.1:4173`. Protocol, hostname and port must match exactly. The page has no general API environment switch; see [development](docs/DEVELOPMENT.md) for the actual routing rules and roster/build bindings.
 
 ## Developer guides
 

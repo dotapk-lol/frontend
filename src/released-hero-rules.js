@@ -1,3 +1,4 @@
+import {SIX_SLOTS,sixFactory} from './six-hero-rules.js';
 // Private host composition of the exact accepted127 baseline. Never publish this app entry.
 import * as R from './heros-rules.js';
 import {remainingLegacyFactory as ten} from './hero-legacy-phase-rules.js';
@@ -5,7 +6,7 @@ import {remainingLegacyFactory as zero} from './hero-legacy-zero-rules.js';
 import {registerLegacyStatusDrafts,legacyActiveDraftFactory} from './hero-legacy-next-rules.js';
 import {core4Factory,centaurFactory,skywrathFactory,extraFactory} from './hero-wave43-owned-rules.js';
 import {RELEASED_ROSTER} from './released-roster.js';
-export const RELEASE_RULES_HASH='5747bdeffe9948c67882ea02858e7958a5ea15be090b08d9ac6d8561a57970a4';
+export const RELEASE_RULES_HASH='af7cba2fb2aba770cd9ea18c08c4be97ac8d09d53bde76c6c3e0aa98fb4b0506';
 export const slots=[[1,0],[2,2],[3,0],[4,2],[5,2],[8,1],[9,3],[15,0]];
 export function accepted(){const r=R.registerB(R.registerLegacy10To19(R.registerLegacy0To9(R.registerA(R.createHeroRegistry()))),{statusMode:'strict'}).registerFactory(31,2,{abiVersion:R.BATTLE_ABI,create:R.createBash});
  const tenRows=[[10,2,['legacy-passive-v1','legacy-hit-v1']],[12,1,['legacy-passive-v1','legacy-ward-cleave-v1']],[15,2,['legacy-property-v1']],[15,3,['legacy-hit-v1','legacy-souls-v1']],[17,2,['legacy-hit-v1']]];
@@ -32,9 +33,10 @@ export function coreWave(){const r=wave();for(const[h,s]of coreSlots)r.registerF
 export const cSlots=[[94,1],[94,2],[99,2],[106,2]];
 export function fullWave(){const r=coreWave();for(const[h,s]of cSlots)r.registerFactory(h,s,{abiVersion:R.BATTLE_ABI,create:h===94?centaurFactory:h===99?skywrathFactory:extraFactory});return r;}
 
+export function sixWave(){const r=fullWave();for(const [h,s]of SIX_SLOTS)r.registerFactory(h,s,sixFactory(h,s));return r;}
 export function createReleasedHeroRegistry(){
- const registry=fullWave(),sealed=registry.seal();
- if(sealed.rulesHash!==RELEASE_RULES_HASH||sealed.manifest.length!==132)throw Error('Released rule registry identity mismatch');
+ const registry=sixWave(),sealed=registry.seal();
+ if(sealed.rulesHash!==RELEASE_RULES_HASH||sealed.manifest.length!==143)throw Error('Released rule registry identity mismatch');
  for(const heroId of RELEASED_ROSTER.heroIds)for(let slot=0;slot<4;slot++)if(!sealed.implementation(heroId,slot))throw Error('Released hero lacks an accepted skill implementation');
  return registry;
 }

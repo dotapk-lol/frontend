@@ -1,28 +1,28 @@
 // Generated from existing artwork by scripts/generate-core-assets.mjs.
 export const CORE_ASSETS=[
   {
-    "src": "assets/core/fighters-1-1c271296afc8.webp",
-    "bytes": 763234,
-    "width": 1536,
-    "height": 1088,
-    "decodedRGBABytes": 6684672,
-    "sha256": "1c271296afc84030787e8d5088daffe5cf5bac32fa7a52b13c82f2d5bde44678"
+    "src": "assets/core/fighters-1-001f06941eea.webp",
+    "bytes": 897526,
+    "width": 2048,
+    "height": 2047,
+    "decodedRGBABytes": 16769024,
+    "sha256": "001f06941eea3b6535a3c1f8133ebb9c9f81edc25d5228156624b1376f0f9d8f"
   },
   {
-    "src": "assets/core/fighters-2-3da5d149e302.webp",
-    "bytes": 578948,
+    "src": "assets/core/fighters-2-2fa7b6375d3a.webp",
+    "bytes": 939972,
     "width": 2048,
-    "height": 1657,
-    "decodedRGBABytes": 13574144,
-    "sha256": "3da5d149e302476cfe5dab535d27840bad5eadddfbf100e9e2d7a2fd61debc12"
+    "height": 1928,
+    "decodedRGBABytes": 15794176,
+    "sha256": "2fa7b6375d3a9278176d59a883204d85a1f0428bbc7e4e2b7c284264d9972f97"
   },
   {
-    "src": "assets/core/ui-bca80c469058.webp",
-    "bytes": 545344,
+    "src": "assets/core/ui-03236bdaaf55.webp",
+    "bytes": 751400,
     "width": 2048,
-    "height": 1598,
-    "decodedRGBABytes": 13090816,
-    "sha256": "bca80c46905844c0bbda9eef39d46df85c1bf499fe2106fe93d62ab65de5065b"
+    "height": 2010,
+    "decodedRGBABytes": 16465920,
+    "sha256": "03236bdaaf5528ce4e43c98c2b852f6aa3358a4cd7ad7e6f4c8c550da294179f"
   }
 ];
 export const UI_SPRITES=Object.fromEntries([
@@ -63,34 +63,7 @@ export const UI_SPRITES=Object.fromEntries([
     ]
   ],
   [
-    "assets/portraits/lina.webp",
-    [
-      1105,
-      1,
-      274,
-      326
-    ]
-  ],
-  [
-    "assets/portraits/lion.webp",
-    [
-      1381,
-      1,
-      274,
-      326
-    ]
-  ],
-  [
-    "assets/portraits/queen_of_pain.webp",
-    [
-      1657,
-      1,
-      274,
-      326
-    ]
-  ],
-  [
-    "assets/portraits/shadow_fiend.webp",
+    "assets/portraits/earthshaker.webp",
     [
       1,
       329,
@@ -99,7 +72,7 @@ export const UI_SPRITES=Object.fromEntries([
     ]
   ],
   [
-    "assets/portraits/sniper.webp",
+    "assets/portraits/juggernaut.webp",
     [
       277,
       329,
@@ -108,7 +81,7 @@ export const UI_SPRITES=Object.fromEntries([
     ]
   ],
   [
-    "assets/portraits/witch_doctor.webp",
+    "assets/portraits/lina.webp",
     [
       553,
       329,
@@ -117,10 +90,91 @@ export const UI_SPRITES=Object.fromEntries([
     ]
   ],
   [
-    "assets/cohort/slardar-portrait.png",
+    "assets/portraits/lion.webp",
     [
       829,
       329,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/phantom_assassin.webp",
+    [
+      1,
+      657,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/pudge.webp",
+    [
+      277,
+      657,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/queen_of_pain.webp",
+    [
+      553,
+      657,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/shadow_fiend.webp",
+    [
+      829,
+      657,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/sniper.webp",
+    [
+      1,
+      985,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/tidehunter.webp",
+    [
+      277,
+      985,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/windranger.webp",
+    [
+      553,
+      985,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/portraits/witch_doctor.webp",
+    [
+      829,
+      985,
+      274,
+      326
+    ]
+  ],
+  [
+    "assets/cohort/slardar-portrait.png",
+    [
+      1,
+      1313,
       256,
       144
     ]
@@ -128,8 +182,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/alchemist-portrait.webp",
     [
-      1087,
-      329,
+      259,
+      1313,
       256,
       144
     ]
@@ -137,8 +191,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/huskar-portrait.webp",
     [
-      1345,
-      329,
+      517,
+      1313,
       256,
       144
     ]
@@ -146,8 +200,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/jakiro-portrait.webp",
     [
-      1603,
-      329,
+      775,
+      1313,
       256,
       144
     ]
@@ -156,7 +210,7 @@ export const UI_SPRITES=Object.fromEntries([
     "assets/first21/leshrac-portrait.webp",
     [
       1,
-      657,
+      1459,
       256,
       144
     ]
@@ -165,7 +219,7 @@ export const UI_SPRITES=Object.fromEntries([
     "assets/first21/lich-portrait.webp",
     [
       259,
-      657,
+      1459,
       256,
       144
     ]
@@ -174,7 +228,7 @@ export const UI_SPRITES=Object.fromEntries([
     "assets/first21/necrolyte-portrait.webp",
     [
       517,
-      657,
+      1459,
       256,
       144
     ]
@@ -183,7 +237,7 @@ export const UI_SPRITES=Object.fromEntries([
     "assets/first21/night_stalker-portrait.webp",
     [
       775,
-      657,
+      1459,
       256,
       144
     ]
@@ -191,8 +245,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/ogre_magi-portrait.webp",
     [
-      1033,
-      657,
+      1,
+      1605,
       256,
       144
     ]
@@ -200,8 +254,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/omniknight-portrait.webp",
     [
-      1291,
-      657,
+      259,
+      1605,
       256,
       144
     ]
@@ -209,8 +263,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/treant-portrait.webp",
     [
-      1549,
-      657,
+      517,
+      1605,
       256,
       144
     ]
@@ -218,8 +272,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/vengefulspirit-portrait.webp",
     [
-      1,
-      803,
+      775,
+      1605,
       256,
       144
     ]
@@ -227,8 +281,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/anti_mage_blink.png",
     [
-      259,
-      803,
+      1,
+      1751,
       128,
       128
     ]
@@ -236,8 +290,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/anti_mage_counterspell.png",
     [
-      389,
-      803,
+      1,
+      1881,
       128,
       128
     ]
@@ -245,8 +299,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/anti_mage_mana_break.png",
     [
-      519,
-      803,
+      131,
+      1751,
       128,
       128
     ]
@@ -254,8 +308,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/anti_mage_mana_void.png",
     [
-      649,
-      803,
+      131,
+      1881,
       128,
       128
     ]
@@ -263,8 +317,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/axe_call.png",
     [
-      779,
-      803,
+      261,
+      1751,
       128,
       128
     ]
@@ -272,8 +326,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/axe_culling.png",
     [
-      909,
-      803,
+      261,
+      1881,
       128,
       128
     ]
@@ -281,8 +335,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/axe_helix.png",
     [
-      1039,
-      803,
+      391,
+      1751,
       128,
       128
     ]
@@ -290,8 +344,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/axe_hunger.png",
     [
-      1169,
-      803,
+      391,
+      1881,
       128,
       128
     ]
@@ -299,8 +353,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/cohort/slardar_amplify_damage.png",
     [
-      1299,
-      803,
+      521,
+      1751,
       128,
       128
     ]
@@ -308,8 +362,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/cohort/slardar_bash.png",
     [
-      1429,
-      803,
+      521,
+      1881,
       128,
       128
     ]
@@ -317,8 +371,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/cohort/slardar_slithereen_crush.png",
     [
-      1559,
-      803,
+      651,
+      1751,
       128,
       128
     ]
@@ -326,8 +380,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/cohort/slardar_sprint.png",
     [
-      1689,
-      803,
+      651,
+      1881,
       128,
       128
     ]
@@ -335,8 +389,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/crystal_maiden_aura.png",
     [
-      1819,
-      803,
+      781,
+      1751,
       128,
       128
     ]
@@ -344,8 +398,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/crystal_maiden_freezing_field.png",
     [
-      1,
-      949,
+      781,
+      1881,
       128,
       128
     ]
@@ -353,8 +407,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/crystal_maiden_frostbite.png",
     [
-      131,
-      949,
+      911,
+      1751,
       128,
       128
     ]
@@ -362,8 +416,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/crystal_maiden_nova.png",
     [
-      261,
-      949,
+      911,
+      1881,
       128,
       128
     ]
@@ -371,8 +425,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/drow_ranger_frost.png",
     [
-      391,
-      949,
+      1033,
+      1313,
       128,
       128
     ]
@@ -380,8 +434,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/drow_ranger_gust.png",
     [
-      521,
-      949,
+      1033,
+      1443,
       128,
       128
     ]
@@ -389,8 +443,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/drow_ranger_marksmanship.png",
     [
-      651,
-      949,
+      1033,
+      1573,
       128,
       128
     ]
@@ -398,8 +452,44 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/drow_ranger_multishot.png",
     [
-      781,
-      949,
+      1041,
+      1703,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/earthshaker_aftershock.png",
+    [
+      1041,
+      1833,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/earthshaker_echo.png",
+    [
+      1171,
+      1,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/earthshaker_fissure.png",
+    [
+      1301,
+      1,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/earthshaker_totem.png",
+    [
+      1431,
+      1,
       128,
       128
     ]
@@ -407,8 +497,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/alchemist_acid_spray.webp",
     [
-      911,
-      949,
+      1561,
+      1,
       128,
       128
     ]
@@ -416,8 +506,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/alchemist_chemical_rage.webp",
     [
-      1041,
-      949,
+      1691,
+      1,
       128,
       128
     ]
@@ -425,8 +515,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/alchemist_corrosive_weaponry.webp",
     [
-      1171,
-      949,
+      1821,
+      1,
       128,
       128
     ]
@@ -434,8 +524,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/alchemist_unstable_concoction.webp",
     [
-      1301,
-      949,
+      1171,
+      131,
       128,
       128
     ]
@@ -443,8 +533,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/huskar_berserkers_blood.webp",
     [
-      1431,
-      949,
+      1301,
+      131,
       128,
       128
     ]
@@ -452,8 +542,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/huskar_burning_spear.webp",
     [
-      1561,
-      949,
+      1431,
+      131,
       128,
       128
     ]
@@ -461,8 +551,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/huskar_inner_fire.webp",
     [
-      1691,
-      949,
+      1561,
+      131,
       128,
       128
     ]
@@ -470,8 +560,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/huskar_life_break.webp",
     [
-      1821,
-      949,
+      1691,
+      131,
       128,
       128
     ]
@@ -479,8 +569,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/jakiro_dual_breath.webp",
     [
-      1,
-      1079,
+      1821,
+      131,
       128,
       128
     ]
@@ -488,8 +578,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/jakiro_ice_path.webp",
     [
-      131,
-      1079,
+      1171,
+      261,
       128,
       128
     ]
@@ -497,8 +587,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/jakiro_liquid_fire.webp",
     [
+      1301,
       261,
-      1079,
       128,
       128
     ]
@@ -506,8 +596,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/jakiro_macropyre.webp",
     [
-      391,
-      1079,
+      1431,
+      261,
       128,
       128
     ]
@@ -515,8 +605,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/leshrac_diabolic_edict.webp",
     [
-      521,
-      1079,
+      1561,
+      261,
       128,
       128
     ]
@@ -524,8 +614,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/leshrac_lightning_storm.webp",
     [
-      651,
-      1079,
+      1691,
+      261,
       128,
       128
     ]
@@ -533,8 +623,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/leshrac_pulse_nova.webp",
     [
-      781,
-      1079,
+      1821,
+      261,
       128,
       128
     ]
@@ -542,8 +632,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/leshrac_split_earth.webp",
     [
-      911,
-      1079,
+      1171,
+      391,
       128,
       128
     ]
@@ -551,8 +641,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/lich_chain_frost.webp",
     [
-      1041,
-      1079,
+      1301,
+      391,
       128,
       128
     ]
@@ -560,8 +650,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/lich_frost_nova.webp",
     [
-      1171,
-      1079,
+      1431,
+      391,
       128,
       128
     ]
@@ -569,8 +659,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/lich_frost_shield.webp",
     [
-      1301,
-      1079,
+      1561,
+      391,
       128,
       128
     ]
@@ -578,8 +668,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/lich_sinister_gaze.webp",
     [
-      1431,
-      1079,
+      1691,
+      391,
       128,
       128
     ]
@@ -587,8 +677,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/necrolyte_death_pulse.webp",
     [
-      1561,
-      1079,
+      1821,
+      391,
       128,
       128
     ]
@@ -596,8 +686,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/necrolyte_ghost_shroud.webp",
     [
-      1691,
-      1079,
+      1105,
+      521,
       128,
       128
     ]
@@ -605,8 +695,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/necrolyte_heartstopper_aura.webp",
     [
-      1821,
-      1079,
+      1105,
+      651,
       128,
       128
     ]
@@ -614,8 +704,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/necrolyte_reapers_scythe.webp",
     [
-      1,
-      1209,
+      1105,
+      781,
       128,
       128
     ]
@@ -623,8 +713,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/night_stalker_crippling_fear.webp",
     [
-      131,
-      1209,
+      1105,
+      911,
       128,
       128
     ]
@@ -632,8 +722,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/night_stalker_darkness.webp",
     [
-      261,
-      1209,
+      1105,
+      1041,
       128,
       128
     ]
@@ -641,8 +731,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/night_stalker_midnight_feast.webp",
     [
-      391,
-      1209,
+      1105,
+      1171,
       128,
       128
     ]
@@ -650,8 +740,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/night_stalker_void.webp",
     [
-      521,
-      1209,
+      1163,
+      1301,
       128,
       128
     ]
@@ -659,8 +749,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/ogre_magi_bloodlust.webp",
     [
-      651,
-      1209,
+      1163,
+      1431,
       128,
       128
     ]
@@ -668,8 +758,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/ogre_magi_fireblast.webp",
     [
-      781,
-      1209,
+      1163,
+      1561,
       128,
       128
     ]
@@ -677,8 +767,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/ogre_magi_ignite.webp",
     [
-      911,
-      1209,
+      1171,
+      1691,
       128,
       128
     ]
@@ -686,8 +776,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/ogre_magi_multicast.webp",
     [
-      1041,
-      1209,
+      1171,
+      1821,
       128,
       128
     ]
@@ -695,8 +785,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/omniknight_guardian_angel.webp",
     [
-      1171,
-      1209,
+      1301,
+      521,
       128,
       128
     ]
@@ -704,8 +794,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/omniknight_hammer_of_purity.webp",
     [
-      1301,
-      1209,
+      1431,
+      521,
       128,
       128
     ]
@@ -713,8 +803,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/omniknight_martyr.webp",
     [
-      1431,
-      1209,
+      1561,
+      521,
       128,
       128
     ]
@@ -722,8 +812,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/omniknight_purification.webp",
     [
-      1561,
-      1209,
+      1691,
+      521,
       128,
       128
     ]
@@ -731,8 +821,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/treant_leech_seed.webp",
     [
-      1691,
-      1209,
+      1821,
+      521,
       128,
       128
     ]
@@ -740,8 +830,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/treant_living_armor.webp",
     [
-      1821,
-      1209,
+      1235,
+      651,
       128,
       128
     ]
@@ -749,8 +839,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/treant_natures_grasp.webp",
     [
-      1,
-      1339,
+      1235,
+      781,
       128,
       128
     ]
@@ -758,8 +848,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/treant_overgrowth.webp",
     [
-      131,
-      1339,
+      1235,
+      911,
       128,
       128
     ]
@@ -767,8 +857,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/vengefulspirit_command_aura.webp",
     [
-      261,
-      1339,
+      1235,
+      1041,
       128,
       128
     ]
@@ -776,8 +866,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/vengefulspirit_magic_missile.webp",
     [
-      391,
-      1339,
+      1235,
+      1171,
       128,
       128
     ]
@@ -785,8 +875,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/vengefulspirit_nether_swap.webp",
     [
-      521,
-      1339,
+      1293,
+      1301,
       128,
       128
     ]
@@ -794,8 +884,44 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/first21/vengefulspirit_wave_of_terror.webp",
     [
+      1293,
+      1431,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/juggernaut_blade_dance.png",
+    [
+      1293,
+      1561,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/juggernaut_blade_fury.png",
+    [
+      1301,
+      1691,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/juggernaut_healing_ward.png",
+    [
+      1301,
+      1821,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/juggernaut_omnislash.png",
+    [
+      1431,
       651,
-      1339,
       128,
       128
     ]
@@ -803,8 +929,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lina_array.png",
     [
-      781,
-      1339,
+      1561,
+      651,
       128,
       128
     ]
@@ -812,8 +938,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lina_fiery.png",
     [
-      911,
-      1339,
+      1691,
+      651,
       128,
       128
     ]
@@ -821,8 +947,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lina_laguna.png",
     [
-      1041,
-      1339,
+      1821,
+      651,
       128,
       128
     ]
@@ -830,8 +956,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lina_slave.png",
     [
-      1171,
-      1339,
+      1365,
+      781,
       128,
       128
     ]
@@ -839,8 +965,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lion_drain.png",
     [
-      1301,
-      1339,
+      1365,
+      911,
       128,
       128
     ]
@@ -848,8 +974,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lion_finger.png",
     [
-      1431,
-      1339,
+      1365,
+      1041,
       128,
       128
     ]
@@ -857,8 +983,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lion_hex.png",
     [
-      1561,
-      1339,
+      1365,
+      1171,
       128,
       128
     ]
@@ -866,8 +992,80 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/lion_spike.png",
     [
+      1423,
+      1301,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/phantom_assassin_coup.png",
+    [
+      1423,
+      1431,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/phantom_assassin_dagger.png",
+    [
+      1423,
+      1561,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/phantom_assassin_immaterial.png",
+    [
+      1431,
       1691,
-      1339,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/phantom_assassin_strike.png",
+    [
+      1431,
+      1821,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/pudge_dismember.png",
+    [
+      1561,
+      781,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/pudge_hook.png",
+    [
+      1691,
+      781,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/pudge_meat_shield.png",
+    [
+      1821,
+      781,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/pudge_rot.png",
+    [
+      1495,
+      911,
       128,
       128
     ]
@@ -875,8 +1073,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/queen_of_pain_blink.png",
     [
-      1821,
-      1339,
+      1495,
+      1041,
       128,
       128
     ]
@@ -884,8 +1082,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/queen_of_pain_scream.png",
     [
-      1,
-      1469,
+      1495,
+      1171,
       128,
       128
     ]
@@ -893,8 +1091,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/queen_of_pain_shadow_strike.png",
     [
-      131,
-      1469,
+      1553,
+      1301,
       128,
       128
     ]
@@ -902,8 +1100,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/queen_of_pain_sonic.png",
     [
-      261,
-      1469,
+      1553,
+      1431,
       128,
       128
     ]
@@ -911,8 +1109,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/shadow_fiend_feast.png",
     [
-      391,
-      1469,
+      1553,
+      1561,
       128,
       128
     ]
@@ -920,8 +1118,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/shadow_fiend_presence.png",
     [
-      521,
-      1469,
+      1561,
+      1691,
       128,
       128
     ]
@@ -929,8 +1127,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/shadow_fiend_raze.png",
     [
-      651,
-      1469,
+      1561,
+      1821,
       128,
       128
     ]
@@ -938,8 +1136,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/shadow_fiend_requiem.png",
     [
-      781,
-      1469,
+      1691,
+      911,
       128,
       128
     ]
@@ -947,8 +1145,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/sniper_assassinate.png",
     [
+      1821,
       911,
-      1469,
       128,
       128
     ]
@@ -956,8 +1154,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/sniper_headshot.png",
     [
+      1625,
       1041,
-      1469,
       128,
       128
     ]
@@ -965,8 +1163,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/sniper_shrapnel.png",
     [
+      1625,
       1171,
-      1469,
       128,
       128
     ]
@@ -974,8 +1172,80 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/sniper_take_aim.png",
     [
+      1755,
+      1041,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/tidehunter_anchor.png",
+    [
+      1885,
+      1041,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/tidehunter_gush.png",
+    [
+      1755,
+      1171,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/tidehunter_ravage.png",
+    [
+      1885,
+      1171,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/tidehunter_shell.png",
+    [
+      1691,
       1301,
-      1469,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/windranger_focus.png",
+    [
+      1821,
+      1301,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/windranger_powershot.png",
+    [
+      1683,
+      1431,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/windranger_shackle.png",
+    [
+      1683,
+      1561,
+      128,
+      128
+    ]
+  ],
+  [
+    "assets/windranger_windrun.png",
+    [
+      1813,
+      1431,
       128,
       128
     ]
@@ -983,8 +1253,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/witch_doctor_cask.png",
     [
-      1431,
-      1469,
+      1813,
+      1561,
       128,
       128
     ]
@@ -992,8 +1262,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/witch_doctor_death_ward.png",
     [
-      1561,
-      1469,
+      1691,
+      1691,
       128,
       128
     ]
@@ -1001,8 +1271,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/witch_doctor_maledict.png",
     [
+      1821,
       1691,
-      1469,
       128,
       128
     ]
@@ -1010,8 +1280,8 @@ export const UI_SPRITES=Object.fromEntries([
   [
     "assets/witch_doctor_restoration.png",
     [
+      1691,
       1821,
-      1469,
       128,
       128
     ]

@@ -351,5 +351,101 @@ export const SKILL_COPY_EN=Object.freeze({
   "ogre_magi_multicast": {
     "description": "Passive R button is disabled. Seeded randomness chooses the highest qualifying threshold: 4× at 15%, 3× at 30%, 2× at 75%. Each 16 strength adds 1 percentage point. The arena probability interpretation is pending independent review. Fixed level 18 with the selected four skill slots; no Scepter, Shard or talents.",
     "note": "Passive R button is disabled. Seeded randomness chooses the highest qualifying threshold: 4× at 15%, 3× at 30%, 2× at 75%. Each 16 strength adds 1 percentage point. The arena probability interpretation is pending independent review. Fixed level 18 with the selected four skill slots; no Scepter, Shard or talents."
+  },
+  "juggernaut_blade_fury": {
+    "description": "Spins a damaging blade storm with debuff immunity and 80% magic resistance, dealing damage every 0.2 seconds.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Each pulse can trigger Blade Dance. Applies a basic dispel on activation and a strong dispel on completion; Maledict and taunts are preserved."
+  },
+  "juggernaut_healing_ward": {
+    "description": "Summons a ward that follows Juggernaut and heals nearby allies based on their maximum health.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Heals 1% of current maximum health every 0.2 seconds for 24 seconds and follows at 178.75 world units per second. One actual enemy basic attack destroys it; ranged attacks must arrive. It cannot revive a defeated hero."
+  },
+  "juggernaut_blade_dance": {
+    "description": "Passively gives attacks a chance to deal critical damage.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. A 35% chance deals 200% damage on basic attacks, Blade Fury pulses and this arena version of Omnislash."
+  },
+  "juggernaut_omnislash": {
+    "description": "Leaps toward the enemy and performs rapid tracking slashes while invulnerable.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Uses ten scheduled slashes with base damage 113 each. Blade Dance, basic-attack evasion and guard apply. Begins with a basic dispel. Later slashes miss if the target leaves tracking range; attack-speed changes do not change the slash count."
+  },
+  "pudge_hook": {
+    "description": "Throws a hook that damages the first enemy it reaches and pulls the victim toward Pudge.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Pull begins after an unguarded hit and respects arena walls. Reflection reverses the damage and pull source."
+  },
+  "pudge_rot": {
+    "description": "Surrounds Pudge with a toxic cloud that slows and damages nearby enemies while damaging himself.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Toggle the aura on or off. Self damage cannot kill Pudge."
+  },
+  "pudge_meat_shield": {
+    "description": "Covers Pudge with a layer of flesh that blocks incoming damage from all sources.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The defensive effect lasts for its configured duration and mitigates damage before actual-health receipts are settled."
+  },
+  "pudge_dismember": {
+    "description": "Channels on an enemy, disabling it, repeatedly dealing damage and healing Pudge for damage actually dealt.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Healing follows each actual damage receipt after mitigation and remaining-health limits. Damage deferred without an immediate health debit gives no healing. Movement, release, silence, death or range loss interrupts the channel and removes only its own control."
+  },
+  "phantom_assassin_dagger": {
+    "description": "Throws a slowing dagger that deals physical damage and can grant Deadly Focus after an actual hit.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. A guarded or missed dagger cannot grant Deadly Focus. Break disables the passive proc. Reflected daggers resolve against the original caster."
+  },
+  "phantom_assassin_strike": {
+    "description": "Moves next to the enemy, deals a hit and grants an attack-speed boost.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Uses two charges with individual recharge. Root prevents movement and rejects the cast before payment."
+  },
+  "phantom_assassin_immaterial": {
+    "description": "Passively improves Phantom Assassin's chance to evade incoming basic attacks.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Evasion follows the seeded combat random stream and is disabled while passives are broken."
+  },
+  "phantom_assassin_coup": {
+    "description": "Attacks may grant Deadly Focus. The next attack consumes it to guarantee a critical strike.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Dagger has an additional chance to grant Deadly Focus after a landed hit. The focus is consumed once by the next qualifying attack."
+  },
+  "earthshaker_fissure": {
+    "description": "Splits the ground, damaging and stunning an enemy near the fissure while creating a blocking ridge.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The wall blocks grounded movement and pulls, can be jumped over, and expires after eight live combat seconds. Its timer freezes when the round ends; rematch clears it."
+  },
+  "earthshaker_totem": {
+    "description": "Empowers the next attack with bonus damage and additional reach.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The buff expires naturally or is consumed by one resolved swing, including a missed swing."
+  },
+  "earthshaker_aftershock": {
+    "description": "A successful active spell causes an aftershock that damages and stuns a nearby enemy.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Triggers once per committed active cast. Rejected casts and disabled passives do not trigger it."
+  },
+  "earthshaker_echo": {
+    "description": "Sends shockwaves through the ground, with additional echoes from affected enemies.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The single enemy hero contributes two echoes: 180 initial damage plus 220 echo damage. There are no creeps in this arena."
+  },
+  "windranger_shackle": {
+    "description": "Fires a shackle that stuns the target, with a shorter stun when it cannot latch behind the target.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Uses the arena binding geometry and configured control limits; the 1v1 arena does not simulate a full Dota forest."
+  },
+  "windranger_powershot": {
+    "description": "Charges an arrow for up to one second; longer charging increases the released projectile's damage.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Release early or at full charge. Resource payment occurs once, and control interruption cancels the charge."
+  },
+  "windranger_windrun": {
+    "description": "Increases movement speed and evades incoming basic attacks for a limited duration.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Evasion applies to basic attacks while the buff is active; this is not immunity to every physical-damage spell."
+  },
+  "windranger_focus": {
+    "description": "Grants rapid attacks against the enemy at reduced attack damage.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The active buff allows continuous attacks while moving. Attack interval and damage use the sealed arena coefficients."
+  },
+  "tidehunter_gush": {
+    "description": "Blasts the enemy with a wave that damages, slows and reduces armor.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The projectile must reach the target before its damage and hostile effects apply."
+  },
+  "tidehunter_shell": {
+    "description": "Passively blocks physical damage and removes negative effects after a damage threshold. Its active increases block at the cost of movement speed.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. The active lasts four seconds; control removal uses the strong-dispel rules and preserves effects that cannot be dispelled."
+  },
+  "tidehunter_anchor": {
+    "description": "Swings an anchor at a nearby enemy, dealing damage and reducing its attack damage.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Applies a bounded 40% attack-damage reduction for the configured debuff duration."
+  },
+  "tidehunter_ravage": {
+    "description": "Sends an expanding wave of tentacles across the arena, damaging and stunning the enemy when it arrives.",
+    "note": "Arena adaptation: distances use a 0.55 scale; hard control is capped at 1.5 seconds with post-control protection. Damage follows the moving wave front and can hit the enemy only once. The effect expires and is cleared on rematch."
   }
 });

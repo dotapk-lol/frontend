@@ -9,11 +9,11 @@ import {AUTO_PVP_POLICY,qualityDecision} from '../src/net-quality.js';
 const controller=()=>{const l=createLanguage();l.registerHeroes(runtimeHeroes,heroCatalog);return l;};
 const han=/[\u3400-\u9fff]/;
 
-test('central dictionaries have complete English values and exact 22 × 4 arena descriptions',()=>{
+test('central dictionaries have complete English values and exact 28 × 4 arena descriptions',()=>{
  for(const [zh,en] of Object.entries(UI_COPY_EN)){assert(zh&&en.trim());assert(!han.test(en),zh);}
  for(const [en,zh] of Object.entries(SERVICE_COPY_ZH)){assert(en&&zh.trim());assert(!han.test(en));assert(han.test(zh));}
  const ids=ACTIVE_ROSTER.heroIds.flatMap(id=>runtimeHeroes.find(h=>h.id===heroRegistry.byNumericId(id).internalHeroId).abilities.map(a=>a.id));
- assert.equal(ids.length,88);assert.deepEqual(Object.keys(SKILL_COPY_EN).sort(),ids.sort());
+ assert.equal(ids.length,112);assert.deepEqual(Object.keys(SKILL_COPY_EN).sort(),ids.sort());
  for(const id of ids)for(const k of ['description','note']){assert(SKILL_COPY_EN[id][k].length>20,id);assert(!han.test(SKILL_COPY_EN[id][k]),id);}
 });
 
@@ -40,8 +40,10 @@ test('canonical backend errors render Chinese or English and language is absent 
  const room={rosterId:ACTIVE_ROSTER.rosterId,registryVersion:GAME_COMPATIBILITY.registryVersion,version:GAME_COMPATIBILITY.gameVersion,players:[{id:'a'.repeat(64),hero:1},{id:'',hero:0}],policy:{...AUTO_PVP_POLICY}};
  const identity=JSON.stringify(GAME_COMPATIBILITY),canonical=JSON.stringify(room);assert(compatibleRoom(room,{role:'host',hero:1}));assert(!compatibleMatch(room));
  for(const lang of ['en','zh','en']){l.setLanguage(lang);assert(compatibleRoom(room,{role:'host',hero:1}));assert(!compatibleMatch(room));assert(compatibleGame({...GAME_COMPATIBILITY}));assert.equal(JSON.stringify(GAME_COMPATIBILITY),identity);assert.equal(JSON.stringify(room),canonical);}
- room.players[1]={id:'b'.repeat(64),hero:0};assert(!compatibleRoom(room,{role:'host',hero:1}));
+ room.players[1]={id:'b'.repeat(64),hero:11};assert(!compatibleRoom(room,{role:'host',hero:1}));
  const bad={samples:30,received:30,p95:151,median:40,jitter:4,loss:0};const result=qualityDecision(bad,AUTO_PVP_POLICY);assert(!result.ok);assert.equal(result.reason,'RTT不符合开战规则');l.setLanguage('en');assert.equal(l.translate(result.reason),'RTT does not meet the start policy');assert.equal(qualityDecision(bad,AUTO_PVP_POLICY).reason,result.reason);
 });
 
 test('room code terminology covers entry, accessibility, sharing and displayed service errors',()=>{const l=controller();for(const [zh,en]of [['输入房间号','Enter room code'],['六位数字房间号','Six-digit room code'],['请输入六位数字房间号','Enter a six-digit room code'],['房间号第6位','Room code digit 6'],['复制房间号','Copy room code'],['房间号已复制','Room code copied'],['把房间号发给朋友','Send this room code to a friend'],['分享房间号，等待对方','Share your room code; waiting for opponent']]){l.setLanguage('zh');assert.equal(l.translate(zh),zh);l.setLanguage('en');assert.equal(l.translate(zh),en);}l.setLanguage('zh');assert.equal(l.translate('code must contain exactly six digits'),'请输入六位数字房间号');assert.equal(l.translate('房间号碰撞，请重试'),'房间号碰撞，请重试');l.setLanguage('en');assert.equal(l.translate('请输入六位数字口令'),'Enter a six-digit room code');assert.equal(l.translate('code must contain exactly six digits'),'Enter a six-digit room code');});
+
+test('all released hero role labels have an English presentation',()=>{const l=controller();l.setLanguage('en');for(const id of ACTIVE_ROSTER.heroIds){const h=runtimeHeroes.find(h=>h.id===heroRegistry.byNumericId(id).internalHeroId);assert(!han.test(l.translate(h.role)),h.id);}});

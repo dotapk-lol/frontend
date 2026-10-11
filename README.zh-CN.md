@@ -2,7 +2,7 @@
 
 # DOTA PK 前端
 
-[dotapk.lol](https://dotapk.lol) 的浏览器客户端：**22 位已发布英雄 / 88 个技能槽**、六位房间号 WebRTC 对战、人机、桌面同屏和同浏览器 BroadcastChannel。玩家无需登录账号；首页中英偏好保存在 localStorage。手机采用横屏、拖动摇杆和四技能按钮，未发布英雄保持灰禁、暂停适配。
+[dotapk.lol](https://dotapk.lol) 的浏览器客户端：**28 位已发布英雄 / 112 个技能槽**、六位房间号 WebRTC 对战、人机、桌面同屏和同浏览器 BroadcastChannel。玩家无需登录账号；首页中英偏好保存在 localStorage。手机采用横屏、拖动摇杆和四技能按钮，未发布英雄保持灰禁、暂停适配。
 
 | 仓库 | 职责 |
 | --- | --- |
@@ -24,7 +24,7 @@ npm run dev
 
 打开 `http://127.0.0.1:4173`。`dev` 只提供构建好的 `dist/client`，没有热更新、API 或数据库。源码改后重新构建，`DUEL_PORT` 可改静态端口。构建写入生成的目录/规则身份文件和 `src/net-version.js`、`dist/client/build-manifest.json`、`release/DOTA_DUEL_22.html`；新 gameVersion 可能需后端精确登记才能游玩。Cloudflare 只接收静态资产；`worker/` 与 `drizzle/` 是回归夹具，不是当前后端，不用创建 D1/R2。
 
-联调当前22前端时按后端[开发指南](https://github.com/dotapk-lol/backend/blob/main/docs/DEVELOPMENT.zh-CN.md)操作：普通后端构建仅含 legacy20。本地 API 默认 `http://127.0.0.1:18082/api/v1`，后端设置 `DUEL_ALLOWED_ORIGIN=http://127.0.0.1:4173`，协议、主机和端口必须完全一致。页面没有通用 API 环境开关；实际地址规则和 roster/build 绑定见[开发指南](docs/DEVELOPMENT.zh-CN.md)。
+联调当前28前端时按后端[开发指南](https://github.com/dotapk-lol/backend/blob/main/docs/DEVELOPMENT.zh-CN.md)操作：普通后端构建仅含 legacy20。本地 API 默认 `http://127.0.0.1:18082/api/v1`，后端设置 `DUEL_ALLOWED_ORIGIN=http://127.0.0.1:4173`，协议、主机和端口必须完全一致。页面没有通用 API 环境开关；实际地址规则和 roster/build 绑定见[开发指南](docs/DEVELOPMENT.zh-CN.md)。
 
 ## 开发者指南
 

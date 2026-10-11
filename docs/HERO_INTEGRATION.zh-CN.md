@@ -2,7 +2,7 @@
 
 # 英雄规则与 host 接线
 
-只有 `src/released-roster.js` 中22个 ID 可选，每位四槽。其他24个 SDK 运行时英雄和81个目录身份继续暂停/灰禁。定义、诊断实现、注册清单和已验收可玩是不同状态，暂停模块测试通过不解锁英雄。[heros 未发布状态](https://github.com/dotapk-lol/heros/blob/main/docs/unreleased.zh-CN.md)列出逐英雄状态。
+只有 `src/released-roster.js` 中28个 ID 可选，每位四槽。其他24个 SDK 运行时英雄和81个目录身份继续暂停/灰禁。定义、诊断实现、注册清单和已验收可玩是不同状态，暂停模块测试通过不解锁英雄。[heros 未发布状态](https://github.com/dotapk-lol/heros/blob/main/docs/unreleased.zh-CN.md)列出逐英雄状态。
 
 固定 review 包和源码清单提供已审核静态 factory；`src/released-hero-rules.js` 组合前端 registry；`src/pack-dispatcher.js`、`src/pack-services.js`、`src/pack-hp.js`、`src/pack-control.js`、`src/pack-targeting.js`、`src/pack-runtime.js` 实现 host 边界，以实际方法和校验源码为准，没有任意 `registerHero` 或远程插件加载器。
 
@@ -13,6 +13,10 @@
 - 目标准入、路由与投递按源码边界执行；反射/格挡消费归核心，AoE/自增益不走单体目标流程，已路由/返回弹道不二次消费。
 - 时钟/队列顺序、中断/死亡清理、handle 代际与 action token 归 host；session 元数据不认证引用，也不自动迁移进行中的旧世界。
 
-参见 heros [factory/生命周期](https://github.com/dotapk-lol/heros/blob/main/docs/plugins.zh-CN.md)、[效果](https://github.com/dotapk-lol/heros/blob/main/docs/effects.zh-CN.md)、[时序](https://github.com/dotapk-lol/heros/blob/main/docs/timing.zh-CN.md)、[参数身份](https://github.com/dotapk-lol/heros/blob/main/docs/balance-identity.zh-CN.md)、[host 适配](https://github.com/dotapk-lol/heros/blob/main/docs/host-adapter.zh-CN.md)。原始教学示例只测独立公共请求/回执，不是此浏览器世界；公共88包不能直接替换前端132条元数据组合。
+参见 heros [factory/生命周期](https://github.com/dotapk-lol/heros/blob/main/docs/plugins.zh-CN.md)、[效果](https://github.com/dotapk-lol/heros/blob/main/docs/effects.zh-CN.md)、[时序](https://github.com/dotapk-lol/heros/blob/main/docs/timing.zh-CN.md)、[参数身份](https://github.com/dotapk-lol/heros/blob/main/docs/balance-identity.zh-CN.md)、[host 适配](https://github.com/dotapk-lol/heros/blob/main/docs/host-adapter.zh-CN.md)。原始教学示例只测独立公共请求/回执，不是此浏览器世界；公共112包不能直接替换前端143条元数据组合。
 
 自定义 ID、外置运行时插件和缺失共享能力需设计/host 验收；文档清理不加新英雄、装备/天赋/命石或完整官方机制承诺。平衡快照仍是人工汇总，不自动调参。
+
+## 六英雄发布
+
+本批新增 ID 为 0、2、6、10、14、19。公共包包含 28 英雄和 112 技能槽，前端组合为 143 条实现元数据，其余 18 个运行时身份保持禁用。肢解按实际扣血回执治疗，计入减伤和过量伤害上限。新增逐次斩击、弹体、墙体、增益和波前保留确定性快照，并在重赛清理。

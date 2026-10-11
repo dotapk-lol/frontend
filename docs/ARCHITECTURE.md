@@ -8,7 +8,7 @@ The browser is the combat host: UI/input → Engine and pack dispatcher → revi
 | --- | --- |
 | `src/app.js`, `src/style.css`, `src/i18n.js` | Entry, presentation and display language |
 | `src/engine.js`, `src/pack-*.js`, `src/cohort-*.js` | World, host providers/dispatcher, adaptation and rendering |
-| `src/released-roster.js`, `src/released-hero-rules.js` | Current22 allowlist and accepted composition |
+| `src/released-roster.js`, `src/released-hero-rules.js` | Current28 allowlist and accepted composition |
 | `src/hero-registry.js`, `src/compatibility.js` | Frozen identities and exact compatibility checks |
 | `src/match-api.js`, `src/p2p.js`, `src/room-selection.js`, `src/net-quality.js` | Anonymous API, P2P lifecycle, round selection and network hints |
 | `src/hero-packs/` | Source modules and paused diagnostic candidates; presence does not enable gameplay |
@@ -34,8 +34,8 @@ Casual policy keeps seven fields: above/RTT500/jitter250/loss30/minSamples1/wind
 
 ## Required startup textures
 
-The released roster stays at 22 heroes, with 46 entries in the selection directory. Before opening the playable home, the client loads and decodes three content-addressed WebP textures: two fighter sheets and one sheet for the 22 released portraits and 88 ability icons. Existing artwork is cropped and encoded at quality 82; all 55 existing fighter frames keep their crop sizes, pivots, alpha and reference heights. Static render transforms are preserved. Unreleased entries use a locally drawn placeholder and never request their original portraits.
+The released roster stays at 28 heroes, with 46 entries in the selection directory. Before opening the playable home, the client loads and decodes three content-addressed WebP textures: two fighter sheets and one sheet for the 28 released portraits and 112 ability icons. Existing artwork is cropped and encoded at quality 82; all 79 existing fighter frames keep their crop sizes, pivots, alpha and reference heights. Static render transforms are preserved. Unreleased entries use a locally drawn placeholder and never request their original portraits.
 
-The three textures total 1,887,526 bytes. Their dimensions are 1536×1088, 2048×1657 and 2048×1598, representing 31.80 MiB of decoded RGBA pixels before browser/GPU overhead. A shared session cache keeps them through hero changes, cancellation and rematches. Loading progress counts actually decoded textures; a 20-second soft message preserves in-progress transfers, the hard transport deadline is 180 seconds, the decode deadline is 8 seconds, and retries use the same stable URL. Repeated retry controls reuse pending requests. There is no alternate PNG download. Legacy assets remain packaged for retained historical entries.
+The three textures total 2,588,898 bytes. Their dimensions are 2048×2047, 2048×1928 and 2048×2010, representing 46.76 MiB of decoded RGBA pixels before browser/GPU overhead. A shared session cache keeps them through hero changes, cancellation and rematches. Loading progress counts actually decoded textures; a 20-second soft message preserves in-progress transfers, the hard transport deadline is 180 seconds, the decode deadline is 8 seconds, and retries use the same stable URL. Repeated retry controls reuse pending requests. There is no alternate PNG download. Legacy assets remain packaged for retained historical entries.
 
 Optional background art starts after required preparation; a failed background uses the local drawn arena. The enabled BGM starts only after preparation and a user gesture. Background and music never gate gameplay. Source/VM checks and locally rendered size comparisons do not establish physical iOS standalone or network-route acceptance.

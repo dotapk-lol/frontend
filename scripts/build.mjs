@@ -9,7 +9,7 @@ import {bundleApp} from './bundle-app.mjs';
 import {transform} from 'esbuild';
 import {gzipSync} from 'node:zlib';
 import fs from 'node:fs';import {createHash} from 'node:crypto';import path from 'node:path';import {fileURLToPath} from 'node:url';
-if(process.argv.includes('--candidate')||process.argv.includes('--stable'))throw Error('This release builds arena-heros22-v1 only; use the archived baseline for historical profiles');
+if(process.argv.includes('--candidate')||process.argv.includes('--stable'))throw Error('This release builds arena-heros28-v1 only; use the archived baseline for historical profiles');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist'),pub=path.join(dist,'client');
 // A reviewed display-only hotfix can keep its registered wire identity. Refuse
 // any changed game, roster, protocol, dependency or asset source in this mode.
@@ -40,7 +40,7 @@ const clientFiles=fs.readdirSync(path.join(root,'src'),{recursive:true}).filter(
 const fingerprint=createHash('sha256');
 for(const f of ['scripts/build.mjs','package-lock.json','scripts/bundle-app.mjs','scripts/generate-catalog.mjs',...clientFiles.filter(f=>f!=='net-version.js').map(f=>'src/'+f),'assets/atlas.json','index.html','manifest.webmanifest']){fingerprint.update(f+'\0');fingerprint.update(fs.readFileSync(path.join(root,f)));fingerprint.update('\0');}
 for(const asset of fs.readdirSync(path.join(root,'assets'),{recursive:true}).filter(f=>/\.(png|webp|mp3|json)$/.test(f)&&!f.startsWith('audio/')).sort()){fingerprint.update(asset+'\0');fingerprint.update(fs.readFileSync(path.join(root,'assets',asset)));fingerprint.update('\0');}
-fingerprint.update('heros22:'+RELEASED_ROSTER.rosterId);
+fingerprint.update('heros28:'+RELEASED_ROSTER.rosterId);
 const assetVersion='duel-'+fingerprint.digest('hex').slice(0,20),netVersion=registeredVersion||assetVersion,netSource=`export const NET_VERSION='${netVersion}';\n`;
 fs.writeFileSync(path.join(root,'src/net-version.js'),netSource);
 for(const f of clientFiles){const target=path.join(pub,'src',f);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(root,'src',f),target);}
@@ -83,5 +83,5 @@ const immutable=[entry.script,entry.style,...retained,...CORE_ASSETS.map(a=>a.sr
 const baseHeaders=fs.readFileSync(path.join(root,'_headers'),'utf8').replace('  Cache-Control: public, max-age=0, must-revalidate\n','');
 fs.writeFileSync(path.join(pub,'_headers'),baseHeaders+'\n'+immutable);
 const rules=createReleasedHeroRegistry().seal();
-fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros22',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,delivery:{script:"native-defer",styles:"inline",immutableEntries:true,retainedEntries:retained},roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
-console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-defer',appRequests:1,criticalStylesheetRequests:0,retainedEntries:retained.length},build:'passed',profile:'heros22',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
+fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros28',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,delivery:{script:"native-defer",styles:"inline",immutableEntries:true,retainedEntries:retained},roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
+console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-defer',appRequests:1,criticalStylesheetRequests:0,retainedEntries:retained.length},build:'passed',profile:'heros28',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));

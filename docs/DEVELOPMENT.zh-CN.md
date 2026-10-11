@@ -8,17 +8,17 @@
 
 | 字段 | 当前值 / 来源 |
 | --- | --- |
-| rosterId | `arena-heros22-v1`，`src/released-roster.js` |
+| rosterId | `arena-heros28-v1`，`src/released-roster.js` |
 | registryVersion | `duel-heroes-127-v1` |
 | registrySha256 | `5bca2bf8c43972583d1d58c876f5dcde039cabb0e662ac9536b0e7a53037f138` |
-| mechanicsVersion | `arena-heros22-public127-v1` |
-| 当前源码 NET_VERSION | `duel-e81da0fe6c6faec0eef8`，`src/net-version.js` |
-| 前端组合 rulesHash | `5747bdeffe9948c67882ea02858e7958a5ea15be090b08d9ac6d8561a57970a4` |
+| mechanicsVersion | `arena-heros28-public112-v1` |
+| 当前源码 NET_VERSION | 由构建生成，见 `src/net-version.js` 和 `dist/client/build-manifest.json` |
+| 前端组合 rulesHash | `af7cba2fb2aba770cd9ea18c08c4be97ac8d09d53bde76c6c3e0aa98fb4b0506` |
 | WebRTC 协议 | `duel-wire-3` |
 
-允许的稳定数字 ID：`1,3,4,5,7,8,9,15,17,18,28,31,32,36,50,55,57,58,62,71,81,82`。数字是 registryNumericId，不是列表下标或 Valve hero ID。目录的 127 身份不代表全部可玩；未发布英雄继续灰禁。
+允许的稳定数字 ID：`0,1,2,3,4,5,6,7,8,9,10,14,15,17,18,19,28,31,32,36,50,55,57,58,62,71,81,82`。数字是 registryNumericId，不是列表下标或 Valve hero ID。目录的 127 身份不代表全部可玩；未发布英雄继续灰禁。
 
-后端 production profile 对该 roster 精确允许 `duel-27c78aa4cfc8facc8a23`、`duel-6b1d12f75aa4bbac4e12`、`duel-851e67d77307f479f1fa`、`duel-9431984810f197b393c5`。历史 build 仅用于保留旧客户端/记录兼容性；双方仍须使用相同 build。`GAME_COMPATIBILITY` 还包含规则和能力目录 hash，见 `src/compatibility.js`。前端校验完整身份映射、名单成员和 gameVersion 唯一绑定；后端不执行技能，也没有客户端传入 rulesHash 的 API 字段。
+发布28英雄构建前，须在后端 roster 与选人 manifest 中登记其精确 gameVersion，并保留旧22的7个和旧46的2个构建绑定。双方仍须使用相同构建；后端不执行技能，也不接收客户端 rulesHash 字段。
 
 普通 build 根据源码/资产生成新的 NET_VERSION。新标识需要在**本地或获授权的发布流程**中同时登记于 Go embed profile 与 MySQL roster 元数据；只改其中一处不足以联调。不要手填旧 hash 冒充兼容；当前 `--ui-only-from=<COMMIT>` 是受路径白名单限制的显示修复流程，文档文件变化也不在其白名单，包含非显示文件的提交不能直接拿旧提交执行该模式。没有运行 build 的文档提交不会改变已登记 wire 标识。
 
@@ -30,7 +30,7 @@
 
 ## 英雄包与 host
 
-前端 package.json 固定 `vendor/dotapk-heros-0.1.0-review.10-rupture-order.1.tgz`，`scripts/vendor-heros.mjs` 校验 136 个源文件并生成消费 bundle。公开 [heros](https://github.com/dotapk-lol/heros) 根入口默认 22/88，公共 rulesHash 为 `bfca4c893786d98da8cc18d8c560a88e76fb9e5e79c1e71920bf78705a918d31`；前端组合含 132 条实现元数据并执行 22 英雄准入。132 不是发布英雄/技能数量。两者 hash、组合与 checkpoint 不可混用，不能把依赖直接改为 `github:dotapk-lol/heros#main` 当作已验证升级。
+前端 package.json 固定 `vendor/dotapk-heros-0.1.0-review.10-rupture-order.1.tgz`，`scripts/vendor-heros.mjs` 校验 136 个源文件并生成消费 bundle。公开 [heros](https://github.com/dotapk-lol/heros) 根入口默认 28/112，公共 rulesHash 为 `c2e180393dd9a639ee806c85df949b32aa427a8d018b77324f35cfb981b5e6e4`；前端组合含 143 条实现元数据并执行 28 英雄准入。143 不是发布英雄/技能数量。两者 hash、组合与 checkpoint 不可混用，不能把依赖直接改为 `github:dotapk-lol/heros#main` 当作已验证升级。
 
 规则通过静态 factory、固定 ID/四槽、参数、源码身份、revision 与 state schema 注册，再 seal 创建会话。前端 host 提供 actor 事实、资源/施法事务、真实效果回执、时钟与队列、物理世界和 lifecycle 投递。参数变更应在规则定义或 factory.parameters 中校验并捕获，重新核对 rulesHash；改 UI 标签不改变机制。详见 heros 的 [参数](https://github.com/dotapk-lol/heros/blob/main/docs/balance-identity.md)、[插件](https://github.com/dotapk-lol/heros/blob/main/docs/plugins.md) 与 [host 合约](https://github.com/dotapk-lol/heros/blob/main/docs/host-adapter.md)。
 
@@ -54,7 +54,7 @@ node --test --test-concurrency=1 qa/registry-retry.test.mjs
 
 ## 新选人版本绑定
 
-当前源码 build `duel-e81da0fe6c6faec0eef8` 需在后端22名单和 `roomSelectionVersions` 中精确追加绑定，保留所有旧版本。该文档不表示生产已启用；需配套后端契约、原生双窗验收和协调发布。默认占席英雄注册ID1是水晶室女（Valve ID5），不是Valve的ID1。品牌元信息更新会通过既有全文摘要规则改变 `RULESET_HASH`，封印技能规则的 `rulesHash` 和22/88名单保持不变。
+当前源码 build `duel-e81da0fe6c6faec0eef8` 需在后端28名单和 `roomSelectionVersions` 中精确追加绑定，保留所有旧版本。该文档不表示生产已启用；需配套后端契约、原生双窗验收和协调发布。默认占席英雄注册ID1是水晶室女（Valve ID5），不是Valve的ID1。品牌元信息更新会通过既有全文摘要规则改变 `RULESET_HASH`，封印技能规则的 `rulesHash` 和28/112名单保持不变。
 
 ## 入口核验与更新
 
@@ -62,4 +62,4 @@ node --test --test-concurrency=1 qa/registry-retry.test.mjs
 
 空闲入口或回前台时，版本元信息最多每分钟检查一次；活动房间与比赛不会触发刷新。发现新发布版本后显示明确更新按钮，保留设置，通过 build 查询参数重新加载页面，不自动循环刷新。HTML及构建元信息禁止缓存；正式入口引用完整的带指纹 JS 包和 CSS。源码模块仍供检查与测试，但正式入口不再用各自缓存的模块地址拼装游戏。离线单文件保留本地模式。
 
-不需新增后端版本发现接口。新源码运行时仍须先追加精确22名单、选人 feature 和 SQL 元数据绑定，才能发布。物理 Safari/iOS 验收须与实际 MacChrome及明确标注的网络夹具分开。
+不需新增后端版本发现接口。新源码运行时仍须先追加精确28名单、选人 feature 和 SQL 元数据绑定，才能发布。物理 Safari/iOS 验收须与实际 MacChrome及明确标注的网络夹具分开。

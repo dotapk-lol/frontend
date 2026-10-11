@@ -1,5 +1,12 @@
 // Canonical display copy only; never protocol or simulation data.
 export const UI_COPY_EN=Object.freeze({
+  "近战爆发": "Melee burst",
+  "钩锁坦克": "Hook tank",
+  "近身刺杀": "Melee assassin",
+  "近身控制": "Melee control",
+  "拉扯射手": "Mobile marksman",
+  "重装控制": "Heavy control",
+
   "正在准备对战…": "Preparing the duel…",
   "正在准备战斗角色…": "Preparing fighters…",
   "已使用备用场景": "Using the fallback arena",
