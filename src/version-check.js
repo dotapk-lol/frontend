@@ -1,5 +1,6 @@
 import {NET_VERSION} from './net-version.js';
 import {ACTIVE_ROSTER} from './hero-registry.js';
+import {RELEASED_PROFILE} from './released-roster.js';
 
 export function connectionError(){const e=Error('网络连接暂不可用，请稍后重试');e.kind='network';return e;}
 // One finite deadline covers headers and JSON. AbortSignal.timeout is optional
@@ -29,7 +30,7 @@ export class EntryVersion {
   this.task=(async()=>{
    try{
     const manifest=await checkedJSON(this.fetcher,'build-manifest.json',this.timeoutMs);
-    if(manifest?.profile!=='heros22'||manifest?.candidate!==false||!/^duel-[a-f0-9]{20}$/.test(manifest?.gameVersion||'')||manifest?.roster?.rosterId!==ACTIVE_ROSTER.rosterId){const e=Error('版本信息暂不可用，请稍后重试');e.kind='compatibility';throw e;}
+    if(manifest?.profile!==RELEASED_PROFILE||manifest?.candidate!==false||!/^duel-[a-f0-9]{20}$/.test(manifest?.gameVersion||'')||manifest?.roster?.rosterId!==ACTIVE_ROSTER.rosterId||manifest.roster.registryVersion!==ACTIVE_ROSTER.registryVersion||manifest.roster.mechanicsVersion!==ACTIVE_ROSTER.mechanicsVersion||!Array.isArray(manifest.roster.heroIds)||manifest.roster.heroIds.length!==ACTIVE_ROSTER.heroIds.length||manifest.roster.heroIds.some((id,i)=>id!==ACTIVE_ROSTER.heroIds[i])){const e=Error('版本信息暂不可用，请稍后重试');e.kind='compatibility';throw e;}
     this.latest=manifest;
     if(manifest.gameVersion!==NET_VERSION){this.phase='update';return;}
     const registry=await this.service.loadRegistry();

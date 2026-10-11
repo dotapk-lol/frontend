@@ -1,9 +1,9 @@
-import test from 'node:test';import assert from 'node:assert/strict';
+import fs from 'node:fs';import test from 'node:test';import assert from 'node:assert/strict';
 import {EntryVersion,checkedJSON} from '../src/version-check.js';
 import {MatchAPI} from '../src/match-api.js';import {NET_VERSION} from '../src/net-version.js';
 import {ACTIVE_ROSTER} from '../src/hero-registry.js';import {registryFixture} from './registry-fixture.mjs';
 const response=data=>({ok:true,json:async()=>data});
-const manifest=(version=NET_VERSION)=>({profile:'heros22',candidate:false,gameVersion:version,roster:ACTIVE_ROSTER});
+const manifest=(version=NET_VERSION)=>({profile:'heros28',candidate:false,gameVersion:version,roster:ACTIVE_ROSTER});
 function fixture(){
  const calls=[],saved=new Map(),navigations=[];let network=true,registry='good',latest=NET_VERSION,active=false,now=0;
  const service=new MatchAPI({base:'/api/v1',fetcher:async(url,opts)=>{calls.push({url,opts});if(url.endsWith('/registry')){if(registry==='offline')throw Error('transport');return response(registry==='bad'?{...registryFixture(),registrySha256:'wrong'}:registryFixture());}return response(url.endsWith('/sessions')?{playerId:'a'.repeat(64),token:'b'.repeat(64)}:{id:'c'.repeat(64)});}});
@@ -46,3 +46,9 @@ test('server version rejection invalidates a cached permit and schedules an entr
  const permit=await api.authorizeRoster();rejected=true;await assert.rejects(()=>api.request('rooms',{...permit.fields},'POST',{registryPermit:permit}),e=>e.kind==='version');assert.equal(invalidations,1);assert.equal(api.registryTask,null);assert.throws(()=>api.assertRegistryPermit(permit));
  const f=fixture();await f.entry.check();f.entry.invalidate();assert.equal(f.entry.info().phase,'checking');f.latest('duel-99999999999999999999');await f.entry.check();assert.equal(f.entry.info().phase,'update');assert.equal(f.navigations.length,0);
 });
+
+test('actual built release manifest opens the entry gate against the exact registry',async()=>{const built=JSON.parse(fs.readFileSync(new URL('../dist/client/build-manifest.json',import.meta.url)));assert.equal(built.profile,'heros28');assert.equal(built.gameVersion,NET_VERSION);assert.equal(built.roster.rosterId,ACTIVE_ROSTER.rosterId);const f=fixture();f.entry.fetcher=async()=>response(built);await f.entry.check();assert.equal(f.entry.info().phase,'ready');assert.equal(f.entry.info().canConnect,true);});
+
+test('old, unknown and candidate profiles stay blocked before registry access',async()=>{for(const patch of [{profile:'heros22'},{profile:'unknown'},{candidate:true},{roster:{...ACTIVE_ROSTER,rosterId:'arena-heros22-v1'}}]){let calls=0;const entry=new EntryVersion({location:{protocol:'https:'},fetcher:async()=>response({...manifest(),...patch}),service:{loadRegistry(){calls++;}}});await entry.check();assert.equal(entry.info().phase,'incompatible');assert.equal(entry.info().canConnect,false);assert.equal(calls,0);}});
+
+test('a same-ID manifest cannot change registry, mechanics or any hero identity',async()=>{for(const patch of [{registryVersion:'wrong'},{mechanicsVersion:'wrong'},{heroIds:ACTIVE_ROSTER.heroIds.slice(1)},{heroIds:[999,...ACTIVE_ROSTER.heroIds.slice(1)]},{heroIds:[...ACTIVE_ROSTER.heroIds].reverse()},{heroIds:null}]){let calls=0;const entry=new EntryVersion({location:{protocol:'https:'},fetcher:async()=>response({...manifest(),roster:{...ACTIVE_ROSTER,...patch}}),service:{loadRegistry(){calls++;}}});await entry.check();assert.equal(entry.info().phase,'incompatible');assert.equal(entry.info().canConnect,false);assert.equal(calls,0);}});

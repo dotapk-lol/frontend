@@ -3,7 +3,7 @@ import {lookupRuntimeHero} from '../src/hero-registry.js';
 import {FIGHTER_SPRITES} from '../src/fighter-sprites.js';
 import {CORE_ASSETS} from '../src/core-assets.js';
 import {execFileSync} from 'node:child_process';
-import {RELEASED_ROSTER} from '../src/released-roster.js';
+import {RELEASED_ROSTER,RELEASED_PROFILE} from '../src/released-roster.js';
 import {createReleasedHeroRegistry} from '../src/released-hero-rules.js';
 import {bundleApp} from './bundle-app.mjs';
 import {transform} from 'esbuild';
@@ -40,7 +40,7 @@ const clientFiles=fs.readdirSync(path.join(root,'src'),{recursive:true}).filter(
 const fingerprint=createHash('sha256');
 for(const f of ['scripts/build.mjs','package-lock.json','scripts/bundle-app.mjs','scripts/generate-catalog.mjs',...clientFiles.filter(f=>f!=='net-version.js').map(f=>'src/'+f),'assets/atlas.json','index.html','manifest.webmanifest']){fingerprint.update(f+'\0');fingerprint.update(fs.readFileSync(path.join(root,f)));fingerprint.update('\0');}
 for(const asset of fs.readdirSync(path.join(root,'assets'),{recursive:true}).filter(f=>/\.(png|webp|mp3|json)$/.test(f)&&!f.startsWith('audio/')).sort()){fingerprint.update(asset+'\0');fingerprint.update(fs.readFileSync(path.join(root,'assets',asset)));fingerprint.update('\0');}
-fingerprint.update('heros28:'+RELEASED_ROSTER.rosterId);
+fingerprint.update(RELEASED_PROFILE+':'+RELEASED_ROSTER.rosterId);
 const assetVersion='duel-'+fingerprint.digest('hex').slice(0,20),netVersion=registeredVersion||assetVersion,netSource=`export const NET_VERSION='${netVersion}';\n`;
 fs.writeFileSync(path.join(root,'src/net-version.js'),netSource);
 for(const f of clientFiles){const target=path.join(pub,'src',f);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(root,'src',f),target);}
@@ -83,5 +83,5 @@ const immutable=[entry.script,entry.style,...retained,...CORE_ASSETS.map(a=>a.sr
 const baseHeaders=fs.readFileSync(path.join(root,'_headers'),'utf8').replace('  Cache-Control: public, max-age=0, must-revalidate\n','');
 fs.writeFileSync(path.join(pub,'_headers'),baseHeaders+'\n'+immutable);
 const rules=createReleasedHeroRegistry().seal();
-fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:'heros28',candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,delivery:{script:"native-defer",styles:"inline",immutableEntries:true,retainedEntries:retained},roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
-console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-defer',appRequests:1,criticalStylesheetRequests:0,retainedEntries:retained.length},build:'passed',profile:'heros28',netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
+fs.writeFileSync(path.join(pub,'build-manifest.json'),JSON.stringify({profile:RELEASED_PROFILE,candidate:false,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),gameVersion:netVersion,entry,delivery:{script:"native-defer",styles:"inline",immutableEntries:true,retainedEntries:retained},roster:RELEASED_ROSTER,rulesHash:rules.rulesHash,browserAcceptance:false,...(uiBase?{presentationOnly:true,compatibilityBase:uiBase,assetVersion}:{})},null,2)+'\n');
+console.log(JSON.stringify({download:{beforeBytes:Buffer.byteLength(online),afterBytes:appBytes.length,beforeGzipBytes:gzipSync(online).length,afterGzipBytes:gzipSync(appBytes).length,delivery:'native-defer',appRequests:1,criticalStylesheetRequests:0,retainedEntries:retained.length},build:'passed',profile:RELEASED_PROFILE,netVersion,rosterId:RELEASED_ROSTER.rosterId,heroIds:RELEASED_ROSTER.heroIds,rulesHash:rules.rulesHash,standaloneBytes:Buffer.byteLength(html),clientModules:clientFiles.filter(f=>f.endsWith('.js')).length,dist}));
