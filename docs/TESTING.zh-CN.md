@@ -35,3 +35,5 @@ node --max-old-space-size=256 --test --test-concurrency=1 --test-name-pattern='h
 ## 六英雄复审回归
 
 执行 `node --test --test-concurrency=1 qa/dismember-control.test.mjs qa/strike-counterspell.test.mjs qa/six-snapshot-integrity.test.mjs qa/six-heroes.test.mjs`。这些测试通过真实 Engine 验证双方座位、累计控制预算与保护期、反射突袭的资源及回执，以及效果中途恢复。重复实体、伪造行程与反射、波命中重放和过期状态时钟负例均由 Engine 恢复入口和远端入口拒绝。独立出生、推进和回执记录序列化在 `packClock.sixEffects`；这是结构完整性校验，不是服务端权威反作弊。28 英雄机制冒烟脚本只证明接线。真实双浏览器 PVP、暂停恢复、自然结束及同房重赛仍为依赖后端的单独验收门槛。
+
+训练复活覆盖：`qa/six-training-snapshot.test.mjs` 用真实魔法技能激活击杀持有 Windrun、Focus Fire、Totem 和 Strike 增益的角色，覆盖双方座位和固定步长，再通过 Engine 与远端入口恢复当帧复活快照。角色阶段前死亡会记录有界的 `training-dead-phase` 暂停区间；该区间保留原生增益寿命。缺失、重复、外来、非训练或被改写的暂停记录均被拒绝，并验证连续死亡、恢复计时后的自然到期及托管帧回滚。

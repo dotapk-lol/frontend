@@ -1,4 +1,4 @@
-import {observeSixBuff,advanceSixProof,snapshotSixProof,restoreSixProof} from './six-hero-proof-host.js';
+import {observeSixBuff,suspendSixBuffs,advanceSixProof,snapshotSixProof,restoreSixProof} from './six-hero-proof-host.js';
 import {sixFrameRequired,sixAbility,sixReady,activateSix,sixJob,sixContact,sixZone,validSix} from './six-hero-host.js';
 import {HEROS22_BUILD} from './release-profile.js';
 import {createReleasedHeroRegistry} from './released-hero-rules.js';
@@ -226,7 +226,7 @@ export class Engine {
   PackHP.syncLife(this);this.t+=dt;if(this.mode!=='training')this.time=Math.max(0,this.time-dt);
   this.packCombat.tick(this,dt);reconcileRuleStatuses(this);reconcileRuleJobs(this);reconcileRuleAreas(this);if(this.mode==='cpu')this.ai(1,dt);
   for(const f of this.fighters){const i=f.i,t=this.fighters[1-i],h=this.hero(i),inp=this.input[i],prev=this.previous[i];
-   observeLinearDotTargetPhase(this,f,dt);observeChargePhase(this,f,dt);observeLinearHitTargetPhase(this,f,dt);if(f.hp<=0){this.events=this.events.filter(x=>!x.six||x.six.owner!==f.i);f.buffs=f.buffs.filter(b=>b.key!=='sixOmnislash');f.invuln=0;if(f.channel)dispatchRuleChannelInterrupt(this,f,'owner-dead');f.cast=null;f.channel=null;f.motion=null;f.skillBuffer=null;continue;}
+   observeLinearDotTargetPhase(this,f,dt);observeChargePhase(this,f,dt);observeLinearHitTargetPhase(this,f,dt);if(f.hp<=0){suspendSixBuffs(this,f,dt);this.events=this.events.filter(x=>!x.six||x.six.owner!==f.i);f.buffs=f.buffs.filter(b=>b.key!=='sixOmnislash');f.invuln=0;if(f.channel)dispatchRuleChannelInterrupt(this,f,'owner-dead');f.cast=null;f.channel=null;f.motion=null;f.skillBuffer=null;continue;}
    const hard=this.blocked(f);
    for(const k of ['attackCd','recovery','stun','root','silence','hex','fear','taunt','slow','invuln','ccGrace','animTime','hitFlash','comboTime'])f[k]=Math.max(0,(f[k]||0)-dt);
    PackControl.advance(this,f,dt);if(hard&&!this.blocked(f)){f.ccGrace=1;f.ccChain=0;}if(f.slow<=0)f.slowPct=0;
